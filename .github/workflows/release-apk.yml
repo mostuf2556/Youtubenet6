@@ -90,10 +90,16 @@ jobs:
           cd android-shell
           ./gradlew assembleDebug --no-daemon -Dorg.gradle.parallel=true -Dorg.gradle.caching=true
 
-      - name: Package & Verify APK Artifacts
+      - name: Package & Verify APK & OTA Artifacts
         run: |
           mkdir -p release-artifacts
           
+          # Create web-dist.zip release artifact for OTA hot updates without APK reinstallation
+          if [ -d "dist" ]; then
+            echo "Packaging web build output into release-artifacts/web-dist.zip for OTA updates..."
+            (cd dist && zip -r ../release-artifacts/web-dist.zip .) || python3 -c "import shutil; shutil.make_archive('release-artifacts/web-dist', 'zip', 'dist')" || true
+          fi
+
           # Find and copy debug APK
           find android-shell/app/build/outputs/apk/debug -type f -name "*.apk" -exec cp {} release-artifacts/YouTube-Viewer-debug.apk \; 2>/dev/null || true
           
@@ -106,17 +112,17 @@ jobs:
           fi
 
           cd release-artifacts
-          for apk in *.apk; do
-            if [ -f "$apk" ]; then
-              sha256sum "$apk" > "${apk}.sha256"
+          for item in *; do
+            if [ -f "$item" ] && [[ "$item" != *.sha256 ]]; then
+              sha256sum "$item" > "${item}.sha256"
             fi
           done
           
-          echo "=== COMPILED APK ARTIFACTS ==="
+          echo "=== COMPILED APK & OTA RELEASE ARTIFACTS ==="
           ls -lh
-          echo "=============================="
+          echo "============================================"
 
-      - name: Upload APKs to GitHub Actions Artifacts
+      - name: Upload APKs & Release Artifacts to GitHub Actions
         uses: actions/upload-artifact@v4
         with:
           name: youtube-viewer-apks
@@ -144,7 +150,7 @@ jobs:
           echo "Computed Tag: ${TAG}"
           echo "Computed Title: ${TITLE}"
 
-      - name: Publish GitHub Release with Working APK
+      - name: Publish GitHub Release with Working APK & OTA Artifact
         uses: softprops/action-gh-release@v2
         if: success() && (startsWith(github.ref, 'refs/tags/') || github.event_name == 'workflow_dispatch' || github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master')
         timeout-minutes: 3
@@ -159,27 +165,21 @@ jobs:
           fail_on_unmatched_files: false
           token: ${{ secrets.GITHUB_TOKEN }}
           body: |
-            ## 📱 YouTube Viewer Android App Release
+            ## 📱 YouTube Viewer Release (${{ steps.release_info.outputs.TAG }})
 
             ### 📦 Download Links
-            - **[Download YouTube-Viewer-debug.apk](https://github.com/${{ github.repository }}/releases/download/${{ steps.release_info.outputs.TAG }}/YouTube-Viewer-debug.apk)** (Latest APK - Ready to install)
+            - **⚡ [Download web-dist.zip](https://github.com/${{ github.repository }}/releases/download/${{ steps.release_info.outputs.TAG }}/web-dist.zip)** (OTA Release Artifact - Instant Hot Update in App, no APK reinstall required)
+            - **📲 [Download YouTube-Viewer-debug.apk](https://github.com/${{ github.repository }}/releases/download/${{ steps.release_info.outputs.TAG }}/YouTube-Viewer-debug.apk)** (Full Android Native APK)
             - Automated install script available in repository: `update.apk.sh` (Bash)
 
             ---
 
-            ### 🚀 Features Included in this APK:
+            ### 🚀 Features Included in this Release:
+            - **OTA Release Artifact Hot Update**: Instant web bundle update directly inside the app without package installation dialogs.
             - **Native Network Interceptor**: Directly intercepts YouTube caption HTTP streams (`youtube.com/api/timedtext`) using `WebViewClient` and native `OkHttp`.
-            - **Offline & Standalone Ready**: Embeds the full modern web UI locally via `WebViewAssetLoader`, ensuring fast start times and responsive video controls.
+            - **Offline & Standalone Ready**: Embeds the full modern web UI locally via `WebViewAssetLoader`.
             - **Universal YouTube URL Support**: Parses watch URLs, youtu.be shortlinks, Shorts, Live streams, embed codes, iframe tags, and custom timestamps.
-            - **Signed & Verified**: Built with Android 14 (API 34) SDK and compatible with Android 7.0+ (API 24 to 35).
-
-            ---
-
-            ### 📲 How to Install on Android:
-            1. Download `YouTube-Viewer-debug.apk` directly to your phone.
-            2. Tap the completed download in your notification bar or Files app.
-            3. If prompted, enable **"Install unknown apps"** for your browser or file manager.
-            4. Tap **Install** and open YouTube Viewer!
+            - **Signed & Verified**: Compatible with Android 7.0+ to Android 14 (API 24 to 35).
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
