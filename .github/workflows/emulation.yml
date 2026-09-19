@@ -117,6 +117,11 @@ jobs:
         timeout-minutes: 3
         run: |
           chmod +x android-shell/gradlew
+          if [ ! -f "android-shell/gradle/wrapper/gradle-wrapper.jar" ]; then
+            echo "gradle-wrapper.jar missing; downloading wrapper jar..."
+            mkdir -p android-shell/gradle/wrapper
+            curl -sL "https://raw.githubusercontent.com/gradle/gradle/v8.4.0/gradle/wrapper/gradle-wrapper.jar" -o android-shell/gradle/wrapper/gradle-wrapper.jar
+          fi
           cd android-shell
           ./gradlew assembleDebug --stacktrace
 
