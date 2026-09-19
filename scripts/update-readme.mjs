@@ -15,7 +15,7 @@ import path from 'path';
  */
 
 let targetOwner = 'mostuf2556';
-let targetRepo = 'youtubenet6';
+let targetRepo = 'Youtubenet6';
 
 if (process.env.GITHUB_REPOSITORY) {
   const [envOwner, envRepo] = process.env.GITHUB_REPOSITORY.split('/');

@@ -48,8 +48,8 @@ export interface ArtifactUpdateProgress {
 }
 
 export const CURRENT_APK_VERSION = 'v1.0.13';
-export const DEFAULT_REPO =  'mostuf2556/youtubenet6';
-export const FALLBACK_REPO = 'mostuf2556/youtubenet6';
+export const DEFAULT_REPO =  'mostuf2556/Youtubenet6';
+export const FALLBACK_REPO = 'mostuf2556/Youtubenet6';
 
 /**
  * Retrieves the active app version, checking if a release artifact hot update was applied
@@ -606,9 +606,9 @@ export function installApkViaApp(downloadUrl: string, fileName = 'YouTube-Viewer
  */
 export function getAdbCurlCommand(downloadUrl?: string): string {
   if (downloadUrl) {
-    return `curl -fsSL https://raw.githubusercontent.com/mostuf2556/youtubenet6/main/update.apk.sh | bash -s -- "${downloadUrl}"`;
+    return `curl -fsSL https://raw.githubusercontent.com/mostuf2556/Youtubenet6/main/update.apk.sh | bash -s -- "${downloadUrl}"`;
   }
-  return `curl -fsSL https://raw.githubusercontent.com/mostuf2556/youtubenet6/main/update.apk.sh | bash`;
+  return `curl -fsSL https://raw.githubusercontent.com/mostuf2556/Youtubenet6/main/update.apk.sh | bash`;
 }
 
 export function getBashScriptCommand(downloadUrl: string): string {

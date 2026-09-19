@@ -1,11 +1,11 @@
 # Directive Solution Plan (`temp.md`)
 
-## Task: Diagnose and Fix GitHub Pages Deployment & Link Errors
+## Task: Verify OTA Updater Code, Repository Paths, and Test Suite Execution
 
 ### Sub-Tasks Status Lifecycle:
-- [done] **Sub-Task 1: Search codebase and workflows for GitHub Pages deployment scripts and links** - Identified root pathing, repository identity, and missing fallback routes.
-- [done] **Sub-Task 2: Identify configuration mismatches (e.g., base path in vite.config.ts vs repository name, deploy-demo.yml workflow setup)** - Fixed `youtubenet3` fallback in `web.yml` `target_url` detection to dynamically resolve `${REPO_NAME}` in `workflow_run` events.
-- [done] **Sub-Task 3: Apply targeted fixes to Vite base config, GitHub Pages workflow, and UI links** - Updated `update-readme.mjs` defaults and added auto-generation of fallback `index.html` pages for `demo/` and `playwright/` in `scripts/prepare-report.mjs` to eliminate 404 errors.
-- [done] **Sub-Task 4: Local verification (linting, build, test suite)** - Verified `npm run lint`, `prepare-report.mjs`, `compile_applet`.
-- [done] **Sub-Task 5: Update `temp.md` and report resolution to user** - Finished.
+- [done] **Sub-Task 1: Check `src/utils/apkUpdater.ts` repository constants for `mostuf2556/Youtubenet6` vs `mostuf2556/youtubenet6`** - Updated repository constants to `mostuf2556/Youtubenet6`.
+- [done] **Sub-Task 2: Check `scripts/update-readme.mjs` case preservation** - Configured target repository default as `mostuf2556/Youtubenet6`.
+- [done] **Sub-Task 3: Run `npm run test:ota` test suite to verify 19/19 assertions pass** - **19 / 19 passed**.
+- [done] **Sub-Task 4: Run `npm run lint` and `npm run test:caption-formats`** - Verified 10/10 subtitle fixtures and 0 type errors.
+- [done] **Sub-Task 5: Update `temp.md` and report result to user** - Finished.
 
