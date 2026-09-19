@@ -102,6 +102,28 @@ const playwrightReportDir = path.join(rootDir, 'playwright-report');
 if (fs.existsSync(playwrightReportDir)) {
   fs.cpSync(playwrightReportDir, playwrightDestDir, { recursive: true });
   console.log('Copied Playwright report to cypress/reports/playwright');
+} else if (!fs.existsSync(path.join(playwrightDestDir, 'index.html'))) {
+  const pwTemplate = `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Playwright Test Report</title>
+  <style>
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: #0f172a; color: #f8fafc; padding: 2.5rem; max-width: 700px; margin: 0 auto; line-height: 1.6; }
+    .card { background: #1e293b; border: 1px solid #334155; border-radius: 8px; padding: 1.5rem; margin-top: 1rem; }
+    a { color: #38bdf8; text-decoration: none; font-weight: 600; display: inline-block; margin-top: 1rem; }
+  </style>
+</head>
+<body>
+  <h2 style="color:#38bdf8;">🔍 Playwright Trace Inspector</h2>
+  <div class="card">
+    <p>Playwright report artifacts are generated automatically when running <code>npm run test:e2e:web</code> or during GitHub Actions workflow execution.</p>
+    <a href="../index.html">← Return to Interactive Test Runner</a>
+  </div>
+</body>
+</html>`;
+  fs.writeFileSync(path.join(playwrightDestDir, 'index.html'), pwTemplate, 'utf8');
+  console.log('Created fallback Playwright index.html in cypress/reports/playwright/');
 }
 
 // 4b. Copy built web application into cypress/reports/app
@@ -115,12 +137,31 @@ if (fs.existsSync(distDir)) {
 // 4c. Copy built mini demo into cypress/reports/demo
 const distDemoDir = path.join(distDir, 'demo');
 const demoDestDir = path.join(reportsDir, 'demo');
+if (!fs.existsSync(demoDestDir)) {
+  fs.mkdirSync(demoDestDir, { recursive: true });
+}
 if (fs.existsSync(distDemoDir)) {
   fs.cpSync(distDemoDir, demoDestDir, { recursive: true });
   console.log('Copied built mini demo to cypress/reports/demo');
 } else if (fs.existsSync(path.join(rootDir, 'demo'))) {
   fs.cpSync(path.join(rootDir, 'demo'), demoDestDir, { recursive: true });
   console.log('Copied root demo to cypress/reports/demo');
+} else if (!fs.existsSync(path.join(demoDestDir, 'index.html'))) {
+  const demoTemplate = `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>YouTube Viewer — Hebrew Subtitles Mini Demo</title>
+  <meta http-equiv="refresh" content="0; url=../app/index.html">
+  <script>window.location.replace('../app/index.html');</script>
+</head>
+<body style="background:#090d16;color:#f8fafc;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;padding:2.5rem;max-width:700px;margin:0 auto;">
+  <h2>Redirecting to Live Web Application...</h2>
+  <p><a href="../app/index.html" style="color:#38bdf8;">Click here if not redirected automatically.</a></p>
+</body>
+</html>`;
+  fs.writeFileSync(path.join(demoDestDir, 'index.html'), demoTemplate, 'utf8');
+  console.log('Created fallback demo index.html in cypress/reports/demo/');
 }
 
 // 5. Generate Standalone Mochawesome HTML if not already created by reporter
