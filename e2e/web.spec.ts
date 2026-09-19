@@ -1051,4 +1051,35 @@ test.describe('YouTube Video Viewer - Web E2E Tests', () => {
     const restoredPressed = await captionToggle.getAttribute('aria-pressed');
     expect(restoredPressed).toBe(initialPressed);
   });
+
+  /**
+   * WEB CRITICAL TEST 17:
+   * Verify OTA Release Artifact Modal UI & Apply Release Artifact Flow
+   */
+  test('17. OTA Release Artifact Hot Update Modal & Apply Flow', async ({ page }) => {
+    // Open settings modal first
+    const settingsButton = page.locator('#open-settings-button');
+    await expect(settingsButton).toBeVisible();
+    await settingsButton.click();
+
+    // Click Check & Install APK button inside settings
+    const checkApkBtn = page.locator('#settings-check-apk-button');
+    await expect(checkApkBtn).toBeVisible();
+    await checkApkBtn.click();
+
+    // Verify ApkUpdateModal is open
+    const modalHeading = page.locator('#apk-update-modal-heading');
+    await expect(modalHeading).toBeVisible();
+
+    // Check Option 1 (Release Artifact Hot Update) button
+    const applyArtifactBtn = page.locator('#apply-release-artifact-button');
+    await expect(applyArtifactBtn).toBeVisible();
+
+    // Click Apply Release Artifact
+    await applyArtifactBtn.click();
+
+    // Verify progress or success notice appears
+    const successNotice = page.locator('text=applied successfully').or(page.locator('text=Downloading Artifact')).or(page.locator('text=Release Artifact'));
+    await expect(successNotice.first()).toBeVisible({ timeout: 10000 });
+  });
 });

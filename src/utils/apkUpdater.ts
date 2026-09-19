@@ -55,15 +55,17 @@ export const FALLBACK_REPO = 'mostuf2556/youtubenet6';
  * Retrieves the active app version, checking if a release artifact hot update was applied
  */
 export function getActiveAppVersion(fallbackVersion = CURRENT_APK_VERSION): string {
-  if (typeof window !== 'undefined') {
-    if (window.AndroidNativeShell?.getAppliedReleaseArtifactTag) {
-      try {
-        const tag = window.AndroidNativeShell.getAppliedReleaseArtifactTag();
-        if (tag) return tag;
-      } catch {}
-    }
-    const stored = localStorage.getItem('active_release_artifact_tag');
-    if (stored) return stored;
+  if (typeof window !== 'undefined' && window.AndroidNativeShell?.getAppliedReleaseArtifactTag) {
+    try {
+      const tag = window.AndroidNativeShell.getAppliedReleaseArtifactTag();
+      if (tag) return tag;
+    } catch {}
+  }
+  if (typeof localStorage !== 'undefined') {
+    try {
+      const stored = localStorage.getItem('active_release_artifact_tag');
+      if (stored) return stored;
+    } catch {}
   }
   return fallbackVersion;
 }
@@ -210,30 +212,7 @@ export async function checkApkUpdate(
   const activeAppVer = getActiveAppVersion(currentVersion);
 
   if (!releaseData || !releaseData.asset) {
-    // Provide a reliable fallback release metadata object so update checking and installation never breaks
-    const fallbackTag = 'v1.0.17';
-    return {
-      tagName: fallbackTag,
-      name: `YouTube Viewer ${fallbackTag}`,
-      publishedAt: new Date().toISOString(),
-      body: 'Latest compiled release featuring web release artifact support for hot updates (no APK reinstallation required), full YouTube caption interception, 80+ target languages, and real-time word-by-word TTS boundary highlighting.',
-      htmlUrl: `https://github.com/${repo}/releases`,
-      downloadUrl: `https://github.com/${repo}/releases/download/${fallbackTag}/YouTube-Viewer-debug.apk`,
-      apkName: 'YouTube-Viewer-debug.apk',
-      size: 15728640,
-      formattedSize: '15.0 MB',
-      isNewer: isNewerVersion(fallbackTag, activeAppVer),
-      currentVersion: activeAppVer,
-      repo,
-      artifactAsset: {
-        name: `YouTube-Viewer-${fallbackTag}-web-artifact.zip`,
-        size: 4194304,
-        downloadUrl: `https://github.com/${repo}/releases/download/${fallbackTag}/web-dist.zip`,
-        isWebArtifact: true,
-        type: 'web_zip',
-      },
-      hasWebReleaseArtifact: true,
-    };
+    throw new Error(`Unable to fetch release information or update artifacts for repository "${repo}".`);
   }
 
   const latestTag = releaseData.tagName;

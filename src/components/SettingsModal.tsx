@@ -1,4 +1,5 @@
 import React, { useState, useRef } from 'react';
+import { getActiveAppVersion } from '../utils/apkUpdater';
 import {
   AppSettings,
   SUPPORTED_LANGUAGES_CATALOG,
@@ -962,7 +963,7 @@ export function SettingsModal({
                 <span>Android Shell APK &amp; App Updates</span>
               </h3>
               <span className="text-[11px] px-2 py-0.5 rounded bg-neutral-800 text-emerald-300 font-mono font-bold">
-                {isAndroidNative ? 'Native Shell: v1.0.13' : 'Web Companion Demo'}
+                {isAndroidNative ? `Native Shell: ${getActiveAppVersion()}` : 'Web Companion Demo'}
               </span>
             </div>
 

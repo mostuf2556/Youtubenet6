@@ -219,7 +219,9 @@ export const ApkUpdateModal: React.FC<ApkUpdateModalProps> = ({
 
   const activeDownloadUrl =
     releaseInfo?.downloadUrl ||
-    `https://github.com/${repo}/releases/download/${releaseInfo?.tagName || 'v1.0.14'}/YouTube-Viewer-debug.apk`;
+    (releaseInfo?.tagName
+      ? `https://github.com/${repo}/releases/download/${releaseInfo.tagName}/YouTube-Viewer-debug.apk`
+      : `https://github.com/${repo}/releases/latest`);
 
   const qrCodeUrl = `https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=${encodeURIComponent(
     activeDownloadUrl
