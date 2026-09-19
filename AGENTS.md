@@ -154,7 +154,23 @@ The active implementation phase mandates:
 
 ---
 
-## 10. Summary of Architectural Mission
+## 11. Directive Execution & Planning Protocol
+
+When processing incoming user prompts and directives, the agent must adhere to a systematic planning and tracking protocol:
+
+### Task Breakdown & `temp.md` Tracking
+1. **Solution Planning (`temp.md`)**: Create or update a temporary plan report in `temp.md` at the project root outlining the proposed architectural approach and step-by-step resolution.
+2. **Sub-Task Decomposition**: Divide the user prompt into modular, logical sub-tasks.
+3. **Task Status Lifecycle**: Explicitly mark and update each sub-task with its current status in `temp.md`:
+   - `[todo]`: Queued sub-task waiting to be worked on.
+   - `[done]`: Implementation completed.
+   - `[test]`: Automated or manual test verification in progress.
+   - `[fix]`: Correcting errors, failing tests, or code issues.
+4. **Execution Cycle**: Maintain `temp.md` as a live status tracker throughout implementation, testing, and final verification.
+
+---
+
+## 12. Summary of Architectural Mission
 
 - **Views are replaceable**: Any UI component can be rewritten or swapped without breaking data flow.
 - **Contracts are the truth**: Markdown specifications define component inputs, responsibilities, and outputs.
