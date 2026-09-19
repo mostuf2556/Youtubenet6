@@ -492,70 +492,15 @@ export async function fetchYouTubeNativeTranslation({
   }
 
   // -------------------------------------------------------------
-  // 2. FALLBACK TO USE THE REQUEST ON THE BACKEND (/api/youtube-timedtext-translate)
-  // -------------------------------------------------------------
-  // If client request returns error, fallback to backend proxy with the full request and original headers
-  try {
-    console.log(`[Translation] Client direct request returned error (${clientFetchError?.message || 'direct fetch unavailable'}). Falling back to backend proxy with full copied request for ${cleanLang}...`);
-    const res = await fetch('/api/youtube-timedtext-translate', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        observedUrl: activeObservedUrl,
-        targetLang: cleanLang,
-        format,
-        videoId: vId,
-        requestSettings: copiedRequest, // full request settings with original headers and fields
-        requestHeaders: copiedRequest.headers,
-        originalRequest: baseWorkingRequest,
-        cues: originalCues,
-        disableFixtures: shouldDisableFixtures,
-      }),
-    });
-
-    if (res.ok) {
-      const data = await res.json();
-      if (data.success && Array.isArray(data.cues) && data.cues.length > 0) {
-        const transMap: Record<string, string> = {};
-        data.cues.forEach((c: any) => {
-          if (c.id && c.text) transMap[c.id] = c.text;
-        });
-        return {
-          success: true,
-          source: 'youtube_native',
-          targetLang: cleanLang,
-          format: data.format,
-          cues: data.cues,
-          count: data.count || data.cues.length,
-          firstSubtitle: data.firstSubtitle || data.cues[0],
-          translations: transMap,
-          modifiedUrl: data.modifiedUrl || modifiedUrl,
-          copiedRequest: data.copiedRequest || copiedRequest,
-          httpsResponse: data.httpsResponse,
-        };
-      }
-      return {
-        success: false,
-        source: 'google_translate_fallback',
-        targetLang: cleanLang,
-        error: data.error || 'YouTube native timedtext returned no subtitles',
-        modifiedUrl: data.modifiedUrl || modifiedUrl,
-        copiedRequest: data.copiedRequest || copiedRequest,
-        httpsResponse: data.httpsResponse,
-      };
-    }
-  } catch (err: any) {
-    console.warn(`[Translation] /api/youtube-timedtext-translate error for ${cleanLang}:`, err);
-  }
-
-  // -------------------------------------------------------------
-  // 3. FALLBACK TO TRANSLATION SERVICE
+  // 2. FALLBACK TO CLIENT-SIDE TRANSLATION SERVICE
   // -------------------------------------------------------------
   return {
     success: false,
     source: 'google_translate_fallback',
     targetLang: cleanLang,
-    error: 'Native translation unavailable, falling back to translation service',
+    error: clientFetchError
+      ? `Direct YouTube timedtext fetch failed (${clientFetchError.message}). Using client-side translation fallback.`
+      : 'Native translation unavailable, falling back to translation service',
     modifiedUrl,
     copiedRequest,
   };

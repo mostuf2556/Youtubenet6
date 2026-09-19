@@ -610,10 +610,9 @@ class AudioStreamFallbackEngineAdapter implements ITtsEngineAdapter {
     return new Promise<TTSResult>((resolve) => {
       const langParam = encodeURIComponent(request.lang);
       const textParam = encodeURIComponent(request.text.trim());
-      const primaryUrl = `/api/tts?text=${textParam}&lang=${langParam}&q=${textParam}&tl=${langParam}`;
-      const fallbackUrl = `https://translate.google.com/translate_tts?ie=UTF-8&tl=${langParam}&client=tw-ob&q=${textParam}&text=${textParam}`;
+      const ttsUrl = `https://translate.google.com/translate_tts?ie=UTF-8&tl=${langParam}&client=tw-ob&q=${textParam}&text=${textParam}`;
 
-      const audio = new Audio(primaryUrl);
+      const audio = new Audio(ttsUrl);
       this.currentAudioElement = audio;
       audio.playbackRate = Math.max(0.5, Math.min(2.0, request.rate || 1.0));
 
@@ -675,14 +674,7 @@ class AudioStreamFallbackEngineAdapter implements ITtsEngineAdapter {
       };
 
       audio.onerror = () => {
-        if (audio.src.includes('/api/tts')) {
-          audio.src = fallbackUrl;
-          audio.play().catch((playErr) => {
-            finish({ completed: false, error: String(playErr) });
-          });
-        } else {
-          finish({ completed: false, error: 'Audio stream failed on all endpoints' });
-        }
+        finish({ completed: false, error: 'Audio stream playback failed' });
       };
 
       audio.play().catch((playErr) => {

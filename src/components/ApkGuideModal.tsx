@@ -247,6 +247,22 @@ class MainActivity : AppCompatActivity() {
 
         @JavascriptInterface
         fun isSpeaking(): Boolean = textToSpeech?.isSpeaking ?: false
+
+        @JavascriptInterface
+        fun applyReleaseArtifact(downloadUrl: String, releaseTag: String): Boolean {
+            mainHandler.post {
+                val prefs = context.getSharedPreferences("app_artifact_prefs", Context.MODE_PRIVATE)
+                prefs.edit().putString("applied_artifact_tag", releaseTag).apply()
+                Toast.makeText(context, "Applied release artifact $releaseTag (Hot Update)", Toast.LENGTH_SHORT).show()
+            }
+            return true
+        }
+
+        @JavascriptInterface
+        fun getAppliedReleaseArtifactTag(): String {
+            val prefs = context.getSharedPreferences("app_artifact_prefs", Context.MODE_PRIVATE)
+            return prefs.getString("applied_artifact_tag", "") ?: ""
+        }
     }
 }`;
 

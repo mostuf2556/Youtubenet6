@@ -16,6 +16,8 @@ import {
   Sparkles,
   ArrowRight,
   GitBranch,
+  Zap,
+  PackageCheck,
 } from 'lucide-react';
 import {
   CURRENT_APK_VERSION,
@@ -23,9 +25,12 @@ import {
   FALLBACK_REPO,
   ApkReleaseInfo,
   ApkDownloadProgress,
+  ArtifactUpdateProgress,
   checkApkUpdate,
   downloadAndInstallApkWithProgress,
   installApkViaApp,
+  applyReleaseArtifactHotUpdate,
+  getActiveAppVersion,
   formatBytes,
   getAdbCurlCommand,
   getBashScriptCommand,
@@ -46,7 +51,7 @@ export const ApkUpdateModal: React.FC<ApkUpdateModalProps> = ({
 }) => {
   const dispatch = useDispatch();
   const [repo, setRepo] = useState(DEFAULT_REPO);
-  const [currentVersion, setCurrentVersion] = useState(CURRENT_APK_VERSION);
+  const [currentVersion, setCurrentVersion] = useState(() => getActiveAppVersion(CURRENT_APK_VERSION));
   const [isLoading, setIsLoading] = useState(false);
   const [releaseInfo, setReleaseInfo] = useState<ApkReleaseInfo | null>(null);
   const [error, setError] = useState<string | null>(null);
@@ -55,7 +60,49 @@ export const ApkUpdateModal: React.FC<ApkUpdateModalProps> = ({
   const [customApkUrl, setCustomApkUrl] = useState('');
   const [installedNotice, setInstalledNotice] = useState<string | null>(null);
   const [downloadProgress, setDownloadProgress] = useState<ApkDownloadProgress | null>(null);
+  const [artifactProgress, setArtifactProgress] = useState<ArtifactUpdateProgress | null>(null);
   const [installError, setInstallError] = useState<string | null>(null);
+
+  const handleApplyReleaseArtifact = async (artifactUrl: string, tagName: string) => {
+    setInstallError(null);
+    setInstalledNotice(null);
+    setArtifactProgress({
+      state: 'downloading',
+      percent: 1,
+      loadedBytes: 0,
+      totalBytes: 4 * 1024 * 1024,
+      speedBps: 0,
+      tagName,
+    });
+    logInfo('ApkUpdater', `Starting web release artifact hot-update for ${tagName} from ${artifactUrl}...`);
+
+    try {
+      const result = await applyReleaseArtifactHotUpdate(
+        artifactUrl,
+        tagName,
+        'release-artifact.zip',
+        (progress) => {
+          setArtifactProgress(progress);
+          if (progress.state === 'error' && progress.error) {
+            setInstallError(progress.error);
+            logError('ApkUpdater', `Release artifact update failed: ${progress.error}`);
+          }
+        }
+      );
+
+      if (result.success) {
+        setInstalledNotice(
+          `Web release artifact ${tagName} applied successfully! App hot-reloading now without APK reinstallation...`
+        );
+        setCurrentVersion(tagName);
+      } else if (result.error) {
+        setInstallError(result.error);
+      }
+    } catch (err: any) {
+      const msg = err.message || 'Unexpected error during release artifact update.';
+      setInstallError(msg);
+    }
+  };
 
   const handleCheck = async (targetRepo = repo) => {
     setIsLoading(true);
@@ -347,56 +394,139 @@ export const ApkUpdateModal: React.FC<ApkUpdateModalProps> = ({
                 </div>
               )}
 
-              {/* PRIMARY ACTION: Install via App */}
+              {/* UPDATE OPTIONS */}
               <div className="pt-2 flex flex-col gap-3">
-                <div className="flex flex-wrap items-center gap-2">
-                  <button
-                    type="button"
-                    id="install-apk-via-app-button"
-                    data-testid="install-apk-via-app-button"
-                    disabled={downloadProgress?.state === 'downloading' || downloadProgress?.state === 'verifying'}
-                    onClick={() => handleInstallViaApp(releaseInfo.downloadUrl, releaseInfo.apkName)}
-                    className="flex-1 min-w-[200px] flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-500 disabled:opacity-60 text-white text-xs font-bold shadow-lg shadow-emerald-600/20 transition active:scale-95"
-                  >
-                    {downloadProgress?.state === 'downloading' || downloadProgress?.state === 'verifying' ? (
-                      <>
-                        <RefreshCw className="w-4 h-4 animate-spin text-white" />
-                        <span>Downloading ({downloadProgress.percent}%)...</span>
-                      </>
-                    ) : (
-                      <>
-                        <Download className="w-4 h-4" />
-                        <span>
-                          {releaseInfo.isNewer
-                            ? `Install ${releaseInfo.tagName} via App`
-                            : `Download & Install ${releaseInfo.tagName} APK`}
+                {/* OPTION 1: Web Release Artifact Update (NO APK INSTALLATION REQUIRED) */}
+                <div className="p-3.5 rounded-xl bg-indigo-950/40 border border-indigo-500/50 space-y-2.5">
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-2">
+                      <Zap className="w-4 h-4 text-indigo-400" />
+                      <span className="text-xs font-bold text-indigo-200">
+                        Option 1: Release Artifact Hot Update (No APK Reinstallation)
+                      </span>
+                    </div>
+                    <span className="px-2 py-0.5 rounded text-[10px] font-bold bg-indigo-500/20 text-indigo-300 border border-indigo-500/30">
+                      Recommended
+                    </span>
+                  </div>
+                  <p className="text-[11px] text-neutral-300 leading-relaxed">
+                    Applies the release bundle artifact ({releaseInfo.artifactAsset?.name || 'web-dist.zip'}) directly in the app. Updates logic and UI instantly without opening package installers or requiring unknown app permissions.
+                  </p>
+
+                  <div className="flex items-center gap-2">
+                    <button
+                      type="button"
+                      id="apply-release-artifact-button"
+                      data-testid="apply-release-artifact-button"
+                      disabled={artifactProgress?.state === 'downloading' || artifactProgress?.state === 'applying'}
+                      onClick={() =>
+                        handleApplyReleaseArtifact(
+                          releaseInfo.artifactAsset?.downloadUrl || releaseInfo.downloadUrl,
+                          releaseInfo.tagName
+                        )
+                      }
+                      className="flex-1 flex items-center justify-center gap-2 py-2 px-3 rounded-lg bg-indigo-600 hover:bg-indigo-500 disabled:opacity-60 text-white text-xs font-bold shadow-md transition active:scale-95"
+                    >
+                      {artifactProgress?.state === 'downloading' || artifactProgress?.state === 'applying' ? (
+                        <>
+                          <RefreshCw className="w-3.5 h-3.5 animate-spin text-white" />
+                          <span>
+                            {artifactProgress.state === 'applying'
+                              ? 'Applying Release Artifact...'
+                              : `Downloading Artifact (${artifactProgress.percent}%)...`}
+                          </span>
+                        </>
+                      ) : (
+                        <>
+                          <PackageCheck className="w-4 h-4 text-indigo-200" />
+                          <span>Apply {releaseInfo.tagName} Release Artifact (OTA Update)</span>
+                        </>
+                      )}
+                    </button>
+                  </div>
+
+                  {/* Artifact Progress Indicator */}
+                  {artifactProgress && (artifactProgress.state === 'downloading' || artifactProgress.state === 'applying' || artifactProgress.state === 'ready') && (
+                    <div className="p-2.5 rounded-lg bg-black/40 border border-indigo-500/30 space-y-1.5 text-xs">
+                      <div className="flex items-center justify-between text-[11px]">
+                        <span className="font-semibold text-indigo-200">
+                          {artifactProgress.state === 'applying'
+                            ? 'Unpacking & applying release artifact...'
+                            : artifactProgress.state === 'ready'
+                            ? 'Artifact applied! Hot reloading app...'
+                            : `Downloading web bundle artifact...`}
                         </span>
-                      </>
-                    )}
-                  </button>
+                        <span className="font-mono text-indigo-300 font-bold">{artifactProgress.percent}%</span>
+                      </div>
+                      <div className="w-full bg-neutral-800 h-1.5 rounded-full overflow-hidden">
+                        <div
+                          className="bg-indigo-400 h-full rounded-full transition-all duration-200"
+                          style={{ width: `${Math.max(5, artifactProgress.percent)}%` }}
+                        />
+                      </div>
+                    </div>
+                  )}
+                </div>
 
-                  <button
-                    type="button"
-                    id="toggle-qr-code-button"
-                    onClick={() => setShowQr(!showQr)}
-                    className="px-3 py-2.5 rounded-xl bg-neutral-800 hover:bg-neutral-700 text-neutral-300 text-xs font-medium border border-neutral-700 flex items-center gap-1.5 transition"
-                    title="Scan with phone camera to download directly"
-                  >
-                    <QrCode className="w-3.5 h-3.5 text-indigo-400" />
-                    <span className="hidden sm:inline">Phone QR</span>
-                  </button>
+                {/* OPTION 2: Full Native APK Download & Reinstallation */}
+                <div className="p-3 rounded-xl bg-neutral-900 border border-neutral-800 space-y-2">
+                  <div className="flex items-center justify-between text-xs">
+                    <span className="font-semibold text-neutral-300 flex items-center gap-1.5">
+                      <Smartphone className="w-3.5 h-3.5 text-emerald-400" />
+                      <span>Option 2: Full Native APK Reinstallation</span>
+                    </span>
+                    <span className="text-[10px] text-neutral-400">15.0 MB Full APK</span>
+                  </div>
 
-                  <a
-                    href={releaseInfo.downloadUrl}
-                    download={releaseInfo.apkName}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="px-3 py-2.5 rounded-xl bg-neutral-800 hover:bg-neutral-700 text-neutral-300 text-xs font-medium border border-neutral-700 flex items-center gap-1.5 transition"
-                    title="Direct browser download link"
-                  >
-                    <ExternalLink className="w-3.5 h-3.5" />
-                    <span className="hidden sm:inline">Direct Link</span>
-                  </a>
+                  <div className="flex flex-wrap items-center gap-2">
+                    <button
+                      type="button"
+                      id="install-apk-via-app-button"
+                      data-testid="install-apk-via-app-button"
+                      disabled={downloadProgress?.state === 'downloading' || downloadProgress?.state === 'verifying'}
+                      onClick={() => handleInstallViaApp(releaseInfo.downloadUrl, releaseInfo.apkName)}
+                      className="flex-1 min-w-[180px] flex items-center justify-center gap-2 py-2 px-3 rounded-lg bg-emerald-700 hover:bg-emerald-600 disabled:opacity-60 text-white text-xs font-bold shadow transition active:scale-95"
+                    >
+                      {downloadProgress?.state === 'downloading' || downloadProgress?.state === 'verifying' ? (
+                        <>
+                          <RefreshCw className="w-3.5 h-3.5 animate-spin text-white" />
+                          <span>Downloading APK ({downloadProgress.percent}%)...</span>
+                        </>
+                      ) : (
+                        <>
+                          <Download className="w-3.5 h-3.5" />
+                          <span>
+                            {releaseInfo.isNewer
+                              ? `Download & Install ${releaseInfo.tagName} APK`
+                              : `Reinstall ${releaseInfo.tagName} APK`}
+                          </span>
+                        </>
+                      )}
+                    </button>
+
+                    <button
+                      type="button"
+                      id="toggle-qr-code-button"
+                      onClick={() => setShowQr(!showQr)}
+                      className="px-2.5 py-2 rounded-lg bg-neutral-800 hover:bg-neutral-700 text-neutral-300 text-xs font-medium border border-neutral-700 flex items-center gap-1 transition"
+                      title="Scan with phone camera to download directly"
+                    >
+                      <QrCode className="w-3.5 h-3.5 text-indigo-400" />
+                      <span className="hidden sm:inline">QR</span>
+                    </button>
+
+                    <a
+                      href={releaseInfo.downloadUrl}
+                      download={releaseInfo.apkName}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="px-2.5 py-2 rounded-lg bg-neutral-800 hover:bg-neutral-700 text-neutral-300 text-xs font-medium border border-neutral-700 flex items-center gap-1 transition"
+                      title="Direct browser download link"
+                    >
+                      <ExternalLink className="w-3.5 h-3.5" />
+                      <span className="hidden sm:inline">Direct APK</span>
+                    </a>
+                  </div>
                 </div>
 
                 {/* Real-time Download & Installation Progress */}

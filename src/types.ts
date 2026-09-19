@@ -127,6 +127,8 @@ declare global {
       setLastObservedTimedTextUrl?: (url: string) => void;
       fetchTranslatedCaptions?: (targetLang: string, format: string) => string;
       fetchTranslatedCaptionsWithUrl?: (url: string, targetLang: string, format: string) => string;
+      applyReleaseArtifact?: (downloadUrl: string, releaseTag: string) => boolean;
+      getAppliedReleaseArtifactTag?: () => string;
     };
     onNativeCaptionsInterceptedBase64?: (base64Json: string) => void;
     onNativeTTSDone?: (utteranceId: string) => void;

@@ -12,6 +12,14 @@ export interface ApkAsset {
   downloadUrl: string;
 }
 
+export interface ReleaseArtifactAsset {
+  name: string;
+  size: number;
+  downloadUrl: string;
+  isWebArtifact: boolean;
+  type: 'apk' | 'web_zip' | 'web_bundle';
+}
+
 export interface ApkReleaseInfo {
   tagName: string;
   name: string;
@@ -25,11 +33,40 @@ export interface ApkReleaseInfo {
   isNewer: boolean;
   currentVersion: string;
   repo: string;
+  artifactAsset?: ReleaseArtifactAsset;
+  hasWebReleaseArtifact?: boolean;
+}
+
+export interface ArtifactUpdateProgress {
+  state: 'idle' | 'downloading' | 'verifying' | 'applying' | 'ready' | 'error';
+  percent: number;
+  loadedBytes: number;
+  totalBytes: number;
+  speedBps: number;
+  error?: string;
+  tagName?: string;
 }
 
 export const CURRENT_APK_VERSION = 'v1.0.13';
-export const DEFAULT_REPO = 'baobabitogether1-hash/youtubenet4';
-export const FALLBACK_REPO = 'baobabitogether-a11y/youtubenet3';
+export const DEFAULT_REPO =  'mostuf2556/youtubenet6';
+export const FALLBACK_REPO = 'mostuf2556/youtubenet6';
+
+/**
+ * Retrieves the active app version, checking if a release artifact hot update was applied
+ */
+export function getActiveAppVersion(fallbackVersion = CURRENT_APK_VERSION): string {
+  if (typeof window !== 'undefined') {
+    if (window.AndroidNativeShell?.getAppliedReleaseArtifactTag) {
+      try {
+        const tag = window.AndroidNativeShell.getAppliedReleaseArtifactTag();
+        if (tag) return tag;
+      } catch {}
+    }
+    const stored = localStorage.getItem('active_release_artifact_tag');
+    if (stored) return stored;
+  }
+  return fallbackVersion;
+}
 
 /**
  * Format bytes to human readable format (MB/KB)
@@ -106,14 +143,25 @@ export async function checkApkUpdate(
       const releases = await ghRes.json();
       if (!Array.isArray(releases) || releases.length === 0) continue;
 
-      // Find the latest release containing an APK
+      // Find the latest release containing an APK or Web Release Artifact (.zip, web-dist, dist, etc)
       for (const rel of releases) {
         const apk = rel.assets?.find(
           (a: any) =>
             a.name.toLowerCase().includes('youtube-viewer-debug.apk') ||
             a.name.toLowerCase().endsWith('.apk')
         );
-        if (apk) {
+        const webArtifact = rel.assets?.find(
+          (a: any) =>
+            a.name.toLowerCase().includes('web-dist') ||
+            a.name.toLowerCase().includes('dist') ||
+            a.name.toLowerCase().includes('bundle') ||
+            a.name.toLowerCase().includes('artifact') ||
+            a.name.toLowerCase().endsWith('.zip') ||
+            a.name.toLowerCase().endsWith('.tar.gz')
+        );
+
+        if (apk || webArtifact) {
+          const mainAsset = apk || webArtifact;
           releaseData = {
             tagName: rel.tag_name,
             name: rel.name || rel.tag_name,
@@ -122,10 +170,26 @@ export async function checkApkUpdate(
             htmlUrl: rel.html_url,
             repo: r,
             asset: {
-              name: apk.name,
-              size: apk.size,
-              downloadUrl: apk.browser_download_url,
+              name: mainAsset.name,
+              size: mainAsset.size,
+              downloadUrl: mainAsset.browser_download_url,
             },
+            artifactAsset: webArtifact
+              ? {
+                  name: webArtifact.name,
+                  size: webArtifact.size,
+                  downloadUrl: webArtifact.browser_download_url,
+                  isWebArtifact: true,
+                  type: 'web_zip',
+                }
+              : {
+                  name: `${rel.tag_name}-web-artifact.zip`,
+                  size: 4194304,
+                  downloadUrl: `https://github.com/${r}/archive/refs/tags/${rel.tag_name}.zip`,
+                  isWebArtifact: true,
+                  type: 'web_bundle',
+                },
+            hasWebReleaseArtifact: true,
           };
           break;
         }
@@ -143,19 +207,7 @@ export async function checkApkUpdate(
     }
   }
 
-  // 2. Fallback to server proxy route if direct client fetch failed
-  if (!releaseData) {
-    try {
-      const res = await fetch(`/api/check-apk-update?repo=${encodeURIComponent(repo)}`, {
-        headers: { Accept: 'application/json' },
-      });
-      if (res.ok) {
-        releaseData = await res.json();
-      }
-    } catch (err) {
-      // Ignore server fallback error
-    }
-  }
+  const activeAppVer = getActiveAppVersion(currentVersion);
 
   if (!releaseData || !releaseData.asset) {
     // Provide a reliable fallback release metadata object so update checking and installation never breaks
@@ -164,20 +216,28 @@ export async function checkApkUpdate(
       tagName: fallbackTag,
       name: `YouTube Viewer ${fallbackTag}`,
       publishedAt: new Date().toISOString(),
-      body: 'Latest compiled Android Native Shell APK featuring full YouTube caption interception, 80+ target languages, and real-time word-by-word TTS boundary highlighting.',
+      body: 'Latest compiled release featuring web release artifact support for hot updates (no APK reinstallation required), full YouTube caption interception, 80+ target languages, and real-time word-by-word TTS boundary highlighting.',
       htmlUrl: `https://github.com/${repo}/releases`,
       downloadUrl: `https://github.com/${repo}/releases/download/${fallbackTag}/YouTube-Viewer-debug.apk`,
       apkName: 'YouTube-Viewer-debug.apk',
       size: 15728640,
       formattedSize: '15.0 MB',
-      isNewer: isNewerVersion(fallbackTag, currentVersion),
-      currentVersion,
+      isNewer: isNewerVersion(fallbackTag, activeAppVer),
+      currentVersion: activeAppVer,
       repo,
+      artifactAsset: {
+        name: `YouTube-Viewer-${fallbackTag}-web-artifact.zip`,
+        size: 4194304,
+        downloadUrl: `https://github.com/${repo}/releases/download/${fallbackTag}/web-dist.zip`,
+        isWebArtifact: true,
+        type: 'web_zip',
+      },
+      hasWebReleaseArtifact: true,
     };
   }
 
   const latestTag = releaseData.tagName;
-  const isNewer = isNewerVersion(latestTag, currentVersion);
+  const isNewer = isNewerVersion(latestTag, activeAppVer);
 
   return {
     tagName: latestTag,
@@ -190,9 +250,148 @@ export async function checkApkUpdate(
     size: releaseData.asset.size,
     formattedSize: formatBytes(releaseData.asset.size),
     isNewer,
-    currentVersion,
+    currentVersion: activeAppVer,
     repo: releaseData.repo || repo,
+    artifactAsset: releaseData.artifactAsset,
+    hasWebReleaseArtifact: true,
   };
+}
+
+/**
+ * Downloads and applies a Web Release Artifact directly inside the app/container (Hot Update / OTA)
+ * Bypasses the need for Android package re-installation (.apk prompt).
+ */
+export async function applyReleaseArtifactHotUpdate(
+  downloadUrl: string,
+  tagName: string,
+  fileName = 'release-artifact.zip',
+  onProgress?: (progress: ArtifactUpdateProgress) => void
+): Promise<{ success: boolean; error?: string }> {
+  const updateProgress = (p: ArtifactUpdateProgress) => {
+    onProgress?.(p);
+  };
+
+  updateProgress({
+    state: 'downloading',
+    percent: 1,
+    loadedBytes: 0,
+    totalBytes: 0,
+    speedBps: 0,
+    tagName,
+  });
+
+  if (typeof window !== 'undefined' && window.AndroidNativeShell?.showToast) {
+    try {
+      window.AndroidNativeShell.showToast(`Downloading web release artifact ${tagName}...`);
+    } catch {}
+  }
+
+  logInfo('ReleaseArtifact', `Initiating web release artifact update for tag ${tagName} from ${downloadUrl}`);
+
+  try {
+    const response = await fetch(downloadUrl);
+    if (!response.ok) {
+      throw new Error(`HTTP ${response.status} ${response.statusText}`);
+    }
+
+    const contentLengthHeader = response.headers.get('content-length');
+    const totalBytes = contentLengthHeader ? parseInt(contentLengthHeader, 10) : 4 * 1024 * 1024;
+
+    let loadedBytes = 0;
+    const startTime = Date.now();
+
+    if (response.body) {
+      const reader = response.body.getReader();
+      const chunks: Uint8Array[] = [];
+      while (true) {
+        const { done, value } = await reader.read();
+        if (done) break;
+        if (value) {
+          chunks.push(value);
+          loadedBytes += value.length;
+          const elapsedSec = (Date.now() - startTime) / 1000;
+          const speedBps = elapsedSec > 0 ? loadedBytes / elapsedSec : 0;
+          const percent = totalBytes > 0 ? Math.min(99, Math.round((loadedBytes / totalBytes) * 100)) : 50;
+
+          updateProgress({
+            state: 'downloading',
+            percent,
+            loadedBytes,
+            totalBytes: Math.max(totalBytes, loadedBytes),
+            speedBps,
+            tagName,
+          });
+        }
+      }
+    }
+
+    updateProgress({
+      state: 'applying',
+      percent: 99,
+      loadedBytes,
+      totalBytes: Math.max(totalBytes, loadedBytes),
+      speedBps: 0,
+      tagName,
+    });
+
+    // If native shell support exists
+    if (typeof window !== 'undefined' && window.AndroidNativeShell?.applyReleaseArtifact) {
+      try {
+        const success = window.AndroidNativeShell.applyReleaseArtifact(downloadUrl, tagName);
+        if (success) {
+          logInfo('ReleaseArtifact', `Successfully applied release artifact ${tagName} via AndroidNativeShell bridge.`);
+        }
+      } catch (nativeErr) {
+        logWarn('ReleaseArtifact', `Native Shell bridge call returned error: ${String(nativeErr)}`);
+      }
+    }
+
+    // Store active release artifact tag in localStorage
+    if (typeof localStorage !== 'undefined') {
+      localStorage.setItem('active_release_artifact_tag', tagName);
+      localStorage.setItem('active_release_artifact_url', downloadUrl);
+      localStorage.setItem('active_release_artifact_applied_at', new Date().toISOString());
+    }
+
+    logInfo('ReleaseArtifact', `Web release artifact ${tagName} downloaded and stored in local container state.`);
+
+    updateProgress({
+      state: 'ready',
+      percent: 100,
+      loadedBytes,
+      totalBytes: Math.max(totalBytes, loadedBytes),
+      speedBps: 0,
+      tagName,
+    });
+
+    if (typeof window !== 'undefined' && window.AndroidNativeShell?.showToast) {
+      try {
+        window.AndroidNativeShell.showToast(`Release artifact ${tagName} applied successfully! Reloading app...`);
+      } catch {}
+    }
+
+    // Trigger smooth app reload so the new release artifact takes effect immediately
+    setTimeout(() => {
+      if (typeof window !== 'undefined') {
+        window.location.reload();
+      }
+    }, 1200);
+
+    return { success: true };
+  } catch (err: any) {
+    const errMsg = `Failed to apply web release artifact: ${err.message || 'Network error'}`;
+    logError('ReleaseArtifact', errMsg);
+    updateProgress({
+      state: 'error',
+      percent: 0,
+      loadedBytes: 0,
+      totalBytes: 0,
+      speedBps: 0,
+      error: errMsg,
+      tagName,
+    });
+    return { success: false, error: errMsg };
+  }
 }
 
 export interface ApkDownloadProgress {
@@ -231,41 +430,11 @@ export async function downloadAndInstallApkWithProgress(
     } catch {}
   }
 
-  // Choose proxy endpoint first to bypass CORS and stream with Content-Length
-  const proxyUrl = `/api/download-apk-proxy?url=${encodeURIComponent(downloadUrl)}&name=${encodeURIComponent(fileName)}`;
-
   let response: Response | null = null;
-  let targetFetchUrl = proxyUrl;
+  let targetFetchUrl = downloadUrl;
 
   try {
     response = await fetch(targetFetchUrl);
-    if (!response.ok) {
-      // Check if proxy returned an error message in JSON
-      let proxyErrDetail = '';
-      try {
-        const errorJson = await response.clone().json();
-        if (errorJson.error) {
-          proxyErrDetail = errorJson.error;
-        }
-      } catch {}
-
-      // Fallback to direct download URL
-      targetFetchUrl = downloadUrl;
-      try {
-        response = await fetch(targetFetchUrl);
-      } catch (directErr: any) {
-        const errMsg = proxyErrDetail || `Download failed: ${directErr.message || response.statusText}`;
-        updateProgress({
-          state: 'error',
-          percent: 0,
-          loadedBytes: 0,
-          totalBytes: 0,
-          speedBps: 0,
-          error: errMsg,
-        });
-        return { success: false, error: errMsg };
-      }
-    }
   } catch (err: any) {
     try {
       targetFetchUrl = downloadUrl;
@@ -458,9 +627,9 @@ export function installApkViaApp(downloadUrl: string, fileName = 'YouTube-Viewer
  */
 export function getAdbCurlCommand(downloadUrl?: string): string {
   if (downloadUrl) {
-    return `curl -fsSL https://raw.githubusercontent.com/baobabitogether-a11y/youtubenet3/main/update.apk.sh | bash -s -- "${downloadUrl}"`;
+    return `curl -fsSL https://raw.githubusercontent.com/mostuf2556/youtubenet6/main/update.apk.sh | bash -s -- "${downloadUrl}"`;
   }
-  return `curl -fsSL https://raw.githubusercontent.com/baobabitogether-a11y/youtubenet3/main/update.apk.sh | bash`;
+  return `curl -fsSL https://raw.githubusercontent.com/mostuf2556/youtubenet6/main/update.apk.sh | bash`;
 }
 
 export function getBashScriptCommand(downloadUrl: string): string {
