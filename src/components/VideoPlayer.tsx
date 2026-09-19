@@ -1052,6 +1052,13 @@ export const VideoPlayer = forwardRef<YouTubePlayerHandle, VideoPlayerProps>(
 
       return () => {
         isSubscribed = false;
+        if (ytPlayerRef.current) {
+          try {
+            ytPlayerRef.current.destroy?.();
+          } catch {}
+          ytPlayerRef.current = null;
+        }
+        lastCuedVideoRef.current = null;
       };
     }, [videoId, loop, startTime, dispatch]);
 
@@ -1110,6 +1117,7 @@ export const VideoPlayer = forwardRef<YouTubePlayerHandle, VideoPlayerProps>(
           {/* YouTube Video Iframe */}
           <div className="w-full h-full max-w-full max-h-full flex items-center justify-center">
             <iframe
+              key={videoId}
               ref={iframeRef}
               id="youtube-player-iframe"
               data-testid="youtube-video-player-iframe"
@@ -1774,6 +1782,7 @@ export const VideoPlayer = forwardRef<YouTubePlayerHandle, VideoPlayerProps>(
         <div className="relative w-full rounded-2xl overflow-hidden bg-black shadow-2xl border border-neutral-800 ring-1 ring-neutral-700/40">
           <div className="aspect-video w-full bg-neutral-950">
             <iframe
+              key={videoId}
               ref={iframeRef}
               id="youtube-player-iframe"
               data-testid="youtube-video-player-iframe"

@@ -130,7 +130,7 @@ export function parseYouTubeUrl(input: string): ParsedYouTubeResult | null {
       videoId: trimmed,
       formatType: 'raw_id',
       cleanWatchUrl: `https://www.youtube.com/watch?v=${trimmed}`,
-      embedUrl: `https://www.youtube-nocookie.com/embed/${trimmed}`,
+      embedUrl: `https://www.youtube.com/embed/${trimmed}`,
     };
   }
 
@@ -400,7 +400,11 @@ export function getYouTubeEmbedUrl(
     params.set('start', Math.floor(startTime).toString());
   }
 
-  return `https://www.youtube-nocookie.com/embed/${videoId}?${params.toString()}`;
+  if (typeof window !== 'undefined' && window.location?.origin) {
+    params.set('origin', window.location.origin);
+  }
+
+  return `https://www.youtube.com/embed/${videoId}?${params.toString()}`;
 }
 
 /**

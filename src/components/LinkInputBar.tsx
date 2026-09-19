@@ -131,6 +131,18 @@ export const LinkInputBar: React.FC<LinkInputBarProps> = ({
               setInputValue(e.target.value);
               if (error) setError(null);
             }}
+            onPaste={(e) => {
+              const pasted = e.clipboardData?.getData('text');
+              if (pasted) {
+                const validation = validateYouTubeUrl(pasted);
+                if (validation.isValid && validation.parsed) {
+                  e.preventDefault();
+                  setInputValue('');
+                  setError(null);
+                  onSelectVideo(validation.parsed.videoId, pasted, validation.parsed);
+                }
+              }
+            }}
             placeholder="Paste any YouTube URL (watch, youtu.be, shorts, live, embed, iframe, timestamp, etc.)"
             className="w-full py-3.5 bg-transparent text-neutral-100 placeholder-neutral-500 text-xs sm:text-sm md:text-base focus:outline-none"
           />

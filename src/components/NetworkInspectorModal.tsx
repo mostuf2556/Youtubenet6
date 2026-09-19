@@ -71,8 +71,9 @@ export const NetworkInspectorModal: React.FC = () => {
       const matchMethod = req.method.toLowerCase().includes(q);
       const matchStatus = req.status?.toString().includes(q);
       const matchError = req.error && req.error.toLowerCase().includes(q);
+      const matchReqBody = req.requestBody && JSON.stringify(req.requestBody).toLowerCase().includes(q);
       const matchBody = req.responseBody && JSON.stringify(req.responseBody).toLowerCase().includes(q);
-      return matchUrl || matchMethod || matchStatus || matchError || matchBody;
+      return matchUrl || matchMethod || matchStatus || matchError || matchReqBody || matchBody;
     }
 
     return true;

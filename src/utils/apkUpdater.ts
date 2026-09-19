@@ -4,6 +4,8 @@
  * and facilitates direct in-app installation or ADB updates.
  */
 
+import { logWarn, logInfo, logError } from './logBuffer';
+
 export interface ApkAsset {
   name: string;
   size: number;
@@ -83,62 +85,75 @@ export async function checkApkUpdate(
 ): Promise<ApkReleaseInfo> {
   let releaseData: any = null;
 
-  // 1. Try internal server route (avoids client-side CORS/rate limits)
-  try {
-    const res = await fetch(`/api/check-apk-update?repo=${encodeURIComponent(repo)}`, {
-      headers: { Accept: 'application/json' },
-    });
-    if (res.ok) {
-      releaseData = await res.json();
+  // 1. Client-Side direct GitHub API query (pure frontend service)
+  const reposToTry = [repo, repo === DEFAULT_REPO ? FALLBACK_REPO : DEFAULT_REPO];
+  for (const r of reposToTry) {
+    try {
+      const ghUrl = `https://api.github.com/repos/${r}/releases`;
+      const ghRes = await fetch(ghUrl, {
+        headers: {
+          Accept: 'application/vnd.github.v3+json',
+        },
+      });
+
+      if (!ghRes.ok) {
+        if (ghRes.status === 403) {
+          logWarn('CORS / GitHub API', `GitHub API rate limit reached (HTTP 403) for ${r}. Falling back to cached release info.`);
+        }
+        continue;
+      }
+
+      const releases = await ghRes.json();
+      if (!Array.isArray(releases) || releases.length === 0) continue;
+
+      // Find the latest release containing an APK
+      for (const rel of releases) {
+        const apk = rel.assets?.find(
+          (a: any) =>
+            a.name.toLowerCase().includes('youtube-viewer-debug.apk') ||
+            a.name.toLowerCase().endsWith('.apk')
+        );
+        if (apk) {
+          releaseData = {
+            tagName: rel.tag_name,
+            name: rel.name || rel.tag_name,
+            publishedAt: rel.published_at,
+            body: rel.body || '',
+            htmlUrl: rel.html_url,
+            repo: r,
+            asset: {
+              name: apk.name,
+              size: apk.size,
+              downloadUrl: apk.browser_download_url,
+            },
+          };
+          break;
+        }
+      }
+      if (releaseData) break;
+    } catch (clientErr: any) {
+      const isCors =
+        clientErr?.name === 'TypeError' ||
+        String(clientErr?.message || '').toLowerCase().includes('failed to fetch') ||
+        String(clientErr?.message || '').toLowerCase().includes('cors');
+
+      if (isCors) {
+        logWarn('CORS / GitHub API', `Direct client fetch to GitHub API for ${r} blocked by CORS or network failure: ${String(clientErr)}`);
+      }
     }
-  } catch (err) {
-    // Fallback to direct client-side GitHub query
   }
 
-  // 2. Fallback to direct GitHub API if server endpoint failed or returned empty
+  // 2. Fallback to server proxy route if direct client fetch failed
   if (!releaseData) {
-    const reposToTry = [repo, repo === DEFAULT_REPO ? FALLBACK_REPO : DEFAULT_REPO];
-    for (const r of reposToTry) {
-      try {
-        const ghRes = await fetch(`https://api.github.com/repos/${r}/releases`, {
-          headers: {
-            Accept: 'application/vnd.github.v3+json',
-          },
-        });
-
-        if (!ghRes.ok) continue;
-
-        const releases = await ghRes.json();
-        if (!Array.isArray(releases) || releases.length === 0) continue;
-
-        // Find the latest release containing an APK
-        for (const rel of releases) {
-          const apk = rel.assets?.find(
-            (a: any) =>
-              a.name.toLowerCase().includes('youtube-viewer-debug.apk') ||
-              a.name.toLowerCase().endsWith('.apk')
-          );
-          if (apk) {
-            releaseData = {
-              tagName: rel.tag_name,
-              name: rel.name || rel.tag_name,
-              publishedAt: rel.published_at,
-              body: rel.body || '',
-              htmlUrl: rel.html_url,
-              repo: r,
-              asset: {
-                name: apk.name,
-                size: apk.size,
-                downloadUrl: apk.browser_download_url,
-              },
-            };
-            break;
-          }
-        }
-        if (releaseData) break;
-      } catch {
-        // try next repo
+    try {
+      const res = await fetch(`/api/check-apk-update?repo=${encodeURIComponent(repo)}`, {
+        headers: { Accept: 'application/json' },
+      });
+      if (res.ok) {
+        releaseData = await res.json();
       }
+    } catch (err) {
+      // Ignore server fallback error
     }
   }
 

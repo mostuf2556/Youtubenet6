@@ -44,7 +44,9 @@ export function ActivityLogModal({ isOpen, onClose }: ActivityLogModalProps) {
         const matchMsg = e.message.toLowerCase().includes(q);
         const matchCat = e.category.toLowerCase().includes(q);
         const matchUrl = e.url ? e.url.toLowerCase().includes(q) : false;
-        return matchMsg || matchCat || matchUrl;
+        const matchBody = e.truncatedResponseBody ? e.truncatedResponseBody.toLowerCase().includes(q) : false;
+        const matchDetails = e.details ? JSON.stringify(e.details).toLowerCase().includes(q) : false;
+        return matchMsg || matchCat || matchUrl || matchBody || matchDetails;
       }
       return true;
     });

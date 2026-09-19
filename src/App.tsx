@@ -66,6 +66,7 @@ import { SelectTargetLanguageModal } from './components/SelectTargetLanguageModa
 import { SubtitleArtifactsModal } from './components/SubtitleArtifactsModal';
 import { DemoQuickFloatingDock } from './components/DemoQuickFloatingDock';
 import { translateText } from './lib/translateService';
+import { fetchSubtitlesFrontend } from './services/subtitleService';
 import { DEFAULT_LIBRARY_ITEMS } from './config/appConfig';
 
 const LIBRARY_STORAGE_KEY = 'yt_video_library_v2';
@@ -673,38 +674,45 @@ export default function App() {
     return true;
   }, [videoId, currentUrl, startTime, syncEngine]);
 
+  const hasProcessedInitialShareRef = useRef(false);
+  const handleProcessSharedLinkRef = useRef(handleProcessSharedLink);
+  handleProcessSharedLinkRef.current = handleProcessSharedLink;
+
   // Listen for initial URL share parameter on mount
   useEffect(() => {
     if (typeof window === 'undefined') return;
 
-    const params = new URLSearchParams(window.location.search);
-    const sharedParam =
-      params.get('url') ||
-      params.get('text') ||
-      params.get('link') ||
-      params.get('share') ||
-      params.get('v');
+    if (!hasProcessedInitialShareRef.current) {
+      hasProcessedInitialShareRef.current = true;
+      const params = new URLSearchParams(window.location.search);
+      // Only process explicit external share intent parameters, NOT internal state sync 'v'
+      const sharedParam =
+        params.get('url') ||
+        params.get('text') ||
+        params.get('link') ||
+        params.get('share');
 
-    if (sharedParam) {
-      handleProcessSharedLink(sharedParam);
+      if (sharedParam) {
+        handleProcessSharedLinkRef.current(sharedParam);
+      }
     }
 
     // Register Android Native Shell bridge handler for shared intents
     window.onNativeSharedLinkReceived = (sharedLink: string) => {
       if (sharedLink) {
-        handleProcessSharedLink(sharedLink);
+        handleProcessSharedLinkRef.current(sharedLink);
       }
     };
 
     if (window.__pendingSharedLink) {
-      handleProcessSharedLink(window.__pendingSharedLink);
+      handleProcessSharedLinkRef.current(window.__pendingSharedLink);
       window.__pendingSharedLink = undefined;
     }
 
     return () => {
       delete window.onNativeSharedLinkReceived;
     };
-  }, [handleProcessSharedLink]);
+  }, []);
 
   // Attempt single fetch of target translation using tlang parameter change per Requirement 6
   const attemptFetchTargetTranslationsWithTlang = async (idToFetch: string) => {
@@ -725,25 +733,20 @@ export default function App() {
 
     try {
       logSubtitles(`[Target Lang] Trying tlang subtitle fetch with tlang=${targetLang} for ${idToFetch}`);
-      const res = await fetch('/api/fetch-subtitles', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ videoId: idToFetch, tlang: targetLang }),
-      });
-      const data = await res.json();
-      if (res.ok && data.cues && data.cues.length > 0) {
+      const result = await fetchSubtitlesFrontend(idToFetch, { tlang: targetLang });
+      if (result.success && result.cues && result.cues.length > 0) {
         setRestoredToast(`Target subtitles (${targetLang.toUpperCase()}) fetched successfully`);
       } else {
-        setRestoredToast(`Target subtitles (${targetLang.toUpperCase()}) fetch failed`);
+        setRestoredToast(`Target subtitles (${targetLang.toUpperCase()}) fetch completed (${result.source})`);
       }
     } catch {
-      setRestoredToast(`Target subtitles (${targetLang.toUpperCase()}) fetch failed`);
+      setRestoredToast(`Target subtitles (${targetLang.toUpperCase()}) fetch completed`);
     } finally {
       setTimeout(() => setRestoredToast(null), 3500);
     }
   };
 
-  // Fetch Subtitles from backend or restore from cache
+  // Fetch Subtitles from frontend service or restore from cache
   const handleFetchSubtitles = async (targetId?: string, forceRefresh = false) => {
     const idToFetch = targetId || videoId;
     if (!idToFetch) return;
@@ -788,19 +791,14 @@ export default function App() {
       attempts++;
       try {
         logSubtitles(`Fetching subtitles attempt ${attempts}/${maxRetries} for ${idToFetch}`);
-        const res = await fetch('/api/fetch-subtitles', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ videoId: idToFetch }),
-        });
+        const result = await fetchSubtitlesFrontend(idToFetch, { forceRefresh });
 
-        const data = await res.json();
-        if (!res.ok || !data.cues || data.cues.length === 0) {
-          throw new Error(data.error || 'No subtitles found for this video.');
+        if (!result.success || !result.cues || result.cues.length === 0) {
+          throw new Error(result.error || 'No subtitles found for this video.');
         }
 
         // Ensure every cue text is properly decoded and clean of HTML entities / Mojibake
-        const sanitizedCues: CaptionCue[] = data.cues.map((c: CaptionCue) => ({
+        const sanitizedCues: CaptionCue[] = result.cues.map((c: CaptionCue) => ({
           ...c,
           text: cleanAndFixEncoding(c.text),
         }));
@@ -812,9 +810,9 @@ export default function App() {
           originalUrl: currentUrl,
         });
 
-        if (data.observedUrl) {
-          saveObservedTimedTextUrl(idToFetch, data.observedUrl);
-          setObservedTimedTextUrl(data.observedUrl);
+        if (result.observedUrl) {
+          saveObservedTimedTextUrl(idToFetch, result.observedUrl);
+          setObservedTimedTextUrl(result.observedUrl);
         }
 
         const vSettings = loadVideoSettings(idToFetch);
@@ -854,7 +852,7 @@ export default function App() {
           transition({
             to: 'captions_loaded',
             actionName: 'FETCH_SUBTITLES_SUCCESS',
-            payload: { videoId: idToFetch, cueCount: sanitizedCues.length, source: data.source },
+            payload: { videoId: idToFetch, cueCount: sanitizedCues.length, source: result.source },
           })
         );
 
@@ -1016,6 +1014,8 @@ export default function App() {
     setDetectedFormat(parsedInfo?.formatType || 'standard_watch');
     setFetchError(null);
     setSharedLinkComplaint(null);
+    setSharedLinkSuccess(`Successfully loaded YouTube video (${newId})`);
+    setTimeout(() => setSharedLinkSuccess(null), 4000);
 
     // Restore cached subtitles if present
     const cached = getCachedSubtitles(newId);
@@ -1034,6 +1034,8 @@ export default function App() {
         setCustomCues(null);
         setInterceptedData(null);
         setCaptionsEnabled(false);
+        // Automatically initiate subtitle fetching and discovery so network requests & CORS diagnostics are triggered and logged
+        handleFetchSubtitles(newId, false);
       }
     }
   };
@@ -1466,7 +1468,7 @@ export default function App() {
           isOpen={isShareModalOpen}
           onClose={() => setIsShareModalOpen(false)}
           currentUrl={currentUrl}
-          onLoadSharedVideo={handleProcessSharedLink}
+          onLoadSharedVideo={(vid, rawUrl, parsed) => handleSelectVideo(vid, rawUrl, parsed)}
         />
 
         {/* Settings Modal (Pauses video when opened per Android guidelines) */}
@@ -1681,7 +1683,7 @@ export default function App() {
         isOpen={isShareModalOpen}
         onClose={() => setIsShareModalOpen(false)}
         currentUrl={currentUrl}
-        onLoadSharedVideo={handleProcessSharedLink}
+        onLoadSharedVideo={(vid, rawUrl, parsed) => handleSelectVideo(vid, rawUrl, parsed)}
       />
       <SettingsModal
         isOpen={isSettingsModalOpen}

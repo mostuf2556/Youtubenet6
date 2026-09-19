@@ -14,7 +14,9 @@ import {
   SAMPLE_AUTHENTIC_TIMEDTEXT_HEADERS,
 } from '../config/fixtures';
 import { SUPPORTED_TARGET_LANGUAGES, ON_DEMAND_FALLBACK_COUNT } from '../config/constants';
-import { logWarn, logInfo } from '../utils/logBuffer';
+import { logWarn, logInfo, logError } from '../utils/logBuffer';
+import { store } from '../store';
+import { addError } from '../store/errorsSlice';
 
 export { SAMPLE_TRANSLATIONS, SAMPLE_AUTHENTIC_RUSSIAN_URL, SAMPLE_AUTHENTIC_TIMEDTEXT_HEADERS } from '../config/fixtures';
 export { SUPPORTED_TARGET_LANGUAGES, ON_DEMAND_FALLBACK_COUNT } from '../config/constants';
@@ -462,8 +464,29 @@ export async function fetchYouTubeNativeTranslation({
       } else {
         clientFetchError = new Error(`Client direct fetch returned HTTP ${clientRes.status}`);
       }
-    } catch (clientErr) {
+    } catch (clientErr: any) {
       clientFetchError = clientErr;
+      const isCors =
+        clientErr?.name === 'TypeError' ||
+        String(clientErr?.message || '').toLowerCase().includes('failed to fetch') ||
+        String(clientErr?.message || '').toLowerCase().includes('cors');
+
+      if (isCors) {
+        const corsMsg = `Direct browser timedtext fetch for target language (${cleanLang}) blocked by browser CORS policy: ${copiedRequest.url}`;
+        logWarn('CORS / Translation', corsMsg);
+        store.dispatch(
+          addError({
+            section: 'network',
+            title: `CORS Blocked: Translation TimedText (${cleanLang})`,
+            message: corsMsg,
+            details: {
+              targetLang: cleanLang,
+              url: copiedRequest.url,
+              error: String(clientErr),
+            },
+          })
+        );
+      }
       console.warn(`[Translation] Client direct fetch returned error for ${cleanLang}:`, clientErr);
     }
   }

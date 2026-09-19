@@ -288,7 +288,7 @@ async function startServer() {
       const requestedRepo = req.query.repo as string | undefined;
       const candidateRepos = requestedRepo
         ? [requestedRepo]
-        : ['baobabitogether-a11y/youtubenet3', 'baobabitogether1-hash/youtubenet4'];
+        : ['mostuf2556/youtubenet6'];
 
       const now = Date.now();
       const targetRepoKey = candidateRepos.join(',');
