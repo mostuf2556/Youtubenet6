@@ -1,8 +1,12 @@
-# Directive Solution Plan (`temp.md`)
+# Active Execution Scratchpad (`temp.md`)
 
-## Task: Provide Exact Links to Passing Tests Hosted on GitHub Pages
+> **Managed Under**: [`TASKS.md`](./TASKS.md)
+
+## Task: Integrate Recommendations from `RECOMMENDATION.md` into `AGENTS.md`
 
 ### Sub-Tasks Status Lifecycle:
-- [done] **Sub-Task 1: Verify all passing test report entry points on GitHub Pages** - Validated `index.html`, `mochawesome.html`, `android-emulator-report.html`, `playwright/index.html`, and `app/index.html`.
-- [done] **Sub-Task 2: Format direct clickable links to each passing test report on GitHub Pages** - Formatted links clearly.
-- [done] **Sub-Task 3: Update `temp.md` and present links to the user** - Finished.
+- [todo] **Sub-Task 1: Add recommended Markdown ecosystem files to `AGENTS.md` Section 1 (`DECISIONS.md`, `CHANGELOG.md`, `RECOMMENDATION.md`)**
+- [todo] **Sub-Task 2: Expand `AGENTS.md` Section 11 (Directive Execution & Planning Protocol) to include ADR decision logging (`DECISIONS.md`), plan templating (`PLAN_TEMPLATE.md`), link verification (`scripts/verify-md-links.ts`), and `PROMPT.md` auto-archiving**
+- [todo] **Sub-Task 3: Create initial placeholder files (`DECISIONS.md`, `CHANGELOG.md`, `PLAN_TEMPLATE.md`) to complete the ecosystem**
+- [todo] **Sub-Task 4: Run linter (`npm run lint`) and build verification (`compile_applet`)**
+- [todo] **Sub-Task 5: Update `TASKS.md` and provide concise response to user**
