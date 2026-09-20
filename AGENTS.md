@@ -10,24 +10,24 @@ The project is governed strictly by Markdown design specifications rather than s
 
 ### Required Documentation Ecosystem
 - **`AGENTS.md`**: Architectural foundation, modularity mandates, component contracts, platform boundaries, and testing roadmap.
-- **`TASKS.md`**: Central task index and priority tracker referencing detailed `PLAN_*.md` files.
-- **`PLAN_*.md`**: Specialized architectural plans, technical specifications, and dev execution flows (e.g. `PLAN_ANDROID_UPDATES.md`).
-- **`DECISIONS.md`**: Immutable Architecture Decision Records (ADR log) recording contextual rationale and settled constraints.
-- **`CHANGELOG.md`**: Structured release tag and OTA asset bundle (`web-dist.zip` / APK) deployment history.
-- **`RECOMMENDATION.md`**: Active backlog of recommended workflow, architectural, and developer tooling enhancements.
-- **`PLAN_TEMPLATE.md`**: Standardized specification template for creating new `PLAN_*.md` files.
-- **`PROMPT.md`**: Active user requirements and task tracker, rewritten in the agent's own words for every directive.
-- **`PROMPT_OLD.md`**: Historical archive of previous directives and completed task lists.
-- **`LIBRARY.md`**: Specification and structure of the subtitle fixture library (`test/fixtures/`).
-- **`json3.md`**: Specification for YouTube JSON3 timedtext format, network interception, and zero-calculation native translation alignment.
-- **`DESIGN_SUBTITLE_VIEWS.md`**: Structural interface and behavior contract for all subtitle-rendering views.
-- **`DESIGN_VIEW_LANGS.md`**: Structural interface and behavior contract for all language-selection views.
-- **`DESIGN_CONTROLS_VIEW.md`**: Structural interface and behavior contract for playback control views.
-- **`DESIGN_PLAYER_PROVIDER.md`**: Vendor-agnostic media playback provider and time synchronization contract.
-- **`DESIGN_STATE_COORDINATOR.md`**: Finite state machine, transitions, active cue resolution, and state flow.
-- **`SCHEMA_TIMEDTEXT.md`**: Format definitions, segment timings, entity decoding, and RTL/BiDi normalization.
-- **`DEBUG.md`**: Diagnostic log viewer, network request interception, 15-char response preview, and AI troubleshooting prompt generator.
-- **`ACTIONS.md`**: Automated GitHub Actions CI/CD workflows and deployment pipelines.
+- **`docs/operations/TASKS.md`**: Central task index and priority tracker referencing detailed `PLAN_*.md` files.
+- **`docs/plans/PLAN_*.md`**: Specialized architectural plans, technical specifications, and dev execution flows (e.g. `PLAN_ANDROID_UPDATES.md`).
+- **`docs/operations/DECISIONS.md`**: Immutable Architecture Decision Records (ADR log) recording contextual rationale and settled constraints.
+- **`docs/operations/CHANGELOG.md`**: Structured release tag and OTA asset bundle (`web-dist.zip` / APK) deployment history.
+- **`docs/operations/RECOMMENDATION.md`**: Active backlog of recommended workflow, architectural, and developer tooling enhancements.
+- **`docs/plans/PLAN_TEMPLATE.md`**: Standardized specification template for creating new `PLAN_*.md` files.
+- **`docs/operations/PROMPT.md`**: Active user requirements and task tracker, rewritten in the agent's own words for every directive.
+- **`docs/operations/PROMPT_OLD.md`**: Historical archive of previous directives and completed task lists.
+- **`docs/specifications/LIBRARY.md`**: Specification and structure of the subtitle fixture library (`test/fixtures/`).
+- **`docs/specifications/json3.md`**: Specification for YouTube JSON3 timedtext format, network interception, and zero-calculation native translation alignment.
+- **`docs/designs/DESIGN_SUBTITLE_VIEWS.md`**: Structural interface and behavior contract for all subtitle-rendering views.
+- **`docs/designs/DESIGN_VIEW_LANGS.md`**: Structural interface and behavior contract for all language-selection views.
+- **`docs/designs/DESIGN_CONTROLS_VIEW.md`**: Structural interface and behavior contract for playback control views.
+- **`docs/designs/DESIGN_PLAYER_PROVIDER.md`**: Vendor-agnostic media playback provider and time synchronization contract.
+- **`docs/designs/DESIGN_STATE_COORDINATOR.md`**: Finite state machine, transitions, active cue resolution, and state flow.
+- **`docs/specifications/SCHEMA_TIMEDTEXT.md`**: Format definitions, segment timings, entity decoding, and RTL/BiDi normalization.
+- **`docs/operations/DEBUG.md`**: Diagnostic log viewer, network request interception, 15-char response preview, and AI troubleshooting prompt generator.
+- **`docs/operations/ACTIONS.md`**: Automated GitHub Actions CI/CD workflows and deployment pipelines.
 
 ---
 
@@ -192,24 +192,24 @@ When processing incoming user prompts and directives, the agent must adhere to a
 - **High-Level Status Only**: Prompt responses must be concise, scannable, and focused strictly on high-level outcomes and task completion confirmations.
 
 ### 2. Detailed Specs in `PLAN_*.md` Files
-- **Mandatory Markdown Plan Files**: All detailed answers, architectural designs, technical specifications, and step-by-step dev execution flows MUST be written and persisted inside dedicated `PLAN_*.md` files in the repository root (e.g., `PLAN_ANDROID_UPDATES.md`, `PLAN_SUBTITLE_VIEWS.md`).
-- **Standardized Structure (`PLAN_TEMPLATE.md`)**: Plans must follow the uniform layout defined in `PLAN_TEMPLATE.md` (Objective, Component Interfaces, Data Flow/State Transitions, Platform Boundaries, Test Matrix).
+- **Mandatory Markdown Plan Files**: All detailed answers, architectural designs, technical specifications, and step-by-step dev execution flows MUST be written and persisted inside dedicated `PLAN_*.md` files in the `docs/plans/` directory (e.g., `docs/plans/PLAN_ANDROID_UPDATES.md`, `docs/plans/PLAN_SUBTITLE_VIEWS.md`).
+- **Standardized Structure (`PLAN_TEMPLATE.md`)**: Plans must follow the uniform layout defined in `docs/plans/PLAN_TEMPLATE.md` (Objective, Component Interfaces, Data Flow/State Transitions, Platform Boundaries, Test Matrix).
 
 ### 3. Architecture Decision Records (`DECISIONS.md`)
-- **Immutable ADR Log**: Major structural decisions, format deprecations, and platform constraints MUST be logged in `DECISIONS.md` (e.g., ADR-001: Sole adoption of YouTube JSON3; ADR-002: Android native `tlang` zero-calculation translation).
+- **Immutable ADR Log**: Major structural decisions, format deprecations, and platform constraints MUST be logged in `docs/operations/DECISIONS.md` (e.g., ADR-001: Sole adoption of YouTube JSON3; ADR-002: Android native `tlang` zero-calculation translation).
 - **Rationale Preservation**: Each ADR records context, chosen options, and consequences to prevent re-debating settled architectural constraints.
 
 ### 4. Centralized Priority Index (`TASKS.md`)
-- **Single Source of Truth**: All tasks, feature requests, and system objectives MUST be indexed, prioritized, and linked in `TASKS.md`.
-- **Target & Priority Tracking**: `TASKS.md` manages task statuses (`[P0]`, `[P1]`, `[todo]`, `[in-progress]`, `[done]`), assigning target priorities and referencing the associated `PLAN_*.md` file for deep technical context.
+- **Single Source of Truth**: All tasks, feature requests, and system objectives MUST be indexed, prioritized, and linked in `docs/operations/TASKS.md`.
+- **Target & Priority Tracking**: `docs/operations/TASKS.md` manages task statuses (`[P0]`, `[P1]`, `[todo]`, `[in-progress]`, `[done]`), assigning target priorities and referencing the associated `PLAN_*.md` file for deep technical context.
 
 ### 5. Active Execution Scratchpad (`temp.md` managed under `TASKS.md`)
-- **Managed Scratchpad**: `temp.md` is directly managed under `TASKS.md` as the live execution runner for the currently active task ID.
-- **Step-by-Step Lifecycle**: Explicitly mark sub-task statuses (`[todo]`, `[done]`, `[test]`, `[fix]`) in `temp.md` during execution, updating `TASKS.md` and relevant `PLAN_*.md` files upon task completion.
+- **Managed Scratchpad**: `temp.md` (at root) is directly managed under `docs/operations/TASKS.md` as the live execution runner for the currently active task ID.
+- **Step-by-Step Lifecycle**: Explicitly mark sub-task statuses (`[todo]`, `[done]`, `[test]`, `[fix]`) in `temp.md` during execution, updating `docs/operations/TASKS.md` and relevant `PLAN_*.md` files upon task completion.
 
 ### 6. Directive Archiving & Link Integrity
-- **Prompt History (`PROMPT_OLD.md`)**: Upon directive completion, append completed task prompts to `PROMPT_OLD.md` to maintain a lean active `PROMPT.md`.
-- **Cross-Reference Integrity**: Maintain valid relative markdown links across `AGENTS.md`, `TASKS.md`, `DECISIONS.md`, and `PLAN_*.md` files.
+- **Prompt History (`PROMPT_OLD.md`)**: Upon directive completion, append completed task prompts to `docs/operations/PROMPT_OLD.md` to maintain a lean active `docs/operations/PROMPT.md`.
+- **Cross-Reference Integrity**: Maintain valid relative markdown links across `AGENTS.md`, `docs/operations/TASKS.md`, `docs/operations/DECISIONS.md`, and `docs/plans/PLAN_*.md` files.
 
 ---
 

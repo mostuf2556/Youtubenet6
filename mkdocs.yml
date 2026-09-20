@@ -1,0 +1,70 @@
+site_name: YouTube Subtitle Learning Platform Docs
+site_description: Documentation, architectural plans, and view design contracts for YouTube Subtitle Learning Platform.
+site_author: Agent
+repo_url: https://github.com/mostuf2556/Youtubenet6
+repo_name: YouTube Subtitle Learning Platform
+
+theme:
+  name: material
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - navigation.indexes
+    - navigation.sections
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+
+nav:
+  - Overview: index.md
+  - Architectural Plans:
+      - Android Updates: plans/PLAN_ANDROID_UPDATES.md
+      - Documentation Hierarchy: plans/PLAN_DOCS_ORGANIZATION.md
+      - Plan Template: plans/PLAN_TEMPLATE.md
+  - View Design Contracts:
+      - Subtitle Views: designs/DESIGN_SUBTITLE_VIEWS.md
+      - Language Views: designs/DESIGN_VIEW_LANGS.md
+      - Controls View: designs/DESIGN_CONTROLS_VIEW.md
+      - Player Provider: designs/DESIGN_PLAYER_PROVIDER.md
+      - State Coordinator: designs/DESIGN_STATE_COORDINATOR.md
+  - Specifications & Data:
+      - JSON3 Format: specifications/json3.md
+      - TimedText Schema: specifications/SCHEMA_TIMEDTEXT.md
+      - Fixture Library: specifications/LIBRARY.md
+  - Operations & ADRs:
+      - Master Task Index: operations/TASKS.md
+      - Active Prompt: operations/PROMPT.md
+      - Prompt Archive: operations/PROMPT_OLD.md
+      - Architecture Decisions (ADRs): operations/DECISIONS.md
+      - Release Changelog: operations/CHANGELOG.md
+      - Diagnostic Debugger: operations/DEBUG.md
+      - CI/CD Actions: operations/ACTIONS.md
+      - Test Coverage Matrix: operations/COVERAGE.md
+      - Deprecated Architectures: operations/DEPRECATED.md
+      - Replit Setup: operations/replit.md
+      - Workflow Recommendations: operations/RECOMMENDATION.md
+
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.superfences
+  - pymdownx.inlinehilite
+  - pymdownx.tabbed:
+      alternate_style: true
+  - tables
+  - admonition
+  - attr_list
