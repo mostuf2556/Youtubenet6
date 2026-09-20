@@ -2,11 +2,12 @@
 
 > **Managed Under**: [`docs/operations/TASKS.md`](./docs/operations/TASKS.md)
 
-## Task: Align Documentation Files into MkDocs Navigation and Verify GitHub Pages Deployment Workflow
+## Task: Document Order & Root Hygiene — Relocate `.md` Files to `docs/` Subfolders and Update `AGENTS.md`
 
 ### Sub-Tasks Status Lifecycle:
-- [done] **Sub-Task 1: Add relocated `.md` files to the navigation list in `mkdocs.yml`.**
-- [done] **Sub-Task 2: Sync and expand the documentation index map in `docs/index.md` with links to all new files.**
-- [done] **Sub-Task 3: Verify and validate the `.github/workflows/docs.yml` workflow file.**
-- [done] **Sub-Task 4: Run linter (`npm run lint`) and build verification (`compile_applet`) to ensure codebase stability.**
-- [done] **Sub-Task 5: Present a concise, scannable overview to the user.**
+- [done] **Sub-Task 1: Add Markdown Relocation Mandate and Root Hygiene rule to `AGENTS.md` in our own words.**
+- [done] **Sub-Task 2: Relocate root `.md` files into categorized subdirectories under `docs/` (`docs/plans/`, `docs/designs/`, `docs/specifications/`, `docs/operations/`).**
+- [done] **Sub-Task 3: Create `docs/plans/PLAN_DOCS_ORGANIZATION.md` following standard template and add ADR-004 in `docs/operations/DECISIONS.md`.**
+- [done] **Sub-Task 4: Update all internal and cross-file documentation paths in `AGENTS.md`, `docs/operations/TASKS.md`, and verify `mkdocs.yml`.**
+- [done] **Sub-Task 5: Run linter (`npm run lint`), caption format verification (`npm run test:caption-formats`), and production build (`compile_applet`).**
+- [done] **Sub-Task 6: Present concise summary of accomplishments to the user.**
