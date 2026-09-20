@@ -971,6 +971,45 @@ export default function App() {
     };
   }, [videoId, currentUrl]);
 
+  // Global postMessage handler for interactive test runners and test decks
+  useEffect(() => {
+    const handleMessage = (e: MessageEvent) => {
+      if (!e.data || typeof e.data !== 'object') return;
+      if (e.data.type === 'YT_ACTION') {
+        const { action, lang, videoId: targetVid } = e.data;
+        if (action === 'PLAY') {
+          try {
+            playerRef.current?.playVideo?.();
+          } catch {}
+        } else if (action === 'PAUSE') {
+          try {
+            playerRef.current?.pauseVideo?.();
+          } catch {}
+        } else if (action === 'TOGGLE_CAPTIONS') {
+          setCaptionsEnabled((prev) => !prev);
+        } else if (action === 'SET_LANG' && lang) {
+          handleUpdateTargetLang(lang);
+        } else if (action === 'SET_VIDEO' && targetVid) {
+          handleSelectVideo(targetVid, `https://www.youtube.com/watch?v=${targetVid}`);
+        } else if (action === 'OPEN_DIAGNOSTICS') {
+          setIsLogsModalOpen(true);
+        } else if (action === 'TOGGLE_THEME') {
+          setSettings((prev) => {
+            const nextTheme = prev.theme === 'pure-dark' ? 'minimal-light' : prev.theme === 'minimal-light' ? 'warm-slate' : 'pure-dark';
+            const updated = { ...prev, theme: nextTheme };
+            saveAppSettings(updated);
+            return updated;
+          });
+        }
+      }
+    };
+
+    window.addEventListener('message', handleMessage);
+    return () => {
+      window.removeEventListener('message', handleMessage);
+    };
+  }, []);
+
   // Flow Step 1: User inputs video URL
   const handleSelectVideo = (newId: string, rawUrl: string, parsedInfo?: ParsedYouTubeResult) => {
     if (newId === videoId && rawUrl === currentUrl && parsedInfo?.startTime === startTime) {
