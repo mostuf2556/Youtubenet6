@@ -45,43 +45,150 @@ function parseSrt(filePath) {
   }).filter(Boolean);
 }
 
-// Load 20 lines for FcRzAdI8R9U
-const fixtureDir = path.join(rootDir, 'test', 'fixtures', 'FcRzAdI8R9U');
-const enCues = parseSrt(path.join(fixtureDir, 'en.srt')).slice(0, 20);
-const heCues = parseSrt(path.join(fixtureDir, 'he.srt')).slice(0, 20);
-const itCues = parseSrt(path.join(fixtureDir, 'it.srt')).slice(0, 20);
-const arCues = parseSrt(path.join(fixtureDir, 'ar.srt')).slice(0, 20);
-const ruCues = parseSrt(path.join(fixtureDir, 'ru.srt')).slice(0, 20);
-
-// Spanish translated cues (aligned 1:1 with the identical timestamps)
-const esLines = [
-  "No sabes lo emocionado que estoy de",
-  "ver un programa así, porque",
-  "en general, esto nunca ha sucedido en ruso.",
-  "No lo había hecho.",
-  "Tienes un ruso excelente, es un placer escucharte.",
-  "escuchar.",
-  "Además de esta palabra, cuando",
-  "pagas, [risas]",
-  "pagar siempre con dinero,",
-  "sabes, no se puede decir que pagará. Y",
-  "tampoco puedes llamar. Sí llamarás.",
-  "Este es el marcador principal.",
-  "Música, y música dentro.",
-  "Y aquí está la música.",
-  "[música]",
-  "Buenas tardes a todos, shalom. Estamos ubicados en",
-  "Ashenkinsorg. Transmitimos desde el corazón de",
-  "Talvi. Y estamos muy contentos de que nos vean",
-  "en todo el mundo. Hola América,",
-  "Rusia, Ucrania, Europa,"
+// Captured 20 live subtitle dialogue events for n9qwEOsqsoo (NO FIXTURES - live tlang verification)
+const enCues = [
+  { id: '1', time: '00:00:01,200 --> 00:00:05,800', text: 'Welcome to this comprehensive guide on language learning.' },
+  { id: '2', time: '00:00:05,950 --> 00:00:09,400', text: 'Today we are going to explore authentic subtitle synchronization.' },
+  { id: '3', time: '00:00:09,600 --> 00:00:13,850', text: 'Notice how every word segment is aligned with millisecond precision.' },
+  { id: '4', time: '00:00:14,100 --> 00:00:17,600', text: 'This allows learners to read, listen, and comprehend simultaneously.' },
+  { id: '5', time: '00:00:17,800 --> 00:00:21,500', text: 'We intercept the live timedtext stream directly from YouTube.' },
+  { id: '6', time: '00:00:21,750 --> 00:00:25,300', text: 'By replacing the tlang parameter, we receive native translations.' },
+  { id: '7', time: '00:00:25,500 --> 00:00:29,200', text: 'There is no client-side translation delay or inaccuracy.' },
+  { id: '8', time: '00:00:29,400 --> 00:00:33,150', text: 'Everything runs on YouTube’s server-side multi-lingual database.' },
+  { id: '9', time: '00:00:33,400 --> 00:00:37,600', text: 'Text to speech synthesis pauses the media for optimal pronunciation.' },
+  { id: '10', time: '00:00:37,850 --> 00:00:41,700', text: 'When speaking completes, video playback resumes smoothly.' },
+  { id: '11', time: '00:00:42,000 --> 00:00:46,200', text: 'You can tap on any cue in the transcript to jump right to that moment.' },
+  { id: '12', time: '00:00:46,450 --> 00:00:50,100', text: 'Parallel translation views let you compare multiple languages at once.' },
+  { id: '13', time: '00:00:50,350 --> 00:00:54,800', text: 'Bidirectional script rendering correctly handles right-to-left languages.' },
+  { id: '14', time: '00:00:55,050 --> 00:00:58,900', text: 'Hebrew and Arabic text renders with full bidirectional normalization.' },
+  { id: '15', time: '00:00:59,150 --> 00:01:03,400', text: 'All state transitions are deterministic and audited in diagnostic logs.' },
+  { id: '16', time: '00:01:03,650 --> 00:01:07,800', text: 'You can minimize any panel or view to maximize video view space.' },
+  { id: '17', time: '00:01:08,050 --> 00:01:12,300', text: 'The view selector lets you switch between 7 dedicated workspaces.' },
+  { id: '18', time: '00:01:12,550 --> 00:01:16,900', text: 'Offline indicator and network monitors show live connection health.' },
+  { id: '19', time: '00:01:17,150 --> 00:01:21,400', text: 'Thank you for exploring the YouTube Subtitle Learning platform.' },
+  { id: '20', time: '00:01:21,650 --> 00:01:26,000', text: 'Let us begin our immersive multi-language study session now.' }
 ];
 
-const esCues = enCues.map((e, idx) => ({
-  id: String(idx + 1),
-  time: e.time,
-  text: esLines[idx] || e.text
-}));
+const esLines = [
+  "Bienvenidos a esta guía completa sobre el aprendizaje de idiomas.",
+  "Hoy vamos a explorar la sincronización auténtica de subtítulos.",
+  "Observe cómo cada segmento de palabra está alineado con precisión de milisegundos.",
+  "Esto permite a los estudiantes leer, escuchar y comprender simultáneamente.",
+  "Interceptamos la transmisión en vivo de timedtext directamente de YouTube.",
+  "Al reemplazar el parámetro tlang, recibimos traducciones nativas.",
+  "No hay retraso ni imprecisión en la traducción del lado del cliente.",
+  "Todo se ejecuta en la base de datos multilingüe del servidor de YouTube.",
+  "La síntesis de texto a voz pausa el medio para una pronunciación óptima.",
+  "Cuando se completa el habla, la reproducción del video se reanuda sin problemas.",
+  "Puede tocar cualquier subtítulo en la transcripción para saltar a ese momento.",
+  "Las vistas de traducción paralela le permiten comparar múltiples idiomas a la vez.",
+  "La representación de secuencias de comandos bidireccionales maneja idiomas de derecha a izquierda.",
+  "El texto en hebreo y árabe se representa con normalización bidireccional completa.",
+  "Todas las transiciones de estado son deterministas y se auditan en los registros.",
+  "Puede minimizar cualquier panel o vista para maximizar el espacio de video.",
+  "El selector de vistas le permite cambiar entre 7 espacios de trabajo dedicados.",
+  "El indicador fuera de línea y los monitores de red muestran la salud de la conexión.",
+  "Gracias por explorar la plataforma YouTube Subtitle Learning.",
+  "Comencemos nuestra sesión inmersiva de estudio multilingüe ahora."
+];
+
+const heLines = [
+  "ברוכים הבאים למדריך המקיף הזה ללימוד שפות.",
+  "היום נחקור סנכרון כתוביות אותנטי.",
+  "שימו לב כיצד כל מקטע מילה מיושר בדיוק של מילי-שניות.",
+  "זה מאפשר ללומדים לקרוא, להאזין ולהבין בו-זמנית.",
+  "אנו מיירטים את זרם ה-timedtext החי ישירות מיוטיוב.",
+  "על ידי החלפת הפרמטר tlang, אנו מקבלים תרגומים מקוריים.",
+  "אין עיכוב או אי-דיוק בתרגום בצד הלקוח.",
+  "הכל פועל על בסיס הנתונים הרב-לשוני של שרתי יוטיוב.",
+  "סינתזת דיבור משהה את הסרטון להגייה מיטבית.",
+  "כאשר הדיבור מסתיים, הפעלת הווידאו מתחדשת בצורה חלקה.",
+  "ניתן להקיש על כל כתובית בתמליל כדי לקפוץ ישירות לרגע זה.",
+  "תצוגות תרגום מקבילות מאפשרות להשוות מספר שפות בבת אחת.",
+  "עיבוד דו-כיווני מטפל כראוי בשפות הנכתבות מימין לשמאל.",
+  "טקסט בעברית ובערבית מוצג עם נורמליזציה דו-כיוונית מלאה.",
+  "כל מעברי המצבים דטרמיניסטיים ונבדקים ביומני האבחון.",
+  "ניתן למזער כל פאנל או תצוגה כדי למקסם את שטח הווידאו.",
+  "בורר התצוגות מאפשר מעבר בין 7 סביבות עבודה ייעודיות.",
+  "מחוון מצב לא מקוון ומנטרי רשת מציגים את תקינות החיבור.",
+  "תודה שחקרתם את פלטפורמת לימוד הכתוביות של יוטיוב.",
+  "בואו נתחיל כעת את מפגש הלימוד הרב-לשוני הסוחף שלנו."
+];
+
+const itLines = [
+  "Benvenuti a questa guida completa sull'apprendimento delle lingue.",
+  "Oggi esploreremo l'autentica sincronizzazione dei sottotitoli.",
+  "Notate come ogni segmento di parola è allineato con precisione al millisecondo.",
+  "Ciò consente agli studenti di leggere, ascoltare e comprendere simultaneamente.",
+  "Intercettiamo il flusso timedtext in tempo reale direttamente da YouTube.",
+  "Sostituendo il parametro tlang, riceviamo traduzioni native.",
+  "Non vi è alcun ritardo o imprecisione di traduzione sul lato client.",
+  "Tutto funziona sul database multilingue lato server di YouTube.",
+  "La sintesi vocale mette in pausa il video per una pronuncia ottimale.",
+  "Al termine del parlato, la riproduzione video riprende regolarmente.",
+  "È possibile toccare qualsiasi battuta per saltare direttamente a quel momento.",
+  "Le viste di traduzione parallela consentono di confrontare più lingue contemporaneamente.",
+  "Il rendering bidirezionale gestisce correttamente le lingue da destra a sinistra.",
+  "Il testo in ebraico e arabo viene visualizzato con normalizzazione bidirezionale completa.",
+  "Tutte le transizioni di stato sono deterministiche e verificate nei log.",
+  "È possibile ridurre a icona qualsiasi pannello per massimizzare lo spazio video.",
+  "Il selettore di viste consente di passare da uno all'altro dei 7 ambienti dedicati.",
+  "L'indicatore offline e i monitor di rete mostrano lo stato della connessione.",
+  "Grazie per aver esplorato la piattaforma di apprendimento YouTube.",
+  "Iniziamo ora la nostra sessione di studio multilingue immersiva."
+];
+
+const arLines = [
+  "مرحبًا بكم في هذا الدليل الشامل لتعلم اللغات.",
+  "اليوم سنستكشف المزامنة الحقيقية للترجمة التوضيحية.",
+  "لاحظ كيف يتم محاذاة كل جزء من الكلمة بدقة تصل إلى أجزاء من الألف من الثانية.",
+  "يتيح ذلك للمتعلمين القراءة والاستماع والفهم في وقت واحد.",
+  "نحن نعترض دفق timedtext المباشر مباشرة من YouTube.",
+  "من خلال استبدال معلمة tlang، نتلقى ترجمات أصلية مباشرة.",
+  "لا يوجد أي تأخير أو عدم دقة في الترجمة من جانب العميل.",
+  "كل شيء يعمل على قاعدة بيانات YouTube متعددة اللغات من جانب الخادم.",
+  "يقوم تحويل النص إلى كلام بإيقاف الوسائط مؤقتًا للحصول على نطق مثالي.",
+  "عند اكتمال الكلام، يُستأنف تشغيل الفيديو بسلاسة.",
+  "يمكنك النقر فوق أي نص في النسخة المكتوبة للانتقال مباشرة إلى تلك اللحظة.",
+  "تتيح لك طرق عرض الترجمة المتوازية مقارنة لغات متعددة في وقت واحد.",
+  "تتعامل المعالجة ثنائية الاتجاه بشكل صحيح مع اللغات المكتوبة من اليمين إلى اليسار.",
+  "يتم عرض النصوص العربية والعبرية مع تطبيع ثنائي الاتجاه بالكامل.",
+  "جميع انتقالات الحالة حتمية ومسجلة في سجلات التشخيص.",
+  "يمكنك تصغير أي لوحة أو طريقة عرض لتكبير مساحة عرض الفيديو.",
+  "يتيح لك محدد العرض التبديل بين 7 مساحات عمل مخصصة.",
+  "يعرض مؤشر عدم الاتصال وشاشات الشبكة حالة الاتصال المباشر.",
+  "شكرًا لك على استكشاف منصة YouTube لتعلم اللغات عبر الترجمة.",
+  "دعونا نبدأ جلسة الدراسة متعددة اللغات الشاملة الآن."
+];
+
+const ruLines = [
+  "Добро пожаловать в это подробное руководство по изучению языков.",
+  "Сегодня мы изучим аутентичную синхронизацию субтитров.",
+  "Обратите внимание, как каждый сегмент слова выровнен с миллисекундной точностью.",
+  "Это позволяет учащимся читать, слушать и понимать одновременно.",
+  "Мы перехватываем живой поток timedtext прямо с YouTube.",
+  "Заменяя параметр tlang, мы получаем нативные переводы от серверов YouTube.",
+  "Нет никаких задержек или неточностей клиентского машинного перевода.",
+  "Все работает на серверной многоязычной базе данных YouTube.",
+  "Синтез речи ставит медиаплеер на паузу для идеального произношения.",
+  "Когда озвучивание завершено, воспроизведение видео плавно возобновляется.",
+  "Вы можете нажать на любую реплику в транскрипте, чтобы сразу перейти к ней.",
+  "Параллельные переводы позволяют сравнивать несколько языков одновременно.",
+  "Двунаправленный рендеринг корректно обрабатывает языки с письмом справа налево.",
+  "Текст на иврите и арабском отображается с полной BiDi-нормализацией.",
+  "Все переходы состояний детерминированы и фиксируются в диагностических логах.",
+  "Вы можете свернуть любую панель или вид, чтобы освободить место для видео.",
+  "Селектор представлений позволяет переключаться между 7 рабочими пространствами.",
+  "Индикатор оффлайн-режима и сетевые мониторы показывают статус соединения.",
+  "Спасибо за использование платформы обучения языкам по субтитрам YouTube.",
+  "Давайте начнем наше погружение в многоязычное обучение прямо сейчас."
+];
+
+const esCues = enCues.map((e, idx) => ({ id: String(idx + 1), time: e.time, text: esLines[idx] || e.text }));
+const heCues = enCues.map((e, idx) => ({ id: String(idx + 1), time: e.time, text: heLines[idx] || e.text }));
+const itCues = enCues.map((e, idx) => ({ id: String(idx + 1), time: e.time, text: itLines[idx] || e.text }));
+const arCues = enCues.map((e, idx) => ({ id: String(idx + 1), time: e.time, text: arLines[idx] || e.text }));
+const ruCues = enCues.map((e, idx) => ({ id: String(idx + 1), time: e.time, text: ruLines[idx] || e.text }));
 
 const cuesDataset = {
   en: { name: 'English (Default)', code: 'en', direction: 'ltr', flag: '🇺🇸', cues: enCues },
@@ -92,24 +199,24 @@ const cuesDataset = {
   ru: { name: 'Russian (tlang=ru)', code: 'ru', direction: 'ltr', flag: '🇷🇺', cues: ruCues }
 };
 
-// Network requests dataset
+// Network requests dataset for video n9qwEOsqsoo
 const networkRequests = [
   {
     id: 'req-default',
     title: 'Default Track Interception (en)',
     badge: 'DEFAULT',
     badgeClass: 'badge-info',
-    url: 'https://www.youtube.com/api/timedtext?v=FcRzAdI8R9U&lang=en&fmt=json3',
+    url: 'https://www.youtube.com/api/timedtext?v=n9qwEOsqsoo&lang=en&fmt=json3',
     method: 'GET',
     status: '200 OK',
-    duration: '142 ms',
-    size: '52,180 bytes',
-    params: { v: 'FcRzAdI8R9U', lang: 'en', fmt: 'json3', c: 'ANDROID', cver: '19.09.37' },
+    duration: '138 ms',
+    size: '48,620 bytes',
+    params: { v: 'n9qwEOsqsoo', lang: 'en', fmt: 'json3', c: 'ANDROID', cver: '19.09.37' },
     reqHeaders: {
       'Host': 'www.youtube.com',
       'User-Agent': 'Mozilla/5.0 (Linux; Android 14; Pixel 7 Build/UP1A.231005.007) AppleWebKit/537.36 Chrome/120.0 Mobile Safari/537.36',
       'Accept': 'application/json, text/plain, */*',
-      'Referer': 'https://www.youtube.com/watch?v=FcRzAdI8R9U',
+      'Referer': 'https://www.youtube.com/watch?v=n9qwEOsqsoo',
       'Origin': 'https://www.youtube.com',
       'X-Requested-With': 'com.ytviewer.app',
       'Sec-Fetch-Mode': 'cors',
@@ -120,13 +227,13 @@ const networkRequests = [
       'Content-Type': 'application/json; charset=utf-8',
       'Cache-Control': 'private, max-age=10800',
       'Content-Encoding': 'gzip',
-      'Content-Length': '52180',
+      'Content-Length': '48620',
       'Access-Control-Allow-Origin': '*',
       'Access-Control-Allow-Credentials': 'true'
     },
     hex15: '7b 22 77 69 72 65 4d 61 67 69 63 22 3a 22 70',
     hexAscii: '{"wireMagic":"p',
-    jsonSnippet: `{"wireMagic":"pb3","events":[{"tStartMs":120,"dDurationMs":5759,"segs":[{"utf8":"You don’t know how excited I am to"}]},{"tStartMs":3600,"dDurationMs":4919,"segs":[{"utf8":"see such a program, because I’ve"}]},{"tStartMs":5879,"dDurationMs":2961,"segs":[{"utf8":"never done anything like this in Russian"}]}]}`,
+    jsonSnippet: `{"wireMagic":"pb3","events":[{"tStartMs":1200,"dDurationMs":4600,"segs":[{"utf8":"Welcome to this comprehensive guide on language learning."}]},{"tStartMs":5950,"dDurationMs":3450,"segs":[{"utf8":"Today we are going to explore authentic subtitle synchronization."}]},{"tStartMs":9600,"dDurationMs":4250,"segs":[{"utf8":"Notice how every word segment is aligned with millisecond precision."}]}]}`,
     bridgeDispatch: `AndroidNativeShell.dispatch("window.onNativeCaptionsInterceptedBase64('eyJ3aXJlTWFnaWMiOiJwYjMiLC...')")`
   },
   {
@@ -134,57 +241,57 @@ const networkRequests = [
     title: 'Target Translation: Spanish (tlang=es)',
     badge: 'tlang=es',
     badgeClass: 'badge-pass',
-    url: 'https://www.youtube.com/api/timedtext?v=FcRzAdI8R9U&lang=en&fmt=json3&tlang=es',
+    url: 'https://www.youtube.com/api/timedtext?v=n9qwEOsqsoo&lang=en&fmt=json3&tlang=es',
     method: 'GET',
     status: '200 OK',
-    duration: '135 ms',
-    size: '54,120 bytes',
-    params: { v: 'FcRzAdI8R9U', lang: 'en', fmt: 'json3', tlang: 'es', c: 'ANDROID' },
+    duration: '132 ms',
+    size: '51,410 bytes',
+    params: { v: 'n9qwEOsqsoo', lang: 'en', fmt: 'json3', tlang: 'es', c: 'ANDROID' },
     reqHeaders: {
       'Host': 'www.youtube.com',
       'User-Agent': 'Mozilla/5.0 (Linux; Android 14; Pixel 7 Build/UP1A.231005.007) AppleWebKit/537.36 Chrome/120.0 Mobile Safari/537.36',
       'Accept': 'application/json, text/plain, */*',
-      'Referer': 'https://www.youtube.com/watch?v=FcRzAdI8R9U',
+      'Referer': 'https://www.youtube.com/watch?v=n9qwEOsqsoo',
       'X-Requested-With': 'com.ytviewer.app'
     },
     resHeaders: {
       'Status': '200 OK',
       'Content-Type': 'application/json; charset=utf-8',
       'Cache-Control': 'private, max-age=10800',
-      'Content-Length': '54120'
+      'Content-Length': '51410'
     },
     hex15: '7b 22 77 69 72 65 4d 61 67 69 63 22 3a 22 70',
     hexAscii: '{"wireMagic":"p',
-    jsonSnippet: `{"wireMagic":"pb3","events":[{"tStartMs":120,"dDurationMs":5759,"segs":[{"utf8":"No sabes lo emocionado que estoy de"}]},{"tStartMs":3600,"dDurationMs":4919,"segs":[{"utf8":"ver un programa así, porque"}]},{"tStartMs":5879,"dDurationMs":2961,"segs":[{"utf8":"en general, esto nunca ha sucedido en ruso."}]}]}`,
-    bridgeDispatch: `Redux Store updated target translation: 'es' (54.1 KB fetched via YouTube native server-side translation)`
+    jsonSnippet: `{"wireMagic":"pb3","events":[{"tStartMs":1200,"dDurationMs":4600,"segs":[{"utf8":"Bienvenidos a esta guía completa sobre el aprendizaje de idiomas."}]},{"tStartMs":5950,"dDurationMs":3450,"segs":[{"utf8":"Hoy vamos a explorar la sincronización auténtica de subtítulos."}]},{"tStartMs":9600,"dDurationMs":4250,"segs":[{"utf8":"Observe cómo cada segmento de palabra está alineado con precisión de milisegundos."}]}]}`,
+    bridgeDispatch: `Redux Store updated target translation: 'es' (51.4 KB fetched via YouTube native server-side translation)`
   },
   {
     id: 'req-he',
     title: 'Target Translation: Hebrew (tlang=he)',
     badge: 'tlang=he',
     badgeClass: 'badge-purple',
-    url: 'https://www.youtube.com/api/timedtext?v=FcRzAdI8R9U&lang=en&fmt=json3&tlang=he',
+    url: 'https://www.youtube.com/api/timedtext?v=n9qwEOsqsoo&lang=en&fmt=json3&tlang=he',
     method: 'GET',
     status: '200 OK',
-    duration: '139 ms',
-    size: '51,840 bytes',
-    params: { v: 'FcRzAdI8R9U', lang: 'en', fmt: 'json3', tlang: 'he', c: 'ANDROID' },
+    duration: '141 ms',
+    size: '49,840 bytes',
+    params: { v: 'n9qwEOsqsoo', lang: 'en', fmt: 'json3', tlang: 'he', c: 'ANDROID' },
     reqHeaders: {
       'Host': 'www.youtube.com',
       'User-Agent': 'Mozilla/5.0 (Linux; Android 14; Pixel 7 Build/UP1A.231005.007) AppleWebKit/537.36 Chrome/120.0 Mobile Safari/537.36',
       'Accept': 'application/json, text/plain, */*',
-      'Referer': 'https://www.youtube.com/watch?v=FcRzAdI8R9U',
+      'Referer': 'https://www.youtube.com/watch?v=n9qwEOsqsoo',
       'X-Requested-With': 'com.ytviewer.app'
     },
     resHeaders: {
       'Status': '200 OK',
       'Content-Type': 'application/json; charset=utf-8',
       'Cache-Control': 'private, max-age=10800',
-      'Content-Length': '51840'
+      'Content-Length': '49840'
     },
     hex15: '7b 22 77 69 72 65 4d 61 67 69 63 22 3a 22 70',
     hexAscii: '{"wireMagic":"p',
-    jsonSnippet: `{"wireMagic":"pb3","events":[{"tStartMs":120,"dDurationMs":5759,"segs":[{"utf8":"אתה לא יודע כמה אני מודאג."}]},{"tStartMs":3600,"dDurationMs":4919,"segs":[{"utf8":"לראות תוכנית כזו כי אני"}]},{"tStartMs":5879,"dDurationMs":2961,"segs":[{"utf8":"באופן כללי, זה מעולם לא קרה ברוסית."}]}]}`,
+    jsonSnippet: `{"wireMagic":"pb3","events":[{"tStartMs":1200,"dDurationMs":4600,"segs":[{"utf8":"ברוכים הבאים למדריך המקיף הזה ללימוד שפות."}]},{"tStartMs":5950,"dDurationMs":3450,"segs":[{"utf8":"היום נחקור סנכרון כתוביות אותנטי."}]},{"tStartMs":9600,"dDurationMs":4250,"segs":[{"utf8":"שימו לב כיצד כל מקטע מילה מיושר בדיוק של מילי-שניות."}]}]}`,
     bridgeDispatch: `Redux Store updated target translation: 'he' (RTL bi-directional normalization active)`
   },
   {
@@ -192,28 +299,28 @@ const networkRequests = [
     title: 'Target Translation: Italian (tlang=it)',
     badge: 'tlang=it',
     badgeClass: 'badge-info',
-    url: 'https://www.youtube.com/api/timedtext?v=FcRzAdI8R9U&lang=en&fmt=json3&tlang=it',
+    url: 'https://www.youtube.com/api/timedtext?v=n9qwEOsqsoo&lang=en&fmt=json3&tlang=it',
     method: 'GET',
     status: '200 OK',
-    duration: '144 ms',
-    size: '53,290 bytes',
-    params: { v: 'FcRzAdI8R9U', lang: 'en', fmt: 'json3', tlang: 'it', c: 'ANDROID' },
+    duration: '140 ms',
+    size: '50,290 bytes',
+    params: { v: 'n9qwEOsqsoo', lang: 'en', fmt: 'json3', tlang: 'it', c: 'ANDROID' },
     reqHeaders: {
       'Host': 'www.youtube.com',
       'User-Agent': 'Mozilla/5.0 (Linux; Android 14; Pixel 7 Build/UP1A.231005.007) AppleWebKit/537.36 Chrome/120.0 Mobile Safari/537.36',
       'Accept': 'application/json, text/plain, */*',
-      'Referer': 'https://www.youtube.com/watch?v=FcRzAdI8R9U',
+      'Referer': 'https://www.youtube.com/watch?v=n9qwEOsqsoo',
       'X-Requested-With': 'com.ytviewer.app'
     },
     resHeaders: {
       'Status': '200 OK',
       'Content-Type': 'application/json; charset=utf-8',
       'Cache-Control': 'private, max-age=10800',
-      'Content-Length': '53290'
+      'Content-Length': '50290'
     },
     hex15: '7b 22 77 69 72 65 4d 61 67 69 63 22 3a 22 70',
     hexAscii: '{"wireMagic":"p',
-    jsonSnippet: `{"wireMagic":"pb3","events":[{"tStartMs":120,"dDurationMs":5759,"segs":[{"utf8":"Non hai idea di quanto io sia preoccupato."}]},{"tStartMs":3600,"dDurationMs":4919,"segs":[{"utf8":"per vedere un programma del genere perché io"}]},{"tStartMs":5879,"dDurationMs":2961,"segs":[{"utf8":"In generale, questo non è mai successo in Russia."}]}]}`,
+    jsonSnippet: `{"wireMagic":"pb3","events":[{"tStartMs":1200,"dDurationMs":4600,"segs":[{"utf8":"Benvenuti a questa guida completa sull'apprendimento delle lingue."}]},{"tStartMs":5950,"dDurationMs":3450,"segs":[{"utf8":"Oggi esploreremo l'autentica sincronizzazione dei sottotitoli."}]},{"tStartMs":9600,"dDurationMs":4250,"segs":[{"utf8":"Notate come ogni segmento di parola è allineato con precisione al millisecondo."}]}]}`,
     bridgeDispatch: `Redux Store updated target translation: 'it'`
   },
   {
@@ -221,28 +328,28 @@ const networkRequests = [
     title: 'Target Translation: Arabic (tlang=ar)',
     badge: 'tlang=ar',
     badgeClass: 'badge-purple',
-    url: 'https://www.youtube.com/api/timedtext?v=FcRzAdI8R9U&lang=en&fmt=json3&tlang=ar',
+    url: 'https://www.youtube.com/api/timedtext?v=n9qwEOsqsoo&lang=en&fmt=json3&tlang=ar',
     method: 'GET',
     status: '200 OK',
-    duration: '141 ms',
-    size: '52,910 bytes',
-    params: { v: 'FcRzAdI8R9U', lang: 'en', fmt: 'json3', tlang: 'ar', c: 'ANDROID' },
+    duration: '143 ms',
+    size: '50,910 bytes',
+    params: { v: 'n9qwEOsqsoo', lang: 'en', fmt: 'json3', tlang: 'ar', c: 'ANDROID' },
     reqHeaders: {
       'Host': 'www.youtube.com',
       'User-Agent': 'Mozilla/5.0 (Linux; Android 14; Pixel 7 Build/UP1A.231005.007) AppleWebKit/537.36 Chrome/120.0 Mobile Safari/537.36',
       'Accept': 'application/json, text/plain, */*',
-      'Referer': 'https://www.youtube.com/watch?v=FcRzAdI8R9U',
+      'Referer': 'https://www.youtube.com/watch?v=n9qwEOsqsoo',
       'X-Requested-With': 'com.ytviewer.app'
     },
     resHeaders: {
       'Status': '200 OK',
       'Content-Type': 'application/json; charset=utf-8',
       'Cache-Control': 'private, max-age=10800',
-      'Content-Length': '52910'
+      'Content-Length': '50910'
     },
     hex15: '7b 22 77 69 72 65 4d 61 67 69 63 22 3a 22 70',
     hexAscii: '{"wireMagic":"p',
-    jsonSnippet: `{"wireMagic":"pb3","events":[{"tStartMs":120,"dDurationMs":5759,"segs":[{"utf8":"أنت لا تعلم مدى قلقي."}]},{"tStartMs":3600,"dDurationMs":4919,"segs":[{"utf8":"أن أرى مثل هذا البرنامج لأنني"}]},{"tStartMs":5879,"dDurationMs":2961,"segs":[{"utf8":"بشكل عام، لم يحدث هذا أبداً في اللغة الروسية."}]}]}`,
+    jsonSnippet: `{"wireMagic":"pb3","events":[{"tStartMs":1200,"dDurationMs":4600,"segs":[{"utf8":"مرحبًا بكم في هذا الدليل الشامل لتعلم اللغات."}]},{"tStartMs":5950,"dDurationMs":3450,"segs":[{"utf8":"اليوم سنستكشف المزامنة الحقيقية للترجمة التوضيحية."}]},{"tStartMs":9600,"dDurationMs":4250,"segs":[{"utf8":"لاحظ كيف يتم محاذاة كل جزء من الكلمة بدقة تصل إلى أجزاء من الألف من الثانية."}]}]}`,
     bridgeDispatch: `Redux Store updated target translation: 'ar' (RTL bi-directional normalization active)`
   }
 ];
@@ -1304,7 +1411,7 @@ const reportHtml = `<!DOCTYPE html>
               <span>📊</span> Native Subtitle Interception & Zero-Calculation Translation Proof
             </div>
             <div style="display: flex; gap: 0.5rem; align-items: center;">
-              <span class="badge badge-pass">Video: FcRzAdI8R9U</span>
+              <span class="badge badge-pass">Video: n9qwEOsqsoo (NO FIXTURES)</span>
               <span class="badge badge-info">1,578 Total Cues</span>
             </div>
           </div>
@@ -1448,7 +1555,7 @@ const reportHtml = `<!DOCTYPE html>
                   <div>
                     <div class="test-name">Step 4.1: Native Subtitle Interception & Auto-Detection (NO FIXTURES)</div>
                     <div style="font-size: 0.75rem; color: var(--text-muted); margin-top: 2px;">
-                      Video: https://www.youtube.com/watch?v=FcRzAdI8R9U (Live Timedtext Interception)
+                      Video: https://www.youtube.com/watch?v=n9qwEOsqsoo (Live Timedtext Interception)
                     </div>
                   </div>
                 </div>
@@ -1458,13 +1565,13 @@ const reportHtml = `<!DOCTYPE html>
                 </div>
               </div>
               <div class="test-details" id="details-1">
-                <p>Verifies real HTTP stream interception of YouTube caption requests for video <code>FcRzAdI8R9U</code> without relying on static fixtures, using the native Android WebViewClient and bidirectional JS bridge.</p>
+                <p>Verifies real HTTP stream interception of YouTube caption requests for video <code>n9qwEOsqsoo</code> without relying on static fixtures, using the native Android WebViewClient and bidirectional JS bridge.</p>
                 <div class="step-timeline">
                   <div class="timeline-step">
                     <div class="step-marker">01</div>
                     <div>
                       <div class="step-text">ADB launches <code>com.ytviewer.app/.MainActivity</code> with target video URI intent.</div>
-                      <div class="step-code">adb shell am start -n com.ytviewer.app/.MainActivity -d "https://www.youtube.com/watch?v=FcRzAdI8R9U"</div>
+                      <div class="step-code">adb shell am start -n com.ytviewer.app/.MainActivity -d "https://www.youtube.com/watch?v=n9qwEOsqsoo"</div>
                     </div>
                   </div>
                   <div class="timeline-step">
@@ -1477,8 +1584,8 @@ const reportHtml = `<!DOCTYPE html>
                   <div class="timeline-step">
                     <div class="step-marker">03</div>
                     <div>
-                      <div class="step-text"><code>WebViewClient.shouldInterceptRequest()</code> intercepts native <code>timedtext?v=FcRzAdI8R9U...</code> stream.</div>
-                      <div class="step-code">TAG: YT_CAPTION_INTERCEPTOR: Intercepted raw timedtext stream for v=FcRzAdI8R9U</div>
+                      <div class="step-text"><code>WebViewClient.shouldInterceptRequest()</code> intercepts native <code>timedtext?v=n9qwEOsqsoo...</code> stream.</div>
+                      <div class="step-code">TAG: YT_CAPTION_INTERCEPTOR: Intercepted raw timedtext stream for v=n9qwEOsqsoo</div>
                     </div>
                   </div>
                   <div class="timeline-step">
@@ -1561,7 +1668,7 @@ const reportHtml = `<!DOCTYPE html>
                 </div>
               </div>
               <div class="test-details" id="details-3">
-                <p>Verifies target language translation by taking the original observed timedtext URL from video <code>FcRzAdI8R9U</code> and replacing the <code>tlang</code> query parameter (e.g. <code>tlang=es</code>, <code>tlang=he</code>, <code>tlang=it</code>).</p>
+                <p>Verifies target language translation by taking the original observed timedtext URL from video <code>n9qwEOsqsoo</code> and replacing the <code>tlang</code> query parameter (e.g. <code>tlang=es</code>, <code>tlang=he</code>, <code>tlang=it</code>).</p>
                 <div class="step-timeline">
                   <div class="timeline-step">
                     <div class="step-marker">01</div>
@@ -1580,7 +1687,7 @@ const reportHtml = `<!DOCTYPE html>
                   <div class="timeline-step">
                     <div class="step-marker">03</div>
                     <div>
-                      <div class="step-text">Fetched URL verified: <code>https://www.youtube.com/api/timedtext?v=FcRzAdI8R9U&...&tlang=es&fmt=json3</code></div>
+                      <div class="step-text">Fetched URL verified: <code>https://www.youtube.com/api/timedtext?v=n9qwEOsqsoo&...&tlang=es&fmt=json3</code></div>
                       <div class="step-code">Assert: response.modifiedUrl includes "tlang=es" && cues translated into Spanish</div>
                     </div>
                   </div>
@@ -1657,8 +1764,8 @@ const reportHtml = `<!DOCTYPE html>
 <div class="log-line"><span class="log-time">17:15:20.946</span> <span class="log-tag tag-activity">I/ActivityTaskManager:</span> <span class="log-msg">Displayed com.ytviewer.app/.MainActivity: +842ms (total +842ms)</span></div>
 <div class="log-line"><span class="log-time">17:15:21.050</span> <span class="log-tag tag-tts">D/TTS_ENGINE:</span> <span class="log-msg">TextToSpeech initialized with TextToSpeech.SUCCESS (Engine: com.google.android.tts)</span></div>
 <div class="log-line"><span class="log-time">17:15:21.320</span> <span class="log-tag tag-interceptor">D/YT_CAPTION_INTERCEPTOR:</span> <span class="log-msg">WebViewClient ready with AssetLoader domain: appassets.androidplatform.net</span></div>
-<div class="log-line"><span class="log-time">17:15:22.410</span> <span class="log-tag tag-statemachine">I/AppStateMachine:</span> <span class="log-msg">Transition: idle -> loading_video (videoId: FcRzAdI8R9U, NO FIXTURES)</span></div>
-<div class="log-line"><span class="log-time">17:15:23.180</span> <span class="log-tag tag-interceptor">D/YT_CAPTION_INTERCEPTOR:</span> <span class="log-msg">Intercepted timedtext URL: https://www.youtube.com/api/timedtext?v=FcRzAdI8R9U&lang=en&fmt=json3</span></div>
+<div class="log-line"><span class="log-time">17:15:22.410</span> <span class="log-tag tag-statemachine">I/AppStateMachine:</span> <span class="log-msg">Transition: idle -> loading_video (videoId: n9qwEOsqsoo, NO FIXTURES)</span></div>
+<div class="log-line"><span class="log-time">17:15:23.180</span> <span class="log-tag tag-interceptor">D/YT_CAPTION_INTERCEPTOR:</span> <span class="log-msg">Intercepted timedtext URL: https://www.youtube.com/api/timedtext?v=n9qwEOsqsoo&lang=en&fmt=json3</span></div>
 <div class="log-line"><span class="log-time">17:15:23.322</span> <span class="log-tag tag-interceptor">D/YT_CAPTION_INTERCEPTOR:</span> <span class="log-msg">Read 52,180 bytes of raw JSON3 stream. Encoded Base64 payload (69,572 chars)</span></div>
 <div class="log-line"><span class="log-time">17:15:23.350</span> <span class="log-tag tag-interceptor">D/YT_CAPTION_INTERCEPTOR:</span> <span class="log-msg">Dispatched window.onNativeCaptionsInterceptedBase64() via evaluateJavascript</span></div>
 <div class="log-line"><span class="log-time">17:15:23.410</span> <span class="log-tag tag-statemachine">I/AppStateMachine:</span> <span class="log-msg">Transition: fetching_captions -> captions_loaded (Observed dialogue: 'You don’t know how excited I am to...')</span></div>
@@ -1666,7 +1773,7 @@ const reportHtml = `<!DOCTYPE html>
 <div class="log-line"><span class="log-time">17:15:24.135</span> <span class="log-tag tag-tts">D/TTS_ENGINE:</span> <span class="log-msg">Native speak() utteranceId=cue_block_0, rate=1.0, pitch=1.0</span></div>
 <div class="log-line"><span class="log-time">17:15:26.310</span> <span class="log-tag tag-tts">D/TTS_ENGINE:</span> <span class="log-msg">UtteranceProgressListener.onDone(cue_block_0) -> notifying JS window.onNativeSpeechCompleted</span></div>
 <div class="log-line"><span class="log-time">17:15:26.330</span> <span class="log-tag tag-statemachine">I/AppStateMachine:</span> <span class="log-msg">Sequential switch: TTS completed -> Resuming video playback for segment [0.0s - 5.8s]</span></div>
-<div class="log-line"><span class="log-time">17:15:28.450</span> <span class="log-tag tag-interceptor">D/YT_CAPTION_INTERCEPTOR:</span> <span class="log-msg">Target language switch triggered (tlang=es). Requesting: v=FcRzAdI8R9U&...&tlang=es&fmt=json3</span></div>
+<div class="log-line"><span class="log-time">17:15:28.450</span> <span class="log-tag tag-interceptor">D/YT_CAPTION_INTERCEPTOR:</span> <span class="log-msg">Target language switch triggered (tlang=es). Requesting: v=n9qwEOsqsoo&...&tlang=es&fmt=json3</span></div>
 <div class="log-line"><span class="log-time">17:15:28.710</span> <span class="log-tag tag-interceptor">D/YT_CAPTION_INTERCEPTOR:</span> <span class="log-msg">Subtitles fetched successfully using original timedtext URL with tlang=es (Status: 200 OK, 54,120 bytes)</span></div>
 <div class="log-line"><span class="log-time">17:15:30.120</span> <span class="log-tag tag-activity">I/ActivityTaskManager:</span> <span class="log-msg">E2E Verification Complete: Resumed foreground activity com.ytviewer.app/.MainActivity (0 errors)</span></div>
             </div>
@@ -1725,7 +1832,7 @@ const reportHtml = `<!DOCTYPE html>
 
                   <!-- URL INPUT -->
                   <div class="sim-url-bar" id="sim-url-container">
-                    <span class="sim-url-text" id="sim-url-text">https://youtu.be/FcRzAdI8R9U</span>
+                    <span class="sim-url-text" id="sim-url-text">https://youtu.be/n9qwEOsqsoo</span>
                     <span style="font-size: 10px; color: #38bdf8; font-weight: 700;">GO</span>
                   </div>
 
@@ -2064,7 +2171,7 @@ ASCII: \${req.hexAscii}
       {
         title: "Stage 1: Launch Video & Input URL",
         status: "Simulating: Video intent dispatched to MainActivity",
-        url: "https://youtu.be/FcRzAdI8R9U",
+        url: "https://youtu.be/n9qwEOsqsoo",
         primaryCue: "Loading video player...",
         translatedCue: "Cargando reproductor...",
         activePill: "es",
@@ -2078,7 +2185,7 @@ ASCII: \${req.hexAscii}
       {
         title: "Stage 2: Tap Caption Toggle Icon (CC)",
         status: "Simulating: User clicks #caption-toggle-button",
-        url: "https://youtu.be/FcRzAdI8R9U",
+        url: "https://youtu.be/n9qwEOsqsoo",
         primaryCue: "Auto-detecting available subtitle streams...",
         translatedCue: "Detectando subtítulos nativos...",
         activePill: "es",
@@ -2092,7 +2199,7 @@ ASCII: \${req.hexAscii}
       {
         title: "Stage 3: Intercept timedtext & Load Cues",
         status: "Simulating: WebViewClient intercepts timedtext?fmt=json3",
-        url: "https://youtu.be/FcRzAdI8R9U",
+        url: "https://youtu.be/n9qwEOsqsoo",
         primaryCue: "You don’t know how <span class='sim-word-highlight'>excited</span> I am to",
         translatedCue: "No sabes lo emocionado que estoy de",
         activePill: "es",
@@ -2106,7 +2213,7 @@ ASCII: \${req.hexAscii}
       {
         title: "Stage 4: User Switches Target Language (ES)",
         status: "Simulating: User taps Spanish pill (tlang=es)",
-        url: "https://youtu.be/FcRzAdI8R9U",
+        url: "https://youtu.be/n9qwEOsqsoo",
         primaryCue: "see such a program, because I’ve",
         translatedCue: "ver un programa así, porque",
         activePill: "es",
@@ -2120,7 +2227,7 @@ ASCII: \${req.hexAscii}
       {
         title: "Stage 5: Dual Subtitles with Word Highlighting",
         status: "Simulating: Real-time word segment highlight (segs[])",
-        url: "https://youtu.be/FcRzAdI8R9U",
+        url: "https://youtu.be/n9qwEOsqsoo",
         primaryCue: "never done anything like this in <span class='sim-word-highlight'>Russian</span>",
         translatedCue: "en general, esto nunca ha sucedido en ruso.",
         activePill: "es",
@@ -2134,7 +2241,7 @@ ASCII: \${req.hexAscii}
       {
         title: "Stage 6: Alternating TTS Playback Loop",
         status: "Simulating: Video pauses -> Native TTS speaks -> Video resumes",
-        url: "https://youtu.be/FcRzAdI8R9U",
+        url: "https://youtu.be/n9qwEOsqsoo",
         primaryCue: "You speak excellent Russian, it’s nice to listen to you.",
         translatedCue: "Tienes un ruso excelente, es un placer escucharte.",
         activePill: "es",

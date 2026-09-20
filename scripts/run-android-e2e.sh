@@ -12,7 +12,7 @@ set -uo pipefail
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 PACKAGE_NAME="com.ytviewer.app"
 MAIN_ACTIVITY="com.ytviewer.app/.MainActivity"
-TARGET_VIDEO_URL="https://www.youtube.com/watch?v=FcRzAdI8R9U"
+TARGET_VIDEO_URL="https://www.youtube.com/watch?v=n9qwEOsqsoo"
 TARGET_LANG="es"
 APK_PATH="${ROOT_DIR}/android-shell/app/build/outputs/apk/debug/app-debug.apk"
 SCREENSHOT_OUT="${ROOT_DIR}/android-emulator-screenshot.png"
