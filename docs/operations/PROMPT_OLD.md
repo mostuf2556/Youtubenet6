@@ -114,5 +114,35 @@
 - [x] Run `npm run lint` to confirm type safety.
 - [x] Run `compile_applet` to confirm successful build.
 
+---
+
+## Archived User Directive 7 (TASK-009)
+> "so do it. and ensure to rm any deprecated .md which says otherwise"
+>
+> Implementation Scope:
+> 1. Audited and removed any deprecated `.md` files that contradicted established architectural contracts in `AGENTS.md` (specifically removed `docs/operations/DEPRECATED.md`).
+> 2. Stripped all references to deprecated documentation from `mkdocs.yml`, `docs/index.md`, and `docs/plans/PLAN_DOCS_ORGANIZATION.md`.
+> 3. Implemented automated markdown cross-reference validation script `scripts/verify-md-links.ts` and added `npm run test:md` to `package.json`.
+> 4. Ensured complete integrity of documentation contract ecosystem (`ACTIONS.md`, `DEBUG.md`, `DESIGN_PLAYER_PROVIDER.md`, `DESIGN_STATE_COORDINATOR.md`).
+> 5. Updated relative documentation paths in `README.md` to point to organized `docs/` subdirectories.
+> 6. Recorded ADR-005 in `docs/operations/DECISIONS.md` and updated `RECOMMENDATION.md`, `TASKS.md`, `temp.md`, and `PROMPT_OLD.md`.
+> 7. Verified all validation checks (`npm run test:md`, `npm run test:caption-formats`, `npm run lint`, `compile_applet`).
+
+### Worklist 7
+- [x] Delete `docs/operations/DEPRECATED.md` with conflicting `.srt` assertions.
+- [x] Remove `DEPRECATED.md` from `mkdocs.yml`, `docs/index.md`, and `PLAN_DOCS_ORGANIZATION.md`.
+- [x] Create automated link validation script `scripts/verify-md-links.ts`.
+- [x] Add `"test:md": "tsx scripts/verify-md-links.ts"` script to `package.json`.
+- [x] Create `docs/operations/ACTIONS.md`, `docs/operations/DEBUG.md`, `docs/designs/DESIGN_PLAYER_PROVIDER.md`, and `docs/designs/DESIGN_STATE_COORDINATOR.md`.
+- [x] Update `README.md` links to point to categorized `docs/` directories.
+- [x] Record ADR-005 in `docs/operations/DECISIONS.md`.
+- [x] Update `docs/operations/RECOMMENDATION.md` and `docs/operations/TASKS.md`.
+- [x] Update active runner `temp.md` and archive prior directive in `docs/operations/PROMPT_OLD.md`.
+- [x] Run `npm run test:md` (26 markdown files, 43 relative links verified).
+- [x] Run `npm run test:caption-formats` (all 10 fixtures verified).
+- [x] Run `npm run lint` (0 TypeScript errors).
+- [x] Run `compile_applet` (production build verified).
+
+
 
 
