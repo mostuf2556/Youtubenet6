@@ -207,30 +207,51 @@ try {
   });
   await page.waitForTimeout(200);
 
-  // Test Navigation Views within the Runner
-  const viewsToTest = [
-    { name: 'Android Emulator', fn: "setMainView('android')", check: async () => {
-      const src = await page.$eval('#android-iframe', el => el.getAttribute('src'));
-      console.log(`  ✓ Verified view "Android Emulator" displays iframe: ${src}`);
-    }},
-    { name: 'Mochawesome Report', fn: "setMainView('mochawesome')", check: async () => {
-      const src = await page.$eval('#mochawesome-iframe', el => el.getAttribute('src'));
-      console.log(`  ✓ Verified view "Mochawesome Report" displays iframe: ${src}`);
-    }},
-    { name: 'Video Replay', fn: "setMainView('video')", check: async () => {
+  // Test Direct Hash Navigation (e.g. /index.html#video, /index.html#android, /index.html#mochawesome)
+  console.log('\n--- Verifying Direct Hash Navigation (#video, #android, #mochawesome, #runner) ---');
+  const directHashUrls = [
+    { hash: '#video', check: async () => {
       const isVis = await page.$eval('#video-panel', el => el.style.display !== 'none');
-      console.log(`  ✓ Verified view "Video Replay" active: ${isVis}`);
+      if (!isVis) throw new Error('#video-panel was not displayed on direct load of #video');
+      const hasChapters = await page.$$eval('.chapter-btn', btns => btns.length > 0);
+      if (!hasChapters) throw new Error('No chapter buttons found on #video view');
+      console.log('  ✓ Direct load of /index.html#video: video presentation active & non-blank');
     }},
-    { name: 'Runner Time Travel', fn: "setMainView('runner')", check: async () => {
+    { hash: '#android', check: async () => {
+      const isVis = await page.$eval('#android-panel', el => el.style.display !== 'none');
+      if (!isVis) throw new Error('#android-panel was not displayed on direct load of #android');
+      console.log('  ✓ Direct load of /index.html#android: Android emulator panel active');
+    }},
+    { hash: '#mochawesome', check: async () => {
+      const isVis = await page.$eval('#mochawesome-panel', el => el.style.display !== 'none');
+      if (!isVis) throw new Error('#mochawesome-panel was not displayed on direct load of #mochawesome');
+      console.log('  ✓ Direct load of /index.html#mochawesome: Mochawesome panel active');
+    }},
+    { hash: '#runner', check: async () => {
       const isVis = await page.$eval('#snapshot-panel', el => el.style.display !== 'none');
-      console.log(`  ✓ Verified view "Runner Time Travel" active: ${isVis}`);
+      if (!isVis) throw new Error('#snapshot-panel was not displayed on direct load of #runner');
+      console.log('  ✓ Direct load of /index.html#runner: Runner snapshot panel active');
     }}
   ];
 
-  for (const v of viewsToTest) {
-    await page.evaluate(`window.${v.fn}`);
-    await page.waitForTimeout(200);
-    await v.check();
+  for (const item of directHashUrls) {
+    await page.goto(`${baseUrl}/index.html${item.hash}`, { waitUntil: 'domcontentloaded' });
+    await page.waitForTimeout(150);
+    await item.check();
+  }
+
+  // Crawl and verify all <a> navigation links inside index.html
+  console.log('\n--- Verifying All Outbound Navigation Links in /index.html ---');
+  const navLinks = await page.$$eval('.cypress-header a[href]', links => links.map(a => a.getAttribute('href')));
+  for (const href of navLinks) {
+    if (href && !href.startsWith('http') && !href.startsWith('#')) {
+      const resolved = new URL(href, `${baseUrl}/index.html`).href;
+      const linkRes = await page.request.get(resolved);
+      if (linkRes.status() !== 200) {
+        throw new Error(`Broken link in header: ${href} (HTTP ${linkRes.status()})`);
+      }
+      console.log(`  ✓ Header link verified: ${href} -> 200 OK`);
+    }
   }
 
   // Test Page 2: Standalone Android Emulator Report (/android-emulator-report.html)

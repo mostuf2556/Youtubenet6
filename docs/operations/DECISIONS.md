@@ -46,3 +46,16 @@ This log records major architectural decisions, technical context, options evalu
 - **Context**: Legacy documentation files (specifically `docs/operations/DEPRECATED.md`) contained obsolete statements asserting that `.srt` subtitles formed the active speech flow, directly contradicting the canonical JSON3 format mandate in `AGENTS.md` and ADR-001. Additionally, manual link tracking was prone to broken paths following file reorganizations.
 - **Decision**: Permanently remove `docs/operations/DEPRECATED.md` and implement automated cross-reference link validation via `scripts/verify-md-links.ts` exposed via `npm run test:md`.
 - **Consequences**: Eliminates architectural contradictions from documentation; provides CI-verifiable guarantee that all markdown links resolve correctly.
+
+---
+
+## ADR-006: Deprecation of External/Google Translation Services in Favor of YouTube Native `tlang` & Web Fixtures
+- **Date**: 2026-09-20
+- **Status**: Accepted
+- **Context**: Translating subtitle records via external translation services (such as Google Translate, Google GTX public endpoints, or on-demand translation APIs) is not accurate enough and causes phrasing errors, timing drift, and loss of sub-line segment synchronization (`segs[]`).
+- **Decision**: Permanently deprecate and comment out/remove all external translation services and on-demand translation logic across the platform.
+  1. **Android Solution**: Subtitles in target language X must be fetched natively by appending or replacing `tlang=X` on YouTube's original `timedtext` API request (`fmt=json3`), preserving all original headers and cookies.
+  2. **Web Solution**: The web companion is strictly for testing application flows, UI validation, and demonstration, powered by static fixture artifacts for 2 example video IDs.
+  3. **Test Visibility**: If the native `tlang` substitution fails or is unavailable, the failure must surface immediately and be visible in automated test assertions rather than silently falling back to a machine translation service.
+- **Consequences**: Eliminates translation inaccuracy, avoids external API dependencies, and guarantees strict test visibility for YouTube `timedtext` interception.
+

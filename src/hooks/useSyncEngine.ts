@@ -8,12 +8,6 @@ import {
   requestWakeLock,
   releaseWakeLock,
 } from '../lib/ttsEngine';
-import {
-  translateText,
-  translateOnDemandCues,
-  prefetchCueTranslations,
-  ON_DEMAND_FALLBACK_COUNT,
-} from '../lib/translateService';
 import { logSync, logTTS } from '../utils/logBuffer';
 import { loadAppSettings } from '../utils/appSettings';
 import {
@@ -123,63 +117,8 @@ export function useSyncEngine({
     }
   }, [languages]);
 
-  // On-demand fallback translation for next cues
-  useEffect(() => {
-    if (!enabled || !cues || cues.length === 0 || activeCueIndex < 0) return;
-    const isSingleLang = loadAppSettings().singleTargetLanguageMode ?? true;
-    const enabledLangs = isSingleLang
-      ? languages.filter((l) => l.enabled).slice(0, 1)
-      : languages.filter((l) => l.enabled);
-
-    enabledLangs.forEach(async (lang) => {
-      try {
-        const existingLangTrans: Record<string, string> = {};
-        cues.forEach((c) => {
-          const fromCurrent = translationsRef.current[c.id]?.[lang.code];
-          const fromExt = externalTranslationsRef.current?.[c.id]?.[lang.code];
-          if (fromCurrent && fromCurrent.trim().toLowerCase() !== c.text.trim().toLowerCase()) {
-            existingLangTrans[c.id] = fromCurrent;
-          } else if (fromExt && fromExt.trim().toLowerCase() !== c.text.trim().toLowerCase()) {
-            existingLangTrans[c.id] = fromExt;
-          }
-        });
-
-        const nextTranslations = await translateOnDemandCues({
-          cues,
-          startIndex: activeCueIndex,
-          count: ON_DEMAND_FALLBACK_COUNT,
-          targetLang: lang.code,
-          sourceLang,
-          existingTranslations: existingLangTrans,
-        });
-
-        if (nextTranslations && Object.keys(nextTranslations).length > 0) {
-          setTranslations((prev) => {
-            const updated = { ...prev };
-            let changed = false;
-            Object.entries(nextTranslations).forEach(([cId, text]) => {
-              const cue = cues.find((c) => c.id === cId);
-              const isOrig = cue && text.trim().toLowerCase() === cue.text.trim().toLowerCase();
-              if (text && (!isOrig || lang.code === sourceLang)) {
-                const currentVal = updated[cId]?.[lang.code];
-                const currentIsOrig = cue && currentVal && currentVal.trim().toLowerCase() === cue.text.trim().toLowerCase();
-                if (!currentVal || currentIsOrig) {
-                  updated[cId] = { ...(updated[cId] || {}), [lang.code]: text };
-                  changed = true;
-                }
-              }
-            });
-            return changed ? updated : prev;
-          });
-        }
-      } catch (err) {
-        console.warn(`[SyncEngine] On-demand translation error for ${lang.code}:`, err);
-      }
-    });
-  }, [activeCueIndex, cues, languages, sourceLang, enabled]);
-
   /**
-   * Helper to retrieve or fetch translation for a cue
+   * Helper to retrieve translation for a cue from native/table/fixture sources
    */
   const getCueTranslation = useCallback(
     async (cue: CaptionCue, targetLangCode: string): Promise<string> => {
@@ -199,7 +138,7 @@ export function useSyncEngine({
         return fromRef;
       }
 
-      // 2. Check local authentic SRT fixture
+      // 2. Check local authentic fixture
       if (hasCachedSrtForVideoAndLanguage(vId, cleanLang)) {
         const srtCues = getCachedSrtForVideoAndLanguage(vId, cleanLang);
         if (srtCues && srtCues.length > 0) {
@@ -212,20 +151,9 @@ export function useSyncEngine({
         }
       }
 
-      const translated = await translateText(cue.text, sourceLang, targetLangCode);
-      const isOrig = translated.trim().toLowerCase() === cue.text.trim().toLowerCase();
-      if (translated && (!isOrig || targetLangCode === sourceLang)) {
-        setTranslations((prev) => ({
-          ...prev,
-          [cueId]: {
-            ...(prev[cueId] || {}),
-            [targetLangCode]: translated,
-          },
-        }));
-      }
-      return translated;
+      return fromRef || fromExt || '';
     },
-    [sourceLang, videoId]
+    [videoId]
   );
 
   /**
@@ -316,17 +244,6 @@ export function useSyncEngine({
         const cueDurationSec = seg.duration && seg.duration > 0 ? seg.duration : Math.max(1.5, segEnd - seg.start);
         const maxWaitMs = Math.max(2500, Math.min(30000, (cueDurationSec + 3.0) * 1000));
         setActiveCueIndex(idx);
-
-        // Background prefetch translations for upcoming cues
-        const isSingleLang = loadAppSettings().singleTargetLanguageMode ?? true;
-        const currentEnabledLangs = isSingleLang
-          ? languagesRef.current.filter((l) => l.enabled).slice(0, 1)
-          : languagesRef.current.filter((l) => l.enabled);
-        if (currentEnabledLangs.length > 0) {
-          currentEnabledLangs.forEach((l) => {
-            prefetchCueTranslations(cues, idx, 4, sourceLang, l.code);
-          });
-        }
 
         if (playOrder === 'tts_first') {
           // TTS first, then video

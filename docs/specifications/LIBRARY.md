@@ -1,8 +1,12 @@
 # Subtitle Fixture Library (LIBRARY.md)
 
-## 1. Purpose
+## 1. Purpose & Scope
 
 The subtitle fixture library is a core architectural component of the application. It provides deterministic, offline-capable subtitle datasets for development, visual verification, and automated browser testing without relying on live YouTube caption network requests.
+
+- **Web Companion Role**: The web application is strictly for testing the application flow, UI validation, and demonstration — it is NOT intended for general user caption extraction without fixtures.
+- **2 Video ID Example Artifacts**: The web companion specifically provides bundled fixture artifacts for 2 reference YouTube video IDs (`L2Ryrr6txwA` and `FcRzAdI8R9U`) across multiple languages.
+- **Deprecation of Translation Services**: Using Google Translate or on-demand translation APIs to translate subtitle records is completely deprecated and forbidden due to phrasing and timing inaccuracy. Target languages on Android are retrieved via native `tlang` interception; on Web, they are loaded directly from these 2-video fixture artifacts.
 
 Because browser JavaScript cannot inspect or intercept cross-origin network traffic originating inside a standard YouTube `<iframe>`, the browser companion relies on this library to provide authentic timed captions across multiple languages and formats.
 

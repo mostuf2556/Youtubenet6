@@ -754,23 +754,6 @@ export function SettingsModal({
               <div className="p-3 rounded-xl bg-neutral-950 border border-neutral-800 flex items-center justify-between">
                 <div>
                   <div className="font-medium text-xs sm:text-sm text-neutral-200">
-                    Google Free Translation Fallback (gtx)
-                  </div>
-                  <div className="text-xs text-neutral-400">
-                    Translates cues on-demand if native YouTube translation is not available.
-                  </div>
-                </div>
-                <input
-                  type="checkbox"
-                  checked={settings.methods.googleFreeTranslationFallback}
-                  onChange={() => toggleMethod('googleFreeTranslationFallback')}
-                  className="w-4 h-4 accent-indigo-500 rounded"
-                />
-              </div>
-
-              <div className="p-3 rounded-xl bg-neutral-950 border border-neutral-800 flex items-center justify-between">
-                <div>
-                  <div className="font-medium text-xs sm:text-sm text-neutral-200">
                     Local Offline Subtitle Cache
                   </div>
                   <div className="text-xs text-neutral-400">

@@ -65,7 +65,6 @@ import { getMockedSubtitlesForVideo, FCRZADI8R9U_LANGUAGE_SRT_TRACKS, L2RYRR6TXW
 import { SelectTargetLanguageModal } from './components/SelectTargetLanguageModal';
 import { SubtitleArtifactsModal } from './components/SubtitleArtifactsModal';
 import { DemoQuickFloatingDock } from './components/DemoQuickFloatingDock';
-import { translateText } from './lib/translateService';
 import { fetchSubtitlesFrontend } from './services/subtitleService';
 import { DEFAULT_LIBRARY_ITEMS } from './config/appConfig';
 
@@ -274,14 +273,14 @@ export default function App() {
   // Synchronize translated text for active cue in real time
   useEffect(() => {
     if (!activeCue?.text) {
-      setTranslatedCueText((prev) => (prev === null ? prev : null));
+      setTranslatedCueText(null);
       return;
     }
     const targetLang = selectedTargetLang || 'he';
     let cleanLang = targetLang.toLowerCase().split(/[-_]/)[0];
     if (cleanLang === 'iw' || cleanLang === 'il') cleanLang = 'he';
 
-    // Check authentic local SRT track / target subtitle cache first using timestamp matching
+    // Check authentic local fixture / target subtitle cache using timestamp matching
     const srtCues = getCachedTargetSubtitles(videoId, cleanLang);
     if (srtCues && srtCues.length > 0) {
       const match =
@@ -293,23 +292,7 @@ export default function App() {
       }
     }
 
-    setTranslatedCueText((prev) => (prev === null ? prev : null));
-
-    let isSubscribed = true;
-    translateText(activeCue.text, 'auto', targetLang)
-      .then((t) => {
-        if (isSubscribed && t) {
-          setTranslatedCueText((prev) => (prev === t ? prev : t));
-        }
-      })
-      .catch(() => {
-        if (isSubscribed) {
-          setTranslatedCueText((prev) => (prev === null ? prev : null));
-        }
-      });
-    return () => {
-      isSubscribed = false;
-    };
+    setTranslatedCueText(null);
   }, [activeCue?.id, activeCue?.text, activeCue?.start, selectedTargetLang, videoId]);
 
   const [isFetchingSubtitles, setIsFetchingSubtitles] = useState<boolean>(false);
@@ -1167,14 +1150,10 @@ export default function App() {
         if (match && match.text) {
           setTranslatedCueText(match.text);
         } else {
-          translateText(activeCue.text, 'auto', langCode)
-            .then((t) => setTranslatedCueText(t))
-            .catch(() => setTranslatedCueText(null));
+          setTranslatedCueText(null);
         }
       } else {
-        translateText(activeCue.text, 'auto', langCode)
-          .then((t) => setTranslatedCueText(t))
-          .catch(() => setTranslatedCueText(null));
+        setTranslatedCueText(null);
       }
     }
 

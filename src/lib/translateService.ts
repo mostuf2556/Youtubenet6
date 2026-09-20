@@ -116,8 +116,11 @@ export function ensureSrtTranslationsPrepopulated(): void {
 ensureSrtTranslationsPrepopulated();
 
 /**
- * Translates single text string from source language to target language
- * using Google Translate public GTX API endpoint with automatic caching
+ * Translates single text string from source language to target language.
+ *
+ * [DEPRECATED PER AGENTS.md]: Using any external translation service (e.g. Google Translate GTX endpoint)
+ * to translate subtitle records is NOT accurate enough and is completely deprecated and forbidden.
+ * This function only checks pre-populated fixture caches or returns the trimmed text.
  */
 export async function translateText(
   text: string,
@@ -143,21 +146,13 @@ export async function translateText(
   }
 
   // Guard 2: Script / character detection for target language
-  // If target is Hebrew ('he') and text is already composed of Hebrew characters
   if (targetPrefix === 'he' && /[\u0590-\u05FF]/.test(trimmed)) {
-    logWarn('Translate', `Redundant translation skipped (to Hebrew): Text is already in Hebrew script for "${trimmed.substring(0, 15)}..."`);
     return trimmed;
   }
-
-  // If target is Arabic ('ar') and text is already in Arabic script
   if (targetPrefix === 'ar' && /[\u0600-\u06FF]/.test(trimmed)) {
-    logWarn('Translate', `Redundant translation skipped (to Arabic): Text is already in Arabic script for "${trimmed.substring(0, 15)}..."`);
     return trimmed;
   }
-
-  // If target is Russian ('ru') and text is already in Cyrillic script
   if (targetPrefix === 'ru' && /[\u0400-\u04FF]/.test(trimmed)) {
-    logWarn('Translate', `Redundant translation skipped (to Russian): Text is already in Cyrillic script for "${trimmed.substring(0, 15)}..."`);
     return trimmed;
   }
 
@@ -178,7 +173,7 @@ export async function translateText(
     return memoryCache.get(ruKey)!;
   }
 
-  // Priority 1: Check authentic SRT fixtures across all bundled languages for landing page default video
+  // Check authentic fixtures across all bundled languages
   const fixtureLangs = ['ru', 'it', 'he', 'ar', 'en'];
   const targetFixture = getCachedTargetSubtitles('FcRzAdI8R9U', targetPrefix);
   if (targetFixture && targetFixture.length > 0) {
@@ -207,35 +202,32 @@ export async function translateText(
     return sampleResult;
   }
 
-  try {
-    const sl = cleanFrom === 'auto' ? 'auto' : cleanFrom.split('-')[0];
-    const tl = targetPrefix;
+  /*
+   * [DEPRECATED & COMMENTED OUT PER AGENTS.md MANDATE]:
+   * External machine translation via Google GTX API is inaccurate for subtitle records.
+   *
+   * try {
+   *   const sl = cleanFrom === 'auto' ? 'auto' : cleanFrom.split('-')[0];
+   *   const tl = targetPrefix;
+   *   const url = `https://translate.googleapis.com/translate_a/single?client=gtx&sl=${sl}&tl=${tl}&dt=t&q=${encodeURIComponent(trimmed)}`;
+   *   const res = await fetch(url);
+   *   if (!res.ok) throw new Error(`Translation HTTP ${res.status}`);
+   *   const data = await res.json();
+   *   let translated = '';
+   *   if (Array.isArray(data) && Array.isArray(data[0])) {
+   *     translated = data[0].map((item: any) => (Array.isArray(item) ? item[0] : '')).join('');
+   *   } else if (data && typeof data === 'object' && data.translatedText) {
+   *     translated = data.translatedText;
+   *   }
+   *   const finalResult = cleanAndFixEncoding(translated.trim() || trimmed);
+   *   memoryCache.set(cacheKey, finalResult);
+   *   return finalResult;
+   * } catch (err) {
+   *   return trimmed;
+   * }
+   */
 
-    const url = `https://translate.googleapis.com/translate_a/single?client=gtx&sl=${sl}&tl=${tl}&dt=t&q=${encodeURIComponent(trimmed)}`;
-    const res = await fetch(url);
-    if (!res.ok) {
-      throw new Error(`Translation HTTP ${res.status}`);
-    }
-
-    const data = await res.json();
-    let translated = '';
-
-    if (Array.isArray(data) && Array.isArray(data[0])) {
-      translated = data[0].map((item: any) => (Array.isArray(item) ? item[0] : '')).join('');
-    } else if (data && typeof data === 'object' && data.translatedText) {
-      translated = data.translatedText;
-    }
-
-    const finalResult = cleanAndFixEncoding(translated.trim() || trimmed);
-    memoryCache.set(cacheKey, finalResult);
-    return finalResult;
-  } catch (err) {
-    // If translation fails (e.g. offline), return known sample or fallback
-    if (SAMPLE_TRANSLATIONS[trimmed]?.[targetPrefix]) {
-      return SAMPLE_TRANSLATIONS[trimmed][targetPrefix];
-    }
-    return trimmed;
-  }
+  return trimmed;
 }
 
 /**
@@ -492,78 +484,44 @@ export async function fetchYouTubeNativeTranslation({
   }
 
   // -------------------------------------------------------------
-  // 2. FALLBACK TO CLIENT-SIDE TRANSLATION SERVICE
+  // 2. NO EXTERNAL TRANSLATION FALLBACK (DEPRECATED PER AGENTS.md)
+  // Fail explicitly so issues are testable and visible
   // -------------------------------------------------------------
   return {
     success: false,
-    source: 'google_translate_fallback',
+    source: 'youtube_native',
     targetLang: cleanLang,
     error: clientFetchError
-      ? `Direct YouTube timedtext fetch failed (${clientFetchError.message}). Using client-side translation fallback.`
-      : 'Native translation unavailable, falling back to translation service',
+      ? `Direct YouTube timedtext fetch failed (${clientFetchError.message}).`
+      : 'Native translation unavailable for requested language code (tlang).',
     modifiedUrl,
     copiedRequest,
   };
 }
 
 /**
- * On-demand translation helper consuming data from `translateText`.
- * Translates only the next X=7 subtitle records starting from startIndex.
+ * [DEPRECATED PER AGENTS.md]
+ * On-demand translation via external translation services is deprecated and removed.
  */
 export async function translateOnDemandCues({
-  cues,
-  startIndex = 0,
-  count = ON_DEMAND_FALLBACK_COUNT,
-  targetLang,
-  sourceLang = 'auto',
-  existingTranslations,
+  cues = [],
 }: {
-  cues: CaptionCue[];
+  cues?: CaptionCue[];
   startIndex?: number;
   count?: number;
-  targetLang: string;
+  targetLang?: string;
   sourceLang?: string;
   existingTranslations?: Record<string, string>;
 }): Promise<Record<string, string>> {
-  if (!cues || cues.length === 0) return {};
-  const cleanLang = normalizeLanguageCode(targetLang).split('-')[0];
-  const safeStart = Math.max(0, startIndex);
-  const safeEnd = Math.min(cues.length, safeStart + count);
-  const windowCues = cues.slice(safeStart, safeEnd);
-
-  const results: Record<string, string> = {};
-  await Promise.all(
-    windowCues.map(async (cue) => {
-      if (!cue || !cue.text) return;
-
-      // If an authentic translation already exists and is not just the original text, preserve it!
-      const existing = existingTranslations?.[cue.id];
-      if (existing && existing.trim().toLowerCase() !== cue.text.trim().toLowerCase()) {
-        results[cue.id] = existing;
-        return;
-      }
-
-      try {
-        const translated = await translateText(cue.text, sourceLang, cleanLang);
-        const isOriginalSentence = translated.trim().toLowerCase() === cue.text.trim().toLowerCase();
-
-        // CRITICAL: Only accept translation if it is non-empty and NOT the untranslated original sentence
-        // (unless the target language really is the source language)
-        if (translated && (!isOriginalSentence || cleanLang === sourceLang)) {
-          results[cue.id] = translated;
-        }
-      } catch (err) {
-        console.warn(`[OnDemandTranslation] Failed for cue ${cue.id}:`, err);
-      }
-    })
-  );
-  return results;
+  // External on-demand translation service is deprecated per AGENTS.md mandate.
+  return {};
 }
 
 /**
- * Translates an entire track:
- * 1. BY DEFAULT: attempts YouTube native translation by repeating the observed subtitle request with tlang & fmt=srt.
- * 2. FALLBACK: if YouTube native timedtext fails or is unavailable, falls back to the current Google Translate GTX service.
+ * Translates an entire track using YouTube native timedtext with tlang or pre-bundled fixtures:
+ * 1. Checks authentic fixtures (web test environment)
+ * 2. Attempts YouTube native translation via observed request with tlang & fmt=json3 / fmt=srt
+ * 3. Does NOT fall back to inaccurate machine translation services.
  */
 export async function translateTrackWithNativeFirst({
   originalCues,
@@ -596,7 +554,7 @@ export async function translateTrackWithNativeFirst({
   const vId = videoId || 'FcRzAdI8R9U';
   const cacheKey = `${vId}:${cleanLang}`;
 
-  // Priority 0: Check authentic SRT fixtures (e.g. test/fixtures/FcRzAdI8R9U/*.srt)
+  // Priority 0: Check authentic SRT/JSON3 fixtures
   if (hasCachedTargetSubtitles(vId, cleanLang)) {
     const srtCues = getCachedTargetSubtitles(vId, cleanLang);
     if (srtCues && srtCues.length > 0) {
@@ -639,8 +597,8 @@ export async function translateTrackWithNativeFirst({
     };
   }
 
-  // STEP 1: Attempt YouTube Native Translation by repeating observed request
-  console.log(`[Translation] Trying YouTube Native translation for ${cleanLang} with fmt=srt & tlang=${cleanLang}...`);
+  // STEP 1: Attempt YouTube Native Translation by repeating observed request with tlang
+  console.log(`[Translation] Trying YouTube Native translation for ${cleanLang} with fmt=srt/json3 & tlang=${cleanLang}...`);
   const nativeResult = await fetchYouTubeNativeTranslation({
     observedUrl,
     targetLang: cleanLang,
@@ -680,23 +638,16 @@ export async function translateTrackWithNativeFirst({
     };
   }
 
-  // STEP 2: FALLBACK to current translation service using translateText on-demand
-  console.log(`[Translation] YouTube native translation unavailable (${nativeResult.error || 'fallback'}), using on-demand fallback translation for next X=${ON_DEMAND_FALLBACK_COUNT} records for ${cleanLang}...`);
-  languageSourceMap.set(cacheKey, 'google_translate_fallback');
-  onStatusChange?.('google_translate_fallback');
-
-  // Consume data from translateText function using on demand translation: translate only the next X=7 subtitle records
-  const fallbackTranslations = await translateOnDemandCues({
-    cues: originalCues,
-    startIndex: 0,
-    count: ON_DEMAND_FALLBACK_COUNT,
-    targetLang: cleanLang,
-    sourceLang,
-  });
+  // STEP 2: In accordance with AGENTS.md mandate, external translation services are deprecated.
+  // Fail explicitly so test suites and UI detect the missing track rather than masking with inaccurate machine translations.
+  console.warn(`[Translation] YouTube native translation unavailable for ${cleanLang}: ${nativeResult.error || 'No stream available'}.`);
+  languageSourceMap.set(cacheKey, 'youtube_native');
+  onStatusChange?.('youtube_native');
 
   return {
-    source: 'google_translate_fallback',
-    translations: fallbackTranslations,
+    source: 'youtube_native',
+    translations: {},
+    cues: [],
     modifiedUrl: nativeResult.modifiedUrl,
   };
 }

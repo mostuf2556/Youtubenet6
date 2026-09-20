@@ -35,10 +35,7 @@ import {
 import { CaptionCue, TargetLanguage, SyncPlayOrder, YouTubePlayerHandle, TranslationSource } from '../types';
 import { useSyncEngine } from '../hooks/useSyncEngine';
 import {
-  translateText,
   translateTrackWithNativeFirst,
-  translateOnDemandCues,
-  ON_DEMAND_FALLBACK_COUNT,
   getLanguageTranslationSource,
   isYouTubeNativeSource,
 } from '../lib/translateService';
@@ -525,87 +522,6 @@ export const SubtitlesTeacherPanel: React.FC<SubtitlesTeacherPanelProps> = ({
       });
     });
   }, [effectiveCues, targetLanguages, sourceLang, observedTimedTextUrl, videoId]);
-
-  // Requirement 4: On-demand fallback translation consuming translateText for only next X=7 subtitle records
-  useEffect(() => {
-    if (!effectiveCues || effectiveCues.length === 0) return;
-    const startIndex = Math.max(0, activeCueIndex);
-    const isSingleLang = loadAppSettings().singleTargetLanguageMode ?? true;
-    const enabled = isSingleLang ? enabledTargetLangs : targetLanguages.filter((l) => l.enabled);
-
-    enabled.forEach((lang) => {
-      // Check if this language uses fallback translation
-      const vId = videoId || 'FcRzAdI8R9U';
-      const cleanLang = lang.code.toLowerCase().split('-')[0];
-      if (
-        hasCachedSrtForVideoAndLanguage(vId, cleanLang) ||
-        cleanLang === 'he' ||
-        cleanLang === 'iw' ||
-        cleanLang === 'il' ||
-        cleanLang === 'ar' ||
-        cleanLang === 'en' ||
-        cleanLang === 'it' ||
-        cleanLang === 'ru'
-      ) {
-        // Skip Google Translate fallback completely! Authentic SRT track is already available!
-        return;
-      }
-
-      const source = langSources[lang.code];
-      if (source === 'google_translate_fallback' || !source) {
-        // Check if any of the next 7 cues are missing translations
-        const windowCues = effectiveCues.slice(startIndex, startIndex + ON_DEMAND_FALLBACK_COUNT);
-        const hasMissing = windowCues.some(
-          (c) => !tableTranslations[c.id]?.[lang.code] && !translations[c.id]?.[lang.code]
-        );
-
-        if (hasMissing) {
-          // Collect existing authentic translations for this language
-          const existingLangTrans: Record<string, string> = {};
-          effectiveCues.forEach((c) => {
-            const fromTable = tableTranslations[c.id]?.[lang.code];
-            const fromSync = translations[c.id]?.[lang.code];
-            if (fromTable && fromTable.trim().toLowerCase() !== c.text.trim().toLowerCase()) {
-              existingLangTrans[c.id] = fromTable;
-            } else if (fromSync && fromSync.trim().toLowerCase() !== c.text.trim().toLowerCase()) {
-              existingLangTrans[c.id] = fromSync;
-            }
-          });
-
-          translateOnDemandCues({
-            cues: effectiveCues,
-            startIndex,
-            count: ON_DEMAND_FALLBACK_COUNT,
-            targetLang: lang.code,
-            sourceLang,
-            existingTranslations: existingLangTrans,
-          }).then((newTranslations) => {
-            if (newTranslations && Object.keys(newTranslations).length > 0) {
-              setTableTranslations((prev) => {
-                const updated = { ...prev };
-                let changed = false;
-                Object.entries(newTranslations).forEach(([cId, text]) => {
-                  const cue = effectiveCues.find((c) => c.id === cId);
-                  const isOrig = cue && text.trim().toLowerCase() === cue.text.trim().toLowerCase();
-                  if (text && (!isOrig || lang.code === sourceLang)) {
-                    const current = updated[cId]?.[lang.code];
-                    const currentIsOrig = cue && current && current.trim().toLowerCase() === cue.text.trim().toLowerCase();
-                    if (!current || currentIsOrig) {
-                      updated[cId] = { ...(updated[cId] || {}), [lang.code]: text };
-                      changed = true;
-                    }
-                  }
-                });
-                return changed ? updated : prev;
-              });
-            }
-          }).catch((err) => {
-            console.warn(`On-demand translation error for ${lang.code}:`, err);
-          });
-        }
-      }
-    });
-  }, [activeCueIndex, effectiveCues, targetLanguages, langSources, sourceLang, translations, tableTranslations, videoId]);
 
   const getCueTranslation = (cue: CaptionCue, langCode: string): string => {
     let clean = (langCode || '').toLowerCase().split(/[-_]/)[0];

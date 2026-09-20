@@ -110,16 +110,18 @@ The browser companion and Android native host solve different constraints:
 ### Web Companion
 - Operates inside standard web browsers and CI/CD pipelines.
 - Standard browsers cannot inspect cross-origin HTTPS requests inside a YouTube `<iframe>`.
-- Uses the fixture library (`test/fixtures/`) and default video IDs to supply offline subtitle tracks across multiple languages for testing and demonstration.
+- **Web Solution Purpose**: The web companion application is strictly for testing the application flow, UI validation, and demonstration — it is NOT intended for other general use.
+- **Fixture Artifacts**: Uses local static fixture artifacts for 2 example video IDs (`test/fixtures/L2Ryrr6txwA/` and `test/fixtures/FcRzAdI8R9U/`) to supply offline subtitle tracks across multiple languages for testing.
 - Serves as the primary presentation and automated verification driver to test-drive application flows.
 
 ### Android Native Host
 - Operates inside an Android WebView (`android-shell/`).
 - Intercepts network operations when the user toggles captions, detecting requests to:
   `https://www.youtube.com/api/timedtext`
-- Modifies the observed request parameters (e.g., swapping `tlang` to request another target language) and replays it.
+- **Android Solution (`tlang` Parameter)**: To retrieve subtitles in target language X, the native interceptor modifies the observed `timedtext` request parameters by replacing or appending `tlang=X` (preserving `fmt=json3`), and replays the request with the original headers and context.
+- **Zero-Calculation Native Translation**: Yields authentic server-side translated caption streams from YouTube with 1:1 timeline alignment.
 - **Critical Requirement**: Must preserve the complete original request context (headers, cookies, query parameters, formatting) rather than constructing an arbitrary URL.
-- Preserves `fmt=json3` to retain timing accuracy.
+- **Failure Visibility in Tests**: In case the native solution using `tlang` value change is not working or returns an error, it MUST be immediately visible and fail in automated tests (Android E2E tests, CI network interceptor tests, and report integrity verification).
 - **Mocked Testing vs. Real-World Production Execution**:
   - Default videos and static subtitle fixture artifacts (`test/fixtures/`) MAY be used on Android strictly during mocked test-driving scenarios to validate UI flows when offline or isolated.
   - **Separated Real-World Test Scenario Requirement**: A separate, unmocked test scenario MUST be maintained to verify real-world live caption fetching without mock data or static fixtures.
@@ -127,7 +129,18 @@ The browser companion and Android native host solve different constraints:
 
 ---
 
-## 7. Subtitle Fixture Library Architecture
+## 7. Deprecation of Translation Services (Google Translate & On-Demand Translation)
+
+1. **Strict Inaccuracy Deprecation**: Using any external translation service (e.g. Google Translate, Google GTX public API endpoints, or third-party translation APIs) to translate subtitle records is NOT accurate enough and is therefore **completely deprecated and forbidden**. Do not use it at all!
+2. **Removal of On-Demand Translation**: All on-demand subtitle translation mechanisms (e.g. translating arbitrary subtitle records or batches on the fly) are removed / commented out.
+3. **Canonical Subtitle Sources**:
+   - **Android Native Host**: Only authentic YouTube `timedtext` streams retrieved via native `tlang` parameter swaps.
+   - **Web Companion**: Deterministic local fixture artifacts for the 2 example video IDs used for flow validation.
+4. **Test Failure Visibility**: If native `tlang` translation fetching fails, the system must not silently fall back to machine translation services. The failure must surface directly in automated test suites and diagnostic logs.
+
+---
+
+## 8. Subtitle Fixture Library Architecture
 
 The fixture library is a first-class feature of the project, documented in `docs/specifications/LIBRARY.md`.
 
@@ -139,7 +152,7 @@ The fixture library is a first-class feature of the project, documented in `docs
 
 ---
 
-## 8. Deferred Android E2E Tests
+## 9. Deferred Android E2E Tests
 
 These tests represent native Android capabilities and are intentionally documented for later implementation:
 
@@ -155,7 +168,7 @@ These tests represent native Android capabilities and are intentionally document
 
 ---
 
-## 9. Current Implementation & Testing Phase
+## 10. Current Implementation & Testing Phase
 
 The active implementation phase mandates:
 1. Strict adherence to Markdown design contracts (`docs/designs/DESIGN_SUBTITLE_VIEWS.md`, `docs/designs/DESIGN_VIEW_LANGS.md`, `docs/designs/DESIGN_CONTROLS_VIEW.md`, `docs/designs/DESIGN_PLAYER_PROVIDER.md`, `docs/designs/DESIGN_STATE_COORDINATOR.md`, `docs/specifications/SCHEMA_TIMEDTEXT.md`, `docs/specifications/json3.md`).
@@ -175,7 +188,7 @@ The active implementation phase mandates:
 
 ---
 
-## 10. Application Core & Layout Directives
+## 11. Application Core & Layout Directives
 
 1. **Default Compact UI Density**: Use a compact design density by default across both Web and Android native host platforms to maximize viewable screen real estate for media player presentation and subtitle rendering.
 2. **In-App & Hardware History Navigation**: Enable seamless in-app navigation supporting browser and Android device back/forward system buttons via standardized HTML5 history state management.
@@ -191,7 +204,7 @@ The active implementation phase mandates:
 
 ---
 
-## 11. Directive Execution & Planning Protocol
+## 12. Directive Execution & Planning Protocol
 
 When processing incoming user prompts and directives, the agent must adhere to a systematic planning and documentation protocol:
 
@@ -226,7 +239,7 @@ When processing incoming user prompts and directives, the agent must adhere to a
 
 ---
 
-## 12. Android Application Update Methods
+## 13. Android Application Update Methods
 
 The application supports three distinct update mechanisms to accommodate both live end-user updates and developer workstation deployment:
 
@@ -247,7 +260,7 @@ The application supports three distinct update mechanisms to accommodate both li
 
 ---
 
-## 13. Summary of Architectural Mission
+## 14. Summary of Architectural Mission
 
 - **Views are replaceable**: Any UI component can be rewritten or swapped without breaking data flow.
 - **Contracts are the truth**: Markdown specifications define component inputs, responsibilities, and outputs.

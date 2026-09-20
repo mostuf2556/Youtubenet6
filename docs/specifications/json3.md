@@ -73,14 +73,18 @@ The following must remain intact when replaying or substituting a language:
 - the original request headers and cookies when available,
 - and any signature or version parameters already present on the request.
 
-### Target Language Replay
-The only accepted variant is to append or replace the target-language parameter while preserving the rest of the request context:
+### Target Language Replay & Translation Service Deprecation
+- **Strict Deprecation of Machine Translation Services**: Using any third-party translation service (such as Google Translate, Google GTX public endpoints, or on-demand translation APIs) to translate subtitle records is NOT accurate enough and is therefore **completely deprecated and forbidden**. Do not use external translation services at all!
+- **Android Solution (`tlang` Parameter)**: To get subtitles in language X, the only accepted method is to append or replace the `tlang` parameter on the intercepted native request while preserving all headers, cookies, and `fmt=json3`:
 
 ```http
 GET https://www.youtube.com/api/timedtext?v=VIDEO_ID&lang=en&tlang=he&fmt=json3&...
 ```
 
 This keeps the native playback path aligned with YouTube's native server-side timing model instead of fabricating client-derived translations.
+
+- **Web Solution (2-Video Fixture Artifacts)**: The web companion application is strictly for testing the application flow, UI validation, and demonstration — it is NOT intended for other general subtitle extraction without fixtures. It consumes pre-recorded offline JSON3 fixture artifacts for 2 example video IDs (`test/fixtures/L2Ryrr6txwA/` and `test/fixtures/FcRzAdI8R9U/`).
+- **Test Visibility Mandate**: In case the native solution using `tlang` parameter replacement is not working, is blocked, or returns an error, the failure MUST be immediately visible in automated tests (Android E2E tests, network interception tests, and CI report integrity checks) rather than silently falling back to machine translations.
 
 ---
 
