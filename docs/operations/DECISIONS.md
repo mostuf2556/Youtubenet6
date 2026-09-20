@@ -28,3 +28,12 @@ This log records major architectural decisions, technical context, options evalu
 - **Context**: UI views coupling data fetching or localStorage logic cannot be test-driven or swapped without breaking dependencies.
 - **Decision**: All presentation components MUST be pure views receiving data and state via props/parameters and emitting user intent purely via callbacks.
 - **Consequences**: Subtitle views, language selectors, and player controls are completely interchangeable and independently testable via fixture tracks.
+
+---
+
+## ADR-004: Root Markdown Organization & Subdirectory Structure under `docs/`
+- **Date**: 2026-09-19
+- **Status**: Accepted
+- **Context**: An accumulation of loose `.md` files at the project root clutters the repository workspace and complicates documentation navigation and static site generation.
+- **Decision**: Enforce root directory hygiene by relocating all project documentation into organized subdirectories under `docs/` (`docs/plans/`, `docs/designs/`, `docs/specifications/`, `docs/operations/`). Only essential top-level files (`AGENTS.md`, `README.md`, and the live runner `temp.md`) remain at root.
+- **Consequences**: Streamlines repository structure, integrates cleanly with MkDocs navigation, and prevents root directory sprawl.
