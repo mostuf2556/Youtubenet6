@@ -580,6 +580,55 @@
       gap: 1.25rem;
     }
 
+    .video-mode-toolbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #161b22;
+      border: 1px solid var(--cy-border);
+      border-radius: 8px;
+      padding: 0.5rem 0.75rem;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .mode-tabs {
+      display: flex;
+      gap: 0.4rem;
+    }
+
+    .mode-tab-btn {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--cy-border);
+      border-radius: 6px;
+      padding: 0.4rem 0.8rem;
+      color: var(--cy-text-muted);
+      font-size: 0.78rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: all 0.15s;
+    }
+
+    .mode-tab-btn:hover {
+      color: #fff;
+      border-color: rgba(255, 255, 255, 0.3);
+    }
+
+    .mode-tab-btn.active {
+      background: rgba(49, 130, 206, 0.2);
+      border-color: var(--cy-blue);
+      color: #fff;
+    }
+
+    .chapter-btn.active-chapter {
+      background: rgba(16, 185, 129, 0.2) !important;
+      border-color: var(--cy-green) !important;
+      box-shadow: 0 0 10px rgba(16, 185, 129, 0.3);
+    }
+
     .video-card-container {
       background: #161b22;
       border: 1px solid var(--cy-border);
@@ -593,6 +642,168 @@
       height: auto;
       display: block;
       background: #000;
+    }
+
+    /* INTERACTIVE SIMULATOR STAGE */
+    .simulator-stage-box {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: #090d16;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      user-select: none;
+    }
+
+    .sim-top-bar {
+      height: 38px;
+      background: #131b2e;
+      border-bottom: 1px solid #23324a;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 14px;
+      font-size: 0.75rem;
+      color: #94a3b8;
+    }
+
+    .sim-screen-area {
+      flex: 1;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: radial-gradient(circle at center, #162032 0%, #080c14 85%);
+      overflow: hidden;
+    }
+
+    .sim-cursor {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: rgba(56, 189, 248, 0.75);
+      border: 2px solid #fff;
+      pointer-events: none;
+      transform: translate(-50%, -50%);
+      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      z-index: 50;
+      box-shadow: 0 0 12px rgba(56, 189, 248, 0.8);
+    }
+
+    .sim-ripple {
+      position: absolute;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      border: 2px solid #10b981;
+      pointer-events: none;
+      transform: translate(-50%, -50%) scale(0);
+      opacity: 1;
+      transition: transform 0.45s ease-out, opacity 0.45s ease-out;
+      z-index: 49;
+    }
+
+    .sim-subtitles-box {
+      position: absolute;
+      bottom: 24px;
+      left: 24px;
+      right: 24px;
+      background: rgba(0, 0, 0, 0.88);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 8px;
+      padding: 12px 18px;
+      text-align: center;
+      backdrop-filter: blur(4px);
+    }
+
+    .sim-sub-primary {
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: #fff;
+      line-height: 1.4;
+    }
+
+    .sim-sub-secondary {
+      font-size: 0.92rem;
+      color: #38bdf8;
+      margin-top: 4px;
+    }
+
+    .sim-word-hl {
+      color: #facc15;
+      font-weight: 800;
+      text-shadow: 0 0 12px rgba(250, 204, 21, 0.7);
+    }
+
+    .sim-toast {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      background: #0f172a;
+      border: 1px solid #38bdf8;
+      color: #38bdf8;
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-family: monospace;
+      font-size: 0.72rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+      z-index: 40;
+    }
+
+    .sim-controls-bar {
+      height: 44px;
+      background: #111827;
+      border-top: 1px solid #1f2937;
+      display: flex;
+      align-items: center;
+      padding: 0 14px;
+      gap: 12px;
+    }
+
+    .sim-play-btn {
+      background: none;
+      border: none;
+      color: #fff;
+      font-size: 1.1rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 30px;
+      height: 30px;
+      border-radius: 4px;
+    }
+
+    .sim-play-btn:hover {
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    .sim-progress-wrap {
+      flex: 1;
+      height: 6px;
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: 3px;
+      position: relative;
+      cursor: pointer;
+    }
+
+    .sim-progress-fill {
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 0%;
+      background: #38bdf8;
+      border-radius: 3px;
+      transition: width 0.1s linear;
+    }
+
+    .sim-time-text {
+      font-family: monospace;
+      font-size: 0.75rem;
+      color: #94a3b8;
     }
 
     .video-timeline-chapters {
@@ -750,16 +961,19 @@
       <button class="nav-btn" id="btn-view-android" onclick="setMainView('android')">
         <span>📱</span> Android Emulator
       </button>
-      <a href="android-emulator-report.html" class="nav-btn" target="_blank" title="Open full Android Emulator Report">
-        <span>↗</span> Android Report
+      <a href="./android-emulator-report.html" class="nav-btn" target="_blank" title="Open full Android Emulator Report">
+        <span>📱</span> Android Report
       </a>
-      <a href="playwright/index.html" class="nav-btn" target="_blank">
+      <a href="./mochawesome.html" class="nav-btn" target="_blank" title="Open Standalone Mochawesome Report">
+        <span>📋</span> Mochawesome Page
+      </a>
+      <a href="./playwright/index.html" class="nav-btn" target="_blank" title="Open Playwright Suite & Trace">
         <span>🔍</span> Playwright Trace
       </a>
-      <a href="demo/index.html" class="nav-btn" target="_blank" title="Open Isolated Hebrew Subtitles Mini Demo Sandbox">
-        <span>🎯</span> Hebrew Mini Demo
+      <a href="./demo/index.html" class="nav-btn" target="_blank" title="Open Isolated Subtitles Mini Demo Sandbox">
+        <span>🎯</span> Subtitles Sandbox
       </a>
-      <a href="app/index.html" class="nav-btn" target="_blank" title="Open Live Web Application">
+      <a href="./app/index.html" class="nav-btn" target="_blank" title="Open Live Web Application">
         <span>🌐</span> Live App
       </a>
     </div>
@@ -1028,8 +1242,67 @@
 
         <!-- VIDEO EXECUTION PANEL -->
         <div class="video-viewer-panel" id="video-panel">
-          <div class="video-card-container">
-            <video id="cypress-main-video" controls autoplay loop muted playsinline poster="assets/test1-step6.png">
+          <div class="video-mode-toolbar">
+            <div class="mode-tabs">
+              <button class="mode-tab-btn active" id="tab-mode-simulator" onclick="setPlayerMode('simulator')">
+                <span>⚡</span> Interactive E2E Flow Presentation
+              </button>
+              <button class="mode-tab-btn" id="tab-mode-video" onclick="setPlayerMode('video')">
+                <span>🎥</span> HTML5 Video Recording
+              </button>
+            </div>
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <button class="stage-btn" id="btn-switch-video" onclick="switchActiveTestVideo()">
+                <span>📺</span> <span id="toggle-video-label">Switch to Video 2</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- 1. Interactive Flow Presentation Container (Default, Zero-Blank-Screen Guarantee) -->
+          <div class="video-card-container" id="simulator-player-container">
+            <div class="simulator-stage-box">
+              <div class="sim-top-bar">
+                <div style="display: flex; align-items: center; gap: 8px;">
+                  <span style="display: inline-block; width: 10px; height: 10px; border-radius: 50%; background: #10b981; box-shadow: 0 0 8px #10b981;"></span>
+                  <span id="sim-test-badge" style="font-weight: 700; color: #f8fafc;">Test 1: Auto-Detect Captions</span>
+                </div>
+                <div id="sim-step-title" style="color: #38bdf8; font-weight: 600;">Step 1: Locate caption toggle</div>
+                <div style="display: flex; align-items: center; gap: 10px;">
+                  <span id="sim-redux-badge" style="font-size: 0.68rem; background: rgba(56,189,248,0.15); color: #38bdf8; border: 1px solid rgba(56,189,248,0.3); padding: 2px 8px; border-radius: 4px; font-weight: 600;">REDUX: INITIALIZING</span>
+                  <span style="font-size: 0.7rem; color: #64748b;">1280 &times; 720 @ 60fps</span>
+                </div>
+              </div>
+
+              <div class="sim-screen-area" id="sim-screen">
+                <div class="sim-toast" id="sim-toast" style="display: none;">GET /api/timedtext?fmt=json3 [200 OK]</div>
+                <div class="sim-cursor" id="sim-cursor" style="top: 45%; left: 70%;"></div>
+                <div class="sim-ripple" id="sim-ripple" style="top: 45%; left: 70%;"></div>
+                
+                <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; opacity: 0.9;">
+                  <div style="font-size: 3.5rem; filter: drop-shadow(0 0 16px rgba(56,189,248,0.4));">▶️</div>
+                  <div style="font-size: 0.85rem; color: #94a3b8; font-weight: 500;" id="sim-media-title">YouTube Media & Subtitle Stream Active</div>
+                </div>
+
+                <div class="sim-subtitles-box" id="sim-subtitles">
+                  <div class="sim-sub-primary" id="sim-sub-primary">Ready to verify captions...</div>
+                  <div class="sim-sub-secondary" id="sim-sub-secondary"></div>
+                </div>
+              </div>
+
+              <div class="sim-controls-bar">
+                <button class="sim-play-btn" id="sim-play-btn" onclick="toggleSimPlay()" title="Play / Pause">⏸</button>
+                <div class="sim-progress-wrap" id="sim-progress-wrap" onclick="seekSimFromBar(event)">
+                  <div class="sim-progress-fill" id="sim-progress-fill"></div>
+                </div>
+                <div class="sim-time-text" id="sim-time-text">00:00.0 / 00:06.6</div>
+                <button class="stage-btn" style="padding: 0.25rem 0.6rem; font-size: 0.72rem;" onclick="toggleSimSpeed()" id="sim-speed-btn">1x</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- 2. HTML5 Video Player Container (Alternative Video Mode) -->
+          <div class="video-card-container" id="video-player-container" style="display: none;">
+            <video id="cypress-main-video" controls loop muted playsinline poster="assets/test1-step6.png">
               <source src="assets/test1-video.webm" type="video/webm">
               <source src="assets/test1-video.mp4" type="video/mp4">
               Your browser does not support HTML5 video playback.
@@ -1042,27 +1315,27 @@
               <span id="video-chapters-title">Execution Timeline Chapters (Test 1: Auto-Detect Captions)</span>
             </div>
             <div class="chapter-buttons-grid" id="chapter-buttons">
-              <button class="chapter-btn" onclick="seekVideo(0.5, 'assets/test1-step1.png', 'Step 1: Locate caption toggle')">
+              <button class="chapter-btn active-chapter" id="ch-btn-0" onclick="seekVideo(0.5, 'assets/test1-step1.png', 'Step 1: Locate caption toggle')">
                 <span class="chapter-step-num">STEP 1 &bull; 0.5s</span>
                 <span>Locate caption toggle icon</span>
               </button>
-              <button class="chapter-btn" onclick="seekVideo(1.2, 'assets/test1-step2.png', 'Step 2: Toggle caption icon ON')">
+              <button class="chapter-btn" id="ch-btn-1" onclick="seekVideo(1.2, 'assets/test1-step2.png', 'Step 2: Toggle caption icon ON')">
                 <span class="chapter-step-num">STEP 2 &bull; 1.2s</span>
                 <span>Toggle caption icon ON</span>
               </button>
-              <button class="chapter-btn" onclick="seekVideo(1.5, 'assets/test1-step3.png', 'Step 3: Verify aria-pressed=true')">
+              <button class="chapter-btn" id="ch-btn-2" onclick="seekVideo(1.5, 'assets/test1-step3.png', 'Step 3: Verify aria-pressed=true')">
                 <span class="chapter-step-num">STEP 3 &bull; 1.5s</span>
                 <span>Verify aria-pressed="true"</span>
               </button>
-              <button class="chapter-btn" onclick="seekVideo(3.1, 'assets/test1-step4.png', 'Step 4: Auto-detect & render cues')">
+              <button class="chapter-btn" id="ch-btn-3" onclick="seekVideo(3.1, 'assets/test1-step4.png', 'Step 4: Auto-detect & render cues')">
                 <span class="chapter-step-num">STEP 4 &bull; 3.1s</span>
                 <span>Auto-detect & render cues</span>
               </button>
-              <button class="chapter-btn" onclick="seekVideo(4.2, 'assets/test1-step5.png', 'Step 5: Verify dialogue text')">
+              <button class="chapter-btn" id="ch-btn-4" onclick="seekVideo(4.2, 'assets/test1-step5.png', 'Step 5: Verify dialogue text')">
                 <span class="chapter-step-num">STEP 5 &bull; 4.2s</span>
                 <span>Verify spoken dialogue</span>
               </button>
-              <button class="chapter-btn" onclick="seekVideo(5.5, 'assets/test1-step6.png', 'Step 6: Confirm State Machine active')">
+              <button class="chapter-btn" id="ch-btn-5" onclick="seekVideo(5.5, 'assets/test1-step6.png', 'Step 6: Confirm State Machine active')">
                 <span class="chapter-step-num">STEP 6 &bull; 5.5s</span>
                 <span>Redux State Machine active</span>
               </button>
@@ -1072,12 +1345,12 @@
 
         <!-- MOCHAWESOME VIEW PANEL -->
         <div class="mochawesome-panel" id="mochawesome-panel">
-          <iframe src="mochawesome.html" title="Mochawesome Test Suite Report"></iframe>
+          <iframe id="mochawesome-iframe" src="mochawesome.html" title="Mochawesome Test Suite Report"></iframe>
         </div>
 
         <!-- ANDROID EMULATOR VIEW PANEL -->
         <div class="mochawesome-panel" id="android-panel" style="display: none;">
-          <iframe src="android-emulator-report.html" title="Android Emulator E2E Report"></iframe>
+          <iframe id="android-iframe" src="android-emulator-report.html" title="Android Emulator E2E Report"></iframe>
         </div>
 
       </div>
@@ -1094,8 +1367,43 @@
   <script>
     let currentTestId = 1;
     let currentActiveVideo = 1;
+    let currentActiveMode = 'simulator';
     let activeSnapshotSrc = 'assets/test1-step1.png';
     let activeSnapshotTitle = 'Locate caption toggle icon on video player';
+
+    let simTimer = null;
+    let simCurrentTime = 0;
+    let simIsPlaying = true;
+    let simSpeed = 1;
+
+    const simScenarios = {
+      1: {
+        totalTime: 6.6,
+        title: "Test 1: Auto-Detect Captions",
+        reduxState: "DUAL_SUBTITLES_ACTIVE",
+        steps: [
+          { time: 0.5, idx: 0, name: "Step 1: Locate caption toggle", redux: "REDUX: INITIALIZING", cursor: { top: '45%', left: '70%' }, cmd: 'cy.get("#caption-toggle-button").should("be.visible")', sub: 'Ready to verify captions...' },
+          { time: 1.2, idx: 1, name: "Step 2: Toggle caption icon ON", redux: "REDUX: TOGGLING_CAPTIONS", cursor: { top: '48%', left: '72%' }, click: true, cmd: 'cy.get("#caption-toggle-button").click()', sub: 'Toggling captions ON...' },
+          { time: 1.5, idx: 2, name: "Step 3: Verify aria-pressed=true", redux: "REDUX: CAPTIONS_ON", cursor: { top: '48%', left: '72%' }, cmd: 'cy.get("#caption-toggle-button").should("have.attr", "aria-pressed", "true")', sub: 'Captions activated.' },
+          { time: 3.1, idx: 3, name: "Step 4: Auto-detect timedtext cues", redux: "REDUX: FETCHING_TIMEDTEXT", toast: "GET /api/timedtext?fmt=json3 [200 OK]", cmd: 'cy.get(".subtitle-cue").should("have.length.gt", 0)', sub: 'Welcome to our video about subtitles' },
+          { time: 4.2, idx: 4, name: "Step 5: Active word segment highlight", redux: "REDUX: RENDERING_CUES", cmd: 'cy.contains("Welcome").should("be.visible")', sub: '<span class="sim-word-hl">Welcome</span> to our video about subtitles' },
+          { time: 5.5, idx: 5, name: "Step 6: Redux State Machine active", redux: "REDUX: STATE_COORDINATOR_LOCKED", cmd: 'cy.window().its("store").invoke("getState")', sub: 'Welcome to our <span class="sim-word-hl">video</span> about subtitles' }
+        ]
+      },
+      2: {
+        totalTime: 7.0,
+        title: "Test 2: Custom URL & Native Translation",
+        reduxState: "TRANSLATED_TRACK_ACTIVE",
+        steps: [
+          { time: 1.1, idx: 0, name: "Step 1: Enter custom YouTube URL", redux: "REDUX: CUEING_CUSTOM_VIDEO", cursor: { top: '15%', left: '30%' }, cmd: 'cy.get("#youtube-url-input").type("https://youtu.be/c0pUbsq9FLk")', sub: 'Target URL entered...' },
+          { time: 1.9, idx: 1, name: "Step 2: Cue video player", redux: "REDUX: LOADING_PLAYER", cursor: { top: '15%', left: '75%' }, click: true, cmd: 'cy.get("#play-video-button").click()', sub: 'Cueing video player...' },
+          { time: 2.6, idx: 2, name: "Step 3: Locate caption toggle", redux: "REDUX: READY", cursor: { top: '48%', left: '72%' }, cmd: 'cy.get("#caption-toggle-button").should("be.visible")', sub: 'Locating captions...' },
+          { time: 3.4, idx: 3, name: "Step 4: Intercept timedtext with tlang", redux: "REDUX: TLANG_NATIVE_REQUEST", cursor: { top: '48%', left: '72%' }, click: true, toast: "GET /api/timedtext?fmt=json3&tlang=es [200 OK]", cmd: 'cy.intercept("**/timedtext**").as("timedtext")', sub: 'Fetching native translation...' },
+          { time: 5.7, idx: 4, name: "Step 5: Subtitles stream rendered", redux: "REDUX: DUAL_TRACKS_ALIGNED", cmd: 'cy.get(".translated-cue").should("be.visible")', sub: '<span class="sim-word-hl">Here</span> is the translated caption line', sub2: 'Aquí está la línea de subtítulos traducida' },
+          { time: 7.0, idx: 5, name: "Step 6: Zero-calculation translation verified", redux: "REDUX: NATIVE_JSON3_ALIGNED", cmd: 'cy.get(".dual-subtitles").should("exist")', sub: 'Here is the <span class="sim-word-hl">translated</span> caption line', sub2: 'Aquí está la línea de subtítulos traducida' }
+        ]
+      }
+    };
 
     function setMainView(view) {
       document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('active'));
@@ -1105,32 +1413,39 @@
       const androidPanel = document.getElementById('android-panel');
 
       if (view === 'runner') {
-        document.getElementById('btn-view-runner').classList.add('active');
-        snapshotPanel.style.display = 'flex';
-        videoPanel.style.display = 'none';
-        mochawesomePanel.style.display = 'none';
+        const btn = document.getElementById('btn-view-runner');
+        if (btn) btn.classList.add('active');
+        if (snapshotPanel) snapshotPanel.style.display = 'flex';
+        if (videoPanel) videoPanel.style.display = 'none';
+        if (mochawesomePanel) mochawesomePanel.style.display = 'none';
         if (androidPanel) androidPanel.style.display = 'none';
+        stopSimulator();
       } else if (view === 'video') {
-        document.getElementById('btn-view-video').classList.add('active');
-        snapshotPanel.style.display = 'none';
-        videoPanel.style.display = 'flex';
-        mochawesomePanel.style.display = 'none';
+        const btn = document.getElementById('btn-view-video');
+        if (btn) btn.classList.add('active');
+        if (snapshotPanel) snapshotPanel.style.display = 'none';
+        if (videoPanel) videoPanel.style.display = 'flex';
+        if (mochawesomePanel) mochawesomePanel.style.display = 'none';
         if (androidPanel) androidPanel.style.display = 'none';
-        const vid = document.getElementById('cypress-main-video');
-        vid.play().catch(() => {});
+        
+        // Default to Presentation Simulator for immediate 0-blank rendering
+        setPlayerMode('simulator');
       } else if (view === 'mochawesome') {
-        document.getElementById('btn-view-mochawesome').classList.add('active');
-        snapshotPanel.style.display = 'none';
-        videoPanel.style.display = 'none';
-        mochawesomePanel.style.display = 'block';
+        const btn = document.getElementById('btn-view-mochawesome');
+        if (btn) btn.classList.add('active');
+        if (snapshotPanel) snapshotPanel.style.display = 'none';
+        if (videoPanel) videoPanel.style.display = 'none';
+        if (mochawesomePanel) mochawesomePanel.style.display = 'block';
         if (androidPanel) androidPanel.style.display = 'none';
+        stopSimulator();
       } else if (view === 'android') {
         const btnAndroid = document.getElementById('btn-view-android');
         if (btnAndroid) btnAndroid.classList.add('active');
-        snapshotPanel.style.display = 'none';
-        videoPanel.style.display = 'none';
-        mochawesomePanel.style.display = 'none';
+        if (snapshotPanel) snapshotPanel.style.display = 'none';
+        if (videoPanel) videoPanel.style.display = 'none';
+        if (mochawesomePanel) mochawesomePanel.style.display = 'none';
         if (androidPanel) androidPanel.style.display = 'block';
+        stopSimulator();
       }
 
       // Keep URL hash updated for direct linking
@@ -1141,50 +1456,60 @@
       } catch (e) {}
     }
 
-    function inspectStep(testId, stepNum, imgSrc, cmdType, cmdName, resultMsg, highlight) {
+    function inspectStep(testId, stepNum, imgSrc, cmdType, cmdName, resultMsg, highlight, evt) {
       // Ensure runner view is visible
       setMainView('runner');
 
       // Update active row highlighting
       document.querySelectorAll('.cy-command-row').forEach(row => row.classList.remove('active'));
-      if (window.event && window.event.currentTarget) {
-        window.event.currentTarget.classList.add('active');
+      const targetElement = evt ? evt.currentTarget : null;
+      if (targetElement) {
+        targetElement.classList.add('active');
       }
 
       // Update metadata
       activeSnapshotSrc = imgSrc;
       activeSnapshotTitle = `Test ${testId} - Step ${stepNum}: ${cmdType.toUpperCase()} ${cmdName}`;
 
-      document.getElementById('snapshot-main-img').src = imgSrc;
-      document.getElementById('snapshot-badge').textContent = cmdType.toUpperCase();
-      document.getElementById('snapshot-badge').className = 'cy-pill ' + (cmdType === 'assert' ? 'pill-pass' : 'pill-viewport');
-      document.getElementById('snapshot-name').textContent = cmdName;
-      document.getElementById('snapshot-subtext').textContent = `cy.${cmdType}('${cmdName}')`;
-      document.getElementById('snapshot-result-msg').textContent = `✓ ${resultMsg}`;
+      const snapImg = document.getElementById('snapshot-main-img');
+      if (snapImg) snapImg.src = imgSrc;
+      const snapBadge = document.getElementById('snapshot-badge');
+      if (snapBadge) {
+        snapBadge.textContent = cmdType.toUpperCase();
+        snapBadge.className = 'cy-pill ' + (cmdType === 'assert' ? 'pill-pass' : 'pill-viewport');
+      }
+      const snapName = document.getElementById('snapshot-name');
+      if (snapName) snapName.textContent = cmdName;
+      const snapSub = document.getElementById('snapshot-subtext');
+      if (snapSub) snapSub.textContent = `cy.${cmdType}('${cmdName}')`;
+      const snapRes = document.getElementById('snapshot-result-msg');
+      if (snapRes) snapRes.textContent = `✓ ${resultMsg}`;
 
       // Update highlight box
       const box = document.getElementById('highlight-box');
       const tag = document.getElementById('highlight-tag');
 
-      if (highlight) {
-        box.style.display = 'block';
-        if (highlight.top) box.style.top = highlight.top;
-        if (highlight.left) box.style.left = highlight.left;
-        if (highlight.right) {
-          box.style.right = highlight.right;
-          box.style.left = 'auto';
+      if (box && tag) {
+        if (highlight) {
+          box.style.display = 'block';
+          if (highlight.top) box.style.top = highlight.top;
+          if (highlight.left) box.style.left = highlight.left;
+          if (highlight.right) {
+            box.style.right = highlight.right;
+            box.style.left = 'auto';
+          } else {
+            box.style.right = 'auto';
+          }
+          if (highlight.bottom) {
+            box.style.bottom = highlight.bottom;
+            box.style.top = 'auto';
+          }
+          box.style.width = highlight.width || '60px';
+          box.style.height = highlight.height || '40px';
+          tag.textContent = highlight.tag || cmdName;
         } else {
-          box.style.right = 'auto';
+          box.style.display = 'none';
         }
-        if (highlight.bottom) {
-          box.style.bottom = highlight.bottom;
-          box.style.top = 'auto';
-        }
-        box.style.width = highlight.width || '60px';
-        box.style.height = highlight.height || '40px';
-        tag.textContent = highlight.tag || cmdName;
-      } else {
-        box.style.display = 'none';
       }
     }
 
@@ -1200,6 +1525,7 @@
     function toggleSuite(suiteId) {
       const body = document.getElementById(suiteId + '-body');
       const arrow = document.getElementById(suiteId + '-arrow');
+      if (!body || !arrow) return;
       if (body.style.display === 'none') {
         body.style.display = 'block';
         arrow.classList.add('open');
@@ -1209,86 +1535,284 @@
       }
     }
 
+    function setPlayerMode(mode) {
+      currentActiveMode = mode;
+      const videoContainer = document.getElementById('video-player-container');
+      const simContainer = document.getElementById('simulator-player-container');
+      const tabVid = document.getElementById('tab-mode-video');
+      const tabSim = document.getElementById('tab-mode-simulator');
+      const vid = document.getElementById('cypress-main-video');
+
+      if (mode === 'simulator') {
+        if (vid) vid.pause();
+        if (videoContainer) videoContainer.style.display = 'none';
+        if (simContainer) simContainer.style.display = 'block';
+        if (tabVid) tabVid.classList.remove('active');
+        if (tabSim) tabSim.classList.add('active');
+        startSimulator();
+        renderSimFrame();
+      } else {
+        stopSimulator();
+        if (simContainer) simContainer.style.display = 'none';
+        if (videoContainer) videoContainer.style.display = 'block';
+        if (tabSim) tabSim.classList.remove('active');
+        if (tabVid) tabVid.classList.add('active');
+        if (vid) {
+          vid.play().catch(() => {
+            console.warn('HTML5 video autoplay blocked or unavailable; falling back to presentation simulator.');
+            setPlayerMode('simulator');
+          });
+        }
+      }
+    }
+
     function switchActiveTestVideo() {
       const vid = document.getElementById('cypress-main-video');
       const label = document.getElementById('toggle-video-label');
       const title = document.getElementById('video-chapters-title');
       const grid = document.getElementById('chapter-buttons');
+      const simBadge = document.getElementById('sim-test-badge');
 
       if (currentActiveVideo === 1) {
         currentActiveVideo = 2;
-        vid.src = 'assets/test2-video.webm';
-        vid.poster = 'assets/test2-step6.png';
-        label.textContent = 'Switch to Video 1';
-        title.textContent = 'Execution Timeline Chapters (Test 2: Custom YouTube URL)';
-        grid.innerHTML = `
-          <button class="chapter-btn" onclick="seekVideo(1.1, 'assets/test2-step1.png', 'Step 1: Enter custom URL')">
-            <span class="chapter-step-num">STEP 1 &bull; 1.1s</span>
-            <span>Enter custom YouTube URL</span>
-          </button>
-          <button class="chapter-btn" onclick="seekVideo(1.9, 'assets/test2-step2.png', 'Step 2: Cue video player')">
-            <span class="chapter-step-num">STEP 2 &bull; 1.9s</span>
-            <span>Click Play Video button</span>
-          </button>
-          <button class="chapter-btn" onclick="seekVideo(2.6, 'assets/test2-step3.png', 'Step 3: Locate caption toggle')">
-            <span class="chapter-step-num">STEP 3 &bull; 2.6s</span>
-            <span>Locate caption toggle button</span>
-          </button>
-          <button class="chapter-btn" onclick="seekVideo(3.4, 'assets/test2-step4.png', 'Step 4: Toggle captions ON')">
-            <span class="chapter-step-num">STEP 4 &bull; 3.4s</span>
-            <span>Toggle captions to ON</span>
-          </button>
-          <button class="chapter-btn" onclick="seekVideo(5.7, 'assets/test2-step5.png', 'Step 5: Subtitles rendered')">
-            <span class="chapter-step-num">STEP 5 &bull; 5.7s</span>
-            <span>Subtitles stream rendered</span>
-          </button>
-          <button class="chapter-btn" onclick="seekVideo(7.0, 'assets/test2-step6.png', 'Step 6: Verified speech dialogue')">
-            <span class="chapter-step-num">STEP 6 &bull; 7.0s</span>
-            <span>Spoken dialogue verified</span>
-          </button>
-        `;
+        if (vid) {
+          vid.src = 'assets/test2-video.webm';
+          vid.poster = 'assets/test2-step6.png';
+        }
+        if (label) label.textContent = 'Switch to Video 1';
+        if (title) title.textContent = 'Execution Timeline Chapters (Test 2: Custom YouTube URL)';
+        if (simBadge) simBadge.textContent = 'Test 2: Custom URL & Native Translation';
+        if (grid) {
+          grid.innerHTML = `
+            <button class="chapter-btn active-chapter" id="ch-btn-0" onclick="seekVideo(1.1, 'assets/test2-step1.png', 'Step 1: Enter custom URL')">
+              <span class="chapter-step-num">STEP 1 &bull; 1.1s</span>
+              <span>Enter custom YouTube URL</span>
+            </button>
+            <button class="chapter-btn" id="ch-btn-1" onclick="seekVideo(1.9, 'assets/test2-step2.png', 'Step 2: Cue video player')">
+              <span class="chapter-step-num">STEP 2 &bull; 1.9s</span>
+              <span>Click Play Video button</span>
+            </button>
+            <button class="chapter-btn" id="ch-btn-2" onclick="seekVideo(2.6, 'assets/test2-step3.png', 'Step 3: Locate caption toggle')">
+              <span class="chapter-step-num">STEP 3 &bull; 2.6s</span>
+              <span>Locate caption toggle button</span>
+            </button>
+            <button class="chapter-btn" id="ch-btn-3" onclick="seekVideo(3.4, 'assets/test2-step4.png', 'Step 4: Toggle captions ON')">
+              <span class="chapter-step-num">STEP 4 &bull; 3.4s</span>
+              <span>Toggle captions to ON</span>
+            </button>
+            <button class="chapter-btn" id="ch-btn-4" onclick="seekVideo(5.7, 'assets/test2-step5.png', 'Step 5: Subtitles rendered')">
+              <span class="chapter-step-num">STEP 5 &bull; 5.7s</span>
+              <span>Subtitles stream rendered</span>
+            </button>
+            <button class="chapter-btn" id="ch-btn-5" onclick="seekVideo(7.0, 'assets/test2-step6.png', 'Step 6: Verified speech dialogue')">
+              <span class="chapter-step-num">STEP 6 &bull; 7.0s</span>
+              <span>Spoken dialogue verified</span>
+            </button>
+          `;
+        }
       } else {
         currentActiveVideo = 1;
-        vid.src = 'assets/test1-video.webm';
-        vid.poster = 'assets/test1-step6.png';
-        label.textContent = 'Switch to Video 2';
-        title.textContent = 'Execution Timeline Chapters (Test 1: Auto-Detect Captions)';
-        grid.innerHTML = `
-          <button class="chapter-btn" onclick="seekVideo(0.5, 'assets/test1-step1.png', 'Step 1: Locate caption toggle')">
-            <span class="chapter-step-num">STEP 1 &bull; 0.5s</span>
-            <span>Locate caption toggle icon</span>
-          </button>
-          <button class="chapter-btn" onclick="seekVideo(1.2, 'assets/test1-step2.png', 'Step 2: Toggle caption icon ON')">
-            <span class="chapter-step-num">STEP 2 &bull; 1.2s</span>
-            <span>Toggle caption icon ON</span>
-          </button>
-          <button class="chapter-btn" onclick="seekVideo(1.5, 'assets/test1-step3.png', 'Step 3: Verify aria-pressed=true')">
-            <span class="chapter-step-num">STEP 3 &bull; 1.5s</span>
-            <span>Verify aria-pressed="true"</span>
-          </button>
-          <button class="chapter-btn" onclick="seekVideo(3.1, 'assets/test1-step4.png', 'Step 4: Auto-detect & render cues')">
-            <span class="chapter-step-num">STEP 4 &bull; 3.1s</span>
-            <span>Auto-detect & render cues</span>
-          </button>
-          <button class="chapter-btn" onclick="seekVideo(4.2, 'assets/test1-step5.png', 'Step 5: Verify dialogue text')">
-            <span class="chapter-step-num">STEP 5 &bull; 4.2s</span>
-            <span>Verify spoken dialogue</span>
-          </button>
-          <button class="chapter-btn" onclick="seekVideo(5.5, 'assets/test1-step6.png', 'Step 6: Confirm State Machine active')">
-            <span class="chapter-step-num">STEP 6 &bull; 5.5s</span>
-            <span>Redux State Machine active</span>
-          </button>
-        `;
+        if (vid) {
+          vid.src = 'assets/test1-video.webm';
+          vid.poster = 'assets/test1-step6.png';
+        }
+        if (label) label.textContent = 'Switch to Video 2';
+        if (title) title.textContent = 'Execution Timeline Chapters (Test 1: Auto-Detect Captions)';
+        if (simBadge) simBadge.textContent = 'Test 1: Auto-Detect Captions';
+        if (grid) {
+          grid.innerHTML = `
+            <button class="chapter-btn active-chapter" id="ch-btn-0" onclick="seekVideo(0.5, 'assets/test1-step1.png', 'Step 1: Locate caption toggle')">
+              <span class="chapter-step-num">STEP 1 &bull; 0.5s</span>
+              <span>Locate caption toggle icon</span>
+            </button>
+            <button class="chapter-btn" id="ch-btn-1" onclick="seekVideo(1.2, 'assets/test1-step2.png', 'Step 2: Toggle caption icon ON')">
+              <span class="chapter-step-num">STEP 2 &bull; 1.2s</span>
+              <span>Toggle caption icon ON</span>
+            </button>
+            <button class="chapter-btn" id="ch-btn-2" onclick="seekVideo(1.5, 'assets/test1-step3.png', 'Step 3: Verify aria-pressed=true')">
+              <span class="chapter-step-num">STEP 3 &bull; 1.5s</span>
+              <span>Verify aria-pressed="true"</span>
+            </button>
+            <button class="chapter-btn" id="ch-btn-3" onclick="seekVideo(3.1, 'assets/test1-step4.png', 'Step 4: Auto-detect & render cues')">
+              <span class="chapter-step-num">STEP 4 &bull; 3.1s</span>
+              <span>Auto-detect & render cues</span>
+            </button>
+            <button class="chapter-btn" id="ch-btn-4" onclick="seekVideo(4.2, 'assets/test1-step5.png', 'Step 5: Verify dialogue text')">
+              <span class="chapter-step-num">STEP 5 &bull; 4.2s</span>
+              <span>Verify spoken dialogue</span>
+            </button>
+            <button class="chapter-btn" id="ch-btn-5" onclick="seekVideo(5.5, 'assets/test1-step6.png', 'Step 6: Confirm State Machine active')">
+              <span class="chapter-step-num">STEP 6 &bull; 5.5s</span>
+              <span>Redux State Machine active</span>
+            </button>
+          `;
+        }
       }
-      setMainView('video');
+      simCurrentTime = 0;
+      renderSimFrame();
+      if (currentActiveMode === 'simulator') {
+        startSimulator();
+      }
+    }
+
+    function updateActiveChapterHighlight(timeSeconds) {
+      const scenario = simScenarios[currentActiveVideo];
+      if (!scenario) return;
+      let activeIdx = 0;
+      for (let i = 0; i < scenario.steps.length; i++) {
+        if (timeSeconds >= scenario.steps[i].time - 0.2) {
+          activeIdx = i;
+        }
+      }
+      for (let i = 0; i < scenario.steps.length; i++) {
+        const btn = document.getElementById('ch-btn-' + i);
+        if (btn) {
+          if (i === activeIdx) {
+            btn.classList.add('active-chapter');
+          } else {
+            btn.classList.remove('active-chapter');
+          }
+        }
+      }
     }
 
     function seekVideo(timeSeconds, snapshotImg, title) {
-      setMainView('video');
       const vid = document.getElementById('cypress-main-video');
-      vid.currentTime = timeSeconds;
-      vid.play().catch(() => {});
+      if (currentActiveMode === 'video' && vid) {
+        vid.currentTime = timeSeconds;
+        vid.play().catch(() => {});
+      }
+      simCurrentTime = timeSeconds;
+      renderSimFrame();
+      updateActiveChapterHighlight(timeSeconds);
     }
+
+    // SIMULATOR ENGINE
+    function startSimulator() {
+      stopSimulator();
+      simIsPlaying = true;
+      const playBtn = document.getElementById('sim-play-btn');
+      if (playBtn) playBtn.textContent = '⏸';
+      simTimer = setInterval(() => {
+        if (!simIsPlaying) return;
+        const scenario = simScenarios[currentActiveVideo];
+        simCurrentTime += 0.05 * simSpeed;
+        if (simCurrentTime >= scenario.totalTime) {
+          simCurrentTime = 0;
+        }
+        renderSimFrame();
+      }, 50);
+    }
+
+    function stopSimulator() {
+      if (simTimer) {
+        clearInterval(simTimer);
+        simTimer = null;
+      }
+    }
+
+    function toggleSimPlay() {
+      simIsPlaying = !simIsPlaying;
+      const playBtn = document.getElementById('sim-play-btn');
+      if (playBtn) playBtn.textContent = simIsPlaying ? '⏸' : '▶';
+    }
+
+    function toggleSimSpeed() {
+      simSpeed = simSpeed === 1 ? 1.5 : (simSpeed === 1.5 ? 2 : 1);
+      const btn = document.getElementById('sim-speed-btn');
+      if (btn) btn.textContent = simSpeed + 'x';
+    }
+
+    function seekSimFromBar(e) {
+      const wrap = document.getElementById('sim-progress-wrap');
+      if (!wrap) return;
+      const rect = wrap.getBoundingClientRect();
+      const pct = Math.max(0, Math.min(1, (e.clientX - rect.left) / rect.width));
+      const scenario = simScenarios[currentActiveVideo];
+      simCurrentTime = pct * scenario.totalTime;
+      renderSimFrame();
+    }
+
+    function renderSimFrame() {
+      const scenario = simScenarios[currentActiveVideo];
+      if (!scenario) return;
+
+      let currentStep = scenario.steps[0];
+      for (const step of scenario.steps) {
+        if (simCurrentTime >= step.time - 0.2) {
+          currentStep = step;
+        }
+      }
+
+      const cursor = document.getElementById('sim-cursor');
+      const ripple = document.getElementById('sim-ripple');
+      const stepTitle = document.getElementById('sim-step-title');
+      const reduxBadge = document.getElementById('sim-redux-badge');
+      const sub1 = document.getElementById('sim-sub-primary');
+      const sub2 = document.getElementById('sim-sub-secondary');
+      const toast = document.getElementById('sim-toast');
+      const fill = document.getElementById('sim-progress-fill');
+      const timeText = document.getElementById('sim-time-text');
+
+      if (cursor && currentStep.cursor) {
+        cursor.style.top = currentStep.cursor.top;
+        cursor.style.left = currentStep.cursor.left;
+      }
+
+      if (currentStep.click && ripple && currentStep.cursor) {
+        ripple.style.top = currentStep.cursor.top;
+        ripple.style.left = currentStep.cursor.left;
+        ripple.style.transform = 'translate(-50%, -50%) scale(1.6)';
+        ripple.style.opacity = '0';
+        setTimeout(() => {
+          if (ripple) {
+            ripple.style.transform = 'translate(-50%, -50%) scale(0)';
+            ripple.style.opacity = '1';
+          }
+        }, 400);
+      }
+
+      if (stepTitle) stepTitle.textContent = currentStep.name;
+      if (reduxBadge && currentStep.redux) reduxBadge.textContent = currentStep.redux;
+      if (sub1) sub1.innerHTML = currentStep.sub || '';
+      if (sub2) sub2.textContent = currentStep.sub2 || '';
+
+      if (toast) {
+        if (currentStep.toast) {
+          toast.style.display = 'block';
+          toast.textContent = currentStep.toast;
+        } else {
+          toast.style.display = 'none';
+        }
+      }
+
+      const pct = Math.min(100, (simCurrentTime / scenario.totalTime) * 100);
+      if (fill) fill.style.width = pct + '%';
+      if (timeText) {
+        const curSec = simCurrentTime.toFixed(1).padStart(4, '0');
+        const totSec = scenario.totalTime.toFixed(1).padStart(4, '0');
+        timeText.textContent = `00:${curSec} / 00:${totSec}`;
+      }
+
+      updateActiveChapterHighlight(simCurrentTime);
+    }
+
+    // Sync HTML5 video playback with chapters and fallback
+    window.addEventListener('DOMContentLoaded', () => {
+      const vid = document.getElementById('cypress-main-video');
+      if (vid) {
+        vid.addEventListener('timeupdate', () => {
+          if (currentActiveMode === 'video' && !vid.paused) {
+            updateActiveChapterHighlight(vid.currentTime);
+          }
+        });
+        vid.addEventListener('error', (e) => {
+          console.warn('HTML5 video error, switching to interactive simulator:', e);
+          setPlayerMode('simulator');
+        });
+      }
+      renderSimFrame();
+    });
 
     function filterCommands() {
       const val = document.getElementById('command-filter').value.toLowerCase();
@@ -1302,14 +1826,17 @@
       const modal = document.getElementById('lightbox');
       const img = document.getElementById('lightbox-img');
       const cap = document.getElementById('lightbox-caption');
+      if (!modal || !img || !cap) return;
       img.src = activeSnapshotSrc;
       cap.textContent = activeSnapshotTitle;
       modal.classList.add('open');
     }
 
     function closeLightbox(e) {
+      const modal = document.getElementById('lightbox');
+      if (!modal) return;
       if (e.target.id === 'lightbox' || e.target.classList.contains('lightbox-close')) {
-        document.getElementById('lightbox').classList.remove('open');
+        modal.classList.remove('open');
       }
     }
 
@@ -1327,6 +1854,8 @@
         setMainView('video');
       } else if (target === 'runner') {
         setMainView('runner');
+      } else {
+        renderSimFrame();
       }
     }
 
