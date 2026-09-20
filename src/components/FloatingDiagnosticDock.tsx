@@ -65,7 +65,7 @@ export const FloatingDiagnosticDock: React.FC<FloatingDiagnosticDockProps> = ({
       id="floating-diagnostic-dock"
       data-testid="floating-diagnostic-dock"
       aria-label="Developer diagnostics dock"
-      className="fixed bottom-4 right-4 z-40 flex flex-col items-end gap-2 font-sans select-none"
+      className="fixed top-1/2 right-4 z-40 flex flex-col items-end gap-2 font-sans select-none pointer-events-none"
     >
       {isMinimized ? (
         <button
@@ -104,7 +104,7 @@ export const FloatingDiagnosticDock: React.FC<FloatingDiagnosticDockProps> = ({
             data-testid="quick-copy-diagnostics-btn"
             type="button"
             onClick={handleQuickCopyLogs}
-            className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl border transition active:scale-95 font-medium ${
+            className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl border transition active:scale-95 font-medium pointer-events-auto ${
               copiedPrompt
                 ? 'bg-emerald-950/80 border-emerald-600 text-emerald-300'
                 : 'bg-neutral-850 hover:bg-neutral-800 text-amber-300 border-amber-500/40 hover:border-amber-400'
@@ -165,11 +165,11 @@ export const FloatingDiagnosticDock: React.FC<FloatingDiagnosticDockProps> = ({
 
           {/* Error Inspector Button (Requirement 3) */}
           <button
-            id="open-error-inspector-floating-button"
-            data-testid="open-error-inspector-floating-button"
+            id="navbar-error-inspector-button"
+            data-testid="navbar-error-inspector-button open-error-inspector-floating-button"
             type="button"
             onClick={() => dispatch(setInspectorOpen(true))}
-            className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl border transition active:scale-95 font-medium ${
+            className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl border transition active:scale-95 font-medium pointer-events-auto ${
               errors.length > 0
                 ? 'bg-red-950/70 hover:bg-red-900/80 text-red-300 border-red-700/80 animate-pulse'
                 : 'bg-neutral-800 hover:bg-neutral-750 text-neutral-300 border-neutral-700'

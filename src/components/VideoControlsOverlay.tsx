@@ -111,7 +111,7 @@ export const VideoControlsOverlay: React.FC<VideoControlsOverlayProps> = ({
     <div
       id="compact-player-controls-overlay"
       className={`absolute inset-0 z-30 flex flex-col justify-between transition-opacity duration-200 ${
-        showControls ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
+        showControls ? 'opacity-100 pointer-events-none' : 'opacity-0 pointer-events-none'
       }`}
     >
       {/* Top Bar */}

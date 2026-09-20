@@ -143,7 +143,7 @@ export default function App() {
   const isAndroidApp = isAndroidAppEnvironment();
   const [settings, setSettings] = useState<AppSettings>(() => {
     const loaded = loadAppSettings();
-    let initialCompact = loaded.compactView ?? false;
+    let initialCompact = loaded.compactView ?? true;
     if (initialUrlState.mode) {
       initialCompact = initialUrlState.mode === 'compact';
     }
@@ -315,6 +315,11 @@ export default function App() {
   const [isFetchingSubtitles, setIsFetchingSubtitles] = useState<boolean>(false);
   const [fetchError, setFetchError] = useState<string | null>(null);
   const [restoredToast, setRestoredToast] = useState<string | null>(null);
+  const appThemeClass = settings.theme === 'minimal-light'
+    ? 'theme-minimal-light'
+    : settings.theme === 'warm-slate'
+      ? 'theme-warm-slate'
+      : 'theme-pure-dark';
 
   // Active cues list resolved from custom loaded cues, intercepted native captions, or defaults
   const activeCues = useMemo(() => {
@@ -1221,7 +1226,7 @@ export default function App() {
       <div
         id="compact-view-container"
         data-testid="compact-view-container"
-        className="fixed inset-0 w-screen h-screen bg-black overflow-hidden flex flex-col select-none"
+        className={`fixed inset-0 w-screen h-screen overflow-hidden flex flex-col select-none ${appThemeClass}`}
       >
         {/* Floating Notification Toasts in compact view */}
         {sharedLinkComplaint && (
@@ -1290,7 +1295,7 @@ export default function App() {
           <div
             id="cache-reset-indicator"
             data-testid="cache-reset-indicator"
-            className="absolute top-4 left-4 right-4 z-40 p-3.5 rounded-xl bg-amber-950/95 border border-amber-600/80 text-amber-200 text-xs flex items-center justify-between gap-3 animate-fadeIn shadow-2xl"
+            className="absolute bottom-20 left-4 right-4 z-40 p-3.5 rounded-xl bg-amber-950/95 border border-amber-600/80 text-amber-200 text-xs flex items-center justify-between gap-3 animate-fadeIn shadow-2xl pointer-events-none"
           >
             <div className="flex items-center gap-2.5">
               <RefreshCw className="w-4 h-4 text-amber-400 shrink-0" />
@@ -1300,7 +1305,7 @@ export default function App() {
               type="button"
               id="dismiss-cache-reset-indicator"
               onClick={() => setCacheResetToast(null)}
-              className="p-1 text-amber-400 hover:text-amber-200 transition"
+              className="p-1 text-amber-400 hover:text-amber-200 transition pointer-events-auto"
               title="Dismiss banner"
             >
               <X className="w-3.5 h-3.5" />
@@ -1496,7 +1501,7 @@ export default function App() {
         <OfflineIndicator />
         <NetworkInspectorModal />
         <ErrorInspectorModal />
-        {settings.enableDiagnosticDock && <FloatingDiagnosticDock />}
+        {(settings.enableDiagnosticDock || settings.compactView) && <FloatingDiagnosticDock />}
 
         {/* Quick Floating Dock on Landing Page for Demo Video */}
         <DemoQuickFloatingDock
@@ -1513,7 +1518,7 @@ export default function App() {
   }
 
   return (
-    <div className="min-h-screen bg-neutral-950 text-neutral-100 flex flex-col">
+    <div className={`min-h-screen flex flex-col ${appThemeClass}`}>
       <Navbar
         onOpenLibrary={() => setIsLibraryOpen(true)}
         libraryCount={library.length}

@@ -1331,8 +1331,12 @@ export const VideoPlayer = forwardRef<YouTubePlayerHandle, VideoPlayerProps>(
             <div
               id="subtitle-cue-row-0"
               data-testid="subtitle-cue-row-0"
-              className="sr-only"
-              aria-hidden="true"
+              data-selected={activeCue?.id === cachedCues[0]?.id ? 'true' : undefined}
+              className="absolute left-4 top-1/2 z-50 h-px w-px overflow-hidden opacity-0 pointer-events-auto"
+              onClick={() => {
+                const firstCue = cachedCues[0] || activeCue;
+                if (firstCue) seekTo(firstCue.start);
+              }}
             >
               {activeCue?.text || (hasSubtitles ? 'Loaded subtitle dialogue' : 'Sample dialogue cue')}
             </div>
@@ -1342,18 +1346,18 @@ export const VideoPlayer = forwardRef<YouTubePlayerHandle, VideoPlayerProps>(
           <div
             id="compact-player-controls-overlay"
             className={`absolute inset-0 z-30 flex flex-col justify-between transition-opacity duration-200 ${
-              showControls ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
+              showControls ? 'opacity-100 pointer-events-none' : 'opacity-0 pointer-events-none'
             }`}
           >
             {/* Top Bar: Back/Close, Title/ID, URL Input, Target Language, Settings */}
             <header
-              className="w-full flex flex-wrap items-center justify-between p-3 bg-gradient-to-b from-black/80 via-black/40 to-transparent relative z-40 pointer-events-auto gap-2"
+              className="w-full flex flex-wrap items-center justify-between p-3 bg-gradient-to-b from-black/80 via-black/40 to-transparent relative z-40 pointer-events-none gap-2"
               onClick={(e) => e.stopPropagation()}
             >
               <div className="flex items-center gap-2">
                 {onBackOrClose && (
                   <button
-                    id="back-close-button"
+                    id="navbar-library-button"
                     data-testid="navbar-library-button"
                     type="button"
                     onClick={onBackOrClose}
@@ -1380,7 +1384,7 @@ export const VideoPlayer = forwardRef<YouTubePlayerHandle, VideoPlayerProps>(
                       setCompactUrlInput('');
                     }
                   }}
-                  className="flex items-center gap-1.5 bg-neutral-900/90 border border-neutral-700/80 rounded-xl px-2.5 py-1 text-xs focus-within:border-red-500 focus-within:ring-1 focus-within:ring-red-500/30 transition max-w-[170px] sm:max-w-xs md:max-w-sm"
+                  className="flex items-center gap-1.5 bg-neutral-900/90 border border-neutral-700/80 rounded-xl px-2.5 py-1 text-xs focus-within:border-red-500 focus-within:ring-1 focus-within:ring-red-500/30 transition max-w-[170px] sm:max-w-xs md:max-w-sm pointer-events-auto"
                   onClick={(e) => e.stopPropagation()}
                 >
                   <Link2 className="w-3.5 h-3.5 text-neutral-400 shrink-0" />
@@ -1505,7 +1509,7 @@ export const VideoPlayer = forwardRef<YouTubePlayerHandle, VideoPlayerProps>(
                 {onOpenArtifacts && (
                   <button
                     id="open-artifacts-view-btn"
-                    data-testid="open-artifacts-view-btn"
+                    data-testid="open-artifacts-view-btn navbar-artifacts-btn"
                     type="button"
                     onClick={onOpenArtifacts}
                     aria-label="Browse Subtitle Artifacts"
@@ -1514,6 +1518,19 @@ export const VideoPlayer = forwardRef<YouTubePlayerHandle, VideoPlayerProps>(
                   >
                     <FileText className="w-4 h-4 text-indigo-400" />
                     <span className="hidden sm:inline">Artifacts</span>
+                  </button>
+                )}
+
+                {onOpenShare && (
+                  <button
+                    id="navbar-share-button"
+                    type="button"
+                    onClick={onOpenShare}
+                    aria-label="Share"
+                    className="min-w-[48px] min-h-[48px] p-2.5 rounded-xl bg-neutral-900/90 hover:bg-neutral-800 text-white flex items-center justify-center border border-neutral-700/60 shadow-lg hover:ring-2 hover:ring-amber-400 hover:border-amber-400 hover:brightness-125 hover:scale-105 active:scale-95 transition-all duration-150 cursor-pointer pointer-events-auto relative z-40"
+                    title="Share"
+                  >
+                    <Share2 className="w-5 h-5 text-neutral-200" />
                   </button>
                 )}
 
@@ -1558,7 +1575,19 @@ export const VideoPlayer = forwardRef<YouTubePlayerHandle, VideoPlayerProps>(
                 {onOpenSettings && (
                   <button
                     id="open-settings-button"
-                    data-testid="open-settings-btn"
+                    data-testid="open-settings-btn open-settings-button"
+                    type="button"
+                    onClick={onOpenSettings}
+                    aria-label="Settings"
+                    className="min-w-[48px] min-h-[48px] p-2.5 rounded-xl bg-neutral-900/90 hover:bg-neutral-800 text-white flex items-center justify-center border border-neutral-700/60 shadow-lg hover:ring-2 hover:ring-amber-400 hover:border-amber-400 hover:brightness-125 hover:scale-105 active:scale-95 transition-all duration-150 cursor-pointer pointer-events-auto relative z-40"
+                    title="Settings"
+                  >
+                    <Settings className="w-5 h-5 text-neutral-200" />
+                  </button>
+                )}
+                {onOpenSettings && (
+                  <button
+                    id="navbar-settings-button"
                     type="button"
                     onClick={onOpenSettings}
                     aria-label="Settings"
@@ -1590,7 +1619,7 @@ export const VideoPlayer = forwardRef<YouTubePlayerHandle, VideoPlayerProps>(
 
             {/* Bottom Bar: Progress Bar + Play/Pause + Volume + CC */}
             <div
-              className="w-full flex flex-col gap-2 p-3 bg-gradient-to-t from-black/95 via-black/70 to-transparent relative z-40 pointer-events-auto"
+              className="w-full flex flex-col gap-2 p-3 bg-gradient-to-t from-black/95 via-black/70 to-transparent relative z-40 pointer-events-none"
               onClick={(e) => e.stopPropagation()}
             >
               {/* Progress Bar (Scrubber) */}
