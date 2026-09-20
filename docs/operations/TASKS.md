@@ -8,7 +8,7 @@ Central index for system tasks, active development priorities, technical plan re
 
 The live scratchpad [`temp.md`](../../temp.md) is actively managed under this `TASKS.md` index. It holds the step-by-step sub-task lifecycle (`[todo]`, `[done]`, `[test]`, `[fix]`) for the currently in-progress task.
 
-- **Current Active Task**: `TASK-008` (Collect and move .md files to docs/ subfolders)
+- **Current Active Task**: `TASK-011` (Extend Android Emulator Report: 20-line subtitle proof, wire telemetry, interactive user simulation)
 - **Active Scratchpad Pointer**: [`temp.md`](../../temp.md)
 
 ---
@@ -25,7 +25,8 @@ The live scratchpad [`temp.md`](../../temp.md) is actively managed under this `T
 | **[P0]** | `TASK-009` | Remove Contradictory Deprecated `.md` & Implement Markdown Link Verification (`npm run test:md`) | `[done]` | [`DECISIONS.md`](./DECISIONS.md) (ADR-005), `AGENTS.md` |
 | **[P1]** | `TASK-003` | Deprecate Legacy `.srt` Format & Enforce JSON3 Sub-Line Segment Highlighting | `[done]` | [`json3.md`](../specifications/json3.md), `AGENTS.md` (Section 5) |
 | **[P1]** | `TASK-004` | Enforce Minimalist Layout, 3-Theme System, & Pure View Component Contracts | `[done]` | [`DESIGN_SUBTITLE_VIEWS.md`](../designs/DESIGN_SUBTITLE_VIEWS.md), `AGENTS.md` (Section 10) |
-| **[P2]** | `TASK-005` | Maintain Unmocked Android Real-World `tlang` Native Interception Test Scenario | `[in-progress]` | `AGENTS.md` (Section 6.2) |
+| **[P1]** | `TASK-011` | Extend Android Emulator Report: 20-line subtitle proof, wire telemetry, interactive simulation | `[done]` | [`DEBUG.md`](./DEBUG.md), `AGENTS.md` |
+| **[P2]** | `TASK-005` | Maintain Unmocked Android Real-World `tlang` Native Interception Test Scenario | `[done]` | `AGENTS.md` (Section 6.2) |
 
 ---
 

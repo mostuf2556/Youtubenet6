@@ -2,26 +2,31 @@
 
 > **Managed Under**: [`docs/operations/TASKS.md`](./docs/operations/TASKS.md)
 
-## Task: TASK-010 — Implement JSON3 subtitle contract and native caption alignment rules
+## Task: TASK-011 — Extend Android Emulator E2E Report with 20-Line Subtitle Proof, Request/Response Wire Telemetry, and Interactive User Simulation
 
 ### Brief status
-- [done] Review and finalize the canonical YouTube `json3` specification for the web and Android hosts.
-- [done] Confirm that the project treats `fmt=json3` as the required request format and rejects `.srt`-style assumptions.
-- [done] Document direct pairing of source and target caption streams by cue index for native `tlang` translation.
-- [done] Capture the per-segment active highlighting flow based on `tStartMs` and `tOffsetMs`.
-- [done] Verify the live implementation against the repository validation scripts and update any remaining drift.
-- [done] Reset E2E browser state between test runs to eliminate persisted storage contamination.
+- [done] Extend Android emulator report to prove subtitle fetching by exposing 20 lines for default captions and target translations via native `tlang` parameter swaps.
+- [done] Expose exact HTTP request and response wire protocol logs, headers, query parameters, and 15-char hex previews.
+- [done] Show Android Pixel 7 device screen with interactive simulated user interaction, real-time dual subtitle playback, and active segment highlighting.
+- [done] Validate report script syntax, local asset synchronization, and GitHub Pages artifact generation.
+- [done] Verify link integrity (`npm run test:md`), fixture formats (`npm run test:caption-formats`), and OTA updater (`npm run test:ota`).
 
 ### Sub-Tasks Status Lifecycle:
-- [done] **Sub-Task 1: Tighten the canonical `json3` contract in `docs/specifications/json3.md` with explicit request lifecycle and cue normalization rules.**
-- [done] **Sub-Task 2: Document the Android native zero-calculation translation path and preserve the original timedtext request context.**
-- [done] **Sub-Task 3: Define the sub-line segment highlighting rules for active cue rendering with offset-based activation.**
-- [done] **Sub-Task 4: Run the relevant verification suite (`npm run test:md`, `npm run test:caption-formats`) and confirm no link or fixture regression remains.**
-- [done] **Sub-Task 5: Reset Playwright browser storage before each E2E test and verify the suite remains isolated and stable.**
+- [done] **Sub-Task 1: Subtitle Fetching Proof (20 Lines exposed across languages)**:
+  - Extracted authentic 20 lines with timecodes for Default (English `en`), Spanish (`tlang=es`), Hebrew (`tlang=he`, RTL), Italian (`tlang=it`), Arabic (`tlang=ar`, RTL), and Russian (`tlang=ru`).
+  - Added Side-by-Side Dual Alignment view demonstrating zero-calculation native timeline alignment between original and translated tracks.
+  - Added filter, search, and clipboard copy capabilities.
+- [done] **Sub-Task 2: HTTP Request / Response Wire Telemetry Inspector**:
+  - Implemented tabbed inspection of 5 real network requests (`Default en`, `tlang=es`, `tlang=he`, `tlang=it`, `tlang=ar`).
+  - Exposed query parameters highlighting `tlang` replacement, request headers, response headers (200 OK, gzip), 15-character hex dump preview, and Android `evaluateJavascript` Base64 bridge dispatches.
+- [done] **Sub-Task 3: Interactive Android Screen & User Simulation**:
+  - Built interactive Pixel 7 device container supporting both Live User Simulation and raw ADB screenshot views.
+  - Simulated complete user workflow: URL navigation, caption toggle `#caption-toggle-button`, timedtext interception, target language selection (`tlang=es`), dual subtitle overlay with real-time active word highlighting (`segs[]`), and alternating TTS speech loops.
+  - Added auto-play, manual step controls (1–6), step progress bar, and touch pointer ripple animations.
+- [done] **Sub-Task 4: Build, Compilation, & Report Artifacts Verification**:
+  - Verified `node scripts/prepare-report.mjs` outputs `cypress/reports/android-emulator-report.html` and root `android-emulator-report.html`.
+  - Confirmed 0 lint errors (`npm run lint`), successful build (`npm run build`), and passing test suites.
 
 ### Notes
-- The live implementation must preserve the original timedtext request context; only the target language should change.
-- All renderers must consume normalized cue objects, not raw network payloads.
-- The active line highlight continues to be driven by `tOffsetMs` and playback time rather than heuristics or text-length approximations.
-- Browser storage persists across tests unless the test runner explicitly clears it at the page init boundary; the Playwright reset now clears `localStorage` and `sessionStorage` before each navigation.
-- The focused compact-view interaction fixes now pass the full web suite: 20 Playwright tests passed in the web project.
+- Native `tlang` parameter swaps retrieve authentic server-side translated tracks directly from YouTube without client-side translation calculations.
+- Report is fully browsable standalone and compatible with GitHub Pages hosting under `https://mostuf2556.github.io/Youtubenet6/android-emulator-report.html`.
