@@ -36,6 +36,5 @@ This platform provides a modular subtitle-rendering engine running across two ho
 - [Diagnostic Debugger Specification](operations/DEBUG.md)
 - [Automated GitHub Actions CI/CD](operations/ACTIONS.md)
 - [Test Coverage Matrix](operations/COVERAGE.md)
-- [Deprecated Architectures Log](operations/DEPRECATED.md)
 - [Replit Configuration & Deployment](operations/replit.md)
 - [Workflow Recommendations](operations/RECOMMENDATION.md)

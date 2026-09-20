@@ -37,3 +37,12 @@ This log records major architectural decisions, technical context, options evalu
 - **Context**: An accumulation of loose `.md` files at the project root clutters the repository workspace and complicates documentation navigation and static site generation.
 - **Decision**: Enforce root directory hygiene by relocating all project documentation into organized subdirectories under `docs/` (`docs/plans/`, `docs/designs/`, `docs/specifications/`, `docs/operations/`). Only essential top-level files (`AGENTS.md`, `README.md`, and the live runner `temp.md`) remain at root.
 - **Consequences**: Streamlines repository structure, integrates cleanly with MkDocs navigation, and prevents root directory sprawl.
+
+---
+
+## ADR-005: Removal of Contradictory Deprecated Markdown & Automated Link Validation
+- **Date**: 2026-09-19
+- **Status**: Accepted
+- **Context**: Legacy documentation files (specifically `docs/operations/DEPRECATED.md`) contained obsolete statements asserting that `.srt` subtitles formed the active speech flow, directly contradicting the canonical JSON3 format mandate in `AGENTS.md` and ADR-001. Additionally, manual link tracking was prone to broken paths following file reorganizations.
+- **Decision**: Permanently remove `docs/operations/DEPRECATED.md` and implement automated cross-reference link validation via `scripts/verify-md-links.ts` exposed via `npm run test:md`.
+- **Consequences**: Eliminates architectural contradictions from documentation; provides CI-verifiable guarantee that all markdown links resolve correctly.

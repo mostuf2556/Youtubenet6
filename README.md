@@ -48,18 +48,18 @@ The project is governed by strict Markdown contracts that decouple visual view i
 | Document | Purpose & Scope |
 | :--- | :--- |
 | **[`AGENTS.md`](./AGENTS.md)** | Core architectural foundation, pure view mandates, data-flow boundaries, and testing phases. |
-| **[`ACTIONS.md`](./ACTIONS.md)** | GitHub Actions CI/CD guide: APK release, web testing, emulator pipelines, and artifact flow. |
-| **[`LIBRARY.md`](./LIBRARY.md)** | Subtitle fixture library schema (`test/fixtures/<VIDEO_ID>/*.{json,srt}`), formats (SRT/JSON3), and verification. |
-| **[`DESIGN_SUBTITLE_VIEWS.md`](./DESIGN_SUBTITLE_VIEWS.md)** | Replaceable view contract for subtitle renderers (injected cues, active state, intent dispatch). |
-| **[`DESIGN_VIEW_LANGS.md`](./DESIGN_VIEW_LANGS.md)** | Replaceable view contract for language selectors (injected language options, selection dispatch). |
-| **[`DESIGN_CONTROLS_VIEW.md`](./DESIGN_CONTROLS_VIEW.md)** | Replaceable view contract for media playback controls (injected playback metrics, intent callbacks). |
-| **[`DESIGN_PLAYER_PROVIDER.md`](./DESIGN_PLAYER_PROVIDER.md)** | Vendor-agnostic media player controller and time-synchronization contract. |
-| **[`DESIGN_STATE_COORDINATOR.md`](./DESIGN_STATE_COORDINATOR.md)** | Finite state machine, lifecycle transitions, active cue resolution, and state flow. |
-| **[`SCHEMA_TIMEDTEXT.md`](./SCHEMA_TIMEDTEXT.md)** | Format definitions, segment timings, entity decoding, and RTL/BiDi normalization. |
-| **[`DEBUG.md`](./DEBUG.md)** | Diagnostic log viewer, network interception, 15-char response preview, and AI troubleshooting prompt generator. |
-| **[`PROMPT.md`](./PROMPT.md)** | Active user directive and current task tracker, rewritten in agent's own words. |
-| **[`PROMPT_OLD.md`](./PROMPT_OLD.md)** | Historical archive of completed prompts and tasks. |
-| **[`CHANGELOG.md`](./CHANGELOG.md)** | Milestone history and chronological release records. |
+| **[`ACTIONS.md`](./docs/operations/ACTIONS.md)** | GitHub Actions CI/CD guide: APK release, web testing, emulator pipelines, and artifact flow. |
+| **[`LIBRARY.md`](./docs/specifications/LIBRARY.md)** | Subtitle fixture library schema (`test/fixtures/<VIDEO_ID>/*.{json,srt}`), formats (SRT/JSON3), and verification. |
+| **[`DESIGN_SUBTITLE_VIEWS.md`](./docs/designs/DESIGN_SUBTITLE_VIEWS.md)** | Replaceable view contract for subtitle renderers (injected cues, active state, intent dispatch). |
+| **[`DESIGN_VIEW_LANGS.md`](./docs/designs/DESIGN_VIEW_LANGS.md)** | Replaceable view contract for language selectors (injected language options, selection dispatch). |
+| **[`DESIGN_CONTROLS_VIEW.md`](./docs/designs/DESIGN_CONTROLS_VIEW.md)** | Replaceable view contract for media playback controls (injected playback metrics, intent callbacks). |
+| **[`DESIGN_PLAYER_PROVIDER.md`](./docs/designs/DESIGN_PLAYER_PROVIDER.md)** | Vendor-agnostic media player controller and time-synchronization contract. |
+| **[`DESIGN_STATE_COORDINATOR.md`](./docs/designs/DESIGN_STATE_COORDINATOR.md)** | Finite state machine, lifecycle transitions, active cue resolution, and state flow. |
+| **[`SCHEMA_TIMEDTEXT.md`](./docs/specifications/SCHEMA_TIMEDTEXT.md)** | Format definitions, segment timings, entity decoding, and RTL/BiDi normalization. |
+| **[`DEBUG.md`](./docs/operations/DEBUG.md)** | Diagnostic log viewer, network interception, 15-char response preview, and AI troubleshooting prompt generator. |
+| **[`PROMPT.md`](./docs/operations/PROMPT.md)** | Active user directive and current task tracker, rewritten in agent's own words. |
+| **[`PROMPT_OLD.md`](./docs/operations/PROMPT_OLD.md)** | Historical archive of completed prompts and tasks. |
+| **[`CHANGELOG.md`](./docs/operations/CHANGELOG.md)** | Milestone history and chronological release records. |
 
 ---
 
