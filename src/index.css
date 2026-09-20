@@ -1,5 +1,92 @@
 @import "tailwindcss";
 
+:root {
+  --app-bg: #0b0d12;
+  --app-surface: rgba(17, 17, 24, 0.8);
+  --app-surface-strong: rgba(9, 9, 13, 0.92);
+  --app-text: #f5f7fb;
+  --app-text-muted: #a1a7b4;
+  --app-border: rgba(255, 255, 255, 0.08);
+  --app-accent: #8b5cf6;
+}
+
+.theme-pure-dark {
+  --app-bg: #0b0d12;
+  --app-surface: rgba(17, 17, 24, 0.8);
+  --app-surface-strong: rgba(9, 9, 13, 0.92);
+  --app-text: #f5f7fb;
+  --app-text-muted: #a1a7b4;
+  --app-border: rgba(255, 255, 255, 0.08);
+  --app-accent: #8b5cf6;
+  background: var(--app-bg);
+  color: var(--app-text);
+}
+
+.theme-minimal-light {
+  --app-bg: #f3f1eb;
+  --app-surface: rgba(255, 255, 255, 0.82);
+  --app-surface-strong: rgba(255, 255, 255, 0.96);
+  --app-text: #171c26;
+  --app-text-muted: #5b6472;
+  --app-border: rgba(17, 24, 39, 0.08);
+  --app-accent: #4f46e5;
+  background: var(--app-bg);
+  color: var(--app-text);
+}
+
+.theme-warm-slate {
+  --app-bg: #171511;
+  --app-surface: rgba(36, 31, 27, 0.82);
+  --app-surface-strong: rgba(24, 21, 19, 0.96);
+  --app-text: #f5efe7;
+  --app-text-muted: #c2b4a4;
+  --app-border: rgba(255, 255, 255, 0.09);
+  --app-accent: #d97706;
+  background: var(--app-bg);
+  color: var(--app-text);
+}
+
+body {
+  background: var(--app-bg);
+  color: var(--app-text);
+}
+
+.theme-pure-dark .bg-neutral-950,
+.theme-pure-dark .bg-neutral-900,
+.theme-pure-dark .bg-neutral-800,
+.theme-minimal-light .bg-neutral-950,
+.theme-minimal-light .bg-neutral-900,
+.theme-minimal-light .bg-neutral-800,
+.theme-warm-slate .bg-neutral-950,
+.theme-warm-slate .bg-neutral-900,
+.theme-warm-slate .bg-neutral-800 {
+  background-color: var(--app-surface) !important;
+}
+
+.theme-minimal-light .text-neutral-100,
+.theme-minimal-light .text-neutral-200,
+.theme-minimal-light .text-neutral-300,
+.theme-minimal-light .text-neutral-400,
+.theme-warm-slate .text-neutral-100,
+.theme-warm-slate .text-neutral-200,
+.theme-warm-slate .text-neutral-300,
+.theme-warm-slate .text-neutral-400,
+.theme-pure-dark .text-neutral-100,
+.theme-pure-dark .text-neutral-200,
+.theme-pure-dark .text-neutral-300,
+.theme-pure-dark .text-neutral-400 {
+  color: var(--app-text) !important;
+}
+
+.theme-minimal-light .border-neutral-800,
+.theme-minimal-light .border-neutral-700,
+.theme-warm-slate .border-neutral-800,
+.theme-warm-slate .border-neutral-700,
+.theme-pure-dark .border-neutral-800,
+.theme-pure-dark .border-neutral-700 {
+  border-color: var(--app-border) !important;
+}
+
 /* Specific YouTube Iframe Styling matching provided selector */
 div#root:nth-of-type(1) > div:nth-of-type(1) > main:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > iframe#youtube-player-iframe:nth-of-type(1),
 #youtube-player-iframe {

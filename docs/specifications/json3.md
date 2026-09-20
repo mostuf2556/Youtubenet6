@@ -2,17 +2,25 @@
 
 ## 1. Overview & Format Specifications
 
-YouTube's `json3` timedtext format is the primary, canonical subtitle format consumed by the application across both Web and Android platforms. Unlike legacy SubRip (`.srt`) files which flatten subtitle lines into plain text blocks, `json3` retains structured event arrays with millisecond-level start times, durations, and word-by-word segment offsets.
+YouTube's `json3` timedtext format is the canonical subtitle transport used by the application across both the web companion and the Android native host. Unlike legacy SubRip (`.srt`) files, which flatten cue text into plain blocks, `json3` preserves structured event arrays with millisecond precision, per-segment timing offsets, and language-specific delivery consistency.
 
 ### Mandatory Format Rule
-- **Always preserve `fmt=json3`**: All outgoing requests to YouTube's caption endpoint (`https://www.youtube.com/api/timedtext`) MUST request or retain `fmt=json3`.
-- **Never replace `fmt` with `srt`**: Do NOT alter, strip, or replace the `fmt` query parameter to request SRT or XML formats.
+- Always preserve `fmt=json3` on every YouTube caption request.
+- Never replace the format with `.srt`, XML, or any non-JSON3 timedtext variant.
+- Treat `json3` as the only accepted source of subtitle timing and segment metadata.
+
+### Implementation Contract
+This specification is not just a description of YouTube payloads; it is the source-of-truth contract for:
+- the fixture parser used by the browser companion,
+- the Android request interceptor used by the native shell,
+- the cue renderer used for live subtitle highlighting,
+- and the translation pairing model used for target-language playback.
 
 ---
 
-## 2. YouTube JSON3 Data Schema
+## 2. Canonical JSON3 Payload Shape
 
-A YouTube `json3` payload consists of top-level video metadata and an `events` array containing individual subtitle cues and word segments:
+A typical YouTube `json3` payload is built from a top-level metadata block and an `events` array, where each event is a cue line that may be split into multiple word or phrase segments.
 
 ```json
 {
@@ -35,75 +43,88 @@ A YouTube `json3` payload consists of top-level video metadata and an `events` a
 }
 ```
 
-### Key Field Definitions
-- **`wireMagic`**: Format protocol marker (`"pb3"`).
-- **`events[]`**: Array of timed subtitle events.
-- **`tStartMs`**: Event start timestamp in milliseconds.
-- **`dDurationMs`**: Event display duration in milliseconds.
-- **`segs[]`**: Array of individual word/phrase segments within an event line.
-- **`utf8`**: String content of the segment.
-- **`tOffsetMs`**: Relative start offset (in milliseconds) of the segment from `tStartMs`.
+### Canonical Field Definitions
+- `wireMagic`: Required protocol marker for JSON3 payloads (`"pb3"`).
+- `events[]`: Ordered subtitle cue list keyed by playback timeline.
+- `tStartMs`: The cue start time in milliseconds.
+- `dDurationMs`: Duration the cue remains visible on screen.
+- `segs[]`: Word or phrase segments inside the cue.
+- `utf8`: The textual value of a segment.
+- `tOffsetMs`: Relative offset inside the cue after the cue start time.
+
+### Parsing Rule
+The render pipeline must treat `events` as the authoritative cue sequence and `segs` as the authoritative sub-line timing structure. All downstream logic, including playback highlight, translation alignment, and UI state transition, must be based on these values rather than ad-hoc recalculation.
 
 ---
 
-## 3. Android Native Zero-Calculation Translation Strategy
+## 3. Request Lifecycle and `fmt=json3` Preservation
 
-On the Android native host (`android-shell/`), translation alignment is performed **without any client-side duration or timestamp calculation algorithms**.
+### Android and Web Request Contract
+All timedtext requests must preserve the original YouTube request shape as much as possible while still enabling language switching.
+
+```http
+GET https://www.youtube.com/api/timedtext?v=VIDEO_ID&lang=en&fmt=json3&c=WEB&cver=...&key=...
+```
+
+The following must remain intact when replaying or substituting a language:
+- the original video identifier (`v`),
+- the source language (`lang`),
+- the format (`fmt=json3`),
+- the original request headers and cookies when available,
+- and any signature or version parameters already present on the request.
+
+### Target Language Replay
+The only accepted variant is to append or replace the target-language parameter while preserving the rest of the request context:
+
+```http
+GET https://www.youtube.com/api/timedtext?v=VIDEO_ID&lang=en&tlang=he&fmt=json3&...
+```
+
+This keeps the native playback path aligned with YouTube's native server-side timing model instead of fabricating client-derived translations.
+
+---
+
+## 4. Zero-Calculation Translation Strategy
+
+On the Android native host, translation alignment is performed without client-side timestamp math or cue matching heuristics.
 
 ### Architectural Concept
 When a user enables subtitles or toggles translation on Android:
 
 ```text
-[Intercepted Timedtext Request] (lang=en, fmt=json3, ...)
+Intercepted timedtext request (lang=en, fmt=json3)
                   │
-                  ├──► 1. Fetch Primary Subtitles (lang=en) ──► JSON3 Events Array A
+                  ├──► Fetch source-language JSON3 track
                   │
-                  └──► 2. Repeat Request with Target Language (tlang=he, fmt=json3, ...)
+                  └──► Replay same request with tlang=<target>
                                           │
                                           ▼
-                                JSON3 Events Array B
+                            Fetch target-language JSON3 track
                                           │
                                           ▼
-                Direct Line Index Pairing: Events A[i] ◄──► Events B[i]
+                  Pair cue lines by event index: A[i] ↔ B[i]
 ```
 
-### Why Zero Calculation Works
-1. YouTube's server-side translation engine generates translated `json3` streams where the `events` array structure corresponds **1-to-1** with the source `json3` stream.
-2. The event index `i`, start timestamp `tStartMs`, and display duration `dDurationMs` of `events[i]` in Language A match `events[i]` in Target Language B.
-3. Therefore, pairing translated cue lines does NOT require complex timestamp intersection math, fuzzy string matching, or client-side time-window overlap logic.
+### Why This Works
+1. YouTube's server-side translation pipeline emits a target-language stream with an event list that matches the source-language stream's logical cue sequence.
+2. For the same video and playback window, the cue index `i` corresponds to the same spoken moment in both streams.
+3. Therefore, the direct pairing `sourceEvents[i]` and `targetEvents[i]` is the canonical translation alignment model.
 
----
-
-## 4. Network Interception & Request Replay Protocol
-
-### Step 1: Request Interception
-The native Android `WebViewClient` (`shouldInterceptRequest`) detects outgoing network calls to:
-```http
-GET https://www.youtube.com/api/timedtext?v=VIDEO_ID&lang=en&fmt=json3&...
-```
-
-### Step 2: Context Preservation & Replay
-The interceptor captures the full HTTP request context (headers, cookies, user-agent, query parameters) and dispatches a secondary parallel request to fetch the translated track:
-```http
-GET https://www.youtube.com/api/timedtext?v=VIDEO_ID&lang=en&tlang=he&fmt=json3&...
-```
-- **Preserved Parameters**: `v`, `lang`, `fmt=json3`, `c`, `cver`, `signature`, `expire`, `key`.
-- **Injected Parameter**: `tlang=<TARGET_LANG_CODE>` (e.g. `tlang=he` for Hebrew, `tlang=es` for Spanish).
-
-### Step 3: Direct Index Alignment Algorithm
-Once both JSON3 responses are parsed:
+### Canonical Alignment Rule
+Do not calculate alignment using a custom algorithm unless the platform has verified that the native timedtext response is malformed or incomplete.
 
 ```typescript
-function alignJson3Translations(sourceJson3: Json3Payload, targetJson3: Json3Payload): AlignedCue[] {
-  const sourceEvents = sourceJson3.events.filter(e => e.segs && e.segs.length > 0);
-  const targetEvents = targetJson3.events.filter(e => e.segs && e.segs.length > 0);
+function alignJson3Translations(
+  sourceJson3: Json3Payload,
+  targetJson3: Json3Payload,
+): AlignedCue[] {
+  const sourceEvents = sourceJson3.events.filter((event) => event?.segs?.length);
+  const targetEvents = targetJson3.events.filter((event) => event?.segs?.length);
 
   return sourceEvents.map((sourceEvent, index) => {
-    // Pick translation directly by line index
     const targetEvent = targetEvents[index];
-
-    const sourceText = sourceEvent.segs.map(s => s.utf8).join('').trim();
-    const targetText = targetEvent ? targetEvent.segs.map(s => s.utf8).join('').trim() : '';
+    const sourceText = sourceEvent.segs.map((segment) => segment.utf8 ?? '').join('').trim();
+    const targetText = targetEvent ? targetEvent.segs.map((segment) => segment.utf8 ?? '').join('').trim() : '';
 
     return {
       id: `cue-${sourceEvent.tStartMs}`,
@@ -111,7 +132,7 @@ function alignJson3Translations(sourceJson3: Json3Payload, targetJson3: Json3Pay
       durationMs: sourceEvent.dDurationMs,
       text: sourceText,
       translationText: targetText,
-      segments: sourceEvent.segs
+      segments: sourceEvent.segs,
     };
   });
 }
@@ -119,20 +140,115 @@ function alignJson3Translations(sourceJson3: Json3Payload, targetJson3: Json3Pay
 
 ---
 
-## 5. Edge Cases & Resilience Rules
+## 5. Edge Cases and Resilience Rules
 
-1. **Array Length Mismatches**: If `targetEvents.length !== sourceEvents.length` due to empty audio gaps, fallback to matching `targetEvents` by `tStartMs` equality (`targetEvents.find(e => Math.abs(e.tStartMs - sourceEvent.tStartMs) < 100)`).
-2. **Missing Segments**: Skip events that contain only formatting whitespace or lack a `segs` array.
-3. **Right-to-Left (RTL) Normalization**: Apply BiDi direction indicators (`dir="rtl"`) when rendering target languages such as Hebrew (`he`) or Arabic (`ar`).
+The system must remain stable even when one of the JSON3 streams is slightly irregular.
+
+1. Array length mismatch: if `targetEvents.length !== sourceEvents.length`, match by closest `tStartMs` when the difference is under 100 ms.
+2. Empty or whitespace-only segments: skip event lines that contain no meaningful text.
+3. Missing `segs`: treat as an empty cue and exclude it from highlight or translation rendering.
+4. RTL normalization: when rendering Hebrew or Arabic, ensure proper BiDi behavior (`dir="rtl"` or equivalent layout support).
+5. Duplicate timestamps: keep the original ordering from the YouTube payload rather than re-sorting before display.
 
 ---
 
-## 6. Sub-Line Segment Syntax Highlighting Algorithm
+## 6. Sub-Line Segment Syntax Highlighting
 
-JSON3 enables word-by-word active caption highlighting during media playback:
+JSON3 supports true sub-line highlighting because each cue can contain multiple word or phrase segments with their own offsets.
 
-1. **Active Event Resolution**: Find the active event line where `tStartMs <= currentTimeMs < tStartMs + dDurationMs`.
-2. **Relative Time Calculation**: Compute the relative offset inside the active line: `relativeMs = currentTimeMs - tStartMs`.
-3. **Active Segment Resolution**: Iterate through the segment array `segs[]`:
-   - Segment `s[j]` is marked as active when `relativeMs >= (s[j].tOffsetMs || 0)` and `relativeMs < (s[j+1]?.tOffsetMs || dDurationMs)`.
-4. **Inline Rendering**: Render the complete subtitle line section in the DOM while applying active syntax highlighting (e.g., primary theme highlight color, bold font weight, or subtle background tint) exclusively to the currently active segment span.
+### Active Cue Resolution
+The renderer resolves the active line by checking whether playback time is within the cue window:
+
+```text
+activeCue = cue where tStartMs <= currentTimeMs < tStartMs + dDurationMs
+```
+
+### Relative Offset Resolution
+Once the cue is selected, compute the relative playback offset:
+
+```text
+relativeMs = currentTimeMs - tStartMs
+```
+
+### Segment Activation Rule
+For the active cue, iterate through `segs[]` and mark the segment as active when:
+
+```text
+relativeMs >= (segment.tOffsetMs || 0)
+AND
+relativeMs < (nextSegment?.tOffsetMs ?? dDurationMs)
+```
+
+This makes the current word or phrase visibly highlighted while leaving the rest of the line in its inactive state.
+
+### Rendering Requirement
+The full cue line must still render as a single subtitle line, but only the active segment receives the emphasis styling. Styling may include:
+- a stronger text weight,
+- a contrasting color,
+- or a subtle background/tint treatment.
+
+The active segment logic must be derived from `tOffsetMs` and never from approximated string boundaries.
+
+---
+
+## 7. Data Normalization Contract
+
+The project must normalize each JSON3 cue into a consistent internal shape before it reaches the UI renderer.
+
+```typescript
+interface Json3Cue {
+  tStartMs: number;
+  dDurationMs: number;
+  segs?: Array<{
+    utf8?: string;
+    tOffsetMs?: number;
+  }>;
+}
+
+interface NormalizedCue {
+  id: string;
+  startMs: number;
+  durationMs: number;
+  text: string;
+  translationText?: string;
+  segments: Array<{ utf8?: string; tOffsetMs?: number }>;
+}
+```
+
+Normalization must:
+- preserve cue ordering,
+- strip non-semantic whitespace only after the line is assembled,
+- keep raw segment timing intact,
+- and expose the original `segs` list to highlight logic.
+
+---
+
+## 8. Web Companion and Android Host Boundaries
+
+### Web Companion
+The web companion is a fixture-driven host. It must use local `test/fixtures/*` JSON3 payloads for deterministic UI validation, view regression, and caption rendering tests.
+
+### Android Native Host
+The Android host must intercept real timedtext traffic when allowed, preserve the original query string context, and replay the request with `tlang` for translated caption retrieval. It must not synthesize translations on the client.
+
+The browser and Android host share the same abstract contract:
+- `json3` input is canonical,
+- cue order and timing are preserved,
+- highlight logic uses segment offsets,
+- and translation pairing relies on native server-side output rather than ad-hoc localization.
+
+---
+
+## 9. Acceptance Checklist
+
+The implementation is complete when all of the following are true:
+
+- [ ] `fmt=json3` is preserved on all timedtext requests.
+- [ ] The app accepts only JSON3 timedtext payloads as canonical input.
+- [ ] Cue indexing is preserved during source/target language comparisons.
+- [ ] The active cue is resolved by time window, not by string heuristics.
+- [ ] Segment highlighting uses `tOffsetMs` instead of visible text length.
+- [ ] RTL languages render with the correct BiDi behavior.
+- [ ] Web fixtures and Android native requests follow the same cue contract.
+
+This file defines the invariant that all subtitle rendering, translation parity, and playback state logic must follow.

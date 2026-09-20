@@ -54,7 +54,6 @@ nav:
       - Diagnostic Debugger: operations/DEBUG.md
       - CI/CD Actions: operations/ACTIONS.md
       - Test Coverage Matrix: operations/COVERAGE.md
-      - Deprecated Architectures: operations/DEPRECATED.md
       - Replit Setup: operations/replit.md
       - Workflow Recommendations: operations/RECOMMENDATION.md
 

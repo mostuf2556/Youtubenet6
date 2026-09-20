@@ -241,7 +241,7 @@ export const ApkUpdateModal: React.FC<ApkUpdateModalProps> = ({
               <Smartphone className="w-5 h-5" />
             </div>
             <div>
-              <h2 className="text-base sm:text-lg font-bold text-white flex items-center gap-2">
+              <h2 id="apk-update-modal-heading" className="text-base sm:text-lg font-bold text-white flex items-center gap-2">
                 YouTube Viewer APK Updates
               </h2>
               <p className="text-xs text-neutral-400">
@@ -330,6 +330,19 @@ export const ApkUpdateModal: React.FC<ApkUpdateModalProps> = ({
               </div>
             </div>
           </div>
+        )}
+
+        {!releaseInfo && (
+          <button
+            type="button"
+            id="apply-release-artifact-button"
+            data-testid="apply-release-artifact-button"
+            onClick={() => handleCheck(repo)}
+            className="w-full flex items-center justify-center gap-2 py-2 px-3 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-bold shadow-md transition active:scale-95"
+          >
+            <Zap className="w-3.5 h-3.5" />
+            <span>Check for Release Artifact</span>
+          </button>
         )}
 
         {/* Release Found Results */}

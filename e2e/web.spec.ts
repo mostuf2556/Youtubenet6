@@ -10,8 +10,16 @@ if (!fs.existsSync(assetsDir)) {
 
 test.describe('YouTube Video Viewer - Web E2E Tests', () => {
   test.beforeEach(async ({ page }) => {
-    await page.goto('/');
-    // Wait for the app shell to be ready
+    await page.addInitScript(() => {
+      try {
+        window.localStorage.clear();
+      } catch {}
+      try {
+        window.sessionStorage.clear();
+      } catch {}
+    });
+
+    await page.goto('/?reset_all=true');
     await expect(page).toHaveTitle(/YouTube/i);
     await expect(page.locator('header')).toBeVisible();
   });

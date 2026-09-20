@@ -14,6 +14,16 @@ async function startServer() {
     res.json({ status: 'ok', timestamp: Date.now() });
   });
 
+  app.get('/api/tts', (req, res) => {
+    const text = String(req.query.text || 'hello world');
+    const lang = String(req.query.lang || 'en');
+    res.setHeader('Content-Type', 'audio/mpeg');
+    res.setHeader('Cache-Control', 'no-store');
+    res.setHeader('X-TTS-Text', encodeURIComponent(text));
+    res.setHeader('X-TTS-Lang', lang);
+    res.send(Buffer.from('ID3\x03\x00\x00\x00\x00\x00\x00', 'binary'));
+  });
+
   // Serve the single automated ADB installation script
   app.get('/update.apk.sh', (req, res) => {
     res.setHeader('Content-Type', 'text/x-shellscript');

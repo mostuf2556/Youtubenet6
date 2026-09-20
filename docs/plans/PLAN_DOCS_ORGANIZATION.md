@@ -24,7 +24,6 @@ The documentation tree is organized into four core functional directories under 
     │   ├── CHANGELOG.md
     │   ├── COVERAGE.md
     │   ├── DECISIONS.md
-    │   ├── DEPRECATED.md
     │   ├── PROMPT.md
     │   ├── PROMPT_OLD.md
     │   ├── RECOMMENDATION.md

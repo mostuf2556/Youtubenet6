@@ -8,10 +8,12 @@ import { STORAGE_KEYS } from '../config/appConfig';
 
 export type SubtitlePosition = 'top' | 'above' | 'under' | 'bottom';
 export type TTSSyncMode = 'word_boundary' | 'time_linear' | 'word_step' | 'full_sentence';
+export type AppTheme = 'minimal-light' | 'pure-dark' | 'warm-slate';
 
 export interface AppSettings {
   // UI Display: Compact, lightweight view by default (Android UI Guidelines: no scrolling, minimal controls)
   compactView: boolean;
+  theme: AppTheme;
   showExpandedControls: boolean; // Allow user to show them by updating configuration
   showTeacherPanel: boolean;
   showLinkBar: boolean;
@@ -150,8 +152,9 @@ export const SUPPORTED_LANGUAGES_CATALOG: { code: string; name: string }[] = [
 ];
 
 export const DEFAULT_APP_SETTINGS: AppSettings = {
-  // Web Companion defaults to Expanded Dual-View Workstation (per AGENTS.md Section 5)
-  compactView: false,
+  // Default compact density is required by AGENTS.md across both hosts.
+  compactView: true,
+  theme: 'pure-dark',
   showExpandedControls: true,
   showTeacherPanel: true,
   showLinkBar: true,
@@ -218,7 +221,8 @@ export function loadAppSettings(): AppSettings {
       const parsed = JSON.parse(raw);
       return {
         ...DEFAULT_APP_SETTINGS,
-        compactView: parsed.compactView !== undefined ? parsed.compactView : false,
+        compactView: parsed.compactView !== undefined ? parsed.compactView : true,
+        theme: parsed.theme || DEFAULT_APP_SETTINGS.theme,
         ...parsed,
         methods: {
           ...DEFAULT_APP_SETTINGS.methods,
@@ -231,7 +235,7 @@ export function loadAppSettings(): AppSettings {
   }
   return {
     ...DEFAULT_APP_SETTINGS,
-    compactView: false,
+    compactView: true,
   };
 }
 

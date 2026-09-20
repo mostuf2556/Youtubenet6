@@ -2,6 +2,7 @@ import React, { useState, useRef } from 'react';
 import { getActiveAppVersion } from '../utils/apkUpdater';
 import {
   AppSettings,
+  AppTheme,
   SUPPORTED_LANGUAGES_CATALOG,
   exportFullAppState,
   importFullAppState,
@@ -26,6 +27,7 @@ import {
   FileText,
   ExternalLink,
   Eye,
+  Palette,
   Plus,
   Volume2,
   VolumeX,
@@ -60,6 +62,12 @@ export function SettingsModal({
 
   const isAndroidNative =
     typeof window !== 'undefined' && !!(window as any).AndroidNativeShell;
+
+  const themeOptions: { id: AppTheme; label: string; description: string }[] = [
+    { id: 'pure-dark', label: 'Pure Dark', description: 'Minimal contrast-first playback view' },
+    { id: 'minimal-light', label: 'Minimal Light', description: 'Clean daytime reading surface' },
+    { id: 'warm-slate', label: 'Warm Slate', description: 'Soft sepia focus for long study sessions' },
+  ];
 
   const toggleMethod = (key: keyof AppSettings['methods']) => {
     onUpdateSettings({
@@ -168,6 +176,7 @@ export function SettingsModal({
 
           <button
             id="close-settings-modal-button"
+            data-testid="close-settings-modal-button close-settings-modal-btn"
             onClick={onClose}
             className="p-1.5 rounded-lg bg-neutral-800 hover:bg-neutral-700 text-neutral-400 hover:text-neutral-200 border border-neutral-700"
           >
@@ -202,6 +211,38 @@ export function SettingsModal({
                   }
                   className="w-5 h-5 accent-emerald-500 rounded cursor-pointer shrink-0"
                 />
+              </div>
+
+              <div className="p-3.5 rounded-xl bg-neutral-950 border border-neutral-800 space-y-3">
+                <div className="flex items-center justify-between">
+                  <div className="font-medium text-xs sm:text-sm text-neutral-200 flex items-center gap-2">
+                    <Palette className="w-4 h-4 text-violet-400" />
+                    <span>Theme Palette</span>
+                  </div>
+                  <span className="text-[11px] font-mono text-violet-400 uppercase">
+                    {settings.theme || 'pure-dark'}
+                  </span>
+                </div>
+                <div className="text-xs text-neutral-400">
+                  Choose the active study-mode palette for the player and settings shell.
+                </div>
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 pt-1">
+                  {themeOptions.map((theme) => (
+                    <button
+                      key={theme.id}
+                      type="button"
+                      onClick={() => onUpdateSettings({ ...settings, theme: theme.id })}
+                      className={`rounded-xl border px-2.5 py-2 text-left transition-all ${
+                        settings.theme === theme.id
+                          ? 'border-violet-500 bg-violet-500/10 text-violet-100 shadow-sm'
+                          : 'border-neutral-800 bg-neutral-900 text-neutral-300 hover:border-neutral-700'
+                      }`}
+                    >
+                      <div className="text-xs font-semibold">{theme.label}</div>
+                      <div className="mt-1 text-[11px] text-neutral-400">{theme.description}</div>
+                    </button>
+                  ))}
+                </div>
               </div>
 
               <div className="p-3.5 rounded-xl bg-neutral-950 border border-neutral-800 space-y-2.5">
@@ -496,8 +537,8 @@ export function SettingsModal({
                   </div>
                 </div>
                 <input
-                  id="toggle-single-target-lang-mode"
-                  data-testid="toggle-single-target-lang-mode"
+                  id="single-target-language-mode-toggle"
+                  data-testid="single-target-language-mode-toggle toggle-single-target-lang-mode"
                   type="checkbox"
                   checked={settings.singleTargetLanguageMode ?? true}
                   onChange={(e) =>
@@ -882,7 +923,7 @@ export function SettingsModal({
 
                 <button
                   type="button"
-                  id="copy-settings-json-btn"
+                  id="copy-settings-snapshot-btn"
                   onClick={handleExportClipboard}
                   className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-neutral-800 hover:bg-neutral-700 text-neutral-200 border border-neutral-700 text-xs font-medium transition"
                   title="Copy JSON snapshot to clipboard"

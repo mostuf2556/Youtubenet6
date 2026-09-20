@@ -62,6 +62,8 @@ This document outlines recommended architectural enhancements and Markdown workf
 | `TASKS.md` | Central Task Priority Index | **[Adapted]** |
 | `PLAN_*.md` | Feature Specifications & Dev Execution Flows | **[Adapted]** |
 | `temp.md` | Active Sub-Task Execution Scratchpad | **[Adapted]** |
-| `DECISIONS.md` | Architectural Decision Records (ADR Log) | **[RECOMMENDED]** |
-| `CHANGELOG.md` | OTA Asset & Release Tag Tracker | **[RECOMMENDED]** |
-| `PLAN_TEMPLATE.md` | Uniform Template for Technical Specifications | **[RECOMMENDED]** |
+| `DECISIONS.md` | Architectural Decision Records (ADR Log) | **[Adapted]** |
+| `CHANGELOG.md` | OTA Asset & Release Tag Tracker | **[Adapted]** |
+| `PLAN_TEMPLATE.md` | Uniform Template for Technical Specifications | **[Adapted]** |
+| `verify-md-links.ts` | Automated Link Cross-Reference Verification (`npm run test:md`) | **[Adapted]** |
+| `PROMPT_OLD.md` | Automatic Directive Archiving Lifecycle | **[Adapted]** |

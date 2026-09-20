@@ -1,26 +1,30 @@
 # Active Prompt & Task Tracking (PROMPT.md)
 
 ## Active User Directive
-> "add to AGENTS.md in your own words:
-> make order with the .md files - moving most of the to docs/"
+> "so do it. and ensure to rm any deprecated .md which says otherwise"
 >
 > Implementation Scope:
-> 1. Formulate and integrate clear guidelines into `AGENTS.md` (both in Section 1 and Section 11) mandating root hygiene and an orderly file structure by organizing markdown files into categorized `docs/` subdirectories (`docs/plans/`, `docs/designs/`, `docs/specifications/`, `docs/operations/`).
-> 2. Enforce a strict root whitelist (`AGENTS.md`, `README.md`, `temp.md`) so that no extraneous `.md` files clutter the root directory.
-> 3. Create architectural plan `docs/plans/PLAN_DOCS_ORGANIZATION.md` following `docs/plans/PLAN_TEMPLATE.md`.
-> 4. Record ADR-004 in `docs/operations/DECISIONS.md` establishing the markdown documentation layout and directory conventions.
-> 5. Update and synchronize all internal markdown cross-references across `AGENTS.md`, `docs/operations/TASKS.md`, and `mkdocs.yml`.
-> 6. Verify caption fixture tests (`npm run test:caption-formats`), linter (`npm run lint`), and production build (`compile_applet`).
+> 1. Audit and remove any deprecated `.md` files that contradict the established architectural contracts in `AGENTS.md` (specifically removing `docs/operations/DEPRECATED.md`, which asserted that `.srt` was the primary speech flow contrary to canonical `json3` mandates and ADR-001).
+> 2. Strip all references to deprecated documentation from `mkdocs.yml`, `docs/index.md`, and `docs/plans/PLAN_DOCS_ORGANIZATION.md`.
+> 3. Implement the recommended automated markdown cross-reference validation script `scripts/verify-md-links.ts` and add `npm run test:md` to `package.json`.
+> 4. Ensure complete integrity of the documentation contract ecosystem by providing required contracts (`ACTIONS.md`, `DEBUG.md`, `DESIGN_PLAYER_PROVIDER.md`, `DESIGN_STATE_COORDINATOR.md`) referenced in `AGENTS.md` and `README.md`.
+> 5. Update relative documentation paths in `README.md` to point to organized `docs/` subdirectories.
+> 6. Record ADR-005 in `docs/operations/DECISIONS.md` and update `RECOMMENDATION.md`, `TASKS.md`, `temp.md`, and `PROMPT_OLD.md`.
+> 7. Verify all validation checks (`npm run test:md`, `npm run test:caption-formats`, `npm run lint`, `compile_applet`).
 
 ## Active Worklist
-- [x] Integrate "Repository Order & Markdown Relocation Mandate (Root Hygiene)" into `AGENTS.md` Section 1 in our own words.
-- [x] Add Subsection 11.7 "Documentation Order & Root Hygiene Mandate" to `AGENTS.md`.
-- [x] Relocate loose root `.md` files into corresponding `docs/` subdirectories (`docs/plans/`, `docs/designs/`, `docs/specifications/`, `docs/operations/`).
-- [x] Create `docs/plans/PLAN_DOCS_ORGANIZATION.md` following standard template.
-- [x] Record ADR-004 in `docs/operations/DECISIONS.md` logging the architectural decision.
-- [x] Synchronize relative documentation links across `AGENTS.md`, `docs/operations/TASKS.md`, `docs/index.md`, and `mkdocs.yml`.
-- [x] Update active scratchpad `temp.md`.
-- [x] Verify caption fixture tests (`npm run test:caption-formats`).
-- [x] Run `npm run lint` to confirm type safety.
-- [x] Run `compile_applet` to confirm successful build.
+- [x] Delete `docs/operations/DEPRECATED.md` with conflicting `.srt` assertions.
+- [x] Remove `DEPRECATED.md` from `mkdocs.yml`, `docs/index.md`, and `PLAN_DOCS_ORGANIZATION.md`.
+- [x] Create automated link validation script `scripts/verify-md-links.ts` with code-span stripping and wildcard ignoring.
+- [x] Add `"test:md": "tsx scripts/verify-md-links.ts"` script to `package.json`.
+- [x] Create `docs/operations/ACTIONS.md`, `docs/operations/DEBUG.md`, `docs/designs/DESIGN_PLAYER_PROVIDER.md`, and `docs/designs/DESIGN_STATE_COORDINATOR.md`.
+- [x] Update `README.md` links to point to categorized `docs/` directories.
+- [x] Record ADR-005 in `docs/operations/DECISIONS.md`.
+- [x] Update `docs/operations/RECOMMENDATION.md` and `docs/operations/TASKS.md`.
+- [x] Update active runner `temp.md` and archive prior directive in `docs/operations/PROMPT_OLD.md`.
+- [x] Run `npm run test:md` (26 markdown files, 43 relative links verified).
+- [x] Run `npm run test:caption-formats` (all 10 fixtures verified).
+- [x] Run `npm run lint` (0 TypeScript errors).
+- [x] Run `compile_applet` (production build verified).
+
 
