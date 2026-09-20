@@ -1,5 +1,14 @@
 import { defineConfig, devices } from '@playwright/test';
 
+const rawBaseURL = process.env.PLAYWRIGHT_BASE_URL || process.env.BASE_URL || 'http://127.0.0.1:3000';
+const baseURL = rawBaseURL.endsWith('/') ? rawBaseURL : `${rawBaseURL}/`;
+
+const isExternalServer = Boolean(
+  process.env.PLAYWRIGHT_BASE_URL &&
+  !process.env.PLAYWRIGHT_BASE_URL.includes('localhost') &&
+  !process.env.PLAYWRIGHT_BASE_URL.includes('127.0.0.1')
+);
+
 export default defineConfig({
   testDir: './e2e',
   fullyParallel: false,
@@ -7,7 +16,7 @@ export default defineConfig({
   retries: 0,
   reporter: [['list'], ['html', { open: 'never' }]],
   use: {
-    baseURL: process.env.PLAYWRIGHT_BASE_URL || process.env.BASE_URL || 'http://127.0.0.1:3000',
+    baseURL,
     video: 'off',
     trace: 'off',
     screenshot: 'on',
@@ -16,7 +25,7 @@ export default defineConfig({
     },
   },
   outputDir: 'test-results',
-  webServer: process.env.PLAYWRIGHT_BASE_URL
+  webServer: isExternalServer
     ? undefined
     : {
         command: 'npm run dev',

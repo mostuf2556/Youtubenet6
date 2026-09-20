@@ -10,6 +10,13 @@ if (!fs.existsSync(assetsDir)) {
 
 test.describe('YouTube Video Viewer - Android Emulation E2E Tests', () => {
   test.beforeEach(async ({ page }) => {
+    // Intercept page.goto to ensure leading slashes respect sub-path baseURL (e.g. /app/ on GitHub Pages)
+    const originalGoto = page.goto.bind(page);
+    page.goto = (url: string, options?: Parameters<typeof originalGoto>[1]) => {
+      const safeUrl = url.startsWith('/') && !url.startsWith('//') ? `.${url}` : url;
+      return originalGoto(safeUrl, options);
+    };
+
     await page.addInitScript(() => {
       try {
         window.localStorage.clear();
@@ -19,7 +26,7 @@ test.describe('YouTube Video Viewer - Android Emulation E2E Tests', () => {
       } catch {}
     });
 
-    await page.goto('/?reset_all=true');
+    await page.goto('./?reset_all=true');
     await expect(page).toHaveTitle(/YouTube/i);
     await expect(page.locator('header')).toBeVisible();
   });

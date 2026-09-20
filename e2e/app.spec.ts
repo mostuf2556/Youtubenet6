@@ -10,6 +10,13 @@ if (!fs.existsSync(assetsDir)) {
 
 test.describe('YouTube Video Viewer - Subtitle Auto-Detection Tests', () => {
   test.beforeEach(async ({ page }) => {
+    // Intercept page.goto to ensure leading slashes respect sub-path baseURL (e.g. /app/ on GitHub Pages)
+    const originalGoto = page.goto.bind(page);
+    page.goto = (url: string, options?: Parameters<typeof originalGoto>[1]) => {
+      const safeUrl = url.startsWith('/') && !url.startsWith('//') ? `.${url}` : url;
+      return originalGoto(safeUrl, options);
+    };
+
     await page.addInitScript(() => {
       try {
         window.localStorage.clear();
@@ -19,7 +26,7 @@ test.describe('YouTube Video Viewer - Subtitle Auto-Detection Tests', () => {
       } catch {}
     });
 
-    await page.goto('/?reset_all=true');
+    await page.goto('./?reset_all=true');
     await expect(page).toHaveTitle(/YouTube/i);
     await expect(page.locator('header')).toBeVisible();
   });
@@ -222,7 +229,7 @@ test.describe('YouTube Video Viewer - Subtitle Auto-Detection Tests', () => {
   // =========================================================================
   test('1. Video Playback - loads video player, accepts URL, and toggles theater mode', async ({ page }) => {
     await test.step('1. Navigate without fixtures', async () => {
-      await page.goto('/?disableFixtures=true');
+      await page.goto('./?disableFixtures=true');
       await page.waitForLoadState('domcontentloaded');
       await expect(page.locator('#youtube-url-input')).toBeVisible();
     });
@@ -276,7 +283,7 @@ test.describe('YouTube Video Viewer - Subtitle Auto-Detection Tests', () => {
 
   test('2. Subtitles View - displays subtitle cues, timestamps, text, search, and jump to cue', async ({ page }) => {
     await test.step('1. Navigate without fixtures and load video', async () => {
-      await page.goto('/?disableFixtures=true');
+      await page.goto('./?disableFixtures=true');
       await page.waitForLoadState('domcontentloaded');
 
       const input = page.locator('#youtube-url-input');
@@ -339,7 +346,7 @@ test.describe('YouTube Video Viewer - Subtitle Auto-Detection Tests', () => {
 
   test('3. Subtitles Translation - verifies translation for Italian and Arabic', async ({ page }) => {
     await test.step('1. Navigate without fixtures and load video with captions', async () => {
-      await page.goto('/?disableFixtures=true');
+      await page.goto('./?disableFixtures=true');
       await page.waitForLoadState('domcontentloaded');
 
       const input = page.locator('#youtube-url-input');
@@ -415,7 +422,7 @@ test.describe('YouTube Video Viewer - Subtitle Auto-Detection Tests', () => {
 
   test('4. TTS Config - configures speaking rate, voice selection, and test audio', async ({ page }) => {
     await test.step('1. Navigate without fixtures and load video', async () => {
-      await page.goto('/?disableFixtures=true');
+      await page.goto('./?disableFixtures=true');
       await page.waitForLoadState('domcontentloaded');
 
       const input = page.locator('#youtube-url-input');
@@ -471,7 +478,7 @@ test.describe('YouTube Video Viewer - Subtitle Auto-Detection Tests', () => {
 
   test('5. Synchronized Playback with Configured Order (TTS First vs Video First)', async ({ page }) => {
     await test.step('1. Navigate without fixtures and configure playback order in Settings', async () => {
-      await page.goto('/?disableFixtures=true');
+      await page.goto('./?disableFixtures=true');
       await page.waitForLoadState('domcontentloaded');
 
       const settingsBtn = page.locator('#navbar-settings-button, #open-settings-button').first();
@@ -524,7 +531,7 @@ test.describe('YouTube Video Viewer - Subtitle Auto-Detection Tests', () => {
 
   test('6. APK Guide Modal - opens APK guide and network inspection modal', async ({ page }) => {
     await test.step('1. Navigate without fixtures', async () => {
-      await page.goto('/?disableFixtures=true');
+      await page.goto('./?disableFixtures=true');
       await page.waitForLoadState('domcontentloaded');
     });
 

@@ -1,6 +1,9 @@
 import { defineConfig } from 'cypress';
 import cypressMochawesomeReporterPlugin from 'cypress-mochawesome-reporter/plugin';
 
+const rawCypressBaseUrl = process.env.CYPRESS_BASE_URL || 'http://localhost:3000';
+const cypressBaseUrl = rawCypressBaseUrl.endsWith('/') ? rawCypressBaseUrl : `${rawCypressBaseUrl}/`;
+
 export default defineConfig({
   defaultCommandTimeout: 10000,
   requestTimeout: 10000,
@@ -20,7 +23,7 @@ export default defineConfig({
     embeddedScreenshots: true,
   },
   e2e: {
-    baseUrl: process.env.CYPRESS_BASE_URL || 'http://localhost:3000',
+    baseUrl: cypressBaseUrl,
     viewportWidth: 1280,
     viewportHeight: 720,
     video: true,

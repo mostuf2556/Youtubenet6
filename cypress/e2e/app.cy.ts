@@ -1,7 +1,7 @@
 describe('YouTube Video Viewer - Subtitle Detection (Step-by-Step)', () => {
   beforeEach(() => {
     cy.log('Step 0: Navigating to YouTube Video Viewer');
-    cy.visit('/');
+    cy.visit('./?reset_all=true');
     cy.title().should('match', /YouTube/i);
     cy.get('header').should('be.visible');
   });
