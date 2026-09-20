@@ -1434,8 +1434,11 @@
               <span>📱</span> Google Pixel 7 Device
             </div>
             <div style="display: flex; gap: 0.35rem;">
-              <button class="tab-btn active" id="tab-btn-sim" style="padding: 0.25rem 0.6rem; font-size: 0.75rem;" onclick="setDeviceViewMode('sim')">
-                🎮 Live Simulation
+              <button class="tab-btn active" id="tab-btn-live-app" style="padding: 0.25rem 0.6rem; font-size: 0.75rem;" onclick="setDeviceViewMode('live-app')">
+                🌐 Live App
+              </button>
+              <button class="tab-btn" id="tab-btn-sim" style="padding: 0.25rem 0.6rem; font-size: 0.75rem;" onclick="setDeviceViewMode('sim')">
+                🎮 Guided Flow
               </button>
               <button class="tab-btn" id="tab-btn-screencap" style="padding: 0.25rem 0.6rem; font-size: 0.75rem;" onclick="setDeviceViewMode('screencap')">
                 📸 ADB Capture
@@ -1444,6 +1447,17 @@
           </div>
 
           <div style="padding: 1.25rem;">
+            <!-- DEVICE QUICK ACTION BAR -->
+            <div style="margin-bottom: 0.75rem; display: flex; gap: 4px; flex-wrap: wrap;">
+              <button class="btn-secondary" style="font-size: 10px; padding: 3px 6px;" onclick="triggerPhoneAction('play')">🎬 Play</button>
+              <button class="btn-secondary" style="font-size: 10px; padding: 3px 6px;" onclick="triggerPhoneAction('captions')">💬 CC</button>
+              <button class="btn-secondary" style="font-size: 10px; padding: 3px 6px;" onclick="triggerPhoneAction('lang_es')">🌐 ES</button>
+              <button class="btn-secondary" style="font-size: 10px; padding: 3px 6px;" onclick="triggerPhoneAction('transcript')">📜 Transcript</button>
+              <button class="btn-secondary" style="font-size: 10px; padding: 3px 6px;" onclick="triggerPhoneAction('parallel')">📑 Parallel</button>
+              <button class="btn-secondary" style="font-size: 10px; padding: 3px 6px;" onclick="triggerPhoneAction('speech')">🗣️ TTS</button>
+              <button class="btn-secondary" style="font-size: 10px; padding: 3px 6px;" onclick="reloadPhoneFrame()">🔄 Reset</button>
+            </div>
+
             <div class="phone-mockup" id="phone-container">
               <!-- STATUS BAR -->
               <div class="phone-status-bar">
@@ -1458,8 +1472,13 @@
               <!-- SCREEN CONTENT -->
               <div class="phone-screen" id="phone-screen-body">
 
+                <!-- 0. LIVE INTERACTIVE ANDROID APPLICATION VIEW (DEFAULT) -->
+                <div id="live-app-view-content" style="display: block; width: 100%; height: 100%; position: relative; background: #000;">
+                  <iframe id="android-live-iframe" src="./app/index.html?v=n9qwEOsqsoo&embedded=true" style="width: 100%; height: 100%; border: none; background: #000;" allow="autoplay; fullscreen; encrypted-media"></iframe>
+                </div>
+
                 <!-- 1. LIVE USER SIMULATION VIEW -->
-                <div id="sim-view-content" style="display: flex; flex-direction: column; height: 100%; position: relative;">
+                <div id="sim-view-content" style="display: none; flex-direction: column; height: 100%; position: relative;">
                   <!-- VIRTUAL TOUCH POINTER -->
                   <div class="touch-cursor" id="touch-cursor">
                     <div class="touch-ripple"></div>
@@ -1546,7 +1565,7 @@
             </div>
 
             <!-- SIMULATION CONTROLLER BAR -->
-            <div class="sim-controller" id="simulation-controller-box">
+            <div class="sim-controller" id="simulation-controller-box" style="display: none;">
               <div class="sim-step-indicator">
                 <span id="sim-step-title" style="font-weight: 700; color: #fff;">Stage 1: Launch Video & Input URL</span>
                 <span id="sim-step-count" style="font-family: monospace;">1 / 6</span>
@@ -1987,13 +2006,93 @@ ASCII: ${req.hexAscii}
       }
     }
 
-    function setDeviceViewMode(mode) {
-      document.getElementById('tab-btn-sim').className = mode === 'sim' ? 'tab-btn active' : 'tab-btn';
-      document.getElementById('tab-btn-screencap').className = mode === 'screencap' ? 'tab-btn active' : 'tab-btn';
+    function reloadPhoneFrame() {
+      const frame = document.getElementById('android-live-iframe');
+      if (frame) {
+        frame.src = './app/index.html?v=n9qwEOsqsoo&embedded=true&t=' + Date.now();
+      }
+    }
 
-      document.getElementById('sim-view-content').style.display = mode === 'sim' ? 'flex' : 'none';
-      document.getElementById('screencap-view-content').style.display = mode === 'screencap' ? 'block' : 'none';
-      document.getElementById('simulation-controller-box').style.display = mode === 'sim' ? 'block' : 'none';
+    function triggerPhoneAction(actionType) {
+      setDeviceViewMode('live-app');
+      const frame = document.getElementById('android-live-iframe');
+      let doc = null;
+      try {
+        doc = frame ? (frame.contentDocument || frame.contentWindow.document) : null;
+      } catch (e) {}
+
+      if (actionType === 'play') {
+        if (doc) {
+          const btn = doc.getElementById('play-video-button') || doc.querySelector('[aria-label="Play"]');
+          if (btn) btn.click();
+        }
+        if (frame && frame.contentWindow) {
+          frame.contentWindow.postMessage({ type: 'YT_ACTION', action: 'PLAY' }, '*');
+        }
+      } else if (actionType === 'captions') {
+        if (doc) {
+          const btn = doc.getElementById('caption-toggle-button') || doc.querySelector('[aria-label="Toggle Captions"]');
+          if (btn) btn.click();
+        }
+        if (frame && frame.contentWindow) {
+          frame.contentWindow.postMessage({ type: 'YT_ACTION', action: 'TOGGLE_CAPTIONS' }, '*');
+        }
+      } else if (actionType === 'lang_es') {
+        if (doc) {
+          const sel = doc.querySelector('select');
+          if (sel) {
+            sel.value = 'es';
+            sel.dispatchEvent(new Event('change', { bubbles: true }));
+          }
+        }
+        if (frame && frame.contentWindow) {
+          frame.contentWindow.postMessage({ type: 'YT_ACTION', action: 'SET_LANG', lang: 'es' }, '*');
+        }
+      } else if (actionType === 'transcript') {
+        if (doc) {
+          const transcriptBtn = doc.querySelector('[data-view="transcript"]') || doc.querySelector('button[title*="Transcript"]');
+          if (transcriptBtn) transcriptBtn.click();
+        }
+        if (frame && frame.contentWindow) {
+          frame.contentWindow.postMessage({ type: 'YT_ACTION', action: 'SWITCH_VIEW', view: 'transcript' }, '*');
+        }
+      } else if (actionType === 'parallel') {
+        if (doc) {
+          const parallelBtn = doc.querySelector('[data-view="parallel"]') || doc.querySelector('button[title*="Parallel"]');
+          if (parallelBtn) parallelBtn.click();
+        }
+        if (frame && frame.contentWindow) {
+          frame.contentWindow.postMessage({ type: 'YT_ACTION', action: 'SWITCH_VIEW', view: 'parallel' }, '*');
+        }
+      } else if (actionType === 'speech') {
+        if (doc) {
+          const speechBtn = doc.querySelector('[data-view="speech"]') || doc.querySelector('button[title*="Speech"]');
+          if (speechBtn) speechBtn.click();
+        }
+        if (frame && frame.contentWindow) {
+          frame.contentWindow.postMessage({ type: 'YT_ACTION', action: 'SWITCH_VIEW', view: 'speech' }, '*');
+        }
+      }
+    }
+
+    function setDeviceViewMode(mode) {
+      const btnLive = document.getElementById('tab-btn-live-app');
+      const btnSim = document.getElementById('tab-btn-sim');
+      const btnScreencap = document.getElementById('tab-btn-screencap');
+
+      if (btnLive) btnLive.className = mode === 'live-app' ? 'tab-btn active' : 'tab-btn';
+      if (btnSim) btnSim.className = mode === 'sim' ? 'tab-btn active' : 'tab-btn';
+      if (btnScreencap) btnScreencap.className = mode === 'screencap' ? 'tab-btn active' : 'tab-btn';
+
+      const liveView = document.getElementById('live-app-view-content');
+      const simView = document.getElementById('sim-view-content');
+      const screencapView = document.getElementById('screencap-view-content');
+      const controllerBox = document.getElementById('simulation-controller-box');
+
+      if (liveView) liveView.style.display = mode === 'live-app' ? 'block' : 'none';
+      if (simView) simView.style.display = mode === 'sim' ? 'flex' : 'none';
+      if (screencapView) screencapView.style.display = mode === 'screencap' ? 'block' : 'none';
+      if (controllerBox) controllerBox.style.display = mode === 'sim' ? 'block' : 'none';
     }
 
     // ==========================================
