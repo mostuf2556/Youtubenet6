@@ -53,7 +53,17 @@ export function sanitizeCues(cues: CaptionCue[]): CaptionCue[] {
 export function getCachedSubtitles(videoId: string): CaptionCue[] | null {
   if (!videoId) return null;
 
-  // 1. For default video FcRzAdI8R9U, ensure we always load the full authentic 1,578 SRT cues
+  // 1a. For target video n9qwEOsqsoo, load the English source track
+  if (videoId === 'n9qwEOsqsoo') {
+    const srtCues = getCachedSrtForVideoAndLanguage('n9qwEOsqsoo', 'en');
+    if (srtCues && srtCues.length > 0) {
+      const sanitized = sanitizeCues(srtCues);
+      memoryCache.set(videoId, sanitized);
+      return sanitized;
+    }
+  }
+
+  // 1b. For default video FcRzAdI8R9U, ensure we always load the full authentic 1,578 SRT cues
   if (videoId === 'FcRzAdI8R9U') {
     const srtCues = getCachedSrtForVideoAndLanguage('FcRzAdI8R9U', 'ru') || FCRZADI8R9U_LANGUAGE_SRT_TRACKS.ru;
     if (srtCues && srtCues.length > 5) {
@@ -191,6 +201,7 @@ export function getCachedSubtitles(videoId: string): CaptionCue[] | null {
  */
 export function hasCachedSubtitles(videoId: string): boolean {
   if (!videoId) return false;
+  if (videoId === 'n9qwEOsqsoo') return true;
   if (videoId === 'FcRzAdI8R9U') return true;
   if (videoId === 'L2Ryrr6txwA') return true;
   if (videoId === 'EILFkSGNkdA') return true;

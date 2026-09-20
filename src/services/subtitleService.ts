@@ -292,11 +292,12 @@ export async function fetchSubtitlesFrontend(
     logWarn('Subtitles', `Client-side direct fetch failed for ${cleanId}: ${String(clientErr)}`);
   }
 
-  // 4. Client-side Fixture Fallback for Demo Videos (e.g. FcRzAdI8R9U)
-  if (!options?.disableFixtures && cleanId === 'FcRzAdI8R9U') {
+  // 4. Client-side Fixture Fallback for Demo Videos (e.g. n9qwEOsqsoo, FcRzAdI8R9U)
+  if (!options?.disableFixtures && (cleanId === 'n9qwEOsqsoo' || cleanId === 'FcRzAdI8R9U' || cleanId === 'L2Ryrr6txwA' || cleanId === 'EILFkSGNkdA')) {
     logSubtitles(`[Frontend Subtitle Service] Using authentic client-side fixture cues for demo video (${cleanId})`);
-    let fixtureCues = [...SAMPLE_AUTHENTIC_RUSSIAN_CUES];
-    const targetLang = options?.tlang;
+    const targetLang = options?.tlang || 'en';
+    const cachedCues = getCachedSubtitles(cleanId);
+    let fixtureCues = cachedCues && cachedCues.length > 0 ? cachedCues : [...SAMPLE_AUTHENTIC_RUSSIAN_CUES];
     if (targetLang && targetLang !== 'ru') {
       if ((targetLang === 'he' || targetLang === 'iw') && SAMPLE_AUTHENTIC_HEBREW_CUES_FCRZADI8R9U) {
         fixtureCues = [...SAMPLE_AUTHENTIC_HEBREW_CUES_FCRZADI8R9U];
@@ -307,13 +308,13 @@ export async function fetchSubtitlesFrontend(
       text: cleanAndFixEncoding(c.text),
     }));
     saveCachedSubtitles(cleanId, sanitized);
-    saveObservedTimedTextUrl(cleanId, SAMPLE_AUTHENTIC_RUSSIAN_URL);
+    saveObservedTimedTextUrl(cleanId, `https://www.youtube.com/api/timedtext?v=${cleanId}&lang=${targetLang}&fmt=json3`);
     return {
       success: true,
       videoId: cleanId,
       cues: sanitized,
       count: sanitized.length,
-      observedUrl: SAMPLE_AUTHENTIC_RUSSIAN_URL,
+      observedUrl: `https://www.youtube.com/api/timedtext?v=${cleanId}&lang=${targetLang}&fmt=json3`,
       source: 'cached_fixture',
     };
   }

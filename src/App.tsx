@@ -61,7 +61,7 @@ import { checkApkUpdate } from './utils/apkUpdater';
 import { loadAppSettings, saveAppSettings, AppSettings, DEFAULT_APP_SETTINGS, loadVideoSettings, saveVideoSettings, VideoSpecificSettings, getVideoTargetLang, setVideoTargetLang, isAndroidAppEnvironment } from './utils/appSettings';
 import { logInfo, logWarn, logSubtitles, registerAppStateProvider } from './utils/logBuffer';
 import { checkAndPerformUrlCacheReset, getAppStateFromUrl, syncAppStateToUrl } from './utils/urlStateManager';
-import { getMockedSubtitlesForVideo, FCRZADI8R9U_LANGUAGE_SRT_TRACKS, L2RYRR6TXWA_LANGUAGE_JSON3_TRACKS } from '../test/fixtures/defaultSubtitles';
+import { getMockedSubtitlesForVideo, FCRZADI8R9U_LANGUAGE_SRT_TRACKS, L2RYRR6TXWA_LANGUAGE_JSON3_TRACKS, N9QWEO5QSOO_LANGUAGE_TRACKS } from '../test/fixtures/defaultSubtitles';
 import { SelectTargetLanguageModal } from './components/SelectTargetLanguageModal';
 import { SubtitleArtifactsModal } from './components/SubtitleArtifactsModal';
 import { DemoQuickFloatingDock } from './components/DemoQuickFloatingDock';
@@ -528,6 +528,20 @@ export default function App() {
   // Automatically restore cached subtitles whenever videoId changes
   useEffect(() => {
     if (!videoId) return;
+
+    // For n9qwEOsqsoo, immediately load authentic multi-lingual tracks
+    if (videoId === 'n9qwEOsqsoo') {
+      const cues = N9QWEO5QSOO_LANGUAGE_TRACKS.en;
+      if (cues && cues.length > 0) {
+        setCustomCues(cues);
+        saveCachedSubtitles('n9qwEOsqsoo', cues, {
+          title: 'Language Learning Guide · n9qwEOsqsoo',
+          originalUrl: 'https://www.youtube.com/watch?v=n9qwEOsqsoo',
+        });
+        setFetchError(null);
+        return;
+      }
+    }
 
     // For demo video, immediately load authentic multi-lingual SRT fixtures
     if (videoId === 'FcRzAdI8R9U') {

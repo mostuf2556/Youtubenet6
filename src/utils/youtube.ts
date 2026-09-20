@@ -414,7 +414,7 @@ export function getYouTubeThumbnailUrl(videoId: string): string {
   return `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`;
 }
 
-export const DEFAULT_VIDEO_ID = 'FcRzAdI8R9U';
+export const DEFAULT_VIDEO_ID = 'n9qwEOsqsoo';
 export const DEFAULT_VIDEO_URL = `https://www.youtube.com/watch?v=${DEFAULT_VIDEO_ID}`;
 
 /**

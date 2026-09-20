@@ -1,12 +1,12 @@
 import { LibraryVideoItem } from '../types';
-import { FCRZADI8R9U_LANGUAGE_SRT_TRACKS, L2RYRR6TXWA_LANGUAGE_JSON3_TRACKS } from '../../test/fixtures/defaultSubtitles';
+import { FCRZADI8R9U_LANGUAGE_SRT_TRACKS, L2RYRR6TXWA_LANGUAGE_JSON3_TRACKS, N9QWEO5QSOO_LANGUAGE_TRACKS } from '../../test/fixtures/defaultSubtitles';
 import { EILFKSGNKDA_LANGUAGE_TRACKS } from '../../test/fixtures/eilfksgnkda';
 
 /**
  * Global Application Configuration & Default Settings
  */
 
-export const DEFAULT_VIDEO_ID = 'FcRzAdI8R9U';
+export const DEFAULT_VIDEO_ID = 'n9qwEOsqsoo';
 export const DEFAULT_VIDEO_URL = `https://www.youtube.com/watch?v=${DEFAULT_VIDEO_ID}`;
 
 export const SRT_DEMO_VIDEO_ID = 'FcRzAdI8R9U';
@@ -37,14 +37,21 @@ export const STORAGE_KEYS = {
   VIDEO_SETTINGS_PREFIX: 'yt_vsettings_',
 } as const;
 
-// Default Library Items (with Authentic Russian Sheinkin40 SRT and JustinGuitar JSON3)
+// Default Library Items (with Authentic Multilingual Tracks)
 export const DEFAULT_LIBRARY_ITEMS: LibraryVideoItem[] = [
   {
     id: DEFAULT_VIDEO_ID,
     originalUrl: DEFAULT_VIDEO_URL,
+    title: 'Language Learning Guide · n9qwEOsqsoo',
+    cues: N9QWEO5QSOO_LANGUAGE_TRACKS.en,
+    timestamp: Date.now(),
+  },
+  {
+    id: SRT_DEMO_VIDEO_ID,
+    originalUrl: SRT_DEMO_VIDEO_URL,
     title: 'Authentic Russian Interview · SRT (Sheinkin40)',
     cues: FCRZADI8R9U_LANGUAGE_SRT_TRACKS.ru,
-    timestamp: Date.now(),
+    timestamp: Date.now() + 1,
   },
   {
     id: JSON3_DEMO_VIDEO_ID,

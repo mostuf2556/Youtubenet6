@@ -71,36 +71,37 @@ export function ensureSrtTranslationsPrepopulated(): void {
   if (hasPrepopulatedSrt) return;
   hasPrepopulatedSrt = true;
   try {
-    const ruCues = getCachedTargetSubtitles('FcRzAdI8R9U', 'ru');
-    if (!ruCues || ruCues.length === 0) return;
+    const videoIds = ['n9qwEOsqsoo', 'FcRzAdI8R9U', 'L2Ryrr6txwA'];
+    const targetLangs = ['en', 'es', 'it', 'he', 'ar', 'ru'];
 
-    const targetLangs = ['it', 'he', 'en', 'ar', 'ru'];
-    for (const sLang of targetLangs) {
-      const sourceCues = getCachedTargetSubtitles('FcRzAdI8R9U', sLang);
-      if (!sourceCues || sourceCues.length === 0) continue;
-      for (const tLang of targetLangs) {
-        if (sLang === tLang) continue;
-        const targetCues = getCachedTargetSubtitles('FcRzAdI8R9U', tLang);
-        if (targetCues && targetCues.length > 0) {
-          const count = Math.min(sourceCues.length, targetCues.length);
-          for (let i = 0; i < count; i++) {
-            const sText = sourceCues[i]?.text?.trim();
-            const tText = targetCues[i]?.text?.trim();
-            if (sText && tText) {
-              const cleanS = sText.replace(/\r/g, '').trim();
-              const cleanT = tText.replace(/\r/g, '').trim();
-              memoryCache.set(`${sLang}:${tLang}:${cleanS}`, cleanT);
-              memoryCache.set(`auto:${tLang}:${cleanS}`, cleanT);
-              memoryCache.set(`${cleanS}:${tLang}`, cleanT);
-              if (tLang === 'he') {
-                memoryCache.set(`${sLang}:iw:${cleanS}`, cleanT);
-                memoryCache.set(`auto:iw:${cleanS}`, cleanT);
-                memoryCache.set(`${sLang}:il:${cleanS}`, cleanT);
-                memoryCache.set(`auto:il:${cleanS}`, cleanT);
-              }
-              if (sLang === 'he') {
-                memoryCache.set(`iw:${tLang}:${cleanS}`, cleanT);
-                memoryCache.set(`il:${tLang}:${cleanS}`, cleanT);
+    for (const vId of videoIds) {
+      for (const sLang of targetLangs) {
+        const sourceCues = getCachedTargetSubtitles(vId, sLang);
+        if (!sourceCues || sourceCues.length === 0) continue;
+        for (const tLang of targetLangs) {
+          if (sLang === tLang) continue;
+          const targetCues = getCachedTargetSubtitles(vId, tLang);
+          if (targetCues && targetCues.length > 0) {
+            const count = Math.min(sourceCues.length, targetCues.length);
+            for (let i = 0; i < count; i++) {
+              const sText = sourceCues[i]?.text?.trim();
+              const tText = targetCues[i]?.text?.trim();
+              if (sText && tText) {
+                const cleanS = sText.replace(/\r/g, '').trim();
+                const cleanT = tText.replace(/\r/g, '').trim();
+                memoryCache.set(`${sLang}:${tLang}:${cleanS}`, cleanT);
+                memoryCache.set(`auto:${tLang}:${cleanS}`, cleanT);
+                memoryCache.set(`${cleanS}:${tLang}`, cleanT);
+                if (tLang === 'he') {
+                  memoryCache.set(`${sLang}:iw:${cleanS}`, cleanT);
+                  memoryCache.set(`auto:iw:${cleanS}`, cleanT);
+                  memoryCache.set(`${sLang}:il:${cleanS}`, cleanT);
+                  memoryCache.set(`auto:il:${cleanS}`, cleanT);
+                }
+                if (sLang === 'he') {
+                  memoryCache.set(`iw:${tLang}:${cleanS}`, cleanT);
+                  memoryCache.set(`il:${tLang}:${cleanS}`, cleanT);
+                }
               }
             }
           }

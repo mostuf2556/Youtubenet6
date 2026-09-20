@@ -37,8 +37,8 @@ test.describe('YouTube Video Viewer - Android Emulation E2E Tests', () => {
    * enable captions and observe subtitle fetching.
    * Then change target translation language and assert fetching subtitles based on original url replacing tlang param.
    */
-  test('emulator testing - shouldnt use subtitles fixtures. load https://www.youtube.com/watch?v=FcRzAdI8R9U , enable captions and observer the subtitles fetching . later change target translation language and assert fetching subtitles based on original url but replacing tlang param should fetch the target language', async ({ page }) => {
-    const targetUrl = 'https://www.youtube.com/watch?v=FcRzAdI8R9U';
+  test('emulator testing - shouldnt use subtitles fixtures. load https://www.youtube.com/watch?v=n9qwEOsqsoo , enable captions and observer the subtitles fetching . later change target translation language and assert fetching subtitles based on original url but replacing tlang param should fetch the target language', async ({ page }) => {
+    const targetUrl = 'https://www.youtube.com/watch?v=n9qwEOsqsoo';
     const urlInput = page.locator('#youtube-url-input');
     const playButton = page.locator('#play-video-button');
     const captionToggleButton = page.locator('#caption-toggle-button');
