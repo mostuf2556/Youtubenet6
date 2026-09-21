@@ -1,7 +1,14 @@
 node_modules/
 build/
 dist/
+dev-dist/
+android-shell/app/src/main/assets/
 coverage/
+.vite/
+.cache/
+.nyc_output/
+*.map
+*.tsbuildinfo
 .DS_Store
 *.log
 .env*

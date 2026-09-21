@@ -27,7 +27,7 @@
     "test:android": "bash scripts/run-android-e2e.sh",
     "test:android:report": "node scripts/generate-android-report.mjs",
     "test:report:integrity": "node scripts/verify-reports-integrity.mjs",
-    "clean": "rm -rf dist server.js",
+    "clean": "rm -rf dist dev-dist android-shell/app/src/main/assets server.js",
     "update:readme": "node scripts/update-readme.mjs",
     "lint": "tsc --noEmit"
   },
