@@ -292,34 +292,7 @@ export async function fetchSubtitlesFrontend(
     logWarn('Subtitles', `Client-side direct fetch failed for ${cleanId}: ${String(clientErr)}`);
   }
 
-  // 4. Client-side Fixture Fallback for Demo Videos (e.g. n9qwEOsqsoo, FcRzAdI8R9U)
-  if (!options?.disableFixtures && (cleanId === 'n9qwEOsqsoo' || cleanId === 'FcRzAdI8R9U' || cleanId === 'L2Ryrr6txwA' || cleanId === 'EILFkSGNkdA')) {
-    logSubtitles(`[Frontend Subtitle Service] Using authentic client-side fixture cues for demo video (${cleanId})`);
-    const targetLang = options?.tlang || 'en';
-    const cachedCues = getCachedSubtitles(cleanId);
-    let fixtureCues = cachedCues && cachedCues.length > 0 ? cachedCues : [...SAMPLE_AUTHENTIC_RUSSIAN_CUES];
-    if (targetLang && targetLang !== 'ru') {
-      if ((targetLang === 'he' || targetLang === 'iw') && SAMPLE_AUTHENTIC_HEBREW_CUES_FCRZADI8R9U) {
-        fixtureCues = [...SAMPLE_AUTHENTIC_HEBREW_CUES_FCRZADI8R9U];
-      }
-    }
-    const sanitized = fixtureCues.map((c) => ({
-      ...c,
-      text: cleanAndFixEncoding(c.text),
-    }));
-    saveCachedSubtitles(cleanId, sanitized);
-    saveObservedTimedTextUrl(cleanId, `https://www.youtube.com/api/timedtext?v=${cleanId}&lang=${targetLang}&fmt=json3`);
-    return {
-      success: true,
-      videoId: cleanId,
-      cues: sanitized,
-      count: sanitized.length,
-      observedUrl: `https://www.youtube.com/api/timedtext?v=${cleanId}&lang=${targetLang}&fmt=json3`,
-      source: 'cached_fixture',
-    };
-  }
-
-  // 5. Final Report when no captions are found
+  // 4. Final Report when no captions are found
   const notFoundMsg = `No native timedtext subtitles found for YouTube video (${cleanId}). Direct browser requests to YouTube timedtext encountered browser CORS protection (expected in standard browser sandbox).`;
   logWarn('Subtitles', notFoundMsg);
 

@@ -1,8 +1,9 @@
 import React from 'react';
-import { History, Play, Trash2, Clock, Tag } from 'lucide-react';
+import { History, Play, Trash2, Clock, Tag, Subtitles } from 'lucide-react';
 import { VideoItem } from '../types';
 import { getYouTubeThumbnailUrl, parseYouTubeUrl, formatTypeName } from '../utils/youtube';
 import { formatTimestamp } from '../utils/captionParser';
+import { getAllCachedTargetLanguages } from '../utils/subtitleCache';
 
 interface VideoHistoryProps {
   history: VideoItem[];
@@ -44,6 +45,7 @@ export const VideoHistory: React.FC<VideoHistoryProps> = ({
         {history.map((item) => {
           const isActive = item.id === activeVideoId;
           const parsed = parseYouTubeUrl(item.originalUrl);
+          const cachedLangs = getAllCachedTargetLanguages(item.id);
           const formattedDate = new Date(item.timestamp).toLocaleTimeString([], {
             hour: '2-digit',
             minute: '2-digit',
@@ -90,11 +92,20 @@ export const VideoHistory: React.FC<VideoHistoryProps> = ({
                       </span>
                     )}
                   </div>
-                  <p className="text-[11px] text-neutral-400 truncate mt-0.5">
+                  <p className="text-[11px] text-neutral-400 truncate mt-0.5" title={item.originalUrl}>
                     {item.originalUrl}
                   </p>
+                  {cachedLangs.length > 0 && (
+                    <div className="flex items-center gap-1 mt-1 flex-wrap">
+                      {cachedLangs.map((lang) => (
+                        <span key={lang} className="text-[9px] px-1 py-0.2 rounded bg-indigo-950/80 text-indigo-300 border border-indigo-800/60 uppercase font-bold font-mono">
+                          {lang}
+                        </span>
+                      ))}
+                    </div>
+                  )}
                 </div>
-                <div className="flex items-center gap-2 text-[10px] text-neutral-500">
+                <div className="flex items-center gap-2 text-[10px] text-neutral-500 mt-1">
                   <div className="flex items-center gap-1">
                     <Clock className="w-3 h-3" />
                     <span>{formattedDate}</span>

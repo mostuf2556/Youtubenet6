@@ -1,5 +1,5 @@
 import { LibraryVideoItem } from '../types';
-import { FCRZADI8R9U_LANGUAGE_SRT_TRACKS, L2RYRR6TXWA_LANGUAGE_JSON3_TRACKS, N9QWEO5QSOO_LANGUAGE_TRACKS } from '../../test/fixtures/defaultSubtitles';
+import { FCRZADI8R9U_LANGUAGE_SRT_TRACKS, L2RYRR6TXWA_LANGUAGE_JSON3_TRACKS } from '../../test/fixtures/defaultSubtitles';
 import { EILFKSGNKDA_LANGUAGE_TRACKS } from '../../test/fixtures/eilfksgnkda';
 
 /**
@@ -42,8 +42,8 @@ export const DEFAULT_LIBRARY_ITEMS: LibraryVideoItem[] = [
   {
     id: DEFAULT_VIDEO_ID,
     originalUrl: DEFAULT_VIDEO_URL,
-    title: 'Language Learning Guide · n9qwEOsqsoo',
-    cues: N9QWEO5QSOO_LANGUAGE_TRACKS.en,
+    title: 'YouTube Default Video · n9qwEOsqsoo',
+    cues: [],
     timestamp: Date.now(),
   },
   {

@@ -53,47 +53,7 @@ export function sanitizeCues(cues: CaptionCue[]): CaptionCue[] {
 export function getCachedSubtitles(videoId: string): CaptionCue[] | null {
   if (!videoId) return null;
 
-  // 1a. For target video n9qwEOsqsoo, load the English source track
-  if (videoId === 'n9qwEOsqsoo') {
-    const srtCues = getCachedSrtForVideoAndLanguage('n9qwEOsqsoo', 'en');
-    if (srtCues && srtCues.length > 0) {
-      const sanitized = sanitizeCues(srtCues);
-      memoryCache.set(videoId, sanitized);
-      return sanitized;
-    }
-  }
-
-  // 1b. For default video FcRzAdI8R9U, ensure we always load the full authentic 1,578 SRT cues
-  if (videoId === 'FcRzAdI8R9U') {
-    const srtCues = getCachedSrtForVideoAndLanguage('FcRzAdI8R9U', 'ru') || FCRZADI8R9U_LANGUAGE_SRT_TRACKS.ru;
-    if (srtCues && srtCues.length > 5) {
-      const sanitized = sanitizeCues(srtCues);
-      memoryCache.set(videoId, sanitized);
-      return sanitized;
-    }
-  }
-
-  // 1b. For JSON3 fixture video L2Ryrr6txwA, load the authentic English source JSON3 track
-  if (videoId === 'L2Ryrr6txwA') {
-    const jsonCues = getCachedSrtForVideoAndLanguage('L2Ryrr6txwA', 'en');
-    if (jsonCues && jsonCues.length > 0) {
-      const sanitized = sanitizeCues(jsonCues);
-      memoryCache.set(videoId, sanitized);
-      return sanitized;
-    }
-  }
-
-  // 1c. For JSON3 demo video EILFkSGNkdA, load the English source track
-  if (videoId === 'EILFkSGNkdA') {
-    const srtCues = getCachedSrtForVideoAndLanguage('EILFkSGNkdA', 'en');
-    if (srtCues && srtCues.length > 0) {
-      const sanitized = sanitizeCues(srtCues);
-      memoryCache.set(videoId, sanitized);
-      return sanitized;
-    }
-  }
-
-  // 2. In-memory cache
+  // 1. In-memory cache
   if (memoryCache.has(videoId)) {
     const mem = memoryCache.get(videoId);
     if (mem && mem.length > 0) {
@@ -101,7 +61,7 @@ export function getCachedSubtitles(videoId: string): CaptionCue[] | null {
     }
   }
 
-  // 3. Dedicated per-video cache item
+  // 2. Dedicated per-video cache item
   if (isStorageAvailable()) {
     try {
       const raw = localStorage.getItem(`${SUBTITLE_CACHE_PREFIX}${videoId}`);
@@ -110,19 +70,6 @@ export function getCachedSubtitles(videoId: string): CaptionCue[] | null {
         const cuesList = Array.isArray(parsed) ? parsed : parsed.cues;
         if (Array.isArray(cuesList) && cuesList.length > 0) {
           const sanitized = sanitizeCues(cuesList);
-          // Auto-upgrade stale mock/partial cache for default video FcRzAdI8R9U to the full authentic 1,578 SRT cues
-          if (videoId === 'FcRzAdI8R9U' && sanitized.length < 500) {
-            const srtCues = getCachedSrtForVideoAndLanguage('FcRzAdI8R9U', 'ru') || FCRZADI8R9U_LANGUAGE_SRT_TRACKS.ru;
-            if (srtCues && srtCues.length > sanitized.length) {
-              const fullSanitized = sanitizeCues(srtCues);
-              memoryCache.set(videoId, fullSanitized);
-              saveCachedSubtitles(videoId, fullSanitized, {
-                title: 'Authentic Russian Interview (Sheinkin40)',
-                originalUrl: 'https://www.youtube.com/watch?v=FcRzAdI8R9U',
-              });
-              return fullSanitized;
-            }
-          }
           if (sanitized.length > 0) {
             memoryCache.set(videoId, sanitized);
             return sanitized;
@@ -134,39 +81,7 @@ export function getCachedSubtitles(videoId: string): CaptionCue[] | null {
     }
   }
 
-  // 4. Built-in authentic SRT fixtures for video FcRzAdI8R9U (Russian source track)
-  if (videoId === 'FcRzAdI8R9U') {
-    const srtCues = getCachedSrtForVideoAndLanguage('FcRzAdI8R9U', 'ru') || FCRZADI8R9U_LANGUAGE_SRT_TRACKS.ru;
-    if (srtCues && srtCues.length > 0) {
-      const sanitized = sanitizeCues(srtCues);
-      memoryCache.set(videoId, sanitized);
-      try {
-        saveCachedSubtitles(videoId, sanitized, {
-          title: 'Authentic Russian Interview (Sheinkin40)',
-          originalUrl: 'https://www.youtube.com/watch?v=FcRzAdI8R9U',
-        });
-      } catch {}
-      return sanitized;
-    }
-  }
-
-  // 4b. Built-in JSON3 fixtures for video EILFkSGNkdA (English source track)
-  if (videoId === 'EILFkSGNkdA') {
-    const srtCues = getCachedSrtForVideoAndLanguage('EILFkSGNkdA', 'en');
-    if (srtCues && srtCues.length > 0) {
-      const sanitized = sanitizeCues(srtCues);
-      memoryCache.set(videoId, sanitized);
-      try {
-        saveCachedSubtitles(videoId, sanitized, {
-          title: 'JSON3 Subtitle Demo (English + Hebrew)',
-          originalUrl: 'https://www.youtube.com/watch?v=EILFkSGNkdA',
-        });
-      } catch {}
-      return sanitized;
-    }
-  }
-
-  // 4. Fallback to general library storage
+  // 3. General library storage
   if (isStorageAvailable()) {
     try {
       const rawLib = localStorage.getItem(LIBRARY_STORAGE_KEY);
@@ -178,11 +93,6 @@ export function getCachedSubtitles(videoId: string): CaptionCue[] | null {
             const sanitized = sanitizeCues(matched.cues);
             if (sanitized.length > 0) {
               memoryCache.set(videoId, sanitized);
-              // Also store into dedicated key for faster future lookup
-              saveCachedSubtitles(videoId, sanitized, {
-                title: matched.title,
-                originalUrl: matched.originalUrl,
-              });
               return sanitized;
             }
           }
@@ -201,10 +111,6 @@ export function getCachedSubtitles(videoId: string): CaptionCue[] | null {
  */
 export function hasCachedSubtitles(videoId: string): boolean {
   if (!videoId) return false;
-  if (videoId === 'n9qwEOsqsoo') return true;
-  if (videoId === 'FcRzAdI8R9U') return true;
-  if (videoId === 'L2Ryrr6txwA') return true;
-  if (videoId === 'EILFkSGNkdA') return true;
   if (memoryCache.has(videoId)) {
     const mem = memoryCache.get(videoId);
     if (mem && mem.length > 0) return true;
@@ -463,9 +369,15 @@ export function saveCachedTargetSubtitles(videoId: string, targetLang: string, c
  */
 export function getAllCachedTargetLanguages(videoId: string): string[] {
   const set = new Set<string>();
-  if (videoId === 'FcRzAdI8R9U' || videoId === 'EILFkSGNkdA') {
-    getAllCachedLanguageCodesForVideo(videoId).forEach((code) => set.add(code));
+  if (!videoId) return [];
+
+  // 1. Check fixture tracks
+  const fixtureLangs = getAllCachedLanguageCodesForVideo(videoId);
+  if (Array.isArray(fixtureLangs)) {
+    fixtureLangs.forEach((code) => set.add(code.toLowerCase()));
   }
+
+  // 2. Check localStorage
   if (isStorageAvailable()) {
     try {
       const prefix = `${SUBTITLE_CACHE_PREFIX}${videoId}_`;
@@ -473,11 +385,21 @@ export function getAllCachedTargetLanguages(videoId: string): string[] {
         const k = localStorage.key(i);
         if (k && k.startsWith(prefix)) {
           const lang = k.replace(prefix, '');
-          if (lang) set.add(lang);
+          if (lang) set.add(lang.toLowerCase());
         }
       }
     } catch {}
   }
+
+  // 3. Check memory cache
+  for (const key of memoryCache.keys()) {
+    const prefix = `${SUBTITLE_CACHE_PREFIX}${videoId}_`;
+    if (key.startsWith(prefix)) {
+      const lang = key.replace(prefix, '');
+      if (lang) set.add(lang.toLowerCase());
+    }
+  }
+
   return Array.from(set);
 }
 

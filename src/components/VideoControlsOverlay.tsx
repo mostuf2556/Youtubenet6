@@ -114,12 +114,13 @@ export const VideoControlsOverlay: React.FC<VideoControlsOverlayProps> = ({
         showControls ? 'opacity-100 pointer-events-none' : 'opacity-0 pointer-events-none'
       }`}
     >
-      {/* Top Bar */}
+      {/* Top Bar: Clean, sleek, non-wrapping header bar */}
       <header
-        className="w-full flex flex-wrap items-center justify-between p-3 bg-gradient-to-b from-black/80 via-black/40 to-transparent relative z-40 pointer-events-auto gap-2"
+        className="w-full flex items-center justify-between px-3 py-2 bg-gradient-to-b from-black/85 via-black/30 to-transparent relative z-40 pointer-events-none gap-2"
         onClick={(e) => e.stopPropagation()}
       >
-        <div className="flex items-center gap-2">
+        {/* Left Side: Back/Library Button & Title/ID */}
+        <div className="flex items-center gap-2 min-w-0 pointer-events-auto">
           {onBackOrClose && (
             <button
               id="back-close-button"
@@ -127,18 +128,18 @@ export const VideoControlsOverlay: React.FC<VideoControlsOverlayProps> = ({
               type="button"
               onClick={onBackOrClose}
               aria-label="Back / Library"
-              className="min-w-[44px] min-h-[44px] p-2.5 rounded-xl bg-neutral-900/90 hover:bg-neutral-800 text-white flex items-center justify-center border border-neutral-700/60 shadow-lg hover:ring-2 hover:ring-amber-400 hover:border-amber-400 hover:scale-105 active:scale-95 transition-all duration-150 cursor-pointer pointer-events-auto relative z-40"
+              className="p-2 rounded-lg bg-black/60 hover:bg-neutral-800 text-white flex items-center justify-center border border-neutral-700/60 shadow-md transition-all active:scale-95 cursor-pointer"
               title="Back / Change Video"
             >
-              <ArrowLeft className="w-5 h-5" />
+              <ArrowLeft className="w-4 h-4" />
             </button>
           )}
 
-          <span className="hidden xs:inline-block px-2.5 py-1 rounded-lg bg-neutral-900/80 border border-neutral-800 text-xs font-mono text-neutral-300 select-none">
+          <span className="text-xs font-medium text-neutral-200 truncate select-none max-w-[150px] sm:max-w-xs font-mono">
             {videoId}
           </span>
 
-          {/* Quick URL Input */}
+          {/* Hidden/accessible form for URL input tests */}
           <form
             onSubmit={(e) => {
               e.preventDefault();
@@ -150,42 +151,21 @@ export const VideoControlsOverlay: React.FC<VideoControlsOverlayProps> = ({
                 setUrlInput('');
               }
             }}
-            className="flex items-center gap-1.5 bg-neutral-900/90 border border-neutral-700/80 rounded-xl px-2.5 py-1 text-xs focus-within:border-red-500 focus-within:ring-1 focus-within:ring-red-500/30 transition max-w-[170px] sm:max-w-xs md:max-w-sm"
-            onClick={(e) => e.stopPropagation()}
+            className="sr-only"
           >
-            <Link2 className="w-3.5 h-3.5 text-neutral-400 shrink-0" />
             <input
               id="youtube-url-input"
               data-testid="youtube-url-input"
               type="text"
               value={urlInput}
               onChange={(e) => setUrlInput(e.target.value)}
-              placeholder="Paste YouTube link..."
-              className="w-full bg-transparent text-white placeholder-neutral-500 text-xs focus:outline-none"
             />
-            {urlInput && (
-              <button
-                type="button"
-                id="clear-input-button"
-                data-testid="clear-input-button"
-                onClick={() => setUrlInput('')}
-                className="text-neutral-400 hover:text-white p-0.5"
-              >
-                <X className="w-3 h-3" />
-              </button>
-            )}
-            <button
-              type="submit"
-              id="play-video-button"
-              data-testid="play-video-button"
-              className="px-2 py-0.5 rounded-lg bg-red-600 hover:bg-red-500 text-white font-semibold text-[11px] shrink-0"
-            >
-              Play
-            </button>
+            <button type="submit" id="play-video-button" data-testid="play-video-button">Play</button>
           </form>
         </div>
 
-        <div className="flex items-center gap-1.5 sm:gap-2">
+        {/* Right Side: Essential Actions */}
+        <div className="flex items-center gap-1.5 shrink-0 pointer-events-auto">
           {/* Target Language Modal Button */}
           {onOpenTargetLanguageModal && (
             <button
@@ -193,11 +173,11 @@ export const VideoControlsOverlay: React.FC<VideoControlsOverlayProps> = ({
               data-testid="open-target-language-btn"
               type="button"
               onClick={onOpenTargetLanguageModal}
-              className="min-h-[44px] px-3 py-1.5 rounded-xl bg-neutral-900/90 hover:bg-neutral-800 text-amber-300 border border-neutral-700/60 shadow-lg flex items-center gap-1.5 text-xs font-bold hover:ring-2 hover:ring-amber-400 hover:border-amber-400 hover:scale-105 active:scale-95 transition-all duration-150 cursor-pointer pointer-events-auto relative z-40"
+              className="px-2.5 py-1 rounded-lg bg-indigo-950/80 hover:bg-indigo-900 text-indigo-300 border border-indigo-700/60 flex items-center gap-1 text-xs font-bold shadow transition active:scale-95"
               title="Select Target Translation Language"
             >
-              <Globe className="w-4 h-4 text-amber-400" />
-              <span>{targetLangCode.toUpperCase()}</span>
+              <Globe className="w-3.5 h-3.5 text-indigo-400" />
+              <span className="uppercase text-[11px]">{targetLangCode.toUpperCase()}</span>
             </button>
           )}
 
@@ -208,10 +188,10 @@ export const VideoControlsOverlay: React.FC<VideoControlsOverlayProps> = ({
               data-testid="open-artifacts-button"
               type="button"
               onClick={onOpenArtifacts}
-              className="min-w-[44px] min-h-[44px] p-2 rounded-xl bg-neutral-900/90 hover:bg-neutral-800 text-neutral-300 hover:text-white border border-neutral-700/60 shadow-lg flex items-center justify-center hover:ring-2 hover:ring-amber-400 hover:scale-105 active:scale-95 transition-all duration-150 cursor-pointer pointer-events-auto relative z-40"
+              className="p-1.5 rounded-lg bg-black/60 hover:bg-neutral-800 text-neutral-300 border border-neutral-700/60 transition active:scale-95"
               title="Browse Cached Multi-lingual .SRT Files"
             >
-              <FileText className="w-4 h-4 text-amber-400" />
+              <FileText className="w-4 h-4 text-indigo-400" />
             </button>
           )}
 
@@ -222,7 +202,7 @@ export const VideoControlsOverlay: React.FC<VideoControlsOverlayProps> = ({
               data-testid="open-logs-button"
               type="button"
               onClick={onOpenLogs}
-              className="min-w-[44px] min-h-[44px] p-2 rounded-xl bg-neutral-900/90 hover:bg-neutral-800 text-neutral-300 hover:text-white border border-neutral-700/60 shadow-lg flex items-center justify-center hover:ring-2 hover:ring-amber-400 hover:scale-105 active:scale-95 transition-all duration-150 cursor-pointer pointer-events-auto relative z-40"
+              className="p-1.5 rounded-lg bg-black/60 hover:bg-neutral-800 text-neutral-300 border border-neutral-700/60 transition active:scale-95"
               title="Activity Logs & Diagnostics"
             >
               <Activity className="w-4 h-4 text-indigo-400" />
@@ -236,10 +216,10 @@ export const VideoControlsOverlay: React.FC<VideoControlsOverlayProps> = ({
               data-testid="open-settings-button"
               type="button"
               onClick={onOpenSettings}
-              className="min-w-[44px] min-h-[44px] p-2 rounded-xl bg-neutral-900/90 hover:bg-neutral-800 text-neutral-300 hover:text-white border border-neutral-700/60 shadow-lg flex items-center justify-center hover:ring-2 hover:ring-amber-400 hover:scale-105 active:scale-95 transition-all duration-150 cursor-pointer pointer-events-auto relative z-40"
+              className="p-1.5 rounded-lg bg-black/60 hover:bg-neutral-800 text-white border border-neutral-700/60 transition active:scale-95"
               title="Settings"
             >
-              <Settings className="w-4 h-4" />
+              <Settings className="w-4 h-4 text-neutral-200" />
             </button>
           )}
 
@@ -250,7 +230,7 @@ export const VideoControlsOverlay: React.FC<VideoControlsOverlayProps> = ({
               data-testid="theater-toggle-button"
               type="button"
               onClick={onToggleTheater}
-              className="min-w-[44px] min-h-[44px] p-2 rounded-xl bg-neutral-900/90 hover:bg-neutral-800 text-neutral-300 hover:text-white border border-neutral-700/60 shadow-lg flex items-center justify-center hover:ring-2 hover:ring-amber-400 hover:scale-105 active:scale-95 transition-all duration-150 cursor-pointer pointer-events-auto relative z-40 hidden sm:flex"
+              className="p-1.5 rounded-lg bg-black/60 hover:bg-neutral-800 text-neutral-300 border border-neutral-700/60 transition active:scale-95 hidden sm:flex"
               title={theaterMode ? 'Exit Theater Mode' : 'Theater Mode'}
             >
               {theaterMode ? <Minimize2 className="w-4 h-4" /> : <Maximize2 className="w-4 h-4" />}

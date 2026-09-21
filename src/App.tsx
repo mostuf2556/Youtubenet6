@@ -61,10 +61,9 @@ import { checkApkUpdate } from './utils/apkUpdater';
 import { loadAppSettings, saveAppSettings, AppSettings, DEFAULT_APP_SETTINGS, loadVideoSettings, saveVideoSettings, VideoSpecificSettings, getVideoTargetLang, setVideoTargetLang, isAndroidAppEnvironment } from './utils/appSettings';
 import { logInfo, logWarn, logSubtitles, registerAppStateProvider } from './utils/logBuffer';
 import { checkAndPerformUrlCacheReset, getAppStateFromUrl, syncAppStateToUrl } from './utils/urlStateManager';
-import { getMockedSubtitlesForVideo, FCRZADI8R9U_LANGUAGE_SRT_TRACKS, L2RYRR6TXWA_LANGUAGE_JSON3_TRACKS, N9QWEO5QSOO_LANGUAGE_TRACKS } from '../test/fixtures/defaultSubtitles';
+import { getMockedSubtitlesForVideo, FCRZADI8R9U_LANGUAGE_SRT_TRACKS, L2RYRR6TXWA_LANGUAGE_JSON3_TRACKS } from '../test/fixtures/defaultSubtitles';
 import { SelectTargetLanguageModal } from './components/SelectTargetLanguageModal';
 import { SubtitleArtifactsModal } from './components/SubtitleArtifactsModal';
-import { DemoQuickFloatingDock } from './components/DemoQuickFloatingDock';
 import { fetchSubtitlesFrontend } from './services/subtitleService';
 import { DEFAULT_LIBRARY_ITEMS } from './config/appConfig';
 
@@ -397,7 +396,7 @@ export default function App() {
           activeCharIndex: syncEngine.activeCharIndex,
           autoPlayTTS: settings.autoPlayTTS,
           ttsSyncMode: settings.ttsSyncMode,
-          allowNonNativeFallback: settings.allowNonNativeTTSFallback ?? false,
+          allowNonNativeFallback: settings.allowNonNativeTTSFallback ?? true,
         },
         settings: {
           compactView: settings.compactView,
@@ -528,48 +527,6 @@ export default function App() {
   // Automatically restore cached subtitles whenever videoId changes
   useEffect(() => {
     if (!videoId) return;
-
-    // For n9qwEOsqsoo, if not on Android native host, load multi-lingual fallback tracks
-    if (videoId === 'n9qwEOsqsoo' && typeof window !== 'undefined' && !(window as any).AndroidNativeShell) {
-      const cues = N9QWEO5QSOO_LANGUAGE_TRACKS.en;
-      if (cues && cues.length > 0) {
-        setCustomCues(cues);
-        saveCachedSubtitles('n9qwEOsqsoo', cues, {
-          title: 'Language Learning Guide · n9qwEOsqsoo',
-          originalUrl: 'https://www.youtube.com/watch?v=n9qwEOsqsoo',
-        });
-        setFetchError(null);
-        return;
-      }
-    }
-
-    // For demo video, immediately load authentic multi-lingual SRT fixtures
-    if (videoId === 'FcRzAdI8R9U') {
-      const srt = FCRZADI8R9U_LANGUAGE_SRT_TRACKS.ru;
-      if (srt && srt.length > 0) {
-        setCustomCues(srt);
-        saveCachedSubtitles('FcRzAdI8R9U', srt, {
-          title: 'YouTube Language Learning Demo Video (Authentic Multi-lingual SRT)',
-          originalUrl: DEFAULT_VIDEO_URL,
-        });
-        setFetchError(null);
-        return;
-      }
-    }
-
-    // For JSON3 demo video, immediately load authentic multi-lingual JSON3 fixtures
-    if (videoId === 'L2Ryrr6txwA') {
-      const jsonCues = L2RYRR6TXWA_LANGUAGE_JSON3_TRACKS.en;
-      if (jsonCues && jsonCues.length > 0) {
-        setCustomCues(jsonCues);
-        saveCachedSubtitles('L2Ryrr6txwA', jsonCues, {
-          title: 'Guitar Lesson · JSON3 TimedText (JustinGuitar)',
-          originalUrl: 'https://www.youtube.com/watch?v=L2Ryrr6txwA',
-        });
-        setFetchError(null);
-        return;
-      }
-    }
 
     // Check dedicated subtitle cache
     const cached = getCachedSubtitles(videoId);
@@ -1533,18 +1490,7 @@ export default function App() {
         <OfflineIndicator />
         <NetworkInspectorModal />
         <ErrorInspectorModal />
-        {(settings.enableDiagnosticDock || settings.compactView) && <FloatingDiagnosticDock />}
-
-        {/* Quick Floating Dock on Landing Page for Demo Video */}
-        <DemoQuickFloatingDock
-          videoId={videoId}
-          settings={settings}
-          selectedTargetLang={selectedTargetLang}
-          onUpdateSettings={handleUpdateSettings}
-          onSelectTargetLanguage={handleUpdateTargetLang}
-          onOpenArtifacts={() => setIsArtifactsModalOpen(true)}
-          onSwitchDemoVideo={handleSwitchDemoVideo}
-        />
+        {settings.enableDiagnosticDock && <FloatingDiagnosticDock />}
       </div>
     );
   }
@@ -1735,15 +1681,6 @@ export default function App() {
       <OfflineIndicator />
       <NetworkInspectorModal />
       <ErrorInspectorModal />
-      <DemoQuickFloatingDock
-        videoId={videoId}
-        settings={settings}
-        selectedTargetLang={selectedTargetLang}
-        onUpdateSettings={handleUpdateSettings}
-        onSelectTargetLanguage={handleUpdateTargetLang}
-        onOpenArtifacts={() => setIsArtifactsModalOpen(true)}
-        onSwitchDemoVideo={handleSwitchDemoVideo}
-      />
     </div>
   );
 }

@@ -178,8 +178,8 @@ export const DEFAULT_APP_SETTINGS: AppSettings = {
   // TTS Play & Text Highlight Sync Mode (4 Alternatives, default: word_boundary)
   ttsSyncMode: 'word_boundary',
 
-  // Non-Native TTS Fallback: disabled by default (hardware/native preferred)
-  allowNonNativeTTSFallback: false,
+  // Non-Native TTS Fallback: enabled by default
+  allowNonNativeTTSFallback: true,
 
   // Present TTS input and TTS queue by default for real-time debugging
   showTtsDebugQueue: true,
@@ -191,11 +191,11 @@ export const DEFAULT_APP_SETTINGS: AppSettings = {
   // By default try to subtitle fetch using tlang param change once after default subs loaded (Requirement 6)
   autoFetchTargetTranslationsWithTlang: true,
 
-  // Advanced features: OFF by default
-  enableDiagnosticDock: false,
-  enableNetworkInspector: false,
-  enableErrorInspector: false,
-  enableBackgroundPrecache: false,
+  // Advanced features: ON by default
+  enableDiagnosticDock: true,
+  enableNetworkInspector: true,
+  enableErrorInspector: true,
+  enableBackgroundPrecache: true,
 
   // Subtitle methods: all available
   methods: {

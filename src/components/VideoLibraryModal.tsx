@@ -12,6 +12,8 @@ import {
   Check,
   Globe,
   Gauge,
+  Copy,
+  Link as LinkIcon,
 } from 'lucide-react';
 import { LibraryVideoItem, CaptionCue } from '../types';
 import {
@@ -20,6 +22,7 @@ import {
   getUserLearningLanguages,
   VideoSpecificSettings,
 } from '../utils/appSettings';
+import { getAllCachedTargetLanguages } from '../utils/subtitleCache';
 
 interface VideoLibraryModalProps {
   isOpen: boolean;
@@ -189,7 +192,7 @@ export const VideoLibraryModal: React.FC<VideoLibraryModalProps> = ({
         </div>
 
         {/* Video List */}
-        <div className="flex-1 overflow-y-auto p-4 space-y-2.5">
+        <div className="flex-1 overflow-y-auto p-4 space-y-3">
           {filtered.length === 0 ? (
             <div className="text-center py-10 text-neutral-500 text-xs">
               No matching videos in library.
@@ -199,6 +202,8 @@ export const VideoLibraryModal: React.FC<VideoLibraryModalProps> = ({
               const isCurrent = item.id === currentVideoId;
               const vSettings = loadVideoSettings(item.id);
               const activeLang = item.activeTargetLang || vSettings?.activeTargetLang || 'it';
+              const videoUrl = item.originalUrl || `https://www.youtube.com/watch?v=${item.id}`;
+              const cachedLangs = getAllCachedTargetLanguages(item.id);
               const ttsRate =
                 (item.ttsRates && item.ttsRates[activeLang]) ||
                 (vSettings?.ttsRates && vSettings?.ttsRates[activeLang]) ||
@@ -208,23 +213,23 @@ export const VideoLibraryModal: React.FC<VideoLibraryModalProps> = ({
                 <div
                   key={item.id}
                   id={`library-item-${item.id}`}
-                  className={`p-3.5 rounded-xl border transition flex items-center justify-between gap-3 ${
+                  className={`p-3.5 rounded-xl border transition flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 ${
                     isCurrent
                       ? 'bg-indigo-950/20 border-indigo-500/50 ring-1 ring-indigo-500/30'
                       : 'bg-neutral-950/40 hover:bg-neutral-800/40 border-neutral-800'
                   }`}
                 >
-                  <div className="flex items-center gap-3 min-w-0">
+                  <div className="flex items-start sm:items-center gap-3 min-w-0 w-full sm:w-auto flex-1">
                     {/* Thumbnail preview */}
                     <img
                       src={`https://img.youtube.com/vi/${item.id}/mqdefault.jpg`}
                       alt={item.title}
-                      className="w-16 h-10 object-cover rounded-lg bg-neutral-800 border border-neutral-700/60 flex-shrink-0"
+                      className="w-20 h-12 object-cover rounded-lg bg-neutral-800 border border-neutral-700/60 flex-shrink-0"
                     />
 
-                    <div className="min-w-0">
-                      <div className="flex items-center gap-2">
-                        <h3 className="text-xs font-semibold text-neutral-200 truncate">
+                    <div className="min-w-0 flex-1">
+                      <div className="flex items-center gap-2 flex-wrap">
+                        <h3 className="text-xs font-semibold text-neutral-200 truncate max-w-xs">
                           {item.title}
                         </h3>
                         {isCurrent && (
@@ -234,13 +239,65 @@ export const VideoLibraryModal: React.FC<VideoLibraryModalProps> = ({
                         )}
                       </div>
 
-                      <div className="flex flex-wrap items-center gap-2 text-[11px] text-neutral-400 mt-1 font-mono">
-                        <span>ID: {item.id}</span>
-                        <span>•</span>
+                      {/* Video Link & Copy */}
+                      <div className="flex items-center gap-2 mt-1 text-[11px] text-neutral-400 font-mono">
+                        <span className="truncate max-w-[220px] text-neutral-400 hover:text-indigo-300 transition" title={videoUrl}>
+                          {videoUrl}
+                        </span>
+                        <button
+                          type="button"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            navigator.clipboard.writeText(videoUrl);
+                          }}
+                          className="p-1 rounded bg-neutral-800/80 hover:bg-neutral-700 text-neutral-400 hover:text-white transition"
+                          title="Copy YouTube video link"
+                        >
+                          <Copy className="w-3 h-3" />
+                        </button>
+                        <a
+                          href={videoUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          onClick={(e) => e.stopPropagation()}
+                          className="p-1 rounded bg-neutral-800/80 hover:bg-neutral-700 text-neutral-400 hover:text-white transition"
+                          title="Open video on YouTube"
+                        >
+                          <ExternalLink className="w-3 h-3" />
+                        </a>
+                      </div>
+
+                      {/* Metadata and Cached Languages */}
+                      <div className="flex flex-wrap items-center gap-2 text-[11px] text-neutral-400 mt-1.5 font-mono">
                         <span className="flex items-center gap-1 text-emerald-400">
                           <Subtitles className="w-3 h-3" />
                           {item.cues?.length || 0} cues
                         </span>
+                        <span>•</span>
+
+                        {/* List of Cached Subtitle Languages */}
+                        <div className="flex items-center gap-1">
+                          <span className="text-[10px] text-neutral-500 font-sans">Cached Subtitles:</span>
+                          {cachedLangs.length > 0 ? (
+                            cachedLangs.map((langCode) => (
+                              <span
+                                key={langCode}
+                                className={`px-1.5 py-0.2 rounded text-[10px] uppercase font-bold border ${
+                                  langCode.toLowerCase() === activeLang.toLowerCase()
+                                    ? 'bg-indigo-600/30 text-indigo-300 border-indigo-500/50'
+                                    : 'bg-neutral-800 text-neutral-300 border-neutral-700/60'
+                                }`}
+                              >
+                                {langCode.toUpperCase()}
+                              </span>
+                            ))
+                          ) : (
+                            <span className="text-[10px] text-neutral-500 italic font-sans">
+                              {item.cues?.length ? 'Main Track' : 'None cached'}
+                            </span>
+                          )}
+                        </div>
+
                         <span>•</span>
                         <div
                           className="flex items-center gap-1 bg-indigo-950/60 border border-indigo-800/60 rounded px-1.5 py-0.5 text-indigo-300 font-sans"
@@ -270,7 +327,7 @@ export const VideoLibraryModal: React.FC<VideoLibraryModalProps> = ({
                   </div>
 
                   {/* Actions */}
-                  <div className="flex items-center gap-2 flex-shrink-0">
+                  <div className="flex items-center gap-2 flex-shrink-0 self-end sm:self-center">
                     <button
                       type="button"
                       id={`load-library-video-${item.id}`}

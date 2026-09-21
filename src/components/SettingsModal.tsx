@@ -371,19 +371,19 @@ export function SettingsModal({
                   <div className="font-medium text-xs sm:text-sm text-neutral-200 flex items-center gap-2">
                     <Volume2 className="w-4 h-4 text-purple-400 shrink-0" />
                     <span>Allow Non-Native TTS Fallback (Audio Stream)</span>
-                    <span className="px-1.5 py-0.5 rounded-full text-[10px] font-semibold bg-neutral-800 text-neutral-400 border border-neutral-700">
-                      Disabled by default
+                    <span className="px-1.5 py-0.5 rounded-full text-[10px] font-semibold bg-purple-950/80 text-purple-300 border border-purple-800/60">
+                      Enabled by default
                     </span>
                   </div>
                   <div className="text-xs text-neutral-400 mt-1 leading-relaxed">
-                    When disabled (default), only native Android hardware TTS or standard browser Web Speech is used. Enable only if you want an external neural audio stream fallback when a local voice is missing.
+                    Allows external neural audio streams to fall back if the local hardware/WebSpeech voice is missing. Can be toggled anytime.
                   </div>
                 </div>
                 <input
                   id="toggle-non-native-tts-setting"
                   data-testid="toggle-non-native-tts-setting"
                   type="checkbox"
-                  checked={settings.allowNonNativeTTSFallback ?? false}
+                  checked={settings.allowNonNativeTTSFallback ?? true}
                   onChange={(e) =>
                     onUpdateSettings({ ...settings, allowNonNativeTTSFallback: e.target.checked })
                   }
@@ -502,7 +502,7 @@ export function SettingsModal({
                 />
               </div>
 
-              {/* Setting 1: Auto-play TTS Speech Narration (OFF by default) */}
+              {/* Setting 1: Auto-play TTS Speech Narration (ON by default) */}
               <div className="p-3.5 rounded-xl bg-neutral-950 border border-neutral-800 flex items-center justify-between gap-4">
                 <div>
                   <div className="font-medium text-xs sm:text-sm text-neutral-200 flex items-center gap-2">
@@ -517,7 +517,7 @@ export function SettingsModal({
                   id="toggle-autoplay-tts-setting"
                   data-testid="toggle-autoplay-tts-setting"
                   type="checkbox"
-                  checked={settings.autoPlayTTS ?? false}
+                  checked={settings.autoPlayTTS ?? true}
                   onChange={(e) =>
                     onUpdateSettings({ ...settings, autoPlayTTS: e.target.checked })
                   }

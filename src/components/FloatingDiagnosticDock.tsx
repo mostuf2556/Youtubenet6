@@ -65,7 +65,7 @@ export const FloatingDiagnosticDock: React.FC<FloatingDiagnosticDockProps> = ({
       id="floating-diagnostic-dock"
       data-testid="floating-diagnostic-dock"
       aria-label="Developer diagnostics dock"
-      className="fixed top-1/2 right-4 z-40 flex flex-col items-end gap-2 font-sans select-none pointer-events-none"
+      className="fixed top-4 left-1/2 -translate-x-1/2 z-40 flex flex-col items-center gap-2 font-sans select-none pointer-events-auto"
     >
       {isMinimized ? (
         <button
