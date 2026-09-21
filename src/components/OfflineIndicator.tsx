@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { WifiOff } from 'lucide-react';
+import { UI_TEXT } from '../config/constants';
 
 export const OfflineIndicator: React.FC = () => {
   const [isOnline, setIsOnline] = useState(
@@ -24,7 +25,7 @@ export const OfflineIndicator: React.FC = () => {
   return (
     <div className="fixed bottom-4 left-4 z-50 flex items-center gap-2 rounded-xl bg-amber-600/90 text-white px-3.5 py-2 text-xs font-medium shadow-xl backdrop-blur-sm border border-amber-500/40 animate-pulse">
       <WifiOff className="w-4 h-4" />
-      <span>Offline: YouTube streaming requires an active internet connection.</span>
+      <span>{UI_TEXT.OFFLINE_NOTICE}</span>
     </div>
   );
 };

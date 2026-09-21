@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Youtube, Settings, Library, Share2 } from 'lucide-react';
 import { AppSettings } from '../utils/appSettings';
+import { UI_TEXT } from '../config/constants';
 
 interface NavbarProps {
   onOpenLibrary?: () => void;
@@ -29,7 +30,7 @@ export const Navbar: React.FC<NavbarProps> = ({
           <div className="w-8 h-8 rounded-lg bg-red-600 flex items-center justify-center text-white shrink-0">
             <Youtube className="w-4 h-4 fill-white stroke-none" />
           </div>
-          <span className="font-semibold text-sm text-neutral-100">Language Learning</span>
+          <span className="font-semibold text-sm text-neutral-100">{UI_TEXT.NAVBAR_BRAND}</span>
         </div>
 
         <div className="flex items-center gap-1.5">
@@ -42,7 +43,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg hover:bg-neutral-800 text-neutral-300 text-xs transition"
             >
               <Library className="w-4 h-4" />
-              <span className="hidden sm:inline">Library</span>
+              <span className="hidden sm:inline">{UI_TEXT.NAVBAR_LIBRARY}</span>
               {libraryCount !== undefined && libraryCount > 0 && (
                 <span className="text-[10px] text-neutral-500">{libraryCount}</span>
               )}
@@ -57,7 +58,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg hover:bg-neutral-800 text-neutral-300 text-xs transition"
             >
               <Share2 className="w-4 h-4" />
-              <span className="hidden sm:inline">Share</span>
+              <span className="hidden sm:inline">{UI_TEXT.NAVBAR_SHARE}</span>
             </button>
           )}
           {onOpenSettings && (
@@ -69,7 +70,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg hover:bg-neutral-800 text-neutral-300 text-xs transition"
             >
               <Settings className="w-4 h-4" />
-              <span className="hidden sm:inline">Settings</span>
+              <span className="hidden sm:inline">{UI_TEXT.SETTINGS}</span>
             </button>
           )}
         </div>

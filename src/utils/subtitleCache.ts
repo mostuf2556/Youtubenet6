@@ -1,11 +1,10 @@
 import { CaptionCue, LibraryVideoItem } from '../types';
 import { cleanAndFixEncoding } from './captionParser';
 import { STORAGE_KEYS } from '../config/appConfig';
-import { SAMPLE_AUTHENTIC_RUSSIAN_URL, SAMPLE_AUTHENTIC_HEBREW_CUES_FCRZADI8R9U } from '../config/fixtures';
+import { SAMPLE_AUTHENTIC_RUSSIAN_URL } from '../config/fixtures';
 import {
-  FCRZADI8R9U_LANGUAGE_SRT_TRACKS,
-  getCachedSrtForVideoAndLanguage,
-  hasCachedSrtForVideoAndLanguage,
+  getCachedJson3ForVideoAndLanguage,
+  hasCachedJson3ForVideoAndLanguage,
   getAllCachedLanguageCodesForVideo,
 } from '../../test/fixtures/defaultSubtitles';
 
@@ -236,7 +235,7 @@ const TIMEDTEXT_URL_PREFIX = STORAGE_KEYS.TIMEDTEXT_URL_PREFIX;
 // In-memory observed timedtext requests
 const observedTimedTextCache = new Map<string, string>();
 
-// Example observed timedtext request URL for FcRzAdI8R9U
+// Example observed JSON3 timedtext request URL
 export const SAMPLE_OBSERVED_TIMEDTEXT_URL = SAMPLE_AUTHENTIC_RUSSIAN_URL;
 
 export function saveObservedTimedTextUrl(videoId: string, url: string): void {
@@ -263,19 +262,15 @@ export function getObservedTimedTextUrl(videoId: string): string | null {
     } catch {}
   }
 
-  // Built-in sample fallback for video FcRzAdI8R9U
-  if (videoId === 'FcRzAdI8R9U') {
-    return SAMPLE_OBSERVED_TIMEDTEXT_URL;
-  }
   return null;
 }
 
 /**
- * Returns authentic Hebrew subtitles for the default video FcRzAdI8R9U
+ * Returns authentic Hebrew subtitles for the default JSON3 demo video.
  */
 export function getAuthenticHebrewCuesForDefaultVideo(): CaptionCue[] {
-  const srt = getCachedSrtForVideoAndLanguage('FcRzAdI8R9U', 'he');
-  return srt && srt.length > 0 ? srt : SAMPLE_AUTHENTIC_HEBREW_CUES_FCRZADI8R9U;
+  const json3Cues = getCachedJson3ForVideoAndLanguage('L2Ryrr6txwA', 'he');
+  return json3Cues || [];
 }
 
 /**
@@ -286,7 +281,7 @@ export function hasCachedTargetSubtitles(videoId: string, targetLang: string): b
   let cleanLang = targetLang.toLowerCase().split('-')[0];
   if (cleanLang === 'iw' || cleanLang === 'il') cleanLang = 'he';
   const targetKey = `${SUBTITLE_CACHE_PREFIX}${videoId}_${cleanLang}`;
-  if (hasCachedSrtForVideoAndLanguage(videoId, cleanLang)) return true;
+  if (hasCachedJson3ForVideoAndLanguage(videoId, cleanLang)) return true;
   if (memoryCache.has(targetKey)) return true;
   if (isStorageAvailable()) {
     try {
@@ -300,7 +295,7 @@ export function hasCachedTargetSubtitles(videoId: string, targetLang: string): b
 }
 
 /**
- * Gets cached target language subtitles for a video ID (from real SRT fixtures, memory, or localStorage)
+ * Gets cached target language subtitles for a video ID (from JSON3 fixtures, memory, or localStorage)
  */
 export function getCachedTargetSubtitles(videoId: string, targetLang: string): CaptionCue[] | null {
   if (!videoId || !targetLang) return null;
@@ -308,10 +303,10 @@ export function getCachedTargetSubtitles(videoId: string, targetLang: string): C
   if (cleanLang === 'iw' || cleanLang === 'il') cleanLang = 'he';
   const targetKey = `${SUBTITLE_CACHE_PREFIX}${videoId}_${cleanLang}`;
 
-  // 1. Real authentic SRT fixtures under video ID (e.g. FcRzAdI8R9U: it, ru, he, en, ar)
-  const srtCues = getCachedSrtForVideoAndLanguage(videoId, cleanLang);
-  if (srtCues && srtCues.length > 0) {
-    const sanitized = sanitizeCues(srtCues);
+  // 1. Real JSON3 fixtures
+  const json3Cues = getCachedJson3ForVideoAndLanguage(videoId, cleanLang);
+  if (json3Cues && json3Cues.length > 0) {
+    const sanitized = sanitizeCues(json3Cues);
     memoryCache.set(targetKey, sanitized);
     return sanitized;
   }
@@ -365,7 +360,7 @@ export function saveCachedTargetSubtitles(videoId: string, targetLang: string, c
 }
 
 /**
- * Lists all target languages with cached SRT files for a given video
+ * Lists all target languages with cached JSON3 tracks for a given video
  */
 export function getAllCachedTargetLanguages(videoId: string): string[] {
   const set = new Set<string>();

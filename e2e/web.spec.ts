@@ -910,9 +910,9 @@ test.describe('YouTube Video Viewer - Web E2E Tests', () => {
 
   /**
    * WEB CRITICAL TEST 13:
-   * Verify Subtitle Artifacts Browser: Track Browsing, Raw .SRT View, Search, and Cues
+  * Verify Subtitle Artifacts Browser: JSON3 track browsing, raw view, search, and cues
    */
-  test('13. Subtitle Artifacts Browser: .SRT Tracks, Search, Raw & Formatted Views', async ({ page }) => {
+  test('13. Subtitle Artifacts Browser: JSON3 Tracks, Search, Raw & Formatted Views', async ({ page }) => {
     // Open Subtitle Artifacts modal via button in navbar or quick controls
     const artifactsBtn = page.locator('#navbar-artifacts-btn, #open-artifacts-view-btn').first();
     await expect(artifactsBtn).toBeVisible();
@@ -933,14 +933,14 @@ test.describe('YouTube Video Viewer - Web E2E Tests', () => {
     await heTrackTab.click();
     await page.waitForTimeout(200);
 
-    // Switch to Raw .SRT View
-    const rawSrtBtn = page.locator('#view-raw-srt-btn');
-    if (await rawSrtBtn.isVisible()) {
-      await rawSrtBtn.click();
-      const rawTextarea = page.locator('#raw-srt-textarea');
+    // Switch to Raw JSON3 View
+    const rawJson3Btn = page.locator('#view-raw-json3-btn');
+    if (await rawJson3Btn.isVisible()) {
+      await rawJson3Btn.click();
+      const rawTextarea = page.locator('#raw-json3-textarea');
       await expect(rawTextarea).toBeVisible();
       const content = await rawTextarea.inputValue();
-      expect(content).toContain('-->');
+      expect(content).toContain('events');
     }
 
     // Switch back to Formatted Cues View

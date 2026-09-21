@@ -20,7 +20,6 @@ import {
 import {
   SAMPLE_AUTHENTIC_RUSSIAN_URL,
   SAMPLE_AUTHENTIC_RUSSIAN_CUES,
-  SAMPLE_AUTHENTIC_HEBREW_CUES_FCRZADI8R9U,
   SAMPLE_AUTHENTIC_TIMEDTEXT_HEADERS,
 } from '../config/fixtures';
 
@@ -258,7 +257,7 @@ export async function fetchSubtitlesFrontend(
       // Also try standard direct endpoints to record the network attempt in log viewer
       const candidateDirectUrls = [
         `https://www.youtube.com/api/timedtext?v=${cleanId}&lang=en&fmt=json3`,
-        `https://www.youtube.com/api/timedtext?v=${cleanId}&lang=auto&fmt=srt`,
+        `https://www.youtube.com/api/timedtext?v=${cleanId}&lang=auto&fmt=json3`,
       ];
       for (const candUrl of candidateDirectUrls) {
         const candidateCues = await fetchTimedTextDirectlyClientSide(candUrl, cleanId);

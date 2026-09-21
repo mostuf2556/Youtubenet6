@@ -50,7 +50,7 @@ The project is governed by strict Markdown contracts that decouple visual view i
 | :--- | :--- |
 | **[`AGENTS.md`](./AGENTS.md)** | Core architectural foundation, pure view mandates, data-flow boundaries, and testing phases. |
 | **[`ACTIONS.md`](./docs/operations/ACTIONS.md)** | GitHub Actions CI/CD guide: APK release, web testing, emulator pipelines, and artifact flow. |
-| **[`LIBRARY.md`](./docs/specifications/LIBRARY.md)** | Subtitle fixture library schema (`test/fixtures/<VIDEO_ID>/*.{json,srt}`), formats (SRT/JSON3), and verification. |
+| **[`LIBRARY.md`](./docs/specifications/LIBRARY.md)** | JSON3 subtitle fixture library schema (`test/fixtures/<VIDEO_ID>/*.json`) and verification. |
 | **[`DESIGN_SUBTITLE_VIEWS.md`](./docs/designs/DESIGN_SUBTITLE_VIEWS.md)** | Replaceable view contract for subtitle renderers (injected cues, active state, intent dispatch). |
 | **[`DESIGN_VIEW_LANGS.md`](./docs/designs/DESIGN_VIEW_LANGS.md)** | Replaceable view contract for language selectors (injected language options, selection dispatch). |
 | **[`DESIGN_CONTROLS_VIEW.md`](./docs/designs/DESIGN_CONTROLS_VIEW.md)** | Replaceable view contract for media playback controls (injected playback metrics, intent callbacks). |
@@ -74,5 +74,5 @@ The project is governed by strict Markdown contracts that decouple visual view i
 
 1. **Pure Presentation**: Views never make network calls, read files, or parse raw timed-text files directly.
 2. **Implementation Independent**: Any view can be replaced (e.g. replacing a complex transcript panel with a single-line overlay) without touching the data acquisition logic.
-3. **Format Support**: Supports both **SubRip (`.srt`)** and **YouTube JSON3 (`.json`)**, preferring JSON3 for millisecond segment timing.
+3. **Format Support**: Uses YouTube JSON3 (`.json`) exclusively for millisecond segment timing and word-level highlighting.
 

@@ -20,6 +20,7 @@ import {
 import { CaptionCue } from '../types';
 import { formatTimestamp } from '../utils/captionParser';
 import { parseYouTubeUrl } from '../utils/youtube';
+import { UI_TEXT } from '../config/constants';
 
 interface VideoControlsOverlayProps {
   showControls: boolean;
@@ -127,9 +128,9 @@ export const VideoControlsOverlay: React.FC<VideoControlsOverlayProps> = ({
               data-testid="navbar-library-button"
               type="button"
               onClick={onBackOrClose}
-              aria-label="Back / Library"
+              aria-label={UI_TEXT.BACK_LIBRARY}
               className="p-2 rounded-lg bg-black/60 hover:bg-neutral-800 text-white flex items-center justify-center border border-neutral-700/60 shadow-md transition-all active:scale-95 cursor-pointer"
-              title="Back / Change Video"
+              title={UI_TEXT.BACK_CHANGE_VIDEO}
             >
               <ArrowLeft className="w-4 h-4" />
             </button>
@@ -160,7 +161,7 @@ export const VideoControlsOverlay: React.FC<VideoControlsOverlayProps> = ({
               value={urlInput}
               onChange={(e) => setUrlInput(e.target.value)}
             />
-            <button type="submit" id="play-video-button" data-testid="play-video-button">Play</button>
+            <button type="submit" id="play-video-button" data-testid="play-video-button">{UI_TEXT.PLAY}</button>
           </form>
         </div>
 
@@ -174,7 +175,7 @@ export const VideoControlsOverlay: React.FC<VideoControlsOverlayProps> = ({
               type="button"
               onClick={onOpenTargetLanguageModal}
               className="px-2.5 py-1 rounded-lg bg-indigo-950/80 hover:bg-indigo-900 text-indigo-300 border border-indigo-700/60 flex items-center gap-1 text-xs font-bold shadow transition active:scale-95"
-              title="Select Target Translation Language"
+              title={UI_TEXT.SELECT_TARGET_LANGUAGE}
             >
               <Globe className="w-3.5 h-3.5 text-indigo-400" />
               <span className="uppercase text-[11px]">{targetLangCode.toUpperCase()}</span>
@@ -189,7 +190,7 @@ export const VideoControlsOverlay: React.FC<VideoControlsOverlayProps> = ({
               type="button"
               onClick={onOpenArtifacts}
               className="p-1.5 rounded-lg bg-black/60 hover:bg-neutral-800 text-neutral-300 border border-neutral-700/60 transition active:scale-95"
-              title="Browse Cached Multi-lingual .SRT Files"
+              title={UI_TEXT.BROWSE_CACHED_FILES}
             >
               <FileText className="w-4 h-4 text-indigo-400" />
             </button>
@@ -203,7 +204,7 @@ export const VideoControlsOverlay: React.FC<VideoControlsOverlayProps> = ({
               type="button"
               onClick={onOpenLogs}
               className="p-1.5 rounded-lg bg-black/60 hover:bg-neutral-800 text-neutral-300 border border-neutral-700/60 transition active:scale-95"
-              title="Activity Logs & Diagnostics"
+              title={UI_TEXT.ACTIVITY_LOGS}
             >
               <Activity className="w-4 h-4 text-indigo-400" />
             </button>
@@ -217,7 +218,7 @@ export const VideoControlsOverlay: React.FC<VideoControlsOverlayProps> = ({
               type="button"
               onClick={onOpenSettings}
               className="p-1.5 rounded-lg bg-black/60 hover:bg-neutral-800 text-white border border-neutral-700/60 transition active:scale-95"
-              title="Settings"
+              title={UI_TEXT.SETTINGS}
             >
               <Settings className="w-4 h-4 text-neutral-200" />
             </button>
@@ -231,7 +232,7 @@ export const VideoControlsOverlay: React.FC<VideoControlsOverlayProps> = ({
               type="button"
               onClick={onToggleTheater}
               className="p-1.5 rounded-lg bg-black/60 hover:bg-neutral-800 text-neutral-300 border border-neutral-700/60 transition active:scale-95 hidden sm:flex"
-              title={theaterMode ? 'Exit Theater Mode' : 'Theater Mode'}
+              title={theaterMode ? UI_TEXT.EXIT_THEATER_MODE : UI_TEXT.THEATER_MODE}
             >
               {theaterMode ? <Minimize2 className="w-4 h-4" /> : <Maximize2 className="w-4 h-4" />}
             </button>
@@ -266,7 +267,7 @@ export const VideoControlsOverlay: React.FC<VideoControlsOverlayProps> = ({
             id="timeline-scrub-bar"
             data-testid="timeline-scrub-bar"
             role="slider"
-            aria-label="Video timeline progress"
+            aria-label={UI_TEXT.VIDEO_TIMELINE_PROGRESS}
             aria-valuemin={0}
             aria-valuemax={duration}
             aria-valuenow={currentTime}
@@ -289,7 +290,7 @@ export const VideoControlsOverlay: React.FC<VideoControlsOverlayProps> = ({
               type="button"
               onClick={onTogglePlayPause}
               className="min-w-[44px] min-h-[44px] p-2 rounded-lg text-white hover:bg-neutral-800/80 border border-transparent hover:border-amber-400 hover:ring-2 hover:ring-amber-400 hover:scale-105 active:scale-95 flex items-center justify-center transition-all duration-150 cursor-pointer pointer-events-auto relative z-40"
-              aria-label={isPlaying ? 'Pause' : 'Play'}
+              aria-label={isPlaying ? UI_TEXT.PAUSE : UI_TEXT.PLAY}
             >
               {isPlaying ? <Pause className="w-5 h-5" /> : <Play className="w-5 h-5 fill-current" />}
             </button>
@@ -299,7 +300,7 @@ export const VideoControlsOverlay: React.FC<VideoControlsOverlayProps> = ({
               type="button"
               onClick={onToggleMute}
               className="min-w-[44px] min-h-[44px] p-2 rounded-lg text-neutral-200 hover:text-white hover:bg-neutral-800/80 border border-transparent hover:border-amber-400 hover:ring-2 hover:ring-amber-400 hover:scale-105 active:scale-95 flex items-center justify-center transition-all duration-150 cursor-pointer pointer-events-auto relative z-40"
-              aria-label={isMuted ? 'Unmute' : 'Mute'}
+              aria-label={isMuted ? UI_TEXT.UNMUTE : UI_TEXT.MUTE}
             >
               {isMuted ? <VolumeX className="w-5 h-5 text-red-400" /> : <Volume2 className="w-5 h-5" />}
             </button>
@@ -318,14 +319,14 @@ export const VideoControlsOverlay: React.FC<VideoControlsOverlayProps> = ({
                   ? 'bg-emerald-950/90 text-emerald-300 border-emerald-600'
                   : 'bg-neutral-900/90 text-neutral-400 border-neutral-700 hover:text-white'
               }`}
-              title={autoTTSEnabled ? 'Auto-TTS Narration is ON' : 'Turn Auto-TTS Narration ON'}
+              title={autoTTSEnabled ? UI_TEXT.AUTO_TTS_ON : UI_TEXT.AUTO_TTS_OFF}
             >
               {autoTTSEnabled ? (
                 <Volume2 className="w-4 h-4 text-emerald-400" />
               ) : (
                 <VolumeX className="w-4 h-4 text-neutral-400" />
               )}
-              <span>{autoTTSEnabled ? 'TTS: ON' : 'TTS: OFF'}</span>
+              <span>{autoTTSEnabled ? UI_TEXT.TTS_ON : UI_TEXT.TTS_OFF}</span>
             </button>
 
             {/* Caption CC Toggle Button */}
@@ -345,7 +346,7 @@ export const VideoControlsOverlay: React.FC<VideoControlsOverlayProps> = ({
                   ? 'bg-blue-900/90 text-blue-200 border-blue-600'
                   : 'bg-red-600 hover:bg-red-500 text-white border-red-500'
               }`}
-              title={isCaptionsActive ? 'Captions are ON' : 'Turn Captions ON'}
+              title={isCaptionsActive ? UI_TEXT.CAPTIONS_ARE_ON : UI_TEXT.CAPTIONS_OFF}
             >
               {isFetchingSubtitles ? (
                 <Loader2 className="w-4 h-4 animate-spin" />
@@ -354,18 +355,18 @@ export const VideoControlsOverlay: React.FC<VideoControlsOverlayProps> = ({
               )}
               <span>
                 {isFetchingSubtitles
-                  ? 'Detecting...'
+                  ? UI_TEXT.DETECTING
                   : hasSubtitles
-                  ? 'CC: ON'
+                  ? UI_TEXT.CAPTIONS_ON
                   : isCaptionsActive
-                  ? 'CC: ON'
-                  : 'Turn CC ON'}
+                  ? UI_TEXT.CAPTIONS_ON
+                  : UI_TEXT.CAPTIONS_OFF}
               </span>
             </button>
           </div>
         </div>
 
-        {/* Direct SRT Speech Flow Bar */}
+        {/* Direct JSON3 Speech Flow Bar */}
         <div className="p-3 rounded-xl bg-neutral-900/90 border border-neutral-800 shadow-xl">
           <div className="flex flex-wrap items-center justify-between gap-2 pb-2 border-b border-neutral-800">
             <div className="flex items-center gap-2">
@@ -374,18 +375,18 @@ export const VideoControlsOverlay: React.FC<VideoControlsOverlayProps> = ({
                   isSyncSpeaking ? (
                     <>
                       <span className="w-2 h-2 rounded-full bg-amber-400 animate-ping" />
-                      <span className="text-amber-300 font-semibold">🗣️ Narrating: {targetLangCode.toUpperCase()} (SRT)</span>
+                      <span className="text-amber-300 font-semibold">🗣️ {UI_TEXT.NARRATING(targetLangCode.toUpperCase())}</span>
                     </>
                   ) : (
                     <>
                       <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                      <span className="text-emerald-300 font-semibold">🟢 Playing Video Dialogue</span>
+                      <span className="text-emerald-300 font-semibold">🟢 {UI_TEXT.PLAYING_VIDEO_DIALOGUE}</span>
                     </>
                   )
                 ) : (
                   <>
                     <span className="w-2 h-2 rounded-full bg-neutral-500" />
-                    <span className="text-neutral-400">⚪ Speech Flow: Ready</span>
+                    <span className="text-neutral-400">⚪ {UI_TEXT.SPEECH_FLOW_READY}</span>
                   </>
                 )}
               </div>
@@ -396,9 +397,9 @@ export const VideoControlsOverlay: React.FC<VideoControlsOverlayProps> = ({
               )}
             </div>
 
-            {/* Quick Target Language SRT Pills */}
+            {/* Quick Target Language JSON3 Pills */}
             <div className="flex items-center gap-1">
-              <span className="text-[11px] text-neutral-400 font-medium mr-1 hidden md:inline">Target SRT:</span>
+              <span className="text-[11px] text-neutral-400 font-medium mr-1 hidden md:inline">{UI_TEXT.TARGET_JSON3}</span>
               {[
                 { code: 'he', label: '🇮🇱 HE', name: 'Hebrew' },
                 { code: 'it', label: '🇮🇹 IT', name: 'Italian' },
@@ -411,7 +412,7 @@ export const VideoControlsOverlay: React.FC<VideoControlsOverlayProps> = ({
                   <button
                     key={lang.code}
                     type="button"
-                    title={`Switch target SRT track to ${lang.name}`}
+                    title={UI_TEXT.SWITCH_TARGET_JSON3(lang.name)}
                     onClick={() => onSelectTargetLanguage?.(lang.code)}
                     className={`px-2 py-0.5 text-xs rounded font-medium transition-all ${
                       isSelected
@@ -442,12 +443,12 @@ export const VideoControlsOverlay: React.FC<VideoControlsOverlayProps> = ({
                   {isSyncActive ? (
                     <>
                       <Pause className="w-3.5 h-3.5" />
-                      <span>Pause Sentence Sync</span>
+                      <span>{UI_TEXT.PAUSE_SENTENCE_SYNC}</span>
                     </>
                   ) : (
                     <>
                       <Play className="w-3.5 h-3.5 fill-current" />
-                      <span>Start Dual-Language Sync</span>
+                      <span>{UI_TEXT.START_DUAL_LANGUAGE_SYNC}</span>
                     </>
                   )}
                 </button>
@@ -457,7 +458,7 @@ export const VideoControlsOverlay: React.FC<VideoControlsOverlayProps> = ({
                 <button
                   type="button"
                   onClick={onToggleLoopCue}
-                  title="Loop active sentence and translation"
+                  title={UI_TEXT.LOOP_ACTIVE_CUE}
                   className={`px-2.5 py-1.5 rounded-lg text-xs font-medium flex items-center gap-1 border transition-all ${
                     isLoopingCue
                       ? 'bg-amber-400/20 border-amber-400 text-amber-300 font-bold'
@@ -465,7 +466,7 @@ export const VideoControlsOverlay: React.FC<VideoControlsOverlayProps> = ({
                   }`}
                 >
                   <Repeat className={`w-3.5 h-3.5 ${isLoopingCue ? 'animate-spin' : ''}`} />
-                  <span>Loop Cue</span>
+                  <span>{UI_TEXT.LOOP_CUE}</span>
                 </button>
               )}
 
@@ -473,10 +474,10 @@ export const VideoControlsOverlay: React.FC<VideoControlsOverlayProps> = ({
                 <button
                   type="button"
                   onClick={onPrevCue}
-                  title="Previous SRT cue"
+                  title={UI_TEXT.PREVIOUS_CUE}
                   className="px-2 py-1.5 rounded-lg text-xs bg-neutral-800 hover:bg-neutral-700 text-neutral-300 border border-neutral-700/60"
                 >
-                  Prev
+                  {UI_TEXT.PREV}
                 </button>
               )}
 
@@ -484,10 +485,10 @@ export const VideoControlsOverlay: React.FC<VideoControlsOverlayProps> = ({
                 <button
                   type="button"
                   onClick={onNextCue}
-                  title="Next SRT cue"
+                  title={UI_TEXT.NEXT_CUE}
                   className="px-2 py-1.5 rounded-lg text-xs bg-neutral-800 hover:bg-neutral-700 text-neutral-300 border border-neutral-700/60"
                 >
-                  Next
+                  {UI_TEXT.NEXT}
                 </button>
               )}
             </div>
@@ -497,11 +498,11 @@ export const VideoControlsOverlay: React.FC<VideoControlsOverlayProps> = ({
                 type="button"
                 onClick={onSpeakCurrentCueTTS}
                 disabled={!activeCue}
-                title="Test play TTS for current active SRT subtitle cue"
+                title={UI_TEXT.SPEAK_JSON3_CUE}
                 className="px-3 py-1.5 rounded-lg text-xs font-medium bg-neutral-800/90 hover:bg-neutral-700 text-neutral-200 border border-neutral-700 flex items-center gap-1.5 disabled:opacity-40"
               >
                 <Volume2 className="w-3.5 h-3.5 text-amber-400" />
-                <span>Speak SRT Cue</span>
+                <span>{UI_TEXT.SPEAK_JSON3_CUE}</span>
               </button>
             )}
           </div>

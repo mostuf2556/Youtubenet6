@@ -51,7 +51,7 @@ import { isRtl } from '../utils/rtlUtils';
 import { useAppDispatch } from '../store/hooks';
 import { transition } from '../store/stateMachineSlice';
 import { logInfo } from '../utils/logBuffer';
-import { FCRZADI8R9U_LANGUAGE_SRT_TRACKS, getCachedSrtForVideoAndLanguage, hasCachedSrtForVideoAndLanguage } from '../../test/fixtures/defaultSubtitles';
+import { getCachedJson3ForVideoAndLanguage, hasCachedJson3ForVideoAndLanguage } from '../../test/fixtures/defaultSubtitles';
 
 interface SubtitlesTeacherPanelProps {
   cues: CaptionCue[];
@@ -202,13 +202,13 @@ export const SubtitlesTeacherPanel: React.FC<SubtitlesTeacherPanelProps> = ({
   const [isObservedModalOpen, setIsObservedModalOpen] = useState<boolean>(false);
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [tableTranslations, setTableTranslations] = useState<Record<string, Record<string, string>>>(() => {
-    const vId = videoId || 'FcRzAdI8R9U';
+    const vId = videoId || 'L2Ryrr6txwA';
     const initialMap: Record<string, Record<string, string>> = {};
     const langs = ['ar', 'en', 'he', 'it', 'ru'];
     langs.forEach((l) => {
-      const srtCues = getCachedSrtForVideoAndLanguage(vId, l);
-      if (srtCues) {
-        srtCues.forEach((c) => {
+      const json3Cues = getCachedJson3ForVideoAndLanguage(vId, l);
+      if (json3Cues) {
+        json3Cues.forEach((c) => {
           if (c.id && c.text) {
             if (!initialMap[c.id]) initialMap[c.id] = {};
             initialMap[c.id][l] = c.text;
@@ -223,19 +223,15 @@ export const SubtitlesTeacherPanel: React.FC<SubtitlesTeacherPanelProps> = ({
     return initialMap;
   });
   const [langSources, setLangSources] = useState<Record<string, TranslationSource>>(() => {
-    const vId = videoId || 'FcRzAdI8R9U';
-    if (vId === 'FcRzAdI8R9U') {
-      return {
-        ar: 'youtube_native',
-        en: 'youtube_native',
-        he: 'youtube_native',
-        iw: 'youtube_native',
-        il: 'youtube_native',
-        it: 'youtube_native',
-        ru: 'youtube_native',
-      };
-    }
-    return {};
+    return videoId ? {
+      ar: 'youtube_native',
+      en: 'youtube_native',
+      he: 'youtube_native',
+      iw: 'youtube_native',
+      il: 'youtube_native',
+      it: 'youtube_native',
+      ru: 'youtube_native',
+    } : {};
   });
 
   const [playOrder, setPlayOrder] = useState<SyncPlayOrder>(() => {
@@ -369,16 +365,8 @@ export const SubtitlesTeacherPanel: React.FC<SubtitlesTeacherPanelProps> = ({
   }, [playOrder]);
 
   const effectiveCues = useMemo(() => {
-    if (videoId === 'FcRzAdI8R9U') {
-      const srt = FCRZADI8R9U_LANGUAGE_SRT_TRACKS.ru || getCachedSrtForVideoAndLanguage('FcRzAdI8R9U', 'ru');
-      if (srt && srt.length > 5) return srt;
-    }
     if (cues && cues.length > 5) {
       return cues;
-    }
-    if (videoId === 'FcRzAdI8R9U') {
-      const srt = FCRZADI8R9U_LANGUAGE_SRT_TRACKS.ru || getCachedSrtForVideoAndLanguage('FcRzAdI8R9U', 'ru');
-      if (srt && srt.length > 0) return srt;
     }
     return cues || [];
   }, [cues, videoId]);
@@ -474,7 +462,7 @@ export const SubtitlesTeacherPanel: React.FC<SubtitlesTeacherPanelProps> = ({
 
   // No auto-scroll: user controls their own scroll position
 
-  // Default to YouTube native translation (repeating observed request with tlang & fmt=srt)
+  // Default to YouTube native translation with tlang and fmt=json3.
   // and use current translation service as fallback.
   useEffect(() => {
     if (!effectiveCues || effectiveCues.length === 0) return;
@@ -539,13 +527,13 @@ export const SubtitlesTeacherPanel: React.FC<SubtitlesTeacherPanelProps> = ({
       return fromSync;
     }
 
-    // Priority 3: Authentic SRT fixture matched by timestamp proximity first, then cue ID
-    const vId = videoId || 'FcRzAdI8R9U';
-    const srtCues = getCachedSrtForVideoAndLanguage(vId, clean);
-    if (srtCues && srtCues.length > 0) {
+    // Priority 3: JSON3 fixture matched by timestamp proximity first, then cue ID
+    const vId = videoId || 'L2Ryrr6txwA';
+    const json3Cues = getCachedJson3ForVideoAndLanguage(vId, clean);
+    if (json3Cues && json3Cues.length > 0) {
       const match =
-        srtCues.find((c) => Math.abs(c.start - cue.start) < 0.75) ||
-        srtCues.find((c) => c.id === cue.id);
+        json3Cues.find((c) => Math.abs(c.start - cue.start) < 0.75) ||
+        json3Cues.find((c) => c.id === cue.id);
       if (match && match.text) return match.text;
     }
 
@@ -753,7 +741,7 @@ export const SubtitlesTeacherPanel: React.FC<SubtitlesTeacherPanelProps> = ({
       const content = event.target?.result as string;
       if (!content) return;
 
-      // 1. Try unified parser first (handles XML, JSON3, WebVTT, and SRT with automatic encoding correction)
+      // 1. Parse the canonical JSON3 timedtext payload.
       const { cues } = parseRawCaptionData(content);
       if (cues && cues.length > 0) {
         onLoadCues?.(cues);
@@ -882,14 +870,14 @@ export const SubtitlesTeacherPanel: React.FC<SubtitlesTeacherPanelProps> = ({
 
   // No auto-scroll: user controls their own scroll position
 
-  // Available cached authentic .SRT fixture tracks for quick browsing
-  const cachedSrtTracks = useMemo(() => {
+  // Available cached JSON3 tracks for quick browsing
+  const cachedJson3Tracks = useMemo(() => {
     return [
-      { code: 'ru', name: 'Russian (ru.srt)', count: 1578, role: 'Source Audio', rtl: false, color: '#f59e0b' },
-      { code: 'he', name: 'Hebrew (he.srt / il)', count: 1578, role: 'RTL Translation', rtl: true, color: '#8b5cf6' },
-      { code: 'ar', name: 'Arabic (ar.srt)', count: 1578, role: 'RTL Translation', rtl: true, color: '#14b8a6' },
-      { code: 'it', name: 'Italian (it.srt)', count: 1578, role: 'Translation', rtl: false, color: '#10b981' },
-      { code: 'en', name: 'English (en.srt)', count: 1547, role: 'Translation', rtl: false, color: '#3b82f6' },
+      { code: 'en', name: 'English (JSON3)', count: 199, role: 'Source Audio', rtl: false, color: '#6366f1' },
+      { code: 'he', name: 'Hebrew (JSON3)', count: 199, role: 'RTL Translation', rtl: true, color: '#8b5cf6' },
+      { code: 'ar', name: 'Arabic (JSON3)', count: 199, role: 'RTL Translation', rtl: true, color: '#14b8a6' },
+      { code: 'it', name: 'Italian (JSON3)', count: 199, role: 'Translation', rtl: false, color: '#10b981' },
+      { code: 'ru', name: 'Russian (JSON3)', count: 199, role: 'Translation', rtl: false, color: '#3b82f6' },
     ];
   }, []);
 
@@ -1300,7 +1288,7 @@ export const SubtitlesTeacherPanel: React.FC<SubtitlesTeacherPanelProps> = ({
 
             {/* Step 5: Multi-Column Subtitles View (Original Subtitle + Translation Columns) */}
             <div className="flex flex-col gap-3">
-              {/* Step 5a: Browse Cached .SRT Tracks Header & Selector */}
+              {/* Step 5a: Browse Cached JSON3 Tracks Header & Selector */}
               <div className="p-3 rounded-xl bg-neutral-950 border border-neutral-800 flex flex-col sm:flex-row sm:items-center justify-between gap-2.5">
                 <div className="flex items-center gap-2">
                   <div className="p-1.5 rounded-lg bg-indigo-500/10 text-indigo-400">
@@ -1308,18 +1296,18 @@ export const SubtitlesTeacherPanel: React.FC<SubtitlesTeacherPanelProps> = ({
                   </div>
                   <div>
                     <span className="text-xs font-semibold text-neutral-200">
-                      Cached .SRT Tracks for Video:
+                      Cached JSON3 Tracks for Video:
                     </span>
                     <span className="text-[11px] text-neutral-400 ml-1.5 font-mono">
-                      (1,578 segments each)
+                      (199 segments each)
                     </span>
                   </div>
                 </div>
 
                 {/* Track pills */}
                 <div className="flex flex-wrap items-center gap-1.5">
-                  {cachedSrtTracks.map((track) => {
-                    const isActive = activeTargetLang === track.code || (track.code === 'ru' && sourceLang === 'ru');
+                  {cachedJson3Tracks.map((track) => {
+                    const isActive = activeTargetLang === track.code || (track.code === 'en' && sourceLang === 'en');
                     return (
                       <button
                         key={track.code}
@@ -1327,13 +1315,13 @@ export const SubtitlesTeacherPanel: React.FC<SubtitlesTeacherPanelProps> = ({
                         id={`browse-cached-track-${track.code}`}
                         data-testid={`browse-cached-track-${track.code}`}
                         onClick={() => {
-                          if (track.code === 'ru') {
-                            // If Russian clicked, ensure Russian source is selected
+                          if (track.code === 'en') {
+                            // If English clicked, keep the source language selected
                             handleSelectActiveTargetLang(activeTargetLang || 'he');
                           } else {
                             handleSelectActiveTargetLang(track.code);
                           }
-                          logInfo('Subtitles', `User selected cached .SRT track: ${track.name}`);
+                          logInfo('Subtitles', `User selected cached JSON3 track: ${track.name}`);
                         }}
                         className={`px-2.5 py-1 rounded-lg text-xs font-medium flex items-center gap-1.5 transition border ${
                           isActive
@@ -1359,7 +1347,7 @@ export const SubtitlesTeacherPanel: React.FC<SubtitlesTeacherPanelProps> = ({
                       data-testid="browse-all-artifacts-btn"
                       onClick={onOpenArtifacts}
                       className="px-2.5 py-1 rounded-lg text-xs font-semibold flex items-center gap-1.5 transition bg-indigo-950/80 hover:bg-indigo-900/90 text-indigo-300 border border-indigo-700/60 shadow-sm"
-                      title="Open full Subtitle Artifacts Browser (.SRT files, raw cues, download)"
+                      title="Open full JSON3 Subtitle Artifacts Browser (raw cues, download)"
                     >
                       <FileText className="w-3.5 h-3.5 text-indigo-400" />
                       <span>Browse All Artifacts</span>
@@ -1509,7 +1497,7 @@ export const SubtitlesTeacherPanel: React.FC<SubtitlesTeacherPanelProps> = ({
                                   : langSources[lang.code] === 'youtube_native_android'
                                   ? 'Translated directly via Android device client shell (tlang repetition)'
                                   : isYouTubeNativeSource(langSources[lang.code])
-                                  ? 'Translated by repeating YouTube timedtext request with tlang & fmt=srt'
+                                  ? 'Translated by repeating YouTube timedtext request with tlang & fmt=json3'
                                   : 'Translated using fallback service'
                               }
                             >

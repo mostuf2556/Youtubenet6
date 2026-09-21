@@ -23,6 +23,7 @@ import {
 } from '../utils/youtube';
 import { ParsedYouTubeResult } from '../types';
 import { formatTimestamp } from '../utils/captionParser';
+import { UI_TEXT } from '../config/constants';
 
 interface LinkInputBarProps {
   currentUrl: string;
@@ -56,7 +57,7 @@ export const LinkInputBar: React.FC<LinkInputBarProps> = ({
 
     const target = inputValue.trim() || currentUrl;
     if (!target) {
-      setError('Please paste a YouTube link or video ID');
+      setError(UI_TEXT.LINK_REQUIRED);
       return;
     }
 
@@ -64,7 +65,7 @@ export const LinkInputBar: React.FC<LinkInputBarProps> = ({
     if (!validation.isValid || !validation.parsed) {
       setError(
         validation.error ||
-          'Could not recognize a YouTube video in the provided text. The app only supports YouTube links.'
+          UI_TEXT.YOUTUBE_LINK_NOT_RECOGNIZED
       );
       return;
     }
@@ -87,12 +88,12 @@ export const LinkInputBar: React.FC<LinkInputBarProps> = ({
         } else if (text.trim().startsWith('http')) {
           // If pasted a non-YouTube link, complain immediately!
           setError(
-            validation.error || 'The pasted link is not a YouTube link. Only YouTube links can be played.'
+            validation.error || UI_TEXT.PASTED_LINK_NOT_YOUTUBE
           );
         }
       }
     } catch {
-      setError('Clipboard access denied. Please paste manually into the input box.');
+      setError(UI_TEXT.CLIPBOARD_ACCESS_DENIED);
     }
   };
 
@@ -143,7 +144,7 @@ export const LinkInputBar: React.FC<LinkInputBarProps> = ({
                 }
               }
             }}
-            placeholder="Paste any YouTube URL (watch, youtu.be, shorts, live, embed, iframe, timestamp, etc.)"
+            placeholder={UI_TEXT.LINK_PLACEHOLDER}
             className="w-full py-3.5 bg-transparent text-neutral-100 placeholder-neutral-500 text-xs sm:text-sm md:text-base focus:outline-none"
           />
 
@@ -157,7 +158,7 @@ export const LinkInputBar: React.FC<LinkInputBarProps> = ({
                   setError(null);
                 }}
                 className="p-1.5 rounded-lg text-neutral-400 hover:text-neutral-200 hover:bg-neutral-800 transition"
-                title="Clear input"
+                title={UI_TEXT.CLEAR_INPUT}
               >
                 <X className="w-4 h-4" />
               </button>
@@ -168,10 +169,10 @@ export const LinkInputBar: React.FC<LinkInputBarProps> = ({
               id="paste-clipboard-button"
               onClick={handlePaste}
               className="flex items-center gap-1 px-2.5 py-1.5 rounded-lg text-xs font-medium text-neutral-300 bg-neutral-800 hover:bg-neutral-700 hover:text-white transition"
-              title="Paste from clipboard"
+              title={UI_TEXT.PASTE_CLIPBOARD}
             >
               <Clipboard className="w-3.5 h-3.5" />
-              <span className="hidden sm:inline">Paste</span>
+              <span className="hidden sm:inline">{UI_TEXT.PASTE}</span>
             </button>
 
             <button
@@ -180,7 +181,7 @@ export const LinkInputBar: React.FC<LinkInputBarProps> = ({
               className="flex items-center gap-1.5 px-3 sm:px-4 py-2 rounded-xl bg-red-600 hover:bg-red-500 text-white text-xs sm:text-sm font-medium transition shadow-md shadow-red-600/20 active:scale-95"
             >
               <Play className="w-4 h-4 fill-white" />
-              <span>Play</span>
+              <span>{UI_TEXT.PLAY}</span>
             </button>
           </div>
         </div>
@@ -190,23 +191,23 @@ export const LinkInputBar: React.FC<LinkInputBarProps> = ({
           <div className="flex flex-wrap items-center gap-2 px-3 py-1.5 rounded-xl bg-neutral-900/90 border border-neutral-800 text-xs animate-fade-in">
             <span className="flex items-center gap-1 text-emerald-400 font-medium">
               <CheckCircle2 className="w-3.5 h-3.5" />
-              Recognized:
+              {UI_TEXT.RECOGNIZED}
             </span>
             <span className="px-2 py-0.5 rounded bg-neutral-800 text-neutral-200 font-semibold text-[11px] border border-neutral-700">
               {formatTypeName(liveParsed.formatType)}
             </span>
             <span className="font-mono text-neutral-400 text-[11px]">
-              ID: <span className="text-neutral-200">{liveParsed.videoId}</span>
+              {UI_TEXT.VIDEO_ID} <span className="text-neutral-200">{liveParsed.videoId}</span>
             </span>
             {liveParsed.startTime !== undefined && (
               <span className="flex items-center gap-1 text-amber-400 text-[11px] bg-amber-950/40 px-2 py-0.5 rounded border border-amber-800/40">
                 <Clock className="w-3 h-3" />
-                Starts at {formatTimestamp(liveParsed.startTime)} ({liveParsed.startTime}s)
+                {UI_TEXT.STARTS_AT(formatTimestamp(liveParsed.startTime), liveParsed.startTime)}
               </span>
             )}
             {liveParsed.listId && (
               <span className="text-purple-400 text-[11px] bg-purple-950/40 px-2 py-0.5 rounded border border-purple-800/40">
-                Playlist Attached
+                {UI_TEXT.PLAYLIST_ATTACHED}
               </span>
             )}
           </div>
@@ -233,7 +234,7 @@ export const LinkInputBar: React.FC<LinkInputBarProps> = ({
                 title="Share link with the app"
               >
                 <Share2 className="w-3.5 h-3.5 text-red-400" />
-                <span>Share Link with App</span>
+                <span>{UI_TEXT.SHARE_LINK_WITH_APP}</span>
               </button>
             )}
 
@@ -244,34 +245,16 @@ export const LinkInputBar: React.FC<LinkInputBarProps> = ({
                 data-testid="open-library-button"
                 onClick={onOpenLibrary}
                 className="inline-flex items-center gap-1.5 text-indigo-200 hover:text-white bg-indigo-950/70 hover:bg-indigo-900 px-3 py-1.5 rounded-lg border border-indigo-800/60 transition text-xs font-medium shadow-sm"
-                title="Open cached video and subtitles library"
+                title={UI_TEXT.OPEN_LIBRARY}
               >
                 <FolderHeart className="w-3.5 h-3.5 text-indigo-400" />
-                <span>My Library {libraryCount !== undefined ? `(${libraryCount})` : ''}</span>
+                <span>{UI_TEXT.MY_LIBRARY(libraryCount)}</span>
               </button>
             )}
 
             {/* Quick Demo Switcher Chips */}
             <div className="flex items-center gap-1.5 pl-1 border-l border-neutral-800">
-              <span className="text-[10px] uppercase font-bold text-neutral-500 tracking-wider">Demo:</span>
-              <button
-                type="button"
-                id="linkbar-demo-srt-chip"
-                data-testid="linkbar-demo-srt-chip"
-                onClick={() => onSelectVideo('FcRzAdI8R9U', 'https://www.youtube.com/watch?v=FcRzAdI8R9U')}
-                className={`inline-flex items-center gap-1 px-2 py-1 rounded-md text-[11px] font-medium border transition ${
-                  currentUrl.includes('FcRzAdI8R9U')
-                    ? 'bg-red-950/90 border-red-500/80 text-red-200 shadow-sm font-semibold'
-                    : 'bg-neutral-900/90 border-neutral-800 text-neutral-300 hover:bg-neutral-800 hover:text-white'
-                }`}
-                title="Quick switch to SRT demo example (FcRzAdI8R9U with 5 authentic .srt tracks)"
-              >
-                <span className="px-1 py-0.2 rounded text-[9px] font-mono font-bold uppercase bg-red-500/20 text-red-300 border border-red-500/30">
-                  SRT
-                </span>
-                <span>FcRzAdI8R9U</span>
-              </button>
-
+              <span className="text-[10px] uppercase font-bold text-neutral-500 tracking-wider">{UI_TEXT.DEMO}</span>
               <button
                 type="button"
                 id="linkbar-demo-json3-chip"
@@ -293,7 +276,7 @@ export const LinkInputBar: React.FC<LinkInputBarProps> = ({
           </div>
 
           <span className="text-[11px] text-neutral-500 hidden sm:inline">
-            Paste any YouTube URL or video ID (standard, shorts, embed, timestamped)
+            {UI_TEXT.PASTE_URL_HINT}
           </span>
         </div>
       </form>

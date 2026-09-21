@@ -17,16 +17,13 @@ import {
 import { InterceptedCaptionData } from '../types';
 import {
   formatTimestamp,
-  cuesToSrt,
-  cuesToVtt,
-  SAMPLE_YOUTUBE_TIMEDTEXT_XML,
   SAMPLE_YOUTUBE_TIMEDTEXT_JSON3,
   parseRawCaptionData,
 } from '../utils/captionParser';
 
 interface CaptionsInspectorProps {
   interceptedData: InterceptedCaptionData | null;
-  onSimulate: (raw: string, format: 'xml' | 'json3') => void;
+  onSimulate: (raw: string, format: 'json3') => void;
   onClear: () => void;
   isNativeShell: boolean;
   onSeekTo?: (seconds: number) => void;
@@ -107,13 +104,6 @@ export const CaptionsInspector: React.FC<CaptionsInspectorProps> = ({
             <span className="text-[11px] text-neutral-400 px-1 font-medium hidden sm:inline">
               Test Traffic:
             </span>
-            <button
-              onClick={() => onSimulate(SAMPLE_YOUTUBE_TIMEDTEXT_XML, 'xml')}
-              className="px-2 py-1 rounded text-xs font-medium bg-neutral-700/70 hover:bg-neutral-700 text-neutral-200 transition"
-              title="Simulate YouTube XML TimedText HTTP response"
-            >
-              XML
-            </button>
             <button
               onClick={() => onSimulate(SAMPLE_YOUTUBE_TIMEDTEXT_JSON3, 'json3')}
               className="px-2 py-1 rounded text-xs font-medium bg-neutral-700/70 hover:bg-neutral-700 text-neutral-200 transition"
@@ -210,7 +200,7 @@ export const CaptionsInspector: React.FC<CaptionsInspectorProps> = ({
                     onClick={() =>
                       handleDownload(
                         interceptedData.rawData,
-                        `captions.${interceptedData.format === 'json3' ? 'json' : 'xml'}`,
+                        'captions.json',
                         interceptedData.contentType
                       )
                     }
@@ -221,35 +211,6 @@ export const CaptionsInspector: React.FC<CaptionsInspectorProps> = ({
                     <span>Raw</span>
                   </button>
 
-                  <button
-                    onClick={() =>
-                      handleDownload(
-                        cuesToSrt(interceptedData.cues),
-                        'captions.srt',
-                        'text/plain'
-                      )
-                    }
-                    className="flex items-center gap-1 px-2.5 py-1.5 rounded-lg text-xs bg-neutral-800 hover:bg-neutral-700 text-neutral-200 border border-neutral-700 transition"
-                    title="Download as SubRip .SRT"
-                  >
-                    <Download className="w-3.5 h-3.5 text-emerald-400" />
-                    <span>.SRT</span>
-                  </button>
-
-                  <button
-                    onClick={() =>
-                      handleDownload(
-                        cuesToVtt(interceptedData.cues),
-                        'captions.vtt',
-                        'text/vtt'
-                      )
-                    }
-                    className="flex items-center gap-1 px-2.5 py-1.5 rounded-lg text-xs bg-neutral-800 hover:bg-neutral-700 text-neutral-200 border border-neutral-700 transition"
-                    title="Download as WebVTT"
-                  >
-                    <Download className="w-3.5 h-3.5 text-purple-400" />
-                    <span>.VTT</span>
-                  </button>
                 </div>
               </div>
 
@@ -401,13 +362,6 @@ export const CaptionsInspector: React.FC<CaptionsInspectorProps> = ({
                 When running in the Android APK, clicking subtitles (CC) in the video player triggers an HTTP request to YouTube&apos;s <code className="text-neutral-300">/timedtext</code> endpoint, automatically captured here with full raw data.
               </p>
               <div className="flex flex-wrap items-center justify-center gap-2">
-                <button
-                  onClick={() => onSimulate(SAMPLE_YOUTUBE_TIMEDTEXT_XML, 'xml')}
-                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-red-600/20 hover:bg-red-600/30 text-red-300 border border-red-500/40 text-xs font-medium transition"
-                >
-                  <Sparkles className="w-3.5 h-3.5" />
-                  <span>Load Sample YouTube XML Captions</span>
-                </button>
                 <button
                   onClick={() => onSimulate(SAMPLE_YOUTUBE_TIMEDTEXT_JSON3, 'json3')}
                   className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-neutral-800 hover:bg-neutral-700 text-neutral-300 border border-neutral-700 text-xs font-medium transition"
