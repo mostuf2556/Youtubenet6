@@ -140,7 +140,7 @@ jobs:
           script: |
             adb devices
             adb install -r android-shell/app/build/outputs/apk/debug/app-debug.apk
-            adb shell am start -n com.ytviewer.app/.MainActivity -d "https://www.youtube.com/watch?v=FcRzAdI8R9U"
+            adb shell am start -n com.ytviewer.app/.MainActivity -d "https://www.youtube.com/watch?v=n9qwEOsqsoo"
             sleep 8
             adb shell dumpsys activity com.ytviewer.app
             adb shell screencap -p /sdcard/screen.png

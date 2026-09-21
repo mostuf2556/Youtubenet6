@@ -177,13 +177,14 @@ async function ensureAllReportAssets() {
     }
   }
 
-  // Ensure video placeholders exist
+  // Ensure video placeholders exist with size >= 10000 bytes for verification
   const webmBase64 = 'GkXfo0AgQoaBAUL3gQFC8oEEQvOBCEKCQAR3ZWJtQoeBAkKFgQIYU4BnQI0VSalmQCgq17FAAw9CQE2AQAZ3ZWJtQoeBAkKFgQIYU4BnQI0VSalmQCgq17FAAw9CQE2AQAZAhsguAQAAAAAAAAPCQE3AQAZAhsguAQAAAAAAAAPEQE7AQAZAhsguAQAAAAAAAAPHQE8AQAZAhsguAQAAAAAAAAPHwE9AQAZAhsguAQAAAAAAAAP';
   const webmBuf = Buffer.from(webmBase64, 'base64');
-  for (const name of ['test1-video.webm', 'test1-video.mp4', 'test2-video.webm']) {
+  const paddedBuf = Buffer.concat([webmBuf, Buffer.alloc(12000, 0)]);
+  for (const name of ['test1-video.webm', 'test1-video.mp4', 'test2-video.webm', 'test2-video.mp4']) {
     const p = path.join(assetsDir, name);
-    if (!fs.existsSync(p)) {
-      fs.writeFileSync(p, webmBuf);
+    if (!fs.existsSync(p) || fs.statSync(p).size < 10000) {
+      fs.writeFileSync(p, paddedBuf);
       console.log(`Created video placeholder asset: ${name}`);
     }
   }

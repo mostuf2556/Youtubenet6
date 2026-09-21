@@ -529,8 +529,8 @@ export default function App() {
   useEffect(() => {
     if (!videoId) return;
 
-    // For n9qwEOsqsoo, immediately load authentic multi-lingual tracks
-    if (videoId === 'n9qwEOsqsoo') {
+    // For n9qwEOsqsoo, if not on Android native host, load multi-lingual fallback tracks
+    if (videoId === 'n9qwEOsqsoo' && typeof window !== 'undefined' && !(window as any).AndroidNativeShell) {
       const cues = N9QWEO5QSOO_LANGUAGE_TRACKS.en;
       if (cues && cues.length > 0) {
         setCustomCues(cues);
