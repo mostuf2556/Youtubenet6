@@ -28,7 +28,12 @@ export const FloatingDiagnosticDock: React.FC<FloatingDiagnosticDockProps> = ({
   const { errors } = useAppSelector((state) => state.errors);
   const { currentState } = useAppSelector((state) => state.stateMachine);
 
-  const [isMinimized, setIsMinimized] = useState<boolean>(false);
+  const [isMinimized, setIsMinimized] = useState<boolean>(() => {
+    if (typeof window !== 'undefined') {
+      return window.innerWidth < 768 || /Android|iPhone|iPad/i.test(navigator.userAgent);
+    }
+    return false;
+  });
   const [copiedPrompt, setCopiedPrompt] = useState<boolean>(false);
   const [ttsInputsCount, setTtsInputsCount] = useState<number>(0);
 
@@ -65,7 +70,7 @@ export const FloatingDiagnosticDock: React.FC<FloatingDiagnosticDockProps> = ({
       id="floating-diagnostic-dock"
       data-testid="floating-diagnostic-dock"
       aria-label="Developer diagnostics dock"
-      className="fixed top-4 left-1/2 -translate-x-1/2 z-40 flex flex-col items-center gap-2 font-sans select-none pointer-events-auto"
+      className="fixed top-16 right-4 sm:top-4 sm:left-1/2 sm:-translate-x-1/2 z-40 flex flex-col items-end sm:items-center gap-2 font-sans select-none pointer-events-auto"
     >
       {isMinimized ? (
         <button
@@ -85,17 +90,17 @@ export const FloatingDiagnosticDock: React.FC<FloatingDiagnosticDockProps> = ({
           <ChevronUp className="w-3.5 h-3.5 text-neutral-400" />
         </button>
       ) : (
-        <div className="flex items-center gap-1.5 p-1.5 rounded-2xl bg-neutral-900/95 border border-neutral-800 shadow-2xl backdrop-blur-md text-xs">
+        <div className="flex flex-wrap items-center justify-center gap-1 p-1.5 rounded-xl bg-neutral-900/95 border border-neutral-800 shadow-2xl backdrop-blur-md text-[11px] max-w-[90vw] sm:max-w-none">
           {/* State Machine Status Badge & Clickable Trigger */}
           <button
             id="state-machine-status-badge"
             type="button"
             onClick={() => dispatch(setInspectorOpen(true))}
-            className="flex items-center gap-1.5 px-2.5 py-1 rounded-xl bg-neutral-950/80 hover:bg-neutral-900 border border-neutral-800 text-neutral-300 font-mono text-[11px] transition"
+            className="flex items-center gap-1 px-2 py-0.5 rounded-lg bg-neutral-950/80 hover:bg-neutral-900 border border-neutral-800 text-neutral-300 font-mono text-[10px] transition"
             title={`Redux State Machine: ${currentState}. Click to view state transitions.`}
           >
-            <Workflow className="w-3 h-3 text-purple-400" />
-            <span className="text-purple-300 font-medium">{currentState}</span>
+            <Workflow className="w-3 h-3 text-purple-400 shrink-0" />
+            <span className="text-purple-300 font-medium truncate max-w-[60px] sm:max-w-none">{currentState}</span>
           </button>
 
           {/* Quick Copy All Logs & Prompt */}
@@ -104,7 +109,7 @@ export const FloatingDiagnosticDock: React.FC<FloatingDiagnosticDockProps> = ({
             data-testid="quick-copy-diagnostics-btn"
             type="button"
             onClick={handleQuickCopyLogs}
-            className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl border transition active:scale-95 font-medium pointer-events-auto ${
+            className={`flex items-center gap-1 px-2 py-0.5 rounded-lg border transition active:scale-95 font-medium pointer-events-auto ${
               copiedPrompt
                 ? 'bg-emerald-950/80 border-emerald-600 text-emerald-300'
                 : 'bg-neutral-850 hover:bg-neutral-800 text-amber-300 border-amber-500/40 hover:border-amber-400'
@@ -113,13 +118,14 @@ export const FloatingDiagnosticDock: React.FC<FloatingDiagnosticDockProps> = ({
           >
             {copiedPrompt ? (
               <>
-                <Check className="w-3.5 h-3.5 text-emerald-400" />
+                <Check className="w-3 h-3 text-emerald-400 shrink-0" />
                 <span>Copied!</span>
               </>
             ) : (
               <>
-                <Copy className="w-3.5 h-3.5 text-amber-400" />
-                <span>Copy Logs</span>
+                <Copy className="w-3 h-3 text-amber-400 shrink-0" />
+                <span className="hidden sm:inline">Copy Logs</span>
+                <span className="sm:hidden">Copy</span>
               </>
             )}
           </button>
@@ -131,12 +137,12 @@ export const FloatingDiagnosticDock: React.FC<FloatingDiagnosticDockProps> = ({
               data-testid="open-tts-inputs-floating-button"
               type="button"
               onClick={onOpenTTSInputs}
-              className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl bg-emerald-950/40 hover:bg-emerald-900/50 text-emerald-300 border border-emerald-800/60 transition active:scale-95 font-medium"
+              className="flex items-center gap-1 px-2 py-0.5 rounded-lg bg-emerald-950/40 hover:bg-emerald-900/50 text-emerald-300 border border-emerald-800/60 transition active:scale-95 font-medium"
               title="Inspect TTS Input Texts (Newer on Top)"
             >
-              <Volume2 className="w-3.5 h-3.5 text-emerald-400" />
-              <span>TTS</span>
-              <span className="px-1.5 py-0.2 rounded-full bg-emerald-900/80 text-[10px] font-mono font-bold text-emerald-200">
+              <Volume2 className="w-3 h-3 text-emerald-400 shrink-0" />
+              <span className="hidden sm:inline">TTS</span>
+              <span className="px-1 py-0.1 rounded-full bg-emerald-900/80 text-[9px] font-mono font-bold text-emerald-200">
                 {ttsInputsCount}
               </span>
             </button>
@@ -148,17 +154,18 @@ export const FloatingDiagnosticDock: React.FC<FloatingDiagnosticDockProps> = ({
             data-testid="open-network-inspector-floating-button"
             type="button"
             onClick={() => dispatch(setNetworkInspectorOpen(true))}
-            className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl bg-blue-950/40 hover:bg-blue-900/50 text-blue-300 border border-blue-800/60 transition active:scale-95 font-medium"
+            className="flex items-center gap-1 px-2 py-0.5 rounded-lg bg-blue-950/40 hover:bg-blue-900/50 text-blue-300 border border-blue-800/60 transition active:scale-95 font-medium"
             title="Inspect all web requests and responses"
           >
-            <div className="relative">
-              <Activity className="w-3.5 h-3.5 text-blue-400" />
+            <div className="relative shrink-0">
+              <Activity className="w-3 h-3 text-blue-400" />
               {pendingRequests > 0 && (
-                <span className="absolute -top-1 -right-1 w-1.5 h-1.5 rounded-full bg-amber-400 animate-ping" />
+                <span className="absolute -top-1 -right-1 w-1 h-1 rounded-full bg-amber-400 animate-ping" />
               )}
             </div>
-            <span>Network</span>
-            <span className="px-1.5 py-0.2 rounded-full bg-blue-900/80 text-[10px] font-mono font-bold text-blue-200">
+            <span className="hidden sm:inline">Network</span>
+            <span className="sm:hidden">Net</span>
+            <span className="px-1 py-0.1 rounded-full bg-blue-900/80 text-[9px] font-mono font-bold text-blue-200">
               {requests.length}
             </span>
           </button>
@@ -169,7 +176,7 @@ export const FloatingDiagnosticDock: React.FC<FloatingDiagnosticDockProps> = ({
             data-testid="navbar-error-inspector-button open-error-inspector-floating-button"
             type="button"
             onClick={() => dispatch(setInspectorOpen(true))}
-            className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl border transition active:scale-95 font-medium pointer-events-auto ${
+            className={`flex items-center gap-1 px-2 py-0.5 rounded-lg border transition active:scale-95 font-medium pointer-events-auto ${
               errors.length > 0
                 ? 'bg-red-950/70 hover:bg-red-900/80 text-red-300 border-red-700/80 animate-pulse'
                 : 'bg-neutral-800 hover:bg-neutral-750 text-neutral-300 border-neutral-700'
@@ -177,11 +184,12 @@ export const FloatingDiagnosticDock: React.FC<FloatingDiagnosticDockProps> = ({
             title="Inspect application errors & state machine actions"
           >
             <AlertTriangle
-              className={`w-3.5 h-3.5 ${errors.length > 0 ? 'text-red-400' : 'text-neutral-400'}`}
+              className={`w-3.5 h-3.5 shrink-0 ${errors.length > 0 ? 'text-red-400' : 'text-neutral-400'}`}
             />
-            <span>Errors</span>
+            <span className="hidden sm:inline">Errors</span>
+            <span className="sm:hidden">Err</span>
             <span
-              className={`px-1.5 py-0.2 rounded-full text-[10px] font-mono font-bold ${
+              className={`px-1 py-0.1 rounded-full text-[9px] font-mono font-bold ${
                 errors.length > 0
                   ? 'bg-red-600 text-white'
                   : 'bg-neutral-900 text-neutral-400'

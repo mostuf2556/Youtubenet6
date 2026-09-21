@@ -1112,7 +1112,7 @@ export const VideoPlayer = forwardRef<YouTubePlayerHandle, VideoPlayerProps>(
         <div
           id="compact-video-player-container"
           onClick={handleTapVideoArea}
-          className="w-full h-full min-h-[300px] flex-1 flex flex-col bg-neutral-950 overflow-y-auto select-none touch-manipulation"
+          className="w-full h-full min-h-[300px] flex-1 flex flex-col bg-neutral-950 overflow-hidden select-none touch-manipulation"
         >
           {/* 1. Surrounding Top Navigation Bar (Above Video) */}
           <header
@@ -1271,7 +1271,7 @@ export const VideoPlayer = forwardRef<YouTubePlayerHandle, VideoPlayerProps>(
           {/* 3. Surrounding Subtitles & Controls Panel (Below Video) */}
           <div
             id="compact-player-controls-overlay"
-            className="w-full shrink-0 bg-neutral-900 border-t border-neutral-800/80 p-3 flex flex-col gap-3 z-20 pointer-events-auto"
+            className="w-full shrink-0 max-h-[50vh] overflow-y-auto bg-neutral-900 border-t border-neutral-800/80 p-3 flex flex-col gap-3 z-20 pointer-events-auto"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Subtitles Section (Surrounding below video) */}
@@ -1492,142 +1492,148 @@ export const VideoPlayer = forwardRef<YouTubePlayerHandle, VideoPlayerProps>(
             </div>
 
             {/* Controls Row: Play/Pause, Volume, Sync, Speech, Loop, Auto-TTS, and CC Toggle */}
-            <div className="w-full flex items-center justify-start flex-wrap gap-1.5 sm:gap-2">
-              {/* Play/Pause Button */}
-              <button
-                id="control-play-pause-button"
-                type="button"
-                onClick={togglePlayPause}
-                className="min-w-[44px] min-h-[44px] p-2 rounded-lg text-neutral-200 hover:text-white bg-neutral-800 hover:bg-neutral-700 border border-neutral-700/60 flex items-center justify-center transition-all cursor-pointer pointer-events-auto"
-                aria-label={isPlaying ? 'Pause' : 'Play'}
-              >
-                {isPlaying ? <Pause className="w-5 h-5" /> : <Play className="w-5 h-5 fill-current" />}
-              </button>
-
-              {/* Center play pause test id mapping (hidden fallback) */}
-              <button
-                id="center-play-pause-button"
-                type="button"
-                onClick={togglePlayPause}
-                className="sr-only pointer-events-auto"
-                aria-label={isPlaying ? 'Pause video' : 'Play video'}
-              />
-
-              {/* Volume Button */}
-              <button
-                id="volume-toggle-button"
-                type="button"
-                onClick={toggleMute}
-                className="min-w-[44px] min-h-[44px] p-2 rounded-lg text-neutral-200 hover:text-white bg-neutral-800 hover:bg-neutral-700 border border-neutral-700/60 flex items-center justify-center transition-all cursor-pointer pointer-events-auto"
-                aria-label={isMuted ? 'Unmute' : 'Mute'}
-              >
-                {isMuted ? <VolumeX className="w-5 h-5 text-red-400" /> : <Volume2 className="w-5 h-5" />}
-              </button>
-
-              {/* Sentence Sync Button */}
-              {onToggleSync && (
+            <div className="w-full flex flex-col gap-2">
+              {/* Row 1: Primary Media Controls (Spacious, Symmetric, Always Clear) */}
+              <div className="w-full flex items-center justify-between gap-1.5 sm:gap-2">
+                {/* Play/Pause Button */}
                 <button
-                  id="compact-toggle-sync-btn"
-                  data-testid="compact-toggle-sync-btn"
+                  id="control-play-pause-button"
                   type="button"
-                  onClick={onToggleSync}
-                  className={`min-h-[44px] px-3 py-1.5 rounded-xl text-xs font-bold border flex items-center gap-1.5 transition-all cursor-pointer pointer-events-auto ${
-                    isSyncActive
-                      ? 'bg-amber-500 hover:bg-amber-400 text-neutral-950 border-amber-400 shadow-md'
-                      : 'bg-indigo-600 hover:bg-indigo-500 text-white border-indigo-500'
-                  }`}
-                  title={isSyncActive ? 'Pause Sentence Sync' : 'Start Dual-Language Sentence Sync'}
+                  onClick={togglePlayPause}
+                  className="flex-1 min-h-[44px] p-2 rounded-lg text-neutral-200 hover:text-white bg-neutral-800 hover:bg-neutral-700 border border-neutral-700/60 flex items-center justify-center transition-all cursor-pointer pointer-events-auto active:scale-95"
+                  aria-label={isPlaying ? 'Pause' : 'Play'}
                 >
-                  {isSyncActive ? <Pause className="w-4 h-4" /> : <Play className="w-4 h-4 fill-current" />}
-                  <span>{isSyncActive ? 'Sync: ON' : 'Sync'}</span>
+                  {isPlaying ? <Pause className="w-5 h-5" /> : <Play className="w-5 h-5 fill-current" />}
                 </button>
-              )}
 
-              {/* Speak Cue Button */}
-              <button
-                id="compact-speak-cue-btn"
-                data-testid="compact-speak-cue-btn"
-                type="button"
-                onClick={() => playCurrentCueTTS()}
-                disabled={!activeCue}
-                className="min-w-[44px] min-h-[44px] p-2 rounded-lg text-neutral-200 hover:text-white bg-neutral-800 hover:bg-neutral-700 border border-neutral-700/60 flex items-center justify-center transition-all cursor-pointer pointer-events-auto disabled:opacity-50 disabled:cursor-not-allowed"
-                title="Speak Current Subtitle"
-              >
-                <Volume2 className="w-5 h-5 text-amber-400" />
-              </button>
-
-              {/* Loop Cue Button */}
-              {onToggleLoopCue && (
+                {/* Center play pause test id mapping (hidden fallback) */}
                 <button
-                  id="compact-loop-cue-btn"
-                  data-testid="compact-loop-cue-btn"
+                  id="center-play-pause-button"
                   type="button"
-                  onClick={onToggleLoopCue}
-                  className={`min-w-[44px] min-h-[44px] p-2 rounded-lg border flex items-center justify-center transition-all cursor-pointer pointer-events-auto ${
-                    isLoopingCue
-                      ? 'bg-amber-500 text-neutral-950 border-amber-400'
-                      : 'text-neutral-200 bg-neutral-800 hover:bg-neutral-700 border border-neutral-700/60'
-                  }`}
-                  title={isLoopingCue ? 'Loop Single Cue: ON' : 'Loop Single Cue'}
-                >
-                  <Repeat className={`w-5 h-5 ${isLoopingCue ? 'animate-spin' : ''}`} />
-                </button>
-              )}
+                  onClick={togglePlayPause}
+                  className="sr-only pointer-events-auto"
+                  aria-label={isPlaying ? 'Pause video' : 'Play video'}
+                />
 
-              {/* Auto-TTS Toggle Button */}
-              <button
-                id="control-auto-tts-button"
-                data-testid="control-auto-tts-button"
-                type="button"
-                onClick={toggleAutoTTS}
-                aria-pressed={autoTTSEnabled ? 'true' : 'false'}
-                className={`min-h-[44px] px-3 py-1.5 rounded-xl text-xs font-bold border flex items-center gap-1.5 transition-all cursor-pointer pointer-events-auto ${
-                  autoTTSEnabled
-                    ? 'bg-purple-600 hover:bg-purple-500 text-white border-purple-500 shadow-md'
-                    : 'bg-neutral-800 hover:bg-neutral-700 text-neutral-200 border border-neutral-700/60'
-                }`}
-                title={autoTTSEnabled ? 'Auto TTS Speech: ON' : 'Auto TTS Speech: OFF'}
-              >
-                <Volume2 className={`w-4 h-4 ${autoTTSEnabled ? 'text-purple-300' : 'text-neutral-400'}`} />
-                <span>Auto TTS</span>
-              </button>
-
-              {/* Caption CC Toggle Button */}
-              {onFetchSubtitles && (
+                {/* Volume Button */}
                 <button
-                  id="caption-toggle-button"
-                  data-testid="caption-toggle-button"
+                  id="volume-toggle-button"
                   type="button"
-                  onClick={handleToggleCaptions}
-                  disabled={isFetchingSubtitles}
-                  aria-pressed={isCaptionsActive ? 'true' : 'false'}
-                  className={`min-h-[44px] px-3.5 py-1.5 rounded-xl text-xs font-semibold border flex items-center gap-2 transition-all cursor-pointer pointer-events-auto ${
-                    hasSubtitles
-                      ? 'bg-emerald-950 text-emerald-300 border-emerald-600'
-                      : isFetchingSubtitles
-                      ? 'bg-amber-950 text-amber-300 border-amber-600 animate-pulse'
-                      : isCaptionsActive
-                      ? 'bg-blue-950 text-blue-200 border-blue-600'
-                      : 'bg-red-600 hover:bg-red-500 text-white border-red-500'
-                  }`}
-                  title={isCaptionsActive ? 'Captions are ON' : 'Turn Captions ON'}
+                  onClick={toggleMute}
+                  className="shrink-0 min-w-[44px] min-h-[44px] p-2 rounded-lg text-neutral-200 hover:text-white bg-neutral-800 hover:bg-neutral-700 border border-neutral-700/60 flex items-center justify-center transition-all cursor-pointer pointer-events-auto active:scale-95"
+                  aria-label={isMuted ? 'Unmute' : 'Mute'}
                 >
-                  {isFetchingSubtitles ? (
-                    <Loader2 className="w-4 h-4 animate-spin" />
-                  ) : (
-                    <Subtitles className="w-4 h-4" />
-                  )}
-                  <span>
-                    {isFetchingSubtitles
-                      ? 'Detecting...'
-                      : hasSubtitles
-                      ? 'CC: ON'
-                      : isCaptionsActive
-                      ? 'CC: ON'
-                      : 'Turn CC ON'}
-                  </span>
+                  {isMuted ? <VolumeX className="w-5 h-5 text-red-400" /> : <Volume2 className="w-5 h-5" />}
                 </button>
-              )}
+
+                {/* Caption CC Toggle Button */}
+                {onFetchSubtitles && (
+                  <button
+                    id="caption-toggle-button"
+                    data-testid="caption-toggle-button"
+                    type="button"
+                    onClick={handleToggleCaptions}
+                    disabled={isFetchingSubtitles}
+                    aria-pressed={isCaptionsActive ? 'true' : 'false'}
+                    className={`flex-1 min-h-[44px] px-3.5 py-1.5 rounded-lg text-xs font-semibold border flex items-center justify-center gap-2 transition-all cursor-pointer pointer-events-auto active:scale-95 ${
+                      hasSubtitles
+                        ? 'bg-emerald-950 text-emerald-300 border-emerald-600'
+                        : isFetchingSubtitles
+                        ? 'bg-amber-950 text-amber-300 border-amber-600 animate-pulse'
+                        : isCaptionsActive
+                        ? 'bg-blue-950 text-blue-200 border-blue-600'
+                        : 'bg-red-600 hover:bg-red-500 text-white border-red-500'
+                    }`}
+                    title={isCaptionsActive ? 'Captions are ON' : 'Turn Captions ON'}
+                  >
+                    {isFetchingSubtitles ? (
+                      <Loader2 className="w-4 h-4 animate-spin" />
+                    ) : (
+                      <Subtitles className="w-4 h-4" />
+                    )}
+                    <span>
+                      {isFetchingSubtitles
+                        ? 'Detecting...'
+                        : hasSubtitles
+                        ? 'CC: ON'
+                        : isCaptionsActive
+                        ? 'CC: ON'
+                        : 'Turn CC ON'}
+                    </span>
+                  </button>
+                )}
+              </div>
+
+              {/* Row 2: Language Learning Assistants (Dedicated, Segmented, Interactive) */}
+              <div className="w-full flex items-center justify-between gap-1.5 sm:gap-2">
+                {/* Sentence Sync Button */}
+                {onToggleSync && (
+                  <button
+                    id="compact-toggle-sync-btn"
+                    data-testid="compact-toggle-sync-btn"
+                    type="button"
+                    onClick={onToggleSync}
+                    className={`flex-1 min-h-[44px] px-3 py-1.5 rounded-lg text-xs font-bold border flex items-center justify-center gap-1.5 transition-all cursor-pointer pointer-events-auto active:scale-95 ${
+                      isSyncActive
+                        ? 'bg-amber-500 hover:bg-amber-400 text-neutral-950 border-amber-400 shadow-md'
+                        : 'bg-indigo-600 hover:bg-indigo-500 text-white border-indigo-500'
+                    }`}
+                    title={isSyncActive ? 'Pause Sentence Sync' : 'Start Dual-Language Sentence Sync'}
+                  >
+                    {isSyncActive ? <Pause className="w-4 h-4" /> : <Play className="w-4 h-4 fill-current" />}
+                    <span>{isSyncActive ? 'Sync: ON' : 'Sync'}</span>
+                  </button>
+                )}
+
+                {/* Speak Cue Button */}
+                <button
+                  id="compact-speak-cue-btn"
+                  data-testid="compact-speak-cue-btn"
+                  type="button"
+                  onClick={() => playCurrentCueTTS()}
+                  disabled={!activeCue}
+                  className="shrink-0 min-w-[44px] min-h-[44px] p-2 rounded-lg text-neutral-200 hover:text-white bg-neutral-800 hover:bg-neutral-700 border border-neutral-700/60 flex items-center justify-center transition-all cursor-pointer pointer-events-auto active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed"
+                  title="Speak Current Subtitle"
+                >
+                  <Volume2 className="w-5 h-5 text-amber-400" />
+                </button>
+
+                {/* Loop Cue Button */}
+                {onToggleLoopCue && (
+                  <button
+                    id="compact-loop-cue-btn"
+                    data-testid="compact-loop-cue-btn"
+                    type="button"
+                    onClick={onToggleLoopCue}
+                    className={`shrink-0 min-w-[44px] min-h-[44px] p-2 rounded-lg border flex items-center justify-center transition-all cursor-pointer pointer-events-auto active:scale-95 ${
+                      isLoopingCue
+                        ? 'bg-amber-500 text-neutral-950 border-amber-400'
+                        : 'text-neutral-200 bg-neutral-800 hover:bg-neutral-700 border border-neutral-700/60'
+                    }`}
+                    title={isLoopingCue ? 'Loop Single Cue: ON' : 'Loop Single Cue'}
+                  >
+                    <Repeat className={`w-5 h-5 ${isLoopingCue ? 'animate-spin' : ''}`} />
+                  </button>
+                )}
+
+                {/* Auto-TTS Toggle Button */}
+                <button
+                  id="control-auto-tts-button"
+                  data-testid="control-auto-tts-button"
+                  type="button"
+                  onClick={toggleAutoTTS}
+                  aria-pressed={autoTTSEnabled ? 'true' : 'false'}
+                  className={`flex-1 min-h-[44px] px-3 py-1.5 rounded-lg text-xs font-bold border flex items-center justify-center gap-1.5 transition-all cursor-pointer pointer-events-auto active:scale-95 ${
+                    autoTTSEnabled
+                      ? 'bg-purple-600 hover:bg-purple-500 text-white border-purple-500 shadow-md'
+                      : 'bg-neutral-800 hover:bg-neutral-700 text-neutral-200 border border-neutral-700/60'
+                  }`}
+                  title={autoTTSEnabled ? 'Auto TTS Speech: ON' : 'Auto TTS Speech: OFF'}
+                >
+                  <Volume2 className={`w-4 h-4 ${autoTTSEnabled ? 'text-purple-300' : 'text-neutral-400'}`} />
+                  <span>Auto TTS</span>
+                </button>
+              </div>
 
               {/* Hidden backward compatibility button */}
               {onFetchSubtitles && !hasSubtitles && !isFetchingSubtitles && (

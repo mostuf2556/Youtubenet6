@@ -213,6 +213,21 @@ class MainActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
             }
         }
 
+        // Extract shared link/deep link text from intent to pass directly as a query parameter
+        val sharedText = if (Intent.ACTION_SEND == intent?.action && intent.type != null) {
+            intent.getStringExtra(Intent.EXTRA_TEXT) ?: intent.getStringExtra(Intent.EXTRA_SUBJECT)
+        } else if (Intent.ACTION_VIEW == intent?.action) {
+            intent?.dataString
+        } else {
+            null
+        }
+
+        val querySuffix = if (!sharedText.isNullOrBlank()) {
+            "?url=" + android.net.Uri.encode(sharedText)
+        } else {
+            ""
+        }
+
         // Load the application: prefer local bundled web app if available, otherwise load remote APP_URL
         val hasBundledAssets = try {
             assets.open("index.html").close()
@@ -222,11 +237,11 @@ class MainActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
         }
 
         if (hasBundledAssets) {
-            Log.i(TAG, "Loading bundled offline web assets from appassets.androidplatform.net/index.html")
-            webView.loadUrl("https://appassets.androidplatform.net/index.html")
+            Log.i(TAG, "Loading bundled offline web assets from appassets.androidplatform.net/index.html$querySuffix")
+            webView.loadUrl("https://appassets.androidplatform.net/index.html$querySuffix")
         } else {
-            Log.i(TAG, "Loading remote web URL: $APP_URL")
-            webView.loadUrl(APP_URL)
+            Log.i(TAG, "Loading remote web URL: $APP_URL$querySuffix")
+            webView.loadUrl("$APP_URL$querySuffix")
         }
 
         // Handle any shared intent that opened the app
@@ -237,6 +252,29 @@ class MainActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
         super.onNewIntent(intent)
         setIntent(intent)
         handleSharedIntent(intent)
+        
+        // If app is already active, immediately navigate the WebView to the incoming video URL
+        val sharedText = if (Intent.ACTION_SEND == intent?.action && intent.type != null) {
+            intent.getStringExtra(Intent.EXTRA_TEXT) ?: intent.getStringExtra(Intent.EXTRA_SUBJECT)
+        } else if (Intent.ACTION_VIEW == intent?.action) {
+            intent?.dataString
+        } else {
+            null
+        }
+        if (!sharedText.isNullOrBlank()) {
+            val hasBundledAssets = try {
+                assets.open("index.html").close()
+                true
+            } catch (e: Exception) {
+                false
+            }
+            val querySuffix = "?url=" + android.net.Uri.encode(sharedText)
+            if (hasBundledAssets) {
+                webView.loadUrl("https://appassets.androidplatform.net/index.html$querySuffix")
+            } else {
+                webView.loadUrl("$APP_URL$querySuffix")
+            }
+        }
     }
 
     private fun handleSharedIntent(intent: Intent?) {
@@ -264,6 +302,21 @@ class MainActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
                     }, 500)
                 }
             }
+        } else if (Intent.ACTION_VIEW == action && !intent.dataString.isNullOrBlank()) {
+            val sharedText = intent.dataString
+            Log.i(TAG, "Received ACTION_VIEW deep link: $sharedText")
+            mainHandler.postDelayed({
+                val jsCode = """
+                    (function() {
+                        if (window.onNativeSharedLinkReceived) {
+                            window.onNativeSharedLinkReceived(${JSONObject.quote(sharedText)});
+                        } else {
+                            window.__pendingSharedLink = ${JSONObject.quote(sharedText)};
+                        }
+                    })();
+                """.trimIndent()
+                webView.evaluateJavascript(jsCode, null)
+            }, 500)
         }
     }
 
