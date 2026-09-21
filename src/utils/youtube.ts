@@ -385,6 +385,7 @@ export function getYouTubeEmbedUrl(
     rel: '0',
     modestbranding: '1',
     enablejsapi: '1',
+    playsinline: '1',
   });
 
   if (autoplay) {
@@ -402,6 +403,7 @@ export function getYouTubeEmbedUrl(
 
   if (typeof window !== 'undefined' && window.location?.origin) {
     params.set('origin', window.location.origin);
+    params.set('widget_referrer', window.location.href);
   }
 
   return `https://www.youtube.com/embed/${videoId}?${params.toString()}`;

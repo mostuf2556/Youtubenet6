@@ -1,3 +1,5 @@
+import type { SubtitleCue } from './viewer/contracts';
+
 export interface VideoItem {
   id: string;
   originalUrl: string;
@@ -47,12 +49,7 @@ export interface ParsedYouTubeResult {
   embedUrl: string;
 }
 
-export interface CaptionCue {
-  id: string;
-  start: number; // in seconds
-  duration: number; // in seconds
-  text: string;
-}
+export type CaptionCue = SubtitleCue;
 
 export interface TargetLanguage {
   id: string;

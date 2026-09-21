@@ -1,0 +1,3103 @@
+{
+  "format": "normalized-json3",
+  "videoId": "L2Ryrr6txwA",
+  "referenceLanguage": "en",
+  "cues": [
+    {
+      "id": "normalized-cue-1",
+      "start": 0.08,
+      "duration": 1.759,
+      "text": "أهلًا، كيف حالك؟ معكم جاستن. مرحبًا بكم في",
+      "segments": [
+        {
+          "text": "أهلًا، كيف حالك؟ معكم جاستن. مرحبًا بكم في",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-2",
+      "start": 1.839,
+      "duration": 2.241,
+      "text": "الوحدة السابعة من سلسلة \"مايسترو السلم الموسيقي الكبير\". في",
+      "segments": [
+        {
+          "text": "الوحدة السابعة من سلسلة \"مايسترو السلم الموسيقي الكبير\". في",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-3",
+      "start": 4.08,
+      "duration": 1.279,
+      "text": "درس اليوم، سنتعرف على",
+      "segments": [
+        {
+          "text": "درس اليوم، سنتعرف على",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-4",
+      "start": 5.359,
+      "duration": 3.2,
+      "text": "المتواليات اللحنية. من",
+      "segments": [
+        {
+          "text": "المتواليات اللحنية. من",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-5",
+      "start": 8.559,
+      "duration": 3.361,
+      "text": "ذكرياتي المبكرة الواضحة في",
+      "segments": [
+        {
+          "text": "ذكرياتي المبكرة الواضحة في",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-6",
+      "start": 11.92,
+      "duration": 1.679,
+      "text": "رحلتي مع غيتار الروك، مشاهدة",
+      "segments": [
+        {
+          "text": "رحلتي مع غيتار الروك، مشاهدة",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-8",
+      "start": 15.759,
+      "duration": 2.001,
+      "text": "فيديو تعليمي على قناة \"إنغريدينت\"، حيث عزف فيه لحنًا سريعًا جدًا،",
+      "segments": [
+        {
+          "text": "فيديو تعليمي على قناة \"إنغريدينت\"، حيث عزف فيه لحنًا سريعًا جدًا،",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-10",
+      "start": 20.24,
+      "duration": 2.64,
+      "text": "لكنه بدا وكأنه لا ينتهي. لم أستطع",
+      "segments": [
+        {
+          "text": "لكنه بدا وكأنه لا ينتهي. لم أستطع",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-11",
+      "start": 22.88,
+      "duration": 1.28,
+      "text": "فهم ما يحدث،",
+      "segments": [
+        {
+          "text": "فهم ما يحدث،",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-12",
+      "start": 24.16,
+      "duration": 2.08,
+      "text": "لأنني أعرف أن السلالم الموسيقية تتكون من",
+      "segments": [
+        {
+          "text": "لأنني أعرف أن السلالم الموسيقية تتكون من",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-13",
+      "start": 26.24,
+      "duration": 2,
+      "text": "16 نغمة، وإذا عزفتها بهذه السرعة، تنتهي في لمح البصر.",
+      "segments": [
+        {
+          "text": "16 نغمة، وإذا عزفتها بهذه السرعة، تنتهي في لمح البصر.",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-15",
+      "start": 31.279,
+      "duration": 1.601,
+      "text": "أعتقد أن السرعة كانت كبيرة جدًا لدرجة أنني لم أستطع",
+      "segments": [
+        {
+          "text": "أعتقد أن السرعة كانت كبيرة جدًا لدرجة أنني لم أستطع",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-16",
+      "start": 32.88,
+      "duration": 1.519,
+      "text": "سماع أنه يستخدم",
+      "segments": [
+        {
+          "text": "سماع أنه يستخدم",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-17",
+      "start": 34.399,
+      "duration": 1.921,
+      "text": "تقنية تُسمى المتوالية اللحنية.",
+      "segments": [
+        {
+          "text": "تقنية تُسمى المتوالية اللحنية.",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-18",
+      "start": 36.32,
+      "duration": 2.079,
+      "text": "أتذكر عندما سألت معلمي عنها،",
+      "segments": [
+        {
+          "text": "أتذكر عندما سألت معلمي عنها،",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-19",
+      "start": 38.399,
+      "duration": 1.441,
+      "text": "كيف يفعل ذلك؟ أجابني: \"إنها",
+      "segments": [
+        {
+          "text": "كيف يفعل ذلك؟ أجابني: \"إنها",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-20",
+      "start": 39.84,
+      "duration": 2.08,
+      "text": "مجرد أنماط عددية",
+      "segments": [
+        {
+          "text": "مجرد أنماط عددية",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-21",
+      "start": 41.92,
+      "duration": 2.319,
+      "text": "تُطبق على السلالم الموسيقية\". فقلت في نفسي: \"انتظر، ها نحن ذا!\". لطالما كنتُ جيدًا",
+      "segments": [
+        {
+          "text": "تُطبق على السلالم الموسيقية\". فقلت في نفسي: \"انتظر، ها نحن ذا!\". لطالما كنتُ جيدًا",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-23",
+      "start": 45.52,
+      "duration": 1.6,
+      "text": "في الرياضيات، لذا وجدتُ هذا الأمر",
+      "segments": [
+        {
+          "text": "في الرياضيات، لذا وجدتُ هذا الأمر",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-24",
+      "start": 47.12,
+      "duration": 2.16,
+      "text": "ممتعًا. إنه مفيد جدًا،",
+      "segments": [
+        {
+          "text": "ممتعًا. إنه مفيد جدًا،",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-25",
+      "start": 49.28,
+      "duration": 2.48,
+      "text": "وموسيقي أيضًا.",
+      "segments": [
+        {
+          "text": "وموسيقي أيضًا.",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-26",
+      "start": 51.76,
+      "duration": 2.4,
+      "text": "ليس الأمر كما يبدو، فهو",
+      "segments": [
+        {
+          "text": "ليس الأمر كما يبدو، فهو",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-27",
+      "start": 54.16,
+      "duration": 3.12,
+      "text": "يأخذ متوالية رياضية ويطبقها",
+      "segments": [
+        {
+          "text": "يأخذ متوالية رياضية ويطبقها",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-28",
+      "start": 57.28,
+      "duration": 2.56,
+      "text": "على سلم موسيقي، وهو ما لا يبدو واضحًا.",
+      "segments": [
+        {
+          "text": "على سلم موسيقي، وهو ما لا يبدو واضحًا.",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-29",
+      "start": 59.84,
+      "duration": 2.879,
+      "text": "رائع أو عصري، لكنه مستخدم من قبل الجميع،",
+      "segments": [
+        {
+          "text": "رائع أو عصري، لكنه مستخدم من قبل الجميع،",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-30",
+      "start": 62.719,
+      "duration": 1.601,
+      "text": "في موسيقى البلوز، في موسيقى الروك، في كل",
+      "segments": [
+        {
+          "text": "في موسيقى البلوز، في موسيقى الروك، في كل",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-31",
+      "start": 64.32,
+      "duration": 3.52,
+      "text": "مكان. هذا المفهوم ببساطة يبدو",
+      "segments": [
+        {
+          "text": "مكان. هذا المفهوم ببساطة يبدو",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-32",
+      "start": 67.84,
+      "duration": 1.92,
+      "text": "جيدًا. أعتقد أننا",
+      "segments": [
+        {
+          "text": "جيدًا. أعتقد أننا",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-33",
+      "start": 69.76,
+      "duration": 2.96,
+      "text": "كبشر نميل بطبيعتنا إلى ترتيب",
+      "segments": [
+        {
+          "text": "كبشر نميل بطبيعتنا إلى ترتيب",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-35",
+      "start": 74,
+      "duration": 2.4,
+      "text": "التسلسل الموسيقي، وقد استُخدم هذا الترتيب منذ القدم، كما فعل",
+      "segments": [
+        {
+          "text": "التسلسل الموسيقي، وقد استُخدم هذا الترتيب منذ القدم، كما فعل",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-36",
+      "start": 76.4,
+      "duration": 1.759,
+      "text": "باخ، وستبدأ في",
+      "segments": [
+        {
+          "text": "باخ، وستبدأ في",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-37",
+      "start": 78.159,
+      "duration": 2,
+      "text": "التعرف عليه. للبدء، علينا ترقيم نغمات السلم الموسيقي.",
+      "segments": [
+        {
+          "text": "التعرف عليه. للبدء، علينا ترقيم نغمات السلم الموسيقي.",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-40",
+      "start": 83.759,
+      "duration": 2,
+      "text": "سنبدأ بالنمط الأول، أي النوتة",
+      "segments": [
+        {
+          "text": "سنبدأ بالنمط الأول، أي النوتة",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-41",
+      "start": 85.759,
+      "duration": 1.601,
+      "text": "الأساسية، وهي النوتة رقم 1.",
+      "segments": [
+        {
+          "text": "الأساسية، وهي النوتة رقم 1.",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-42",
+      "start": 87.36,
+      "duration": 7.04,
+      "text": "لدينا الآن الأرقام من 1 إلى 16. ثم سنستخدم",
+      "segments": [
+        {
+          "text": "لدينا الآن الأرقام من 1 إلى 16. ثم سنستخدم",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-45",
+      "start": 103.6,
+      "duration": 3.28,
+      "text": "تسلسلًا رقميًا ونطبقه على السلم. مثال",
+      "segments": [
+        {
+          "text": "تسلسلًا رقميًا ونطبقه على السلم. مثال",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-46",
+      "start": 106.88,
+      "duration": 1.599,
+      "text": "جيد للبدء هو ما",
+      "segments": [
+        {
+          "text": "جيد للبدء هو ما",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-47",
+      "start": 108.479,
+      "duration": 3.441,
+      "text": "أسميه \"أربعة في خط واحد\". ببساطة،",
+      "segments": [
+        {
+          "text": "أسميه \"أربعة في خط واحد\". ببساطة،",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-48",
+      "start": 111.92,
+      "duration": 4.4,
+      "text": "نعزف أربع نوتات من كل درجة من درجات السلم. التسلسل الرقمي هو: واحد، اثنان، ثلاثة، أربعة. نبدأ من 2، اثنان، ثلاثة، أربعة، خمسة.",
+      "segments": [
+        {
+          "text": "نعزف أربع نوتات من كل درجة من درجات السلم. التسلسل الرقمي هو: واحد، اثنان، ثلاثة، أربعة. نبدأ من 2، اثنان، ثلاثة، أربعة، خمسة.",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-50",
+      "start": 118.64,
+      "duration": 3.36,
+      "text": "ثم نبدأ من 3، ثلاثة، أربعة، خمسة، ستة.",
+      "segments": [
+        {
+          "text": "ثم نبدأ من 3، ثلاثة، أربعة، خمسة، ستة.",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-51",
+      "start": 122,
+      "duration": 2.799,
+      "text": "ثم نبدأ من",
+      "segments": [
+        {
+          "text": "ثم نبدأ من",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-52",
+      "start": 124.799,
+      "duration": 3.361,
+      "text": "4، أربعة، خمسة، ستة،",
+      "segments": [
+        {
+          "text": "4، أربعة، خمسة، ستة،",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-53",
+      "start": 128.16,
+      "duration": 3.36,
+      "text": "سبعة. أي نعد",
+      "segments": [
+        {
+          "text": "سبعة. أي نعد",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-54",
+      "start": 131.52,
+      "duration": 3.439,
+      "text": "أربعة أرقام تصاعديًا بدءًا من 1.  كل رقم،",
+      "segments": [
+        {
+          "text": "أربعة أرقام تصاعديًا بدءًا من 1.  كل رقم،",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-55",
+      "start": 134.959,
+      "duration": 1.28,
+      "text": "إذن هي",
+      "segments": [
+        {
+          "text": "إذن هي",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-56",
+      "start": 136.239,
+      "duration": 2.72,
+      "text": "سلسلة من أربع نغمات. أعتقد أنه من الأفضل",
+      "segments": [
+        {
+          "text": "سلسلة من أربع نغمات. أعتقد أنه من الأفضل",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-57",
+      "start": 138.959,
+      "duration": 2.321,
+      "text": "دائمًا أن يكون لدينا",
+      "segments": [
+        {
+          "text": "دائمًا أن يكون لدينا",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-58",
+      "start": 141.28,
+      "duration": 1.76,
+      "text": "نسخة عملية مبسطة من سلسلة الأرقام",
+      "segments": [
+        {
+          "text": "نسخة عملية مبسطة من سلسلة الأرقام",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-59",
+      "start": 143.04,
+      "duration": 1.6,
+      "text": "بدلًا من التفكير فيها كـ 1، 2، 3، 4، 2، 3، 4، 5، 3، 4، 5،",
+      "segments": [
+        {
+          "text": "بدلًا من التفكير فيها كـ 1، 2، 3، 4، 2، 3، 4، 5، 3، 4، 5،",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-61",
+      "start": 146.8,
+      "duration": 2.079,
+      "text": "6. أنا أفكر فيها",
+      "segments": [
+        {
+          "text": "6. أنا أفكر فيها",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-62",
+      "start": 148.879,
+      "duration": 2.401,
+      "text": "كأربع درجات سلم موسيقي تصاعدية، بدءًا من كل",
+      "segments": [
+        {
+          "text": "كأربع درجات سلم موسيقي تصاعدية، بدءًا من كل",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-63",
+      "start": 151.28,
+      "duration": 1.36,
+      "text": "نغمة في السلم. أعتقد أن هذا أسهل",
+      "segments": [
+        {
+          "text": "نغمة في السلم. أعتقد أن هذا أسهل",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-64",
+      "start": 152.64,
+      "duration": 1.92,
+      "text": "بالنسبة لي للتذكر. دعونا نحاول تطبيقها",
+      "segments": [
+        {
+          "text": "بالنسبة لي للتذكر. دعونا نحاول تطبيقها",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-65",
+      "start": 154.56,
+      "duration": 2.8,
+      "text": "الآن. كانت السلسلة 1، 2، 3،",
+      "segments": [
+        {
+          "text": "الآن. كانت السلسلة 1، 2، 3،",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-66",
+      "start": 157.36,
+      "duration": 1.92,
+      "text": "4، لذا سنعزف النغمة الأولى، النغمة",
+      "segments": [
+        {
+          "text": "4، لذا سنعزف النغمة الأولى، النغمة",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-67",
+      "start": 159.28,
+      "duration": 2.319,
+      "text": "الثانية، النغمة الثالثة، النغمة",
+      "segments": [
+        {
+          "text": "الثانية، النغمة الثالثة، النغمة",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-68",
+      "start": 161.599,
+      "duration": 2.481,
+      "text": "الرابعة. ثم نبدأ من",
+      "segments": [
+        {
+          "text": "الرابعة. ثم نبدأ من",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-69",
+      "start": 164.08,
+      "duration": 1.519,
+      "text": "الدرجة الثانية من السلم",
+      "segments": [
+        {
+          "text": "الدرجة الثانية من السلم",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-70",
+      "start": 165.599,
+      "duration": 3.041,
+      "text": "ونعزف أربع نغمات تصاعدية: 2، 3، 4،",
+      "segments": [
+        {
+          "text": "ونعزف أربع نغمات تصاعدية: 2، 3، 4،",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-71",
+      "start": 168.64,
+      "duration": 1.92,
+      "text": "5. هذا يعني",
+      "segments": [
+        {
+          "text": "5. هذا يعني",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-72",
+      "start": 170.56,
+      "duration": 1.759,
+      "text": "البدء من الدرجة الثالثة:",
+      "segments": [
+        {
+          "text": "البدء من الدرجة الثالثة:",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-73",
+      "start": 172.319,
+      "duration": 1.681,
+      "text": "3، 4،",
+      "segments": [
+        {
+          "text": "3، 4،",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-74",
+      "start": 174,
+      "duration": 2.959,
+      "text": "5، 6. ثم نبدأ من",
+      "segments": [
+        {
+          "text": "5، 6. ثم نبدأ من",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-75",
+      "start": 176.959,
+      "duration": 3.2,
+      "text": "الدرجة الرابعة: 4، 5، 6،",
+      "segments": [
+        {
+          "text": "الدرجة الرابعة: 4، 5، 6،",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-76",
+      "start": 180.159,
+      "duration": 2.561,
+      "text": "7. وأخيرًا نبدأ من الدرجة الخامسة:",
+      "segments": [
+        {
+          "text": "7. وأخيرًا نبدأ من الدرجة الخامسة:",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-77",
+      "start": 182.72,
+      "duration": 2.48,
+      "text": "5، 6، 7،",
+      "segments": [
+        {
+          "text": "5، 6، 7،",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-78",
+      "start": 185.2,
+      "duration": 0.959,
+      "text": "8.",
+      "segments": [
+        {
+          "text": "8.",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-79",
+      "start": 186.159,
+      "duration": 1.681,
+      "text": "الآن، الشيء الأساسي هنا هو تذكر",
+      "segments": [
+        {
+          "text": "الآن، الشيء الأساسي هنا هو تذكر",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-80",
+      "start": 187.84,
+      "duration": 1.52,
+      "text": "النغمة التي بدأت بها. لذا، هنا",
+      "segments": [
+        {
+          "text": "النغمة التي بدأت بها. لذا، هنا",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-81",
+      "start": 189.36,
+      "duration": 2.879,
+      "text": "أفكر في البدء بتلك النغمة،",
+      "segments": [
+        {
+          "text": "أفكر في البدء بتلك النغمة،",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-82",
+      "start": 192.239,
+      "duration": 1.841,
+      "text": "لكنني أفكر بالفعل في النغمة",
+      "segments": [
+        {
+          "text": "لكنني أفكر بالفعل في النغمة",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-83",
+      "start": 194.08,
+      "duration": 2.799,
+      "text": "التالية التي سأبدأ بها: ثم هذه، ثم هذه، ثم",
+      "segments": [
+        {
+          "text": "التالية التي سأبدأ بها: ثم هذه، ثم هذه، ثم",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-86",
+      "start": 202.56,
+      "duration": 4.74,
+      "text": "هذه.",
+      "segments": [
+        {
+          "text": "هذه.",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-87",
+      "start": 207.3,
+      "duration": 2.54,
+      "text": "[موسيقى]",
+      "segments": [
+        {
+          "text": "[موسيقى]",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-88",
+      "start": 209.84,
+      "duration": 1.52,
+      "text": "الآن، كنت أعزف بشكل",
+      "segments": [
+        {
+          "text": "الآن، كنت أعزف بشكل",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-89",
+      "start": 211.36,
+      "duration": 1.84,
+      "text": "متقطع قليلًا حتى تتمكن من سماع",
+      "segments": [
+        {
+          "text": "متقطع قليلًا حتى تتمكن من سماع",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-90",
+      "start": 213.2,
+      "duration": 2.88,
+      "text": "النمط بوضوح: 1، 2، 3، 4، 2، 3، 4، 5، 3، 4، 5،",
+      "segments": [
+        {
+          "text": "النمط بوضوح: 1، 2، 3، 4، 2، 3، 4، 5، 3، 4، 5،",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-91",
+      "start": 216.08,
+      "duration": 3.439,
+      "text": "6.",
+      "segments": [
+        {
+          "text": "6.",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-92",
+      "start": 219.519,
+      "duration": 2.72,
+      "text": "لكن بمجرد أن تستوعب المفهوم",
+      "segments": [
+        {
+          "text": "لكن بمجرد أن تستوعب المفهوم",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-93",
+      "start": 222.239,
+      "duration": 2.161,
+      "text": "وتتقنه، سترغب في",
+      "segments": [
+        {
+          "text": "وتتقنه، سترغب في",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-94",
+      "start": 224.4,
+      "duration": 2.24,
+      "text": "التخلص من عدم انتظام الإيقاع والعزف",
+      "segments": [
+        {
+          "text": "التخلص من عدم انتظام الإيقاع والعزف",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-95",
+      "start": 226.64,
+      "duration": 3.01,
+      "text": "بثبات. لذا ستفعل هذا",
+      "segments": [
+        {
+          "text": "بثبات. لذا ستفعل هذا",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-96",
+      "start": 229.65,
+      "duration": 14.19,
+      "text": "[",
+      "segments": [
+        {
+          "text": "[",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-98",
+      "start": 252.55,
+      "duration": 6.89,
+      "text": "موسيقى]،",
+      "segments": [
+        {
+          "text": "موسيقى]،",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-99",
+      "start": 259.44,
+      "duration": 2.479,
+      "text": "سأبدأ بالصعود فقط، وسأشير إلى مشكلة",
+      "segments": [
+        {
+          "text": "سأبدأ بالصعود فقط، وسأشير إلى مشكلة",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-100",
+      "start": 261.919,
+      "duration": 2.321,
+      "text": "تقنية صغيرة",
+      "segments": [
+        {
+          "text": "تقنية صغيرة",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-101",
+      "start": 264.24,
+      "duration": 1.28,
+      "text": "ستواجهها، وهي",
+      "segments": [
+        {
+          "text": "ستواجهها، وهي",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-102",
+      "start": 265.52,
+      "duration": 1.679,
+      "text": "لفّ الخنصر.",
+      "segments": [
+        {
+          "text": "لفّ الخنصر.",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-103",
+      "start": 267.199,
+      "duration": 4,
+      "text": "عندما تصل إلى هذا الجزء، عليك أن تضغط",
+      "segments": [
+        {
+          "text": "عندما تصل إلى هذا الجزء، عليك أن تضغط",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-106",
+      "start": 274.88,
+      "duration": 1.52,
+      "text": "بخنصرك قليلاً على",
+      "segments": [
+        {
+          "text": "بخنصرك قليلاً على",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-107",
+      "start": 276.4,
+      "duration": 1.519,
+      "text": "الوتر الثاني",
+      "segments": [
+        {
+          "text": "الوتر الثاني",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-108",
+      "start": 277.919,
+      "duration": 7.041,
+      "text": "وتلفّه على طرفه. هناك عدة طرق لعكس تسلسل لحني، وأسهل طريقة هي إعادة ترقيم السلم الموسيقي بدءًا من الوتر الأرفع، فيكون الترتيب كالتالي: واحد، اثنان، ثلاثة، أربعة، خمسة، ستة، سبعة، ثمانية، تسعة، عشرة، أحد عشر، اثنا عشر، ثلاثة عشر، أربعة عشر، خمسة عشر، ستة عشر، سبعة عشر، وهكذا.",
+      "segments": [
+        {
+          "text": "وتلفّه على طرفه. هناك عدة طرق لعكس تسلسل لحني، وأسهل طريقة هي إعادة ترقيم السلم الموسيقي بدءًا من الوتر الأرفع، فيكون الترتيب كالتالي: واحد، اثنان، ثلاثة، أربعة، خمسة، ستة، سبعة، ثمانية، تسعة، عشرة، أحد عشر، اثنا عشر، ثلاثة عشر، أربعة عشر، خمسة عشر، ستة عشر، سبعة عشر، وهكذا.",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-118",
+      "start": 300.72,
+      "duration": 3.919,
+      "text": "ثم ننتقل إلى واحد، اثنان، ثلاثة، أربعة، اثنان، ثلاثة، أربعة، خمسة، ثلاثة، أربعة،",
+      "segments": [
+        {
+          "text": "ثم ننتقل إلى واحد، اثنان، ثلاثة، أربعة، اثنان، ثلاثة، أربعة، خمسة، ثلاثة، أربعة،",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-119",
+      "start": 304.639,
+      "duration": 3.921,
+      "text": "خمسة، ستة.",
+      "segments": [
+        {
+          "text": "خمسة، ستة.",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-120",
+      "start": 308.56,
+      "duration": 1.919,
+      "text": "لكن بالنسبة لي، في هذا النمط تحديدًا،",
+      "segments": [
+        {
+          "text": "لكن بالنسبة لي، في هذا النمط تحديدًا،",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-121",
+      "start": 310.479,
+      "duration": 2.401,
+      "text": "أعتقد أننا ننزل السلم الموسيقي، ننزل",
+      "segments": [
+        {
+          "text": "أعتقد أننا ننزل السلم الموسيقي، ننزل",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-122",
+      "start": 312.88,
+      "duration": 3.12,
+      "text": "أربع نغمات من كل درجة،",
+      "segments": [
+        {
+          "text": "أربع نغمات من كل درجة،",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-123",
+      "start": 316,
+      "duration": 1.85,
+      "text": "بدءًا من النغمة العليا",
+      "segments": [
+        {
+          "text": "بدءًا من النغمة العليا",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-124",
+      "start": 317.85,
+      "duration": 1.67,
+      "text": "[موسيقى]، ثم النغمة",
+      "segments": [
+        {
+          "text": "[موسيقى]، ثم النغمة",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-125",
+      "start": 319.52,
+      "duration": 2.16,
+      "text": "التالية، ثم",
+      "segments": [
+        {
+          "text": "التالية، ثم",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-126",
+      "start": 321.68,
+      "duration": 12.4,
+      "text": "النغمة التالية، وهكذا.  لا بأس تمامًا",
+      "segments": [
+        {
+          "text": "النغمة التالية، وهكذا.  لا بأس تمامًا",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-128",
+      "start": 336.24,
+      "duration": 1.92,
+      "text": "بالقيام بذلك بهذه الحركة المتقطعة",
+      "segments": [
+        {
+          "text": "بالقيام بذلك بهذه الحركة المتقطعة",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-129",
+      "start": 338.16,
+      "duration": 1.68,
+      "text": "للتعود على الأنماط، ولكن بمجرد أن تشعر",
+      "segments": [
+        {
+          "text": "للتعود على الأنماط، ولكن بمجرد أن تشعر",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-130",
+      "start": 339.84,
+      "duration": 1.68,
+      "text": "بالثقة، حاول",
+      "segments": [
+        {
+          "text": "بالثقة، حاول",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-131",
+      "start": 341.52,
+      "duration": 7.79,
+      "text": "إزالة ذلك",
+      "segments": [
+        {
+          "text": "إزالة ذلك",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-132",
+      "start": 349.31,
+      "duration": 22.37,
+      "text": "[موسيقى].",
+      "segments": [
+        {
+          "text": "[موسيقى].",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-133",
+      "start": 371.68,
+      "duration": 1.68,
+      "text": "عندما تبدأ بتطبيق هذه",
+      "segments": [
+        {
+          "text": "عندما تبدأ بتطبيق هذه",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-134",
+      "start": 373.36,
+      "duration": 2,
+      "text": "التسلسلات اللحنية على أنماط سلم موسيقي أخرى، ستجد",
+      "segments": [
+        {
+          "text": "التسلسلات اللحنية على أنماط سلم موسيقي أخرى، ستجد",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-135",
+      "start": 375.36,
+      "duration": 1.679,
+      "text": "بعض التحديات",
+      "segments": [
+        {
+          "text": "بعض التحديات",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-136",
+      "start": 377.039,
+      "duration": 1.521,
+      "text": "فيما يتعلق بوضع الأصابع. هناك بعض",
+      "segments": [
+        {
+          "text": "فيما يتعلق بوضع الأصابع. هناك بعض",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-137",
+      "start": 378.56,
+      "duration": 2,
+      "text": "القرارات التي يجب اتخاذها، وسأحاول أن أقدم",
+      "segments": [
+        {
+          "text": "القرارات التي يجب اتخاذها، وسأحاول أن أقدم",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-138",
+      "start": 380.56,
+      "duration": 2.079,
+      "text": "لك بعض النصائح،",
+      "segments": [
+        {
+          "text": "لك بعض النصائح،",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-139",
+      "start": 382.639,
+      "duration": 2.081,
+      "text": "ولكن جزءًا من الرحلة هو أن تكتشف وضع",
+      "segments": [
+        {
+          "text": "ولكن جزءًا من الرحلة هو أن تكتشف وضع",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-140",
+      "start": 384.72,
+      "duration": 2,
+      "text": "الأصابع",
+      "segments": [
+        {
+          "text": "الأصابع",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-141",
+      "start": 386.72,
+      "duration": 2,
+      "text": "الأنسب لك. لنأخذ تسلسل الأربع نغمات في سطر واحد.",
+      "segments": [
+        {
+          "text": "الأنسب لك. لنأخذ تسلسل الأربع نغمات في سطر واحد.",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-142",
+      "start": 388.72,
+      "duration": 2,
+      "text": "إذا بدأنا بالنمط",
+      "segments": [
+        {
+          "text": "إذا بدأنا بالنمط",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-143",
+      "start": 390.72,
+      "duration": 3.28,
+      "text": "الثاني،",
+      "segments": [
+        {
+          "text": "الثاني،",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-144",
+      "start": 394,
+      "duration": 3.44,
+      "text": "تذكر أنه كان هذا النمط. حتى الآن كل شيء على ما يرام.",
+      "segments": [
+        {
+          "text": "تذكر أنه كان هذا النمط. حتى الآن كل شيء على ما يرام.",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-146",
+      "start": 400.16,
+      "duration": 2.159,
+      "text": "الآن لدينا تلك النوتة. إذا فعلنا ذلك،",
+      "segments": [
+        {
+          "text": "الآن لدينا تلك النوتة. إذا فعلنا ذلك،",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-147",
+      "start": 402.319,
+      "duration": 1.921,
+      "text": "فعلينا محاولة القفز",
+      "segments": [
+        {
+          "text": "فعلينا محاولة القفز",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-148",
+      "start": 404.24,
+      "duration": 1.92,
+      "text": "بالإصبع الثاني، لذلك سيتعين علينا وضعه بشكل",
+      "segments": [
+        {
+          "text": "بالإصبع الثاني، لذلك سيتعين علينا وضعه بشكل",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-149",
+      "start": 406.16,
+      "duration": 4.319,
+      "text": "مسطح. آه،",
+      "segments": [
+        {
+          "text": "مسطح. آه،",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-150",
+      "start": 410.479,
+      "duration": 1.84,
+      "text": "الآن سيتعين علينا",
+      "segments": [
+        {
+          "text": "الآن سيتعين علينا",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-151",
+      "start": 412.319,
+      "duration": 1.681,
+      "text": "إجراء تغيير",
+      "segments": [
+        {
+          "text": "إجراء تغيير",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-152",
+      "start": 414,
+      "duration": 2.72,
+      "text": "بالإصبع الصغير، وهذه ليست فكرة جيدة.",
+      "segments": [
+        {
+          "text": "بالإصبع الصغير، وهذه ليست فكرة جيدة.",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-153",
+      "start": 416.72,
+      "duration": 4,
+      "text": "الأفضل في هذه الحالة",
+      "segments": [
+        {
+          "text": "الأفضل في هذه الحالة",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-154",
+      "start": 420.72,
+      "duration": 2.08,
+      "text": "هو الانتقال إلى الإصبع الأول في أسرع وقت ممكن.",
+      "segments": [
+        {
+          "text": "هو الانتقال إلى الإصبع الأول في أسرع وقت ممكن.",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-156",
+      "start": 426.479,
+      "duration": 1.84,
+      "text": "عندما ننزل النمط في النمط",
+      "segments": [
+        {
+          "text": "عندما ننزل النمط في النمط",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-157",
+      "start": 428.319,
+      "duration": 1.361,
+      "text": "الثاني، لدينا بعض المشاكل الأخرى التي يجب",
+      "segments": [
+        {
+          "text": "الثاني، لدينا بعض المشاكل الأخرى التي يجب",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-158",
+      "start": 429.68,
+      "duration": 7.6,
+      "text": "التفكير فيها.",
+      "segments": [
+        {
+          "text": "التفكير فيها.",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-159",
+      "start": 437.28,
+      "duration": 4.96,
+      "text": "الآن ماذا سيحدث؟",
+      "segments": [
+        {
+          "text": "الآن ماذا سيحدث؟",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-160",
+      "start": 442.24,
+      "duration": 7.519,
+      "text": "علينا الانتقال إلى  أولًا،",
+      "segments": [
+        {
+          "text": "علينا الانتقال إلى  أولًا،",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-161",
+      "start": 449.759,
+      "duration": 2,
+      "text": "كل نمط سيُمثل",
+      "segments": [
+        {
+          "text": "كل نمط سيُمثل",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-162",
+      "start": 451.759,
+      "duration": 1.601,
+      "text": "تحديًا في وضع الأصابع، وسيتعين عليك إيجاد حل له، وهذا",
+      "segments": [
+        {
+          "text": "تحديًا في وضع الأصابع، وسيتعين عليك إيجاد حل له، وهذا",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-164",
+      "start": 454.96,
+      "duration": 1.76,
+      "text": "جزء من متعة الأمر.",
+      "segments": [
+        {
+          "text": "جزء من متعة الأمر.",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-165",
+      "start": 456.72,
+      "duration": 2.08,
+      "text": "أود أيضًا أن أذكر النوتة العليا في السلم الموسيقي. بشكل عام،",
+      "segments": [
+        {
+          "text": "أود أيضًا أن أذكر النوتة العليا في السلم الموسيقي. بشكل عام،",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-166",
+      "start": 458.8,
+      "duration": 1.839,
+      "text": "عند",
+      "segments": [
+        {
+          "text": "عند",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-167",
+      "start": 460.639,
+      "duration": 1.761,
+      "text": "عزف السلالم الموسيقية صعودًا وهبوطًا، أنصحك",
+      "segments": [
+        {
+          "text": "عزف السلالم الموسيقية صعودًا وهبوطًا، أنصحك",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-168",
+      "start": 462.4,
+      "duration": 2.56,
+      "text": "بعزف النوتة العليا مرة واحدة فقط. فعند",
+      "segments": [
+        {
+          "text": "بعزف النوتة العليا مرة واحدة فقط. فعند",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-169",
+      "start": 464.96,
+      "duration": 2.66,
+      "text": "الانتقال",
+      "segments": [
+        {
+          "text": "الانتقال",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-170",
+      "start": 467.62,
+      "duration": 1.579,
+      "text": "[موسيقى]، تعزف النوتة العليا",
+      "segments": [
+        {
+          "text": "[موسيقى]، تعزف النوتة العليا",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-172",
+      "start": 470.8,
+      "duration": 2,
+      "text": "مرة واحدة ثم تهبط مباشرة. أما عند",
+      "segments": [
+        {
+          "text": "مرة واحدة ثم تهبط مباشرة. أما عند",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-173",
+      "start": 472.8,
+      "duration": 1.839,
+      "text": "عزف المقاطع اللحنية،",
+      "segments": [
+        {
+          "text": "عزف المقاطع اللحنية،",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-174",
+      "start": 474.639,
+      "duration": 1.761,
+      "text": "فغالبًا ما سترغب في عزف النوتة العليا",
+      "segments": [
+        {
+          "text": "فغالبًا ما سترغب في عزف النوتة العليا",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-175",
+      "start": 476.4,
+      "duration": 5.87,
+      "text": "مرتين.",
+      "segments": [
+        {
+          "text": "مرتين.",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-176",
+      "start": 482.27,
+      "duration": 5.09,
+      "text": "[موسيقى] بشكل عام، سيساعدك",
+      "segments": [
+        {
+          "text": "[موسيقى] بشكل عام، سيساعدك",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-177",
+      "start": 487.36,
+      "duration": 2.16,
+      "text": "عزف النوتة العليا",
+      "segments": [
+        {
+          "text": "عزف النوتة العليا",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-178",
+      "start": 489.52,
+      "duration": 1.679,
+      "text": "مرتين على البقاء متزامنًا",
+      "segments": [
+        {
+          "text": "مرتين على البقاء متزامنًا",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-179",
+      "start": 491.199,
+      "duration": 1.68,
+      "text": "مع المترونوم، خاصةً في نمط",
+      "segments": [
+        {
+          "text": "مع المترونوم، خاصةً في نمط",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-180",
+      "start": 492.879,
+      "duration": 2.16,
+      "text": "كهذا، وهو مكون من أربع نوتات. غالبًا ما ستتدرب عليه",
+      "segments": [
+        {
+          "text": "كهذا، وهو مكون من أربع نوتات. غالبًا ما ستتدرب عليه",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-182",
+      "start": 496.319,
+      "duration": 1.921,
+      "text": "كنوتات ثُمنية أو سداسية عشرية.",
+      "segments": [
+        {
+          "text": "كنوتات ثُمنية أو سداسية عشرية.",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-183",
+      "start": 498.24,
+      "duration": 2,
+      "text": "النوتات السداسية عشرية هي أربع نوتات لكل نقرة من",
+      "segments": [
+        {
+          "text": "النوتات السداسية عشرية هي أربع نوتات لكل نقرة من",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-184",
+      "start": 500.24,
+      "duration": 1.92,
+      "text": "المترونوم. لذا، إذا عزفت",
+      "segments": [
+        {
+          "text": "المترونوم. لذا، إذا عزفت",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-185",
+      "start": 502.16,
+      "duration": 1.52,
+      "text": "النوتة العليا مرة واحدة فقط ثم",
+      "segments": [
+        {
+          "text": "النوتة العليا مرة واحدة فقط ثم",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-186",
+      "start": 503.68,
+      "duration": 2.48,
+      "text": "هبطت مباشرة، فلن تأتي النقرة في",
+      "segments": [
+        {
+          "text": "هبطت مباشرة، فلن تأتي النقرة في",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-187",
+      "start": 506.16,
+      "duration": 2.479,
+      "text": "بداية التسلسل في كل مرة،",
+      "segments": [
+        {
+          "text": "بداية التسلسل في كل مرة،",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-188",
+      "start": 508.639,
+      "duration": 2.081,
+      "text": "مما قد يبدو غير مريح بعض الشيء. هناك",
+      "segments": [
+        {
+          "text": "مما قد يبدو غير مريح بعض الشيء. هناك",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-189",
+      "start": 510.72,
+      "duration": 1.36,
+      "text": "نمط رائع آخر أود منك تجربته",
+      "segments": [
+        {
+          "text": "نمط رائع آخر أود منك تجربته",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-190",
+      "start": 512.08,
+      "duration": 2.639,
+      "text": "وهو ثلاث نوتات في سطر واحد،",
+      "segments": [
+        {
+          "text": "وهو ثلاث نوتات في سطر واحد،",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-191",
+      "start": 514.719,
+      "duration": 2.32,
+      "text": "مثل أربع نوتات في سطر واحد، وثلاث نوتات في سطر واحد.  يحتوي الخط على",
+      "segments": [
+        {
+          "text": "مثل أربع نوتات في سطر واحد، وثلاث نوتات في سطر واحد.  يحتوي الخط على",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-192",
+      "start": 517.039,
+      "duration": 2.401,
+      "text": "ثلاث نغمات صاعدة أو هابطة من",
+      "segments": [
+        {
+          "text": "ثلاث نغمات صاعدة أو هابطة من",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-193",
+      "start": 519.44,
+      "duration": 2.24,
+      "text": "كل درجة من درجات السلم الموسيقي، لذا دعونا نلقي",
+      "segments": [
+        {
+          "text": "كل درجة من درجات السلم الموسيقي، لذا دعونا نلقي",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-194",
+      "start": 521.68,
+      "duration": 2.32,
+      "text": "نظرة سريعة عليه مرة أخرى.",
+      "segments": [
+        {
+          "text": "نظرة سريعة عليه مرة أخرى.",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-195",
+      "start": 524,
+      "duration": 1.839,
+      "text": "هذا هو نمط السلم الموسيقي الأول،",
+      "segments": [
+        {
+          "text": "هذا هو نمط السلم الموسيقي الأول،",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-196",
+      "start": 525.839,
+      "duration": 1.841,
+      "text": "إذا قمنا بترقيمه من واحد إلى ثلاثة،",
+      "segments": [
+        {
+          "text": "إذا قمنا بترقيمه من واحد إلى ثلاثة،",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-199",
+      "start": 533.04,
+      "duration": 2.72,
+      "text": "بدءًا من الدرجة الثانية، ثم الدرجة",
+      "segments": [
+        {
+          "text": "بدءًا من الدرجة الثانية، ثم الدرجة",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-200",
+      "start": 535.76,
+      "duration": 1.84,
+      "text": "الثالثة، ثم الدرجة",
+      "segments": [
+        {
+          "text": "الثالثة، ثم الدرجة",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-201",
+      "start": 537.6,
+      "duration": 2.16,
+      "text": "الرابعة.",
+      "segments": [
+        {
+          "text": "الرابعة.",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-202",
+      "start": 539.76,
+      "duration": 1.44,
+      "text": "الآن، هناك طريقة سهلة للتفكير في هذا: أنت",
+      "segments": [
+        {
+          "text": "الآن، هناك طريقة سهلة للتفكير في هذا: أنت",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-203",
+      "start": 541.2,
+      "duration": 1.759,
+      "text": "تصعد ثلاث نغمات، ثم تنزل نغمة",
+      "segments": [
+        {
+          "text": "تصعد ثلاث نغمات، ثم تنزل نغمة",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-204",
+      "start": 542.959,
+      "duration": 1.921,
+      "text": "واحدة، ثم تصعد ثلاث نغمات، ثم تعود نغمة واحدة، ثم تعود نغمة واحدة، ثم تعود نغمة واحدة، ثم",
+      "segments": [
+        {
+          "text": "واحدة، ثم تصعد ثلاث نغمات، ثم تعود نغمة واحدة، ثم تعود نغمة واحدة، ثم تعود نغمة واحدة، ثم",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-209",
+      "start": 560.959,
+      "duration": 3.191,
+      "text": "تعود نغمة واحدة، وهكذا. [موسيقى]",
+      "segments": [
+        {
+          "text": "تعود نغمة واحدة، وهكذا. [موسيقى]",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-211",
+      "start": 578.84,
+      "duration": 1.72,
+      "text": "[موسيقى]، ثم تنزل نغمة واحدة، وهكذا. [موسيقى] [موسيقى]،",
+      "segments": [
+        {
+          "text": "[موسيقى]، ثم تنزل نغمة واحدة، وهكذا. [موسيقى] [موسيقى]،",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-212",
+      "start": 580.56,
+      "duration": 1.68,
+      "text": "وكالعادة، أنصحك بأن تتقن",
+      "segments": [
+        {
+          "text": "وكالعادة، أنصحك بأن تتقن",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-213",
+      "start": 582.24,
+      "duration": 1.84,
+      "text": "النمط",
+      "segments": [
+        {
+          "text": "النمط",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-214",
+      "start": 584.08,
+      "duration": 1.759,
+      "text": "الأول جيدًا قبل البدء في تطبيقه على",
+      "segments": [
+        {
+          "text": "الأول جيدًا قبل البدء في تطبيقه على",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-215",
+      "start": 585.839,
+      "duration": 1.361,
+      "text": "الأنماط الأخرى، لأنك ستواجه معضلات في وضع الأصابع عليك حلها.",
+      "segments": [
+        {
+          "text": "الأنماط الأخرى، لأنك ستواجه معضلات في وضع الأصابع عليك حلها.",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-217",
+      "start": 589.04,
+      "duration": 1.76,
+      "text": "أعتقد أن هناك",
+      "segments": [
+        {
+          "text": "أعتقد أن هناك",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-218",
+      "start": 590.8,
+      "duration": 1.76,
+      "text": "قيمة كبيرة في التمرس على نمط واحد",
+      "segments": [
+        {
+          "text": "قيمة كبيرة في التمرس على نمط واحد",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-219",
+      "start": 592.56,
+      "duration": 1.839,
+      "text": "قبل تغييره.",
+      "segments": [
+        {
+          "text": "قبل تغييره.",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-220",
+      "start": 594.399,
+      "duration": 1.521,
+      "text": "هناك شيء ما في",
+      "segments": [
+        {
+          "text": "هناك شيء ما في",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-221",
+      "start": 595.92,
+      "duration": 1.919,
+      "text": "آلياته يجعل من",
+      "segments": [
+        {
+          "text": "آلياته يجعل من",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-222",
+      "start": 597.839,
+      "duration": 2.081,
+      "text": "السهل إتقانه في نمط واحد قبل البدء في تغييره. من",
+      "segments": [
+        {
+          "text": "السهل إتقانه في نمط واحد قبل البدء في تغييره. من",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-224",
+      "start": 601.839,
+      "duration": 1.601,
+      "text": "الأشياء الرائعة في",
+      "segments": [
+        {
+          "text": "الأشياء الرائعة في",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-225",
+      "start": 603.44,
+      "duration": 1.839,
+      "text": "التسلسلات اللحنية أنها تنمو تدريجيًا، ستجد",
+      "segments": [
+        {
+          "text": "التسلسلات اللحنية أنها تنمو تدريجيًا، ستجد",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-226",
+      "start": 605.279,
+      "duration": 1.521,
+      "text": "أنك على الأرجح تعمل",
+      "segments": [
+        {
+          "text": "أنك على الأرجح تعمل",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-227",
+      "start": 606.8,
+      "duration": 1.68,
+      "text": "على  تسلسلات لحنية مختلفة، طالما",
+      "segments": [
+        {
+          "text": "على  تسلسلات لحنية مختلفة، طالما",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-228",
+      "start": 608.48,
+      "duration": 2,
+      "text": "أنك تعزف على الجيتار، إنها طريقة ممتعة حقًا",
+      "segments": [
+        {
+          "text": "أنك تعزف على الجيتار، إنها طريقة ممتعة حقًا",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-229",
+      "start": 610.48,
+      "duration": 1.76,
+      "text": "لاستكشاف السلالم الموسيقية وتدريب",
+      "segments": [
+        {
+          "text": "لاستكشاف السلالم الموسيقية وتدريب",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-230",
+      "start": 612.24,
+      "duration": 1.279,
+      "text": "أصابعك على أداء أشياء مختلفة. هناك",
+      "segments": [
+        {
+          "text": "أصابعك على أداء أشياء مختلفة. هناك",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-231",
+      "start": 613.519,
+      "duration": 1.921,
+      "text": "الكثير من الأشياء الجيدة حول هذا الموضوع.",
+      "segments": [
+        {
+          "text": "الكثير من الأشياء الجيدة حول هذا الموضوع.",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-232",
+      "start": 615.44,
+      "duration": 1.28,
+      "text": "هناك نمط آخر أريد أن",
+      "segments": [
+        {
+          "text": "هناك نمط آخر أريد أن",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-233",
+      "start": 616.72,
+      "duration": 1.6,
+      "text": "أقدمه لك كفكرة،",
+      "segments": [
+        {
+          "text": "أقدمه لك كفكرة،",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-234",
+      "start": 618.32,
+      "duration": 1.36,
+      "text": "شيء قد ترغب في استكشافه",
+      "segments": [
+        {
+          "text": "شيء قد ترغب في استكشافه",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-235",
+      "start": 619.68,
+      "duration": 1.839,
+      "text": "إذا كنت ترغب في البدء في عمل",
+      "segments": [
+        {
+          "text": "إذا كنت ترغب في البدء في عمل",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-236",
+      "start": 621.519,
+      "duration": 1.521,
+      "text": "أنماط لحنية بمفردك أيضًا. وهذا النمط",
+      "segments": [
+        {
+          "text": "أنماط لحنية بمفردك أيضًا. وهذا النمط",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-237",
+      "start": 623.04,
+      "duration": 2.96,
+      "text": "أسميه \"الرباعية المعكوسة\"، حيث",
+      "segments": [
+        {
+          "text": "أسميه \"الرباعية المعكوسة\"، حيث",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-238",
+      "start": 626,
+      "duration": 2.64,
+      "text": "نأخذ كل جزء",
+      "segments": [
+        {
+          "text": "نأخذ كل جزء",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-239",
+      "start": 628.64,
+      "duration": 1.92,
+      "text": "من نمط \"الرباعية العادية\"",
+      "segments": [
+        {
+          "text": "من نمط \"الرباعية العادية\"",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-240",
+      "start": 630.56,
+      "duration": 2.56,
+      "text": "ونعكسه. فبدلاً من أن يكون 1، 2، 3، 4، سنقول 4، 3، 2، 1.",
+      "segments": [
+        {
+          "text": "ونعكسه. فبدلاً من أن يكون 1، 2، 3، 4، سنقول 4، 3، 2، 1.",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-242",
+      "start": 634.959,
+      "duration": 2.241,
+      "text": "الجزء الثاني كان في",
+      "segments": [
+        {
+          "text": "الجزء الثاني كان في",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-243",
+      "start": 637.2,
+      "duration": 2.48,
+      "text": "الأصل 2، 3، 4، 5، والآن",
+      "segments": [
+        {
+          "text": "الأصل 2، 3، 4، 5، والآن",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-244",
+      "start": 639.68,
+      "duration": 3.279,
+      "text": "سيصبح 5، 4، 3، 2. لذا، تم",
+      "segments": [
+        {
+          "text": "سيصبح 5، 4، 3، 2. لذا، تم",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-246",
+      "start": 644.48,
+      "duration": 3.44,
+      "text": "عكس كل قسم. تبدو الرباعية المعكوسة هكذا.",
+      "segments": [
+        {
+          "text": "عكس كل قسم. تبدو الرباعية المعكوسة هكذا.",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-247",
+      "start": 647.92,
+      "duration": 1.919,
+      "text": "أعتقد أنها",
+      "segments": [
+        {
+          "text": "أعتقد أنها",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-248",
+      "start": 649.839,
+      "duration": 2.24,
+      "text": "واحدة من مفضلاتي. الآن",
+      "segments": [
+        {
+          "text": "واحدة من مفضلاتي. الآن",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-249",
+      "start": 652.079,
+      "duration": 4.481,
+      "text": "سنبدأ من الدرجة الرابعة من السلم الموسيقي",
+      "segments": [
+        {
+          "text": "سنبدأ من الدرجة الرابعة من السلم الموسيقي",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-250",
+      "start": 656.56,
+      "duration": 1.6,
+      "text": "وننزل أربع درجات، ثم سنبدأ من",
+      "segments": [
+        {
+          "text": "وننزل أربع درجات، ثم سنبدأ من",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-251",
+      "start": 658.16,
+      "duration": 2.64,
+      "text": "الدرجة الخامسة",
+      "segments": [
+        {
+          "text": "الدرجة الخامسة",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-252",
+      "start": 660.8,
+      "duration": 3.52,
+      "text": "وننزل إلى الدرجة السادسة، السابعة، الثامنة، الخامسة،",
+      "segments": [
+        {
+          "text": "وننزل إلى الدرجة السادسة، السابعة، الثامنة، الخامسة،",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-256",
+      "start": 671.04,
+      "duration": 9.23,
+      "text": "العاشرة، وهكذا.",
+      "segments": [
+        {
+          "text": "العاشرة، وهكذا.",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-257",
+      "start": 680.27,
+      "duration": 5.01,
+      "text": "[موسيقى]",
+      "segments": [
+        {
+          "text": "[موسيقى]",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-258",
+      "start": 685.28,
+      "duration": 9.92,
+      "text": "[ضحك]",
+      "segments": [
+        {
+          "text": "[ضحك]",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-259",
+      "start": 695.2,
+      "duration": 2.079,
+      "text": "بالطبع، عندما ننزل السلم الموسيقي، فإننا",
+      "segments": [
+        {
+          "text": "بالطبع، عندما ننزل السلم الموسيقي، فإننا",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-260",
+      "start": 697.279,
+      "duration": 3.041,
+      "text": "نصعد أربع درجات.  أثناء",
+      "segments": [
+        {
+          "text": "نصعد أربع درجات.  أثناء",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-261",
+      "start": 700.32,
+      "duration": 19.04,
+      "text": "نزولنا على السلم الموسيقي، لا تتردد في",
+      "segments": [
+        {
+          "text": "نزولنا على السلم الموسيقي، لا تتردد في",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-263",
+      "start": 731.519,
+      "duration": 2.161,
+      "text": "تجربة تسلسلاتك الخاصة،",
+      "segments": [
+        {
+          "text": "تجربة تسلسلاتك الخاصة،",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-264",
+      "start": 733.68,
+      "duration": 2.08,
+      "text": "لكنني أنصحك بالبدء بهذه التسلسلات",
+      "segments": [
+        {
+          "text": "لكنني أنصحك بالبدء بهذه التسلسلات",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-265",
+      "start": 735.76,
+      "duration": 2,
+      "text": "تحديدًا. تذكر أننا",
+      "segments": [
+        {
+          "text": "تحديدًا. تذكر أننا",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-266",
+      "start": 737.76,
+      "duration": 2.8,
+      "text": "تدربنا أيضًا على العزف على الثوالث،",
+      "segments": [
+        {
+          "text": "تدربنا أيضًا على العزف على الثوالث،",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-267",
+      "start": 740.56,
+      "duration": 1.519,
+      "text": "لذا سيكون هذا بمثابة تمرين إحماء رائع للسلم الموسيقي. ابدأ",
+      "segments": [
+        {
+          "text": "لذا سيكون هذا بمثابة تمرين إحماء رائع للسلم الموسيقي. ابدأ",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-269",
+      "start": 744.079,
+      "duration": 2.081,
+      "text": "بعزف السلم صعودًا وهبوطًا، ثم عزفه",
+      "segments": [
+        {
+          "text": "بعزف السلم صعودًا وهبوطًا، ثم عزفه",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-270",
+      "start": 746.16,
+      "duration": 3.119,
+      "text": "على الثوالث، ثم عزف أربعة نغمات متتالية، ثم ثلاثة نغمات متتالية، ثم عكس عزف",
+      "segments": [
+        {
+          "text": "على الثوالث، ثم عزف أربعة نغمات متتالية، ثم ثلاثة نغمات متتالية، ثم عكس عزف",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-271",
+      "start": 749.279,
+      "duration": 2.401,
+      "text": "أربعة نغمات متتالية.",
+      "segments": [
+        {
+          "text": "أربعة نغمات متتالية.",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-272",
+      "start": 751.68,
+      "duration": 1.599,
+      "text": "إذا كنت ترغب في",
+      "segments": [
+        {
+          "text": "إذا كنت ترغب في",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-273",
+      "start": 753.279,
+      "duration": 2.721,
+      "text": "تحدٍّ بسيط، فلا تركز على السرعة، بل على",
+      "segments": [
+        {
+          "text": "تحدٍّ بسيط، فلا تركز على السرعة، بل على",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-274",
+      "start": 756,
+      "duration": 2.48,
+      "text": "الدقة. هذا يُدرّب أصابعك على",
+      "segments": [
+        {
+          "text": "الدقة. هذا يُدرّب أصابعك على",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-275",
+      "start": 758.48,
+      "duration": 2.24,
+      "text": "القيام بأشياء جديدة. ستجد على الأرجح",
+      "segments": [
+        {
+          "text": "القيام بأشياء جديدة. ستجد على الأرجح",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-276",
+      "start": 760.72,
+      "duration": 2,
+      "text": "عند الارتجال أن",
+      "segments": [
+        {
+          "text": "عند الارتجال أن",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-277",
+      "start": 762.72,
+      "duration": 1.76,
+      "text": "أصابعك ستبدأ بشكل طبيعي في أداء",
+      "segments": [
+        {
+          "text": "أصابعك ستبدأ بشكل طبيعي في أداء",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-278",
+      "start": 764.48,
+      "duration": 2.32,
+      "text": "هذه الأنماط. ليس من الضروري أن يكون عزفًا متواصلًا طويلًا،",
+      "segments": [
+        {
+          "text": "هذه الأنماط. ليس من الضروري أن يكون عزفًا متواصلًا طويلًا،",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-279",
+      "start": 766.8,
+      "duration": 1.76,
+      "text": "لأنه",
+      "segments": [
+        {
+          "text": "لأنه",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-280",
+      "start": 768.56,
+      "duration": 2.399,
+      "text": "حينها سيبدو كتمرين على السلم الموسيقي.",
+      "segments": [
+        {
+          "text": "حينها سيبدو كتمرين على السلم الموسيقي.",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-281",
+      "start": 770.959,
+      "duration": 1.841,
+      "text": "ما تبحث عنه هو القدرة على",
+      "segments": [
+        {
+          "text": "ما تبحث عنه هو القدرة على",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-282",
+      "start": 772.8,
+      "duration": 1.839,
+      "text": "تدريب أصابعك على استخدام",
+      "segments": [
+        {
+          "text": "تدريب أصابعك على استخدام",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-283",
+      "start": 774.639,
+      "duration": 1.601,
+      "text": "أجزاء صغيرة منه قد تظهر أثناء",
+      "segments": [
+        {
+          "text": "أجزاء صغيرة منه قد تظهر أثناء",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-284",
+      "start": 776.24,
+      "duration": 1.76,
+      "text": "الارتجال، وتعليمها",
+      "segments": [
+        {
+          "text": "الارتجال، وتعليمها",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-285",
+      "start": 778,
+      "duration": 2.24,
+      "text": "الخروج عن مجرد عزف السلم صعودًا وهبوطًا بشكل مستقيم.",
+      "segments": [
+        {
+          "text": "الخروج عن مجرد عزف السلم صعودًا وهبوطًا بشكل مستقيم.",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-286",
+      "start": 780.24,
+      "duration": 1.92,
+      "text": "عندما تقوم بهذه",
+      "segments": [
+        {
+          "text": "عندما تقوم بهذه",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-287",
+      "start": 782.16,
+      "duration": 2,
+      "text": "الأشياء، فإنك",
+      "segments": [
+        {
+          "text": "الأشياء، فإنك",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-288",
+      "start": 784.16,
+      "duration": 1.679,
+      "text": "تفتح أصابعك لأفكار جديدة،",
+      "segments": [
+        {
+          "text": "تفتح أصابعك لأفكار جديدة،",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-289",
+      "start": 785.839,
+      "duration": 2.641,
+      "text": "وتُعلّم خيالك الموسيقي",
+      "segments": [
+        {
+          "text": "وتُعلّم خيالك الموسيقي",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-290",
+      "start": 788.48,
+      "duration": 2.159,
+      "text": "أفكارًا أو أصواتًا جديدة قد تبدأ في",
+      "segments": [
+        {
+          "text": "أفكارًا أو أصواتًا جديدة قد تبدأ في",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-291",
+      "start": 790.639,
+      "duration": 2.241,
+      "text": "سماعها عند الارتجال.  من المؤكد أن",
+      "segments": [
+        {
+          "text": "سماعها عند الارتجال.  من المؤكد أن",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-292",
+      "start": 792.88,
+      "duration": 2.48,
+      "text": "وجود",
+      "segments": [
+        {
+          "text": "وجود",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-293",
+      "start": 795.36,
+      "duration": 1.68,
+      "text": "النوتة الموسيقية أمامك أسهل بكثير، لذا لا",
+      "segments": [
+        {
+          "text": "النوتة الموسيقية أمامك أسهل بكثير، لذا لا",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-294",
+      "start": 797.04,
+      "duration": 1.599,
+      "text": "تنسَ تحميل ملف PDF من",
+      "segments": [
+        {
+          "text": "تنسَ تحميل ملف PDF من",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-295",
+      "start": 798.639,
+      "duration": 2,
+      "text": "الموقع الإلكتروني، فقط اضغط على أيقونة التحميل. كل",
+      "segments": [
+        {
+          "text": "الموقع الإلكتروني، فقط اضغط على أيقونة التحميل. كل",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-296",
+      "start": 800.639,
+      "duration": 1.76,
+      "text": "هذه الموارد مجانية للمستخدمين المسجلين.",
+      "segments": [
+        {
+          "text": "هذه الموارد مجانية للمستخدمين المسجلين.",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-297",
+      "start": 802.399,
+      "duration": 1.841,
+      "text": "أتمنى حقًا أن تستفيدوا منها، خاصةً",
+      "segments": [
+        {
+          "text": "أتمنى حقًا أن تستفيدوا منها، خاصةً",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-298",
+      "start": 804.24,
+      "duration": 1.2,
+      "text": "إذا",
+      "segments": [
+        {
+          "text": "إذا",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-299",
+      "start": 805.44,
+      "duration": 1.6,
+      "text": "كنتم تتابعونها بأعينكم،",
+      "segments": [
+        {
+          "text": "كنتم تتابعونها بأعينكم،",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-300",
+      "start": 807.04,
+      "duration": 1.84,
+      "text": "أعتقد أن ذلك سيكون مفيدًا للغاية. أتطلع",
+      "segments": [
+        {
+          "text": "أعتقد أن ذلك سيكون مفيدًا للغاية. أتطلع",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-301",
+      "start": 808.88,
+      "duration": 2.24,
+      "text": "لرؤيتكم في الجزء الثاني من الوحدة",
+      "segments": [
+        {
+          "text": "لرؤيتكم في الجزء الثاني من الوحدة",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-302",
+      "start": 811.12,
+      "duration": 1.36,
+      "text": "7، حيث سنتناول",
+      "segments": [
+        {
+          "text": "7، حيث سنتناول",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-303",
+      "start": 812.48,
+      "duration": 2.159,
+      "text": "استخدام ثني الأوتار في السلم الموسيقي الكبير، وهو ليس حكرًا على موسيقى",
+      "segments": [
+        {
+          "text": "استخدام ثني الأوتار في السلم الموسيقي الكبير، وهو ليس حكرًا على موسيقى",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-304",
+      "start": 814.639,
+      "duration": 2,
+      "text": "البلوز. اعتنوا",
+      "segments": [
+        {
+          "text": "البلوز. اعتنوا",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-305",
+      "start": 816.639,
+      "duration": 3.281,
+      "text": "بأنفسكم، إلى اللقاء.",
+      "segments": [
+        {
+          "text": "بأنفسكم، إلى اللقاء.",
+          "offset": 0
+        }
+      ]
+    }
+  ]
+}

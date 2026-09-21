@@ -52,6 +52,7 @@ import { useAppDispatch } from '../store/hooks';
 import { transition } from '../store/stateMachineSlice';
 import { logInfo } from '../utils/logBuffer';
 import { getCachedJson3ForVideoAndLanguage, hasCachedJson3ForVideoAndLanguage } from '../../test/fixtures/defaultSubtitles';
+import { CueStageView, LanguageRailView, TranscriptDeckView } from '../viewer';
 
 interface SubtitlesTeacherPanelProps {
   cues: CaptionCue[];
@@ -255,6 +256,7 @@ export const SubtitlesTeacherPanel: React.FC<SubtitlesTeacherPanelProps> = ({
   });
 
   const [ttsDebugPayload, setTtsDebugPayload] = useState<TTSDebugPayload | null>(null);
+  const [pureViewMode, setPureViewMode] = useState<'deck' | 'stage'>('deck');
 
   useEffect(() => {
     const unsubscribe = subscribeTTSDebug((payload) => {
@@ -927,6 +929,21 @@ export const SubtitlesTeacherPanel: React.FC<SubtitlesTeacherPanelProps> = ({
             </select>
           </div>
 
+          <div className="hidden md:block max-w-[28rem]">
+            <LanguageRailView
+              label="Quick"
+              languages={SUPPORTED_TARGET_LANGUAGES.map((language) => ({
+                code: language.code,
+                name: language.name.split(' ')[0],
+                direction: isRtl(language.code, language.name) ? 'rtl' : 'ltr',
+                enabled: true,
+                color: language.color,
+              }))}
+              selectedCode={activeTargetLang}
+              onSelect={handleSelectActiveTargetLang}
+            />
+          </div>
+
           {/* Target Languages Chips preview */}
           <div className="hidden sm:flex items-center gap-1.5 mr-1">
             {enabledTargetLangs.map((lang) => (
@@ -1037,6 +1054,56 @@ export const SubtitlesTeacherPanel: React.FC<SubtitlesTeacherPanelProps> = ({
         ) : (
           /* Step 3, 5, 6: Subtitles ARE cached/loaded -> Full Learning Session Workspace */
           <div className="flex flex-col gap-4">
+            <div className="rounded-xl border border-neutral-800 bg-neutral-950/80 overflow-hidden">
+              <div className="flex flex-wrap items-center justify-between gap-2 border-b border-neutral-800 px-3 py-2">
+                <div className="flex items-center gap-2">
+                  <span className="text-xs font-semibold text-neutral-200">Pure subtitle view</span>
+                  <span className="text-[11px] text-neutral-500">{effectiveCues.length} segments</span>
+                </div>
+                <div className="flex items-center gap-1 rounded-lg border border-neutral-800 bg-neutral-900 p-1">
+                  <button type="button" aria-pressed={pureViewMode === 'deck'} onClick={() => setPureViewMode('deck')} className={`rounded-md px-2.5 py-1 text-xs ${pureViewMode === 'deck' ? 'bg-indigo-500/20 text-indigo-200' : 'text-neutral-500 hover:text-neutral-200'}`}>Deck</button>
+                  <button type="button" aria-pressed={pureViewMode === 'stage'} onClick={() => setPureViewMode('stage')} className={`rounded-md px-2.5 py-1 text-xs ${pureViewMode === 'stage' ? 'bg-indigo-500/20 text-indigo-200' : 'text-neutral-500 hover:text-neutral-200'}`}>Stage</button>
+                </div>
+              </div>
+              <div className="h-72">
+                {pureViewMode === 'deck' ? (
+                  <TranscriptDeckView
+                    cues={effectiveCues}
+                    activeCueId={currentCue?.id}
+                    showTranslation
+                    showTimestamps
+                    translatedCues={Object.fromEntries(
+                      effectiveCues.map((cue) => [cue.id, getCueTranslation(cue, activeTargetLang)])
+                    )}
+                    onSelectCue={(cue) => {
+                      const index = effectiveCues.findIndex((item) => item.id === cue.id);
+                      if (index >= 0) jumpToCue(index);
+                      playerRef.current?.seekTo(cue.start);
+                      playerRef.current?.play();
+                      onJumpToCue?.(cue, index);
+                    }}
+                  />
+                ) : (
+                  <CueStageView
+                    cues={effectiveCues}
+                    activeCueId={currentCue?.id}
+                    translatedCues={Object.fromEntries(
+                      effectiveCues.map((cue) => [cue.id, getCueTranslation(cue, activeTargetLang)])
+                    )}
+                    showTranslation
+                    showTimestamps
+                    onSelectCue={(cue) => {
+                      const index = effectiveCues.findIndex((item) => item.id === cue.id);
+                      if (index >= 0) jumpToCue(index);
+                      playerRef.current?.seekTo(cue.start);
+                      playerRef.current?.play();
+                      onJumpToCue?.(cue, index);
+                    }}
+                  />
+                )}
+              </div>
+            </div>
+
             {/* Master Session Toolbar */}
             <div className="flex flex-wrap items-center justify-between gap-3 p-3.5 rounded-xl bg-neutral-950/70 border border-neutral-800/80">
               {/* Play / Pause / Skip controls */}

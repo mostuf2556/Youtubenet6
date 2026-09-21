@@ -9,6 +9,11 @@ const cases = [
     extension: '.json',
     expectedFormat: 'json3' as const,
   },
+  {
+    directory: path.join(fixtureRoot, 'test/fixtures/L2Ryrr6txwA_normalized'),
+    extension: '.json',
+    expectedFormat: 'json3' as const,
+  },
 ];
 
 let checked = 0;
