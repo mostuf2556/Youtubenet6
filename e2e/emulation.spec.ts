@@ -157,7 +157,7 @@ test.describe('Step 4.3: Target Language Switch API Suite', () => {
    * - Response assertion: first subtitle record is different from source
    */
   test('Step 4.3: Target Language Switch with tlang Replacement - copies request settings, falls back to backend, provides https response results, asserts identical count and different first subtitle', async ({ request }) => {
-    const originalRequestUrl = 'https://www.youtube.com/api/timedtext?v=FcRzAdI8R9U&caps=asr&lang=ru&potc=1&fmt=srt';
+    const originalRequestUrl = 'https://www.youtube.com/api/timedtext?v=L2Ryrr6txwA&caps=asr&lang=en&potc=1&fmt=json3';
     const originalRequestSettings = {
       url: originalRequestUrl,
       method: 'GET',
@@ -183,8 +183,8 @@ test.describe('Step 4.3: Target Language Switch API Suite', () => {
       data: {
         observedUrl: originalRequestUrl,
         targetLang: 'es',
-        format: 'srt',
-        videoId: 'FcRzAdI8R9U',
+        format: 'json3',
+        videoId: 'L2Ryrr6txwA',
         requestSettings: originalRequestSettings,
         requestHeaders: originalRequestSettings.headers,
         originalRequest: originalRequestSettings,
@@ -222,8 +222,8 @@ test.describe('Step 4.3: Target Language Switch API Suite', () => {
       data: {
         observedUrl: originalRequestUrl,
         targetLang: 'he',
-        format: 'srt',
-        videoId: 'FcRzAdI8R9U',
+        format: 'json3',
+        videoId: 'L2Ryrr6txwA',
         requestSettings: originalRequestSettings,
         requestHeaders: originalRequestSettings.headers,
         originalRequest: originalRequestSettings,

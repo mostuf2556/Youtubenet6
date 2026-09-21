@@ -5,11 +5,6 @@ import { parseRawCaptionData } from '../src/utils/captionParser';
 const fixtureRoot = process.cwd();
 const cases = [
   {
-    directory: path.join(fixtureRoot, 'test/fixtures/FcRzAdI8R9U'),
-    extension: '.srt',
-    expectedFormat: 'srt' as const,
-  },
-  {
     directory: path.join(fixtureRoot, 'test/fixtures/L2Ryrr6txwA'),
     extension: '.json',
     expectedFormat: 'json3' as const,
@@ -44,4 +39,4 @@ for (const testCase of cases) {
   }
 }
 
-console.log(`Verified ${checked} subtitle fixtures: SRT and JSON3 are supported.`);
+console.log(`Verified ${checked} JSON3 subtitle fixtures.`);

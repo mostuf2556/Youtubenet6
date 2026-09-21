@@ -47,7 +47,7 @@ export function getWorkingSubtitleRequest(videoId?: string): TimedTextOriginalRe
       headers: { ...(currentWorkingSubtitleRequest.headers || {}) },
     };
   }
-  const vId = videoId || 'FcRzAdI8R9U';
+  const vId = videoId || 'L2Ryrr6txwA';
   const url = getObservedTimedTextUrl(vId) || SAMPLE_AUTHENTIC_RUSSIAN_URL;
   return {
     url,
@@ -63,15 +63,15 @@ const nativeTrackCache = new Map<string, CaptionCue[]>();
 // Tracks source type per target language: key = `${videoId || 'current'}:${langCode}`
 const languageSourceMap = new Map<string, TranslationSource>();
 
-let hasPrepopulatedSrt = false;
+let hasPrepopulatedJson3 = false;
 /**
- * Pre-populates memoryCache with real authentic translations from cached SRT tracks for FcRzAdI8R9U.
+ * Pre-populates memoryCache with deterministic translations from JSON3 tracks.
  */
-export function ensureSrtTranslationsPrepopulated(): void {
-  if (hasPrepopulatedSrt) return;
-  hasPrepopulatedSrt = true;
+export function ensureJson3TranslationsPrepopulated(): void {
+  if (hasPrepopulatedJson3) return;
+  hasPrepopulatedJson3 = true;
   try {
-    const videoIds = ['n9qwEOsqsoo', 'FcRzAdI8R9U', 'L2Ryrr6txwA'];
+    const videoIds = ['L2Ryrr6txwA', 'EILFkSGNkdA'];
     const targetLangs = ['en', 'es', 'it', 'he', 'ar', 'ru'];
 
     for (const vId of videoIds) {
@@ -109,12 +109,12 @@ export function ensureSrtTranslationsPrepopulated(): void {
       }
     }
   } catch (err) {
-    console.warn('[Translation] ensureSrtTranslationsPrepopulated error:', err);
+    console.warn('[Translation] ensureJson3TranslationsPrepopulated error:', err);
   }
 }
 
 // Automatically ensure prepopulation on module load
-ensureSrtTranslationsPrepopulated();
+ensureJson3TranslationsPrepopulated();
 
 /**
  * Translates single text string from source language to target language.
@@ -158,7 +158,7 @@ export async function translateText(
   }
 
   const cacheKey = `${cleanFrom}:${cleanTo}:${trimmed}`;
-  ensureSrtTranslationsPrepopulated();
+  ensureJson3TranslationsPrepopulated();
 
   if (memoryCache.has(cacheKey)) {
     return memoryCache.get(cacheKey)!;
@@ -176,11 +176,11 @@ export async function translateText(
 
   // Check authentic fixtures across all bundled languages
   const fixtureLangs = ['ru', 'it', 'he', 'ar', 'en'];
-  const targetFixture = getCachedTargetSubtitles('FcRzAdI8R9U', targetPrefix);
+  const targetFixture = getCachedTargetSubtitles('L2Ryrr6txwA', targetPrefix);
   if (targetFixture && targetFixture.length > 0) {
     const cleanTrimmed = trimmed.replace(/\r/g, '').trim().toLowerCase();
     for (const srcLangCode of fixtureLangs) {
-      const srcFixture = getCachedTargetSubtitles('FcRzAdI8R9U', srcLangCode);
+      const srcFixture = getCachedTargetSubtitles('L2Ryrr6txwA', srcLangCode);
       if (srcFixture && srcFixture.length > 0) {
         const idx = srcFixture.findIndex((c) => {
           const cClean = (c.text || '').replace(/\r/g, '').trim().toLowerCase();
@@ -256,11 +256,11 @@ export async function prefetchCueTranslations(
 
 /**
  * Repeats an observed YouTube timedtext subtitle request URL
- * but changes the target language code (tlang) and format (fmt=srt, json3, or xml).
+ * but changes the target language code (tlang) while preserving JSON3 format.
  *
  * Example:
  * Input: https://www.youtube.com/api/timedtext?...&lang=ru&fmt=json3...
- * Output: https://www.youtube.com/api/timedtext?...&lang=ru&fmt=srt&tlang=en...
+ * Output: https://www.youtube.com/api/timedtext?...&lang=en&fmt=json3&tlang=he...
  */
 export { buildYouTubeTranslatedTimedTextUrl } from '../utils/youtube';
 
@@ -302,7 +302,7 @@ export interface ExtendedYouTubeNativeTranslationResult extends YouTubeNativeTra
 export async function fetchYouTubeNativeTranslation({
   observedUrl,
   targetLang,
-  format = 'srt',
+  format = 'json3',
   videoId,
   requestSettings,
   originalCues,
@@ -310,14 +310,14 @@ export async function fetchYouTubeNativeTranslation({
 }: {
   observedUrl?: string | null;
   targetLang: string;
-  format?: 'srt' | 'json3' | 'vtt' | 'xml' | '';
+  format?: 'json3';
   videoId?: string;
   requestSettings?: TimedTextOriginalRequest;
   originalCues?: CaptionCue[];
   disableFixtures?: boolean;
 }): Promise<ExtendedYouTubeNativeTranslationResult> {
   const cleanLang = normalizeLanguageCode(targetLang).split('-')[0];
-  const vId = videoId || 'FcRzAdI8R9U';
+  const vId = videoId || 'L2Ryrr6txwA';
   const shouldDisableFixtures =
     disableFixtures ??
     (typeof window !== 'undefined' &&
@@ -360,11 +360,7 @@ export async function fetchYouTubeNativeTranslation({
     typeof window !== 'undefined' &&
     (window.AndroidNativeShell?.fetchTranslatedCaptionsWithUrl || window.AndroidNativeShell?.fetchTranslatedCaptions)
   ) {
-    const formatsToTry: Array<'srt' | 'json3' | ''> = [
-      format === 'json3' ? 'json3' : 'srt',
-      format === 'json3' ? 'srt' : 'json3',
-      '',
-    ];
+    const formatsToTry: Array<'json3'> = ['json3'];
 
     for (const fmt of formatsToTry) {
       try {
@@ -521,7 +517,7 @@ export async function translateOnDemandCues({
 /**
  * Translates an entire track using YouTube native timedtext with tlang or pre-bundled fixtures:
  * 1. Checks authentic fixtures (web test environment)
- * 2. Attempts YouTube native translation via observed request with tlang & fmt=json3 / fmt=srt
+ * 2. Attempts YouTube native translation via observed request with tlang and fmt=json3
  * 3. Does NOT fall back to inaccurate machine translation services.
  */
 export async function translateTrackWithNativeFirst({
@@ -552,15 +548,15 @@ export async function translateTrackWithNativeFirst({
 }> {
   let cleanLang = normalizeLanguageCode(targetLang).split('-')[0];
   if (cleanLang === 'iw' || cleanLang === 'il') cleanLang = 'he';
-  const vId = videoId || 'FcRzAdI8R9U';
+  const vId = videoId || 'L2Ryrr6txwA';
   const cacheKey = `${vId}:${cleanLang}`;
 
-  // Priority 0: Check authentic SRT/JSON3 fixtures
+  // Priority 0: Check authentic JSON3 fixtures
   if (hasCachedTargetSubtitles(vId, cleanLang)) {
-    const srtCues = getCachedTargetSubtitles(vId, cleanLang);
-    if (srtCues && srtCues.length > 0) {
-      const mapped = mapTranslatedCuesToOriginal(originalCues, srtCues);
-      nativeTrackCache.set(cacheKey, srtCues);
+    const json3Cues = getCachedTargetSubtitles(vId, cleanLang);
+    if (json3Cues && json3Cues.length > 0) {
+      const mapped = mapTranslatedCuesToOriginal(originalCues, json3Cues);
+      nativeTrackCache.set(cacheKey, json3Cues);
       languageSourceMap.set(cacheKey, 'youtube_native');
       onStatusChange?.('youtube_native');
 
@@ -576,9 +572,9 @@ export async function translateTrackWithNativeFirst({
       return {
         source: 'youtube_native',
         translations: mapped,
-        cues: srtCues,
-        count: srtCues.length,
-        firstSubtitle: srtCues[0],
+        cues: json3Cues,
+        count: json3Cues.length,
+        firstSubtitle: json3Cues[0],
       };
     }
   }
@@ -599,11 +595,11 @@ export async function translateTrackWithNativeFirst({
   }
 
   // STEP 1: Attempt YouTube Native Translation by repeating observed request with tlang
-  console.log(`[Translation] Trying YouTube Native translation for ${cleanLang} with fmt=srt/json3 & tlang=${cleanLang}...`);
+  console.log(`[Translation] Trying YouTube Native translation for ${cleanLang} with fmt=json3 & tlang=${cleanLang}...`);
   const nativeResult = await fetchYouTubeNativeTranslation({
     observedUrl,
     targetLang: cleanLang,
-    format: 'srt',
+    format: 'json3',
     videoId,
     requestSettings,
     originalCues,

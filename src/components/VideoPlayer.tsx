@@ -35,7 +35,7 @@ import { useAppDispatch } from '../store';
 import { setPlayerReady as setReduxPlayerReady, setPlayerState as setReduxPlayerState } from '../store/videoSlice';
 import { transition } from '../store/stateMachineSlice';
 import { addError } from '../store/errorsSlice';
-import { UI_TEXT } from '../config/appConfig';
+import { UI_TEXT } from '../config/constants';
 import { SubtitlePosition, loadAppSettings, saveAppSettings, AppSettings, getSingleTargetLanguageMode, setSingleTargetLanguageMode, isAndroidAppEnvironment } from '../utils/appSettings';
 import { HighlightableText } from './HighlightableText';
 import { ParallelTranslationsOverlay } from './ParallelTranslationsOverlay';
@@ -169,11 +169,11 @@ export const VideoPlayer = forwardRef<YouTubePlayerHandle, VideoPlayerProps>(
       if (localTranslatedMap[cueId]) return;
 
       // Check authentic target subtitle track cache with time-based precision
-      const srtCues = getCachedTargetSubtitles(videoId, normTargetLang);
-      if (srtCues && srtCues.length > 0) {
+      const json3Cues = getCachedTargetSubtitles(videoId, normTargetLang);
+      if (json3Cues && json3Cues.length > 0) {
         const match =
-          srtCues.find((c) => Math.abs(c.start - cueStart) < 0.75) ||
-          srtCues.find((c) => c.id === cueId);
+          json3Cues.find((c) => Math.abs(c.start - cueStart) < 0.75) ||
+          json3Cues.find((c) => c.id === cueId);
         if (match?.text) {
           setLocalTranslatedMap((prev) => (prev[cueId] === match.text ? prev : { ...prev, [cueId]: match.text }));
           return;
@@ -340,11 +340,11 @@ export const VideoPlayer = forwardRef<YouTubePlayerHandle, VideoPlayerProps>(
         let textToSpeak = effectiveDisplayTranslatedText || displayTranslatedText || translatedCueText || (targetCue ? localTranslatedMap[targetCue.id] : '') || '';
         if (!textToSpeak) {
           const norm = (targetLangCode === 'iw' || targetLangCode === 'il') ? 'he' : targetLangCode.toLowerCase().split('-')[0];
-          const srtCues = getCachedTargetSubtitles(videoId, norm);
-          if (srtCues && srtCues.length > 0) {
+          const json3Cues = getCachedTargetSubtitles(videoId, norm);
+          if (json3Cues && json3Cues.length > 0) {
             const match =
-              srtCues.find((c) => Math.abs(c.start - targetCue.start) < 0.75) ||
-              srtCues.find((c) => c.id === targetCue.id);
+              json3Cues.find((c) => Math.abs(c.start - targetCue.start) < 0.75) ||
+              json3Cues.find((c) => c.id === targetCue.id);
             if (match?.text) textToSpeak = match.text;
           }
         }
@@ -485,9 +485,9 @@ export const VideoPlayer = forwardRef<YouTubePlayerHandle, VideoPlayerProps>(
           initialMap[lang] = effectiveDisplayTranslatedText || displayTranslatedText || '';
           return;
         }
-        const srtCues = getCachedTargetSubtitles(videoId, norm);
-        if (srtCues && srtCues.length > 0) {
-          const match = srtCues.find((c) => c.id === activeCue.id) || srtCues.find((c) => Math.abs(c.start - activeCue.start) < 0.5);
+        const json3Cues = getCachedTargetSubtitles(videoId, norm);
+        if (json3Cues && json3Cues.length > 0) {
+          const match = json3Cues.find((c) => c.id === activeCue.id) || json3Cues.find((c) => Math.abs(c.start - activeCue.start) < 0.5);
           if (match?.text) {
             initialMap[lang] = match.text;
             return;
@@ -566,11 +566,11 @@ export const VideoPlayer = forwardRef<YouTubePlayerHandle, VideoPlayerProps>(
 
       if (!text && !isOriginal) {
         const normLang = (speakLang === 'iw' || speakLang === 'il') ? 'he' : speakLang;
-        const srtCues = getCachedTargetSubtitles(videoId, normLang);
-        if (srtCues && srtCues.length > 0) {
+        const json3Cues = getCachedTargetSubtitles(videoId, normLang);
+        if (json3Cues && json3Cues.length > 0) {
           const match =
-            srtCues.find((c) => Math.abs(c.start - activeCue.start) < 0.75) ||
-            srtCues.find((c) => c.id === activeCue.id);
+            json3Cues.find((c) => Math.abs(c.start - activeCue.start) < 0.75) ||
+            json3Cues.find((c) => c.id === activeCue.id);
           if (match?.text) {
             text = match.text;
           }
@@ -2029,7 +2029,7 @@ export const VideoPlayer = forwardRef<YouTubePlayerHandle, VideoPlayerProps>(
                 type="button"
                 onClick={onOpenArtifacts}
                 className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-xs font-semibold bg-indigo-950/70 hover:bg-indigo-900 text-indigo-300 border border-indigo-700/60 transition active:scale-95"
-                title="Quick Bringup: Browse Subtitle Artifacts (.SRT tracks, raw cues)"
+                title="Quick Bringup: Browse Subtitle Artifacts (.JSON3 tracks, raw cues)"
               >
                 <FileText className="w-3.5 h-3.5 text-indigo-400" />
                 <span>Artifacts</span>
@@ -2127,7 +2127,7 @@ export const VideoPlayer = forwardRef<YouTubePlayerHandle, VideoPlayerProps>(
           </div>
         </div>
 
-        {/* Direct SRT Speech Flow Status & Sync Controller (Zero Queues - Pure SRT Subtitles) */}
+        {/* Direct JSON3 Speech Flow Status & Sync Controller (Zero Queues - Pure JSON3 Subtitles) */}
         <div className="mt-3 p-3.5 rounded-xl glass-panel-elevated border border-neutral-800/80 shadow-xl">
           <div className="flex flex-wrap items-center justify-between gap-2.5 pb-2.5 border-b border-neutral-800/60">
             <div className="flex items-center gap-2">
@@ -2136,7 +2136,7 @@ export const VideoPlayer = forwardRef<YouTubePlayerHandle, VideoPlayerProps>(
                   isSyncSpeaking ? (
                     <>
                       <span className="w-2 h-2 rounded-full bg-amber-400 animate-ping" />
-                      <span className="text-amber-300 font-semibold">🗣️ Narrating: {targetLangCode.toUpperCase()} (SRT)</span>
+                      <span className="text-amber-300 font-semibold">🗣️ Narrating: {targetLangCode.toUpperCase()} (JSON3)</span>
                     </>
                   ) : (
                     <>
@@ -2158,9 +2158,9 @@ export const VideoPlayer = forwardRef<YouTubePlayerHandle, VideoPlayerProps>(
               )}
             </div>
 
-            {/* Quick Target Language SRT Pills */}
+            {/* Quick Target Language JSON3 Pills */}
             <div className="flex items-center gap-1">
-              <span className="text-[11px] text-neutral-400 font-medium mr-1 hidden md:inline">Target SRT:</span>
+              <span className="text-[11px] text-neutral-400 font-medium mr-1 hidden md:inline">Target JSON3:</span>
               {[
                 { code: 'he', label: '🇮🇱 HE', name: 'Hebrew' },
                 { code: 'it', label: '🇮🇹 IT', name: 'Italian' },
@@ -2173,7 +2173,7 @@ export const VideoPlayer = forwardRef<YouTubePlayerHandle, VideoPlayerProps>(
                   <button
                     key={lang.code}
                     type="button"
-                    title={`Switch target SRT track to ${lang.name}`}
+                    title={`Switch target JSON3 track to ${lang.name}`}
                     onClick={() => onSelectTargetLanguage?.(lang.code)}
                     className={`px-2 py-0.5 text-xs rounded font-medium transition-all ${
                       isSelected
@@ -2231,7 +2231,7 @@ export const VideoPlayer = forwardRef<YouTubePlayerHandle, VideoPlayerProps>(
                 <button
                   type="button"
                   onClick={onPrevCue}
-                  title="Previous SRT cue"
+                  title="Previous JSON3 cue"
                   className="px-2 py-1.5 rounded-lg text-xs bg-neutral-800 hover:bg-neutral-700 text-neutral-300 border border-neutral-700/60"
                 >
                   Prev
@@ -2242,7 +2242,7 @@ export const VideoPlayer = forwardRef<YouTubePlayerHandle, VideoPlayerProps>(
                 <button
                   type="button"
                   onClick={onNextCue}
-                  title="Next SRT cue"
+                  title="Next JSON3 cue"
                   className="px-2 py-1.5 rounded-lg text-xs bg-neutral-800 hover:bg-neutral-700 text-neutral-300 border border-neutral-700/60"
                 >
                   Next
@@ -2254,11 +2254,11 @@ export const VideoPlayer = forwardRef<YouTubePlayerHandle, VideoPlayerProps>(
               type="button"
               onClick={() => playCurrentCueTTS(activeCue || cachedCues[0])}
               disabled={!activeCue && cachedCues.length === 0}
-              title="Test play TTS for current active SRT subtitle cue"
+              title="Test play TTS for current active JSON3 subtitle cue"
               className="px-3 py-1.5 rounded-lg text-xs font-medium bg-neutral-800/90 hover:bg-neutral-700 text-neutral-200 border border-neutral-700 flex items-center gap-1.5 disabled:opacity-40 cursor-pointer"
             >
               <Volume2 className="w-3.5 h-3.5 text-amber-400" />
-              <span>Speak SRT Cue</span>
+              <span>Speak JSON3 Cue</span>
             </button>
           </div>
         </div>

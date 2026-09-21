@@ -1,36 +1,9 @@
 import { CaptionCue } from '../../src/types';
 import { parseRawCaptionData } from '../../src/utils/captionParser';
-import { ruSrtRaw, enSrtRaw, heSrtRaw, itSrtRaw, arSrtRaw } from './FcRzAdI8R9U/srtStrings';
 import { L2RYRR6TXWA_LANGUAGE_JSON3_TRACKS } from './L2Ryrr6txwA/jsonStrings';
 import { EILFKSGNKDA_LANGUAGE_TRACKS } from './eilfksgnkda';
 
-/**
- * @deprecated test/fixtures/subtitles.json is deprecated.
- * The application uses real authentic .srt fixtures from test/fixtures/FcRzAdI8R9U/
- * with language tracks for: it, ru, he, en, ar.
- */
-
-// Parse real SRT subtitle fixtures for video FcRzAdI8R9U
-const parsedRu = parseRawCaptionData(ruSrtRaw).cues;
-const parsedEn = parseRawCaptionData(enSrtRaw).cues;
-const parsedHe = parseRawCaptionData(heSrtRaw).cues;
-const parsedIt = parseRawCaptionData(itSrtRaw).cues;
-const parsedAr = parseRawCaptionData(arSrtRaw).cues;
-
-export const DEFAULT_FAVORITE_LANGUAGES = ['ar', 'il', 'ru', 'it', 'he'];
-
-export const FCRZADI8R9U_LANGUAGE_SRT_TRACKS: Record<string, CaptionCue[]> = {
-  ru: parsedRu,
-  en: parsedEn,
-  he: parsedHe,
-  iw: parsedHe,
-  il: parsedHe,
-  it: parsedIt,
-  ar: parsedAr,
-};
-
 export const DEFAULT_MOCKED_SUBTITLES: Record<string, CaptionCue[]> = {
-  FcRzAdI8R9U: parsedRu,
   L2Ryrr6txwA: L2RYRR6TXWA_LANGUAGE_JSON3_TRACKS.en,
   EILFkSGNkdA: EILFKSGNKDA_LANGUAGE_TRACKS.en,
 };
@@ -38,9 +11,6 @@ export const DEFAULT_MOCKED_SUBTITLES: Record<string, CaptionCue[]> = {
 export { L2RYRR6TXWA_LANGUAGE_JSON3_TRACKS };
 
 export function getMockedSubtitlesForVideo(videoId: string): CaptionCue[] {
-  if (videoId === 'FcRzAdI8R9U') {
-    return parsedRu;
-  }
   if (videoId === 'L2Ryrr6txwA') {
     return L2RYRR6TXWA_LANGUAGE_JSON3_TRACKS.en;
   }
@@ -53,12 +23,7 @@ export function getMockedSubtitlesForVideo(videoId: string): CaptionCue[] {
   return [];
 }
 
-export function getCachedSrtForVideoAndLanguage(videoId: string, langCode: string): CaptionCue[] | null {
-  if (videoId === 'FcRzAdI8R9U' || !videoId) {
-    let clean = (langCode || '').toLowerCase().split(/[-_]/)[0];
-    if (clean === 'iw' || clean === 'il') clean = 'he';
-    return FCRZADI8R9U_LANGUAGE_SRT_TRACKS[clean] || null;
-  }
+export function getCachedJson3ForVideoAndLanguage(videoId: string, langCode: string): CaptionCue[] | null {
   if (videoId === 'L2Ryrr6txwA') {
     let clean = (langCode || '').toLowerCase().split(/[-_]/)[0];
     if (clean === 'iw' || clean === 'il') clean = 'he';
@@ -72,12 +37,7 @@ export function getCachedSrtForVideoAndLanguage(videoId: string, langCode: strin
   return null;
 }
 
-export function hasCachedSrtForVideoAndLanguage(videoId: string, langCode: string): boolean {
-  if (videoId === 'FcRzAdI8R9U' || !videoId) {
-    let clean = (langCode || '').toLowerCase().split(/[-_]/)[0];
-    if (clean === 'iw' || clean === 'il') clean = 'he';
-    return !!FCRZADI8R9U_LANGUAGE_SRT_TRACKS[clean];
-  }
+export function hasCachedJson3ForVideoAndLanguage(videoId: string, langCode: string): boolean {
   if (videoId === 'L2Ryrr6txwA') {
     let clean = (langCode || '').toLowerCase().split(/[-_]/)[0];
     if (clean === 'iw' || clean === 'il') clean = 'he';
@@ -92,9 +52,7 @@ export function hasCachedSrtForVideoAndLanguage(videoId: string, langCode: strin
 }
 
 export function getAllCachedLanguageCodesForVideo(videoId: string): string[] {
-  if (videoId === 'FcRzAdI8R9U' || !videoId) {
-    return ['ar', 'il', 'ru', 'it', 'he', 'en'];
-  }
+  if (!videoId) return [];
   if (videoId === 'L2Ryrr6txwA') {
     return ['en', 'ru', 'he', 'it', 'ar'];
   }

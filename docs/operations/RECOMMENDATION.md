@@ -7,16 +7,16 @@ This document outlines recommended architectural enhancements and Markdown workf
 ## 🚀 Recommended Additions to the Markdown Ecosystem
 
 ### 1. `DECISIONS.md` — Architecture Decision Records (ADR Log)
-- **Purpose**: Record major technical decisions, context, trade-offs, and rationale as immutable records (e.g., ADR-001: Deprecate `.srt` in favor of `json3` segment timing; ADR-002: Android Zero-Calculation Translation via native `tlang`).
+- **Purpose**: Record major technical decisions, context, trade-offs, and rationale as immutable records (e.g., ADR-001: JSON3-only segment timing; ADR-002: Android Zero-Calculation Translation via native `tlang`).
 - **Value**: Prevents re-debating settled architectural decisions and ensures future agents or contributors understand *why* a specific constraint exists.
 - **Structure**:
   ```markdown
   # ADR-001: Sole Adoption of JSON3 TimedText Format
   - **Date**: 2026-09-19
   - **Status**: Accepted
-  - **Context**: SubRip (.srt) lacks word/segment timestamp offsets needed for active caption syntax highlighting.
-  - **Decision**: Remove .srt parser and mandate YouTube `json3` across all fixture tracks and interceptors.
-  - **Consequences**: Fine-grained word highlighting enabled; legacy .srt fixtures removed.
+  - **Context**: JSON3 provides the word/segment timestamp offsets needed for active caption syntax highlighting.
+  - **Decision**: Mandate YouTube `json3` across all fixture tracks and interceptors.
+  - **Consequences**: Fine-grained word highlighting is enabled by default.
   ```
 
 ---

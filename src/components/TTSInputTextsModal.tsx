@@ -1,13 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import {
-  X,
-  Volume2,
-  Terminal,
-  Activity,
-  Layers,
-  Sparkles,
-  RotateCcw,
-} from 'lucide-react';
+import { X, Volume2 } from 'lucide-react';
 import {
   TTSInputRecord,
   TTSDebugPayload,

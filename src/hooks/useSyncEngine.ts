@@ -11,8 +11,8 @@ import {
 import { logSync, logTTS } from '../utils/logBuffer';
 import { loadAppSettings } from '../utils/appSettings';
 import {
-  getCachedSrtForVideoAndLanguage,
-  hasCachedSrtForVideoAndLanguage,
+  getCachedJson3ForVideoAndLanguage,
+  hasCachedJson3ForVideoAndLanguage,
 } from '../../test/fixtures/defaultSubtitles';
 
 export function findSegmentAtTime(segments: CaptionCue[], timeSec: number): number {
@@ -66,13 +66,13 @@ export function useSyncEngine({
   }, []);
 
   const [translations, setTranslations] = useState<Record<string, Record<string, string>>>(() => {
-    const vId = videoId || 'FcRzAdI8R9U';
+    const vId = videoId || 'L2Ryrr6txwA';
     const initialMap: Record<string, Record<string, string>> = {};
     const langs = ['ar', 'en', 'he', 'it', 'ru'];
     langs.forEach((l) => {
-      const srtCues = getCachedSrtForVideoAndLanguage(vId, l);
-      if (srtCues) {
-        srtCues.forEach((c) => {
+      const json3Cues = getCachedJson3ForVideoAndLanguage(vId, l);
+      if (json3Cues) {
+        json3Cues.forEach((c) => {
           if (c.id && c.text) {
             if (!initialMap[c.id]) initialMap[c.id] = {};
             initialMap[c.id][l] = c.text;
@@ -125,7 +125,7 @@ export function useSyncEngine({
       const cueId = cue.id;
       let cleanLang = targetLangCode.toLowerCase().split(/[-_]/)[0];
       if (cleanLang === 'iw' || cleanLang === 'il') cleanLang = 'he';
-      const vId = videoId || 'FcRzAdI8R9U';
+      const vId = videoId || 'L2Ryrr6txwA';
 
       // 1. Check external and local component translations
       const fromExt = externalTranslationsRef.current?.[cueId]?.[cleanLang] || externalTranslationsRef.current?.[cueId]?.[targetLangCode];
@@ -139,12 +139,12 @@ export function useSyncEngine({
       }
 
       // 2. Check local authentic fixture
-      if (hasCachedSrtForVideoAndLanguage(vId, cleanLang)) {
-        const srtCues = getCachedSrtForVideoAndLanguage(vId, cleanLang);
-        if (srtCues && srtCues.length > 0) {
+      if (hasCachedJson3ForVideoAndLanguage(vId, cleanLang)) {
+        const json3Cues = getCachedJson3ForVideoAndLanguage(vId, cleanLang);
+        if (json3Cues && json3Cues.length > 0) {
           const match =
-            srtCues.find((c) => Math.abs(c.start - cue.start) < 0.75) ||
-            srtCues.find((c) => c.id === cueId);
+            json3Cues.find((c) => Math.abs(c.start - cue.start) < 0.75) ||
+            json3Cues.find((c) => c.id === cueId);
           if (match && match.text) {
             return match.text;
           }

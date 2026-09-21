@@ -2,12 +2,12 @@ import { CaptionCue } from '../types';
 
 /**
  * Caption Parser Utility
- * Parses raw YouTube caption data in SRT, VTT, XML (timedtext), and JSON3 formats.
+ * Parses raw YouTube JSON3 caption data.
  * Also provides encoding fixup, base64 decoding, timestamp formatting, and export helpers.
  */
 
 export interface ParsedCaptionResult {
-  format: 'srt' | 'vtt' | 'xml' | 'json3' | 'unknown';
+  format: 'json3' | 'unknown';
   cues: CaptionCue[];
 }
 
@@ -120,145 +120,6 @@ export function formatTimestamp(seconds: number): string {
   return `${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`;
 }
 
-function srtTimestampToSeconds(ts: string): number {
-  const match = ts.match(/(\d{2}):(\d{2}):(\d{2})[,.](\d{3})/);
-  if (!match) return 0;
-  return (
-    parseInt(match[1]) * 3600 +
-    parseInt(match[2]) * 60 +
-    parseInt(match[3]) +
-    parseInt(match[4]) / 1000
-  );
-}
-
-function secondsToSrtTimestamp(seconds: number): string {
-  const ms = Math.round((seconds % 1) * 1000);
-  const totalSec = Math.floor(seconds);
-  const h = Math.floor(totalSec / 3600);
-  const m = Math.floor((totalSec % 3600) / 60);
-  const s = totalSec % 60;
-  return `${String(h).padStart(2, '0')}:${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')},${String(ms).padStart(3, '0')}`;
-}
-
-function secondsToVttTimestamp(seconds: number): string {
-  const ms = Math.round((seconds % 1) * 1000);
-  const totalSec = Math.floor(seconds);
-  const h = Math.floor(totalSec / 3600);
-  const m = Math.floor((totalSec % 3600) / 60);
-  const s = totalSec % 60;
-  return `${String(h).padStart(2, '0')}:${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}.${String(ms).padStart(3, '0')}`;
-}
-
-// ─── SRT Parser ─────────────────────────────────────────────────
-
-function parseSrt(raw: string): CaptionCue[] {
-  const cues: CaptionCue[] = [];
-  const blocks = raw.replace(/\r\n/g, '\n').replace(/\r/g, '\n').split(/\n\s*\n/);
-
-  for (const block of blocks) {
-    const lines = block.trim().split('\n');
-    if (lines.length < 2) continue;
-
-    // First line might be an index number; find the timestamp line
-    let tsLineIdx = 0;
-    if (/^\d+$/.test(lines[0].trim())) {
-      tsLineIdx = 1;
-    }
-
-    const tsMatch = lines[tsLineIdx]?.match(
-      /(\d{2}:\d{2}:\d{2}[,.]\d{3})\s*-->\s*(\d{2}:\d{2}:\d{2}[,.]\d{3})/
-    );
-    if (!tsMatch) continue;
-
-    const start = srtTimestampToSeconds(tsMatch[1]);
-    const end = srtTimestampToSeconds(tsMatch[2]);
-    const textLines = lines.slice(tsLineIdx + 1);
-    const text = cleanAndFixEncoding(textLines.join('\n'));
-    if (!text) continue;
-
-    cues.push({
-      id: `cue-${cues.length + 1}`,
-      start,
-      duration: Math.max(0.5, end - start),
-      text,
-    });
-  }
-
-  return cues;
-}
-
-// ─── VTT Parser ─────────────────────────────────────────────────
-
-function parseVtt(raw: string): CaptionCue[] {
-  const cues: CaptionCue[] = [];
-  // Remove WEBVTT header
-  const body = raw.replace(/^WEBVTT.*\n/, '').replace(/\r\n/g, '\n').replace(/\r/g, '\n');
-  const blocks = body.split(/\n\s*\n/);
-
-  for (const block of blocks) {
-    const lines = block.trim().split('\n');
-    if (lines.length < 2) continue;
-
-    let tsLineIdx = 0;
-    if (/^\d+$/.test(lines[0].trim())) {
-      tsLineIdx = 1;
-    }
-
-    const tsMatch = lines[tsLineIdx]?.match(
-      /(\d{2}:\d{2}:\d{2}\.\d{3}|\d{2}:\d{2}\.\d{3})\s*-->\s*(\d{2}:\d{2}:\d{2}\.\d{3}|\d{2}:\d{2}\.\d{3})/
-    );
-    if (!tsMatch) continue;
-
-    const start = srtTimestampToSeconds(tsMatch[1].replace('.', ','));
-    const end = srtTimestampToSeconds(tsMatch[2].replace('.', ','));
-    const text = cleanAndFixEncoding(lines.slice(tsLineIdx + 1).join('\n'));
-    if (!text) continue;
-
-    cues.push({
-      id: `cue-${cues.length + 1}`,
-      start,
-      duration: Math.max(0.5, end - start),
-      text,
-    });
-  }
-
-  return cues;
-}
-
-// ─── XML TimedText Parser ────────────────────────────────────────
-
-function parseXmlTimedText(raw: string): CaptionCue[] {
-  const cues: CaptionCue[] = [];
-  // Match <text start="..." dur="...">...</text> elements
-  const regex = /<text\s+([^>]+)>([\s\S]*?)<\/text>/g;
-  let match;
-  let idx = 0;
-
-  while ((match = regex.exec(raw)) !== null) {
-    const attrs = match[1];
-    const innerText = match[2];
-    idx++;
-
-    const startMatch = attrs.match(/start="([\d.]+)"/);
-    const durMatch = attrs.match(/dur="([\d.]+)"/);
-    if (!startMatch) continue;
-
-    const start = parseFloat(startMatch[1]);
-    const duration = durMatch ? parseFloat(durMatch[1]) : 2.0;
-    const text = cleanAndFixEncoding(innerText);
-
-    if (!text) continue;
-    cues.push({
-      id: `cue-${idx}`,
-      start,
-      duration: Math.max(0.5, duration),
-      text,
-    });
-  }
-
-  return cues;
-}
-
 // ─── JSON3 Parser ────────────────────────────────────────────────
 // YouTube JSON3 format:
 // { "events": [ { "tStartMs": 0, "dDurationMs": 4000, "segs": [{ "utf8": "text" }] } ] }
@@ -318,69 +179,8 @@ export function parseRawCaptionData(rawData: string): ParsedCaptionResult {
     if (cues.length > 0) return { format: 'json3', cues };
   }
 
-  // XML detection: starts with < or <?xml
-  if (trimmed.startsWith('<') || trimmed.startsWith('<?xml')) {
-    const cues = parseXmlTimedText(trimmed);
-    if (cues.length > 0) return { format: 'xml', cues };
-  }
-
-  // VTT detection: starts with WEBVTT
-  if (/^WEBVTT/i.test(trimmed)) {
-    const cues = parseVtt(trimmed);
-    if (cues.length > 0) return { format: 'vtt', cues };
-  }
-
-  // SRT detection: contains timestamp pattern with -->
-  if (/-->/.test(trimmed) && /\d{2}:\d{2}:\d{2}[,.]\d{3}/.test(trimmed)) {
-    const cues = parseSrt(trimmed);
-    if (cues.length > 0) return { format: 'srt', cues };
-  }
-
-  // Fallback: try SRT anyway (some SRT files lack standard headers)
-  const srtCues = parseSrt(trimmed);
-  if (srtCues.length > 0) return { format: 'srt', cues: srtCues };
-
-  // Fallback: try XML
-  const xmlCues = parseXmlTimedText(trimmed);
-  if (xmlCues.length > 0) return { format: 'xml', cues: xmlCues };
-
   return { format: 'unknown', cues: [] };
 }
-
-// ─── Export Helpers ─────────────────────────────────────────────
-
-export function cuesToSrt(cues: CaptionCue[]): string {
-  if (!cues || cues.length === 0) return '';
-  return cues
-    .map((cue, i) => {
-      const end = cue.start + (cue.duration || 2.5);
-      return `${i + 1}\n${secondsToSrtTimestamp(cue.start)} --> ${secondsToSrtTimestamp(end)}\n${cue.text}`;
-    })
-    .join('\n\n');
-}
-
-export function cuesToVtt(cues: CaptionCue[]): string {
-  if (!cues || cues.length === 0) return 'WEBVTT\n\n';
-  return (
-    'WEBVTT\n\n' +
-    cues
-      .map((cue, i) => {
-        const end = cue.start + (cue.duration || 2.5);
-        return `${i + 1}\n${secondsToVttTimestamp(cue.start)} --> ${secondsToVttTimestamp(end)}\n${cue.text}`;
-      })
-      .join('\n\n')
-  );
-}
-
-// ─── Sample Data for Testing ────────────────────────────────────
-
-export const SAMPLE_YOUTUBE_TIMEDTEXT_XML = `<?xml version="1.0" encoding="utf-8" ?>
-<transcript>
-  <text start="0.5" dur="3.5">Hello and welcome to this video.</text>
-  <text start="4.2" dur="4.0">Today we will talk about language learning.</text>
-  <text start="8.5" dur="3.8">Subtitles help you follow along with the audio.</text>
-  <text start="12.5" dur="4.2">Let's get started with the first lesson.</text>
-</transcript>`;
 
 export const SAMPLE_YOUTUBE_TIMEDTEXT_JSON3 = JSON.stringify({
   events: [

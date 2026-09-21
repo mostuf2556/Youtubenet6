@@ -61,7 +61,7 @@ import { checkApkUpdate } from './utils/apkUpdater';
 import { loadAppSettings, saveAppSettings, AppSettings, DEFAULT_APP_SETTINGS, loadVideoSettings, saveVideoSettings, VideoSpecificSettings, getVideoTargetLang, setVideoTargetLang, isAndroidAppEnvironment } from './utils/appSettings';
 import { logInfo, logWarn, logSubtitles, registerAppStateProvider } from './utils/logBuffer';
 import { checkAndPerformUrlCacheReset, getAppStateFromUrl, syncAppStateToUrl } from './utils/urlStateManager';
-import { getMockedSubtitlesForVideo, FCRZADI8R9U_LANGUAGE_SRT_TRACKS, L2RYRR6TXWA_LANGUAGE_JSON3_TRACKS } from '../test/fixtures/defaultSubtitles';
+import { getMockedSubtitlesForVideo, L2RYRR6TXWA_LANGUAGE_JSON3_TRACKS } from '../test/fixtures/defaultSubtitles';
 import { SelectTargetLanguageModal } from './components/SelectTargetLanguageModal';
 import { SubtitleArtifactsModal } from './components/SubtitleArtifactsModal';
 import { fetchSubtitlesFrontend } from './services/subtitleService';
@@ -162,12 +162,6 @@ export default function App() {
 
   // Restore cached subtitles for active video on initialization
   const [customCues, setCustomCues] = useState<CaptionCue[] | null>(() => {
-    if (videoId === 'FcRzAdI8R9U') {
-      const srt = FCRZADI8R9U_LANGUAGE_SRT_TRACKS.ru;
-      if (srt && srt.length >= 500) {
-        return srt;
-      }
-    }
     if (typeof window !== 'undefined') {
       // 1. Try dedicated persistent subtitle cache
       const cached = getCachedSubtitles(videoId);
@@ -175,19 +169,14 @@ export default function App() {
         return cached;
       }
     }
-    if (videoId === 'FcRzAdI8R9U') {
-      return FCRZADI8R9U_LANGUAGE_SRT_TRACKS.ru || null;
-    }
     if (videoId === 'jNQXAC9IVRw') {
-      return DEFAULT_LIBRARY_ITEMS[1]?.cues || null;
+      return DEFAULT_LIBRARY_ITEMS.find((item) => item.id === videoId)?.cues || null;
     }
     return null;
   });
 
   const [activeCue, setActiveCue] = useState<CaptionCue | null>(() => {
-    const defaultList = videoId === 'FcRzAdI8R9U'
-      ? FCRZADI8R9U_LANGUAGE_SRT_TRACKS.ru
-      : (typeof window !== 'undefined' ? getCachedSubtitles(videoId) : null);
+    const defaultList = typeof window !== 'undefined' ? getCachedSubtitles(videoId) : null;
     if (defaultList && defaultList.length > 0) {
       if (startTime && startTime > 0) {
         const match = defaultList.find((c) => startTime >= c.start && startTime <= c.start + (c.duration || 2.5));
@@ -202,14 +191,14 @@ export default function App() {
     const targetLang = initialUrlState.targetLang || (typeof window !== 'undefined' ? getVideoTargetLang(videoId) : null) || 'he';
     let cleanLang = targetLang.toLowerCase().split(/[-_]/)[0];
     if (cleanLang === 'iw' || cleanLang === 'il') cleanLang = 'he';
-    const srtCues = getCachedTargetSubtitles(videoId, cleanLang);
-    if (srtCues && srtCues.length > 0) {
-      const defaultList = videoId === 'FcRzAdI8R9U' ? FCRZADI8R9U_LANGUAGE_SRT_TRACKS.ru : null;
+    const json3Cues = getCachedTargetSubtitles(videoId, cleanLang);
+    if (json3Cues && json3Cues.length > 0) {
+      const defaultList = typeof window !== 'undefined' ? getCachedSubtitles(videoId) : null;
       const firstCue = defaultList ? defaultList[0] : null;
       if (firstCue) {
         const match =
-          srtCues.find((c) => Math.abs(c.start - firstCue.start) < 0.75) ||
-          srtCues.find((c) => c.id === firstCue.id);
+            json3Cues.find((c) => Math.abs(c.start - firstCue.start) < 0.75) ||
+            json3Cues.find((c) => c.id === firstCue.id);
         if (match && match.text) return match.text;
       }
     }
@@ -280,11 +269,11 @@ export default function App() {
     if (cleanLang === 'iw' || cleanLang === 'il') cleanLang = 'he';
 
     // Check authentic local fixture / target subtitle cache using timestamp matching
-    const srtCues = getCachedTargetSubtitles(videoId, cleanLang);
-    if (srtCues && srtCues.length > 0) {
+    const json3Cues = getCachedTargetSubtitles(videoId, cleanLang);
+    if (json3Cues && json3Cues.length > 0) {
       const match =
-        srtCues.find((c) => Math.abs(c.start - activeCue.start) < 0.75) ||
-        srtCues.find((c) => c.id === activeCue.id);
+        json3Cues.find((c) => Math.abs(c.start - activeCue.start) < 0.75) ||
+        json3Cues.find((c) => c.id === activeCue.id);
       if (match && match.text) {
         setTranslatedCueText((prev) => (prev === match.text ? prev : match.text));
         return;
@@ -310,7 +299,7 @@ export default function App() {
 
   const playerRef = useRef<YouTubePlayerHandle | null>(null);
 
-  // Observed YouTube TimedText URL for repeating requests with tlang & fmt=srt
+  // Observed YouTube TimedText URL for repeating requests with tlang & fmt=json3
   const [observedTimedTextUrl, setObservedTimedTextUrl] = useState<string | null>(() => {
     return getObservedTimedTextUrl(videoId);
   });
@@ -328,7 +317,7 @@ export default function App() {
     { id: 'lang-ru', code: 'ru', name: 'Russian (Русский)', ttsRate: 1.0, enabled: selectedTargetLang === 'ru', color: '#ec4899' },
   ], [selectedTargetLang]);
 
-  // Primary sentence-by-sentence Direct SRT Sync Engine (Mutual exclusion: video play vs TTS play)
+  // Primary sentence-by-sentence JSON3 sync engine (mutual exclusion: video play vs TTS play)
   const syncEngine = useSyncEngine({
     cues: activeCues,
     sourceLang: 'ru',
@@ -679,7 +668,7 @@ export default function App() {
     const targetLang = selectedTargetLang || (settings.learningLanguages && settings.learningLanguages[0]);
     if (!targetLang) return;
 
-    // Check if target subtitles are already cached (e.g. authentic SRT fixtures under video id FcRzAdI8R9U)
+    // Check if target JSON3 subtitles are already cached.
     if (hasCachedTargetSubtitles(idToFetch, targetLang)) {
       const cachedTarget = getCachedTargetSubtitles(idToFetch, targetLang);
       if (cachedTarget && cachedTarget.length > 0) {
@@ -1038,17 +1027,6 @@ export default function App() {
     }
   };
 
-  const handleSwitchDemoVideo = (targetVideoId: 'FcRzAdI8R9U' | 'L2Ryrr6txwA') => {
-    const rawUrl = `https://www.youtube.com/watch?v=${targetVideoId}`;
-    handleSelectVideo(targetVideoId, rawUrl);
-    setRestoredToast(
-      targetVideoId === 'FcRzAdI8R9U'
-        ? 'Switched to SRT Example (FcRzAdI8R9U · Sheinkin40 Russian, 5 SRT tracks)'
-        : 'Switched to JSON3 Example (L2Ryrr6txwA · JustinGuitar English, 5 JSON3 tracks)'
-    );
-    setTimeout(() => setRestoredToast(null), 3500);
-  };
-
   // Flow Step 1: User loads video from library
   const handleSelectLibraryItem = (item: LibraryVideoItem) => {
     const parsed = parseYouTubeUrl(item.originalUrl);
@@ -1153,10 +1131,10 @@ export default function App() {
 
     if (activeCue?.text) {
       const cleanLang = langCode.toLowerCase().split('-')[0];
-      const srtCues = getCachedTargetSubtitles(videoId, cleanLang);
-      if (srtCues && srtCues.length > 0) {
+      const json3Cues = getCachedTargetSubtitles(videoId, cleanLang);
+      if (json3Cues && json3Cues.length > 0) {
         const activeList = customCues && customCues.length > 0 ? customCues : (interceptedData?.cues || []);
-        const match = srtCues.find((c) => c.id === activeCue.id) || (activeList.length > 0 ? srtCues[activeList.findIndex((c) => c.id === activeCue.id)] : null);
+        const match = json3Cues.find((c) => c.id === activeCue.id) || (activeList.length > 0 ? json3Cues[activeList.findIndex((c) => c.id === activeCue.id)] : null);
         if (match && match.text) {
           setTranslatedCueText(match.text);
         } else {

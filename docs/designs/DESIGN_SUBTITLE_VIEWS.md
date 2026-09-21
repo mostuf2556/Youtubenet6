@@ -1,6 +1,6 @@
 # Subtitle Views — Replaceable Rendering Contract (DESIGN_SUBTITLE_VIEWS.md)
 
-This document specifies the interface and architectural contract for any view that presents subtitle cues. It is intentionally independent of framework (React, Vue, Svelte, Web Components), platform (Browser, Android, iOS), and subtitle origin (SRT, JSON3, live network, or fixture).
+This document specifies the interface and architectural contract for any view that presents subtitle cues. It is intentionally independent of framework (React, Vue, Svelte, Web Components), platform (Browser, Android, iOS), and subtitle origin (JSON3 fixture or live network).
 
 ---
 
@@ -74,7 +74,7 @@ interface SubtitleViewProps {
 
 ### The Subtitle View IS NOT Responsible For:
 - Fetching or downloading subtitles from YouTube or any external server.
-- Reading or decoding raw `.srt` or `.json` (JSON3) files.
+- Reading or decoding raw JSON3 files.
 - Calculating which cue is active from video playback time (time synchronization is performed by a player coordinator).
 - Translating text or communicating with translation APIs.
 - Mutating or re-sorting the injected `cues` array.

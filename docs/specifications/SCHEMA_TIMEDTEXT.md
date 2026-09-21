@@ -1,6 +1,6 @@
 # Timed-Text Schema & Caption Normalization (SCHEMA_TIMEDTEXT.md)
 
-This document specifies the exact data schemas, entity decoding, character normalization, and RTL/BiDi handling required for subtitle parsing across SubRip (`.srt`) and YouTube JSON3 (`.json`) formats.
+This document specifies the exact YouTube JSON3 data schema, entity decoding, character normalization, and RTL/BiDi handling required for subtitle parsing.
 
 ---
 
@@ -44,27 +44,6 @@ YouTube's native timed-text format (`fmt=json3`) provides millisecond segment ac
 5. Retain `segs` array if fine-grained word-boundary highlighting is enabled.
 
 ---
-
-### 1.2 SubRip Format (`.srt`)
-
-Classic line-based timestamp format:
-
-```text
-1
-00:00:01,420 --> 00:00:04,260
-Hello everyone, welcome!
-
-2
-00:00:04,500 --> 00:00:08,100
-Today we learn about modularity.
-```
-
-#### SRT Parsing Rules:
-1. Parse timestamp block: `(\d{2}):(\d{2}):(\d{2})[,.](\d{3})\s*-->\s*(\d{2}):(\d{2}):(\d{2})[,.](\d{3})`.
-2. Convert start and end times to fractional seconds:
-   $$\text{seconds} = \text{hours} \times 3600 + \text{minutes} \times 60 + \text{seconds} + \frac{\text{milliseconds}}{1000}$$
-3. Calculate duration: $\text{duration} = \text{endSeconds} - \text{startSeconds}$.
-4. Strip styling tags: remove HTML tags (`<i>`, `<b>`, `<u>`, `<font ...>`, `</font>`).
 
 ---
 

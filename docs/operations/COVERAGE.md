@@ -105,7 +105,7 @@ The following tests have been executed, verified, and confirmed passing:
 - **Target Video**: `https://www.youtube.com/watch?v=FcRzAdI8R9U`
 - **Step 4.3 Mechanisms & Verification**:
   - **Full Request Cloning**: Clones original working timedtext request settings (`headers`, `method`, `mode`, `credentials`) rather than only URL parameters.
-  - **`tlang` Replacement**: Dynamically swaps or appends `&tlang=<targetLang>&fmt=srt` into the request URL.
+  - **`tlang` Replacement**: Dynamically swaps or appends `&tlang=<targetLang>&fmt=json3` into the request URL.
   - **Backend Fallback with Full Request**: If direct client fetch returns an error or status is not ok, transparently falls back to `/api/youtube-timedtext-translate` on the backend forwarding the complete request object with all original headers and parameters.
   - **HTTPS Response Results Provided**: Both client and server return structured `httpsResponse` metadata (`status`, `statusText`, `ok`, `url`, `headers`).
   - **Response Assertion 1 (Identical Record Count)**: Subtitle record count is asserted to be strictly identical after changing `tlang` across multiple target languages (`count === cues.length`).

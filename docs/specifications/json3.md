@@ -2,11 +2,11 @@
 
 ## 1. Overview & Format Specifications
 
-YouTube's `json3` timedtext format is the canonical subtitle transport used by the application across both the web companion and the Android native host. Unlike legacy SubRip (`.srt`) files, which flatten cue text into plain blocks, `json3` preserves structured event arrays with millisecond precision, per-segment timing offsets, and language-specific delivery consistency.
+YouTube's `json3` timedtext format is the canonical and exclusive subtitle transport used by the application across both the web companion and the Android native host. It preserves structured event arrays with millisecond precision, per-segment timing offsets, and language-specific delivery consistency.
 
 ### Mandatory Format Rule
 - Always preserve `fmt=json3` on every YouTube caption request.
-- Never replace the format with `.srt`, XML, or any non-JSON3 timedtext variant.
+- Never replace the format with XML or any non-JSON3 timedtext variant.
 - Treat `json3` as the only accepted source of subtitle timing and segment metadata.
 
 ### Implementation Contract

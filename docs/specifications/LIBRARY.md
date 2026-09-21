@@ -5,10 +5,10 @@
 The subtitle fixture library is a core architectural component of the application. It provides deterministic, offline-capable subtitle datasets for development, visual verification, and automated browser testing without relying on live YouTube caption network requests.
 
 - **Web Companion Role**: The web application is strictly for testing the application flow, UI validation, and demonstration — it is NOT intended for general user caption extraction without fixtures.
-- **2 Video ID Example Artifacts**: The web companion specifically provides bundled fixture artifacts for 2 reference YouTube video IDs (`L2Ryrr6txwA` and `FcRzAdI8R9U`) across multiple languages.
+- **Reference JSON3 Artifacts**: The web companion provides bundled JSON3 fixture artifacts for `L2Ryrr6txwA` across multiple languages.
 - **Deprecation of Translation Services**: Using Google Translate or on-demand translation APIs to translate subtitle records is completely deprecated and forbidden due to phrasing and timing inaccuracy. Target languages on Android are retrieved via native `tlang` interception; on Web, they are loaded directly from these 2-video fixture artifacts.
 
-Because browser JavaScript cannot inspect or intercept cross-origin network traffic originating inside a standard YouTube `<iframe>`, the browser companion relies on this library to provide authentic timed captions across multiple languages and formats.
+Because browser JavaScript cannot inspect or intercept cross-origin network traffic originating inside a standard YouTube `<iframe>`, the browser companion relies on this library to provide authentic JSON3 timed captions across multiple languages.
 
 ---
 
@@ -23,21 +23,13 @@ test/fixtures/
 Fixtures are strictly organized by YouTube video ID (`<VIDEO_ID>`):
 
 ```text
-test/fixtures/<VIDEO_ID>/*.{json,srt}
+test/fixtures/<VIDEO_ID>/*.json
 ```
 
 ### Directory Layout Example
 
 ```text
 test/fixtures/
-├── FcRzAdI8R9U/                # YouTube Video ID
-│   ├── ar.srt                  # Arabic Subtitles (SRT format)
-│   ├── en.srt                  # English Subtitles (SRT format)
-│   ├── he.srt                  # Hebrew Subtitles (SRT format)
-│   ├── it.srt                  # Italian Subtitles (SRT format)
-│   ├── ru.srt                  # Russian Subtitles (SRT format)
-│   └── srtStrings.ts           # Optional TypeScript string fixtures
-│
 └── L2Ryrr6txwA/                # YouTube Video ID
     ├── ar.json                 # Arabic Subtitles (YouTube JSON3 format)
     ├── en.json                 # English Subtitles (YouTube JSON3 format)
@@ -48,20 +40,7 @@ test/fixtures/
 
 ---
 
-## 3. Supported Subtitle Formats
-
-The fixture library and its parsers support two formats:
-
-### 3.1 SubRip Text (`.srt`)
-- **Extension**: `.srt`
-- **File Structure**:
-  - Sequential numeric cue identifier.
-  - Timestamp span in `HH:MM:SS,mmm --> HH:MM:SS,mmm` notation.
-  - Subtitle text line(s).
-  - Blank line separating cues.
-- **Reference Fixture**: `test/fixtures/FcRzAdI8R9U/*.srt`
-
-### 3.2 YouTube JSON3 Timed Text (`.json`)
+## 3. YouTube JSON3 Timed Text (`.json`)
 - **Extension**: `.json` (Note: Represents the YouTube timedtext JSON3 schema; not arbitrary JSON).
 - **Structure**:
   - Root `events` array containing timed caption event objects.
@@ -76,9 +55,9 @@ The fixture library and its parsers support two formats:
 ## 4. How Fixtures Are Consumed by the Web Companion
 
 1. **Provider Resolution**:
-   When a user loads a video or selects a language track, the fixture provider scans `test/fixtures/<VIDEO_ID>/` for matching files by language code (e.g., `he`, `it`, `en`, `ar`, `ru`).
+  When a user loads a video or selects a language track, the fixture provider scans `test/fixtures/<VIDEO_ID>/` for matching JSON3 files by language code.
 2. **Format Normalization**:
-   The parser parses either the `.srt` or `.json` (JSON3) file and normalizes it into a common `CaptionCue[]` array:
+  The parser parses the JSON3 file and normalizes it into a common `CaptionCue[]` array:
    ```ts
    interface CaptionCue {
      id: string;        // Unique identifier (e.g. "cue-1", "0")
@@ -88,7 +67,7 @@ The fixture library and its parsers support two formats:
    }
    ```
 3. **Dependency Injection**:
-   The normalized `CaptionCue[]` array is injected into the pure subtitle renderer views defined in `DESIGN_SUBTITLE_VIEWS.md`. The renderer receives clean, formatted data without knowing whether the source was SRT, JSON3, local file, or live network stream.
+  The normalized `CaptionCue[]` array is injected into the pure subtitle renderer views defined in `DESIGN_SUBTITLE_VIEWS.md`.
 
 ---
 
@@ -109,4 +88,4 @@ The fixture library is validated via an automated format verification script:
 npm run test:caption-formats
 ```
 
-This command inspects all `.srt` and `.json` fixtures under `test/fixtures/FcRzAdI8R9U/` and `test/fixtures/L2Ryrr6txwA/`, verifying file format detection, timing validity (`start >= 0`, `duration > 0`), and non-empty cue text.
+This command inspects all JSON3 fixtures under `test/fixtures/L2Ryrr6txwA/`, verifying format detection, timing validity (`start >= 0`, `duration > 0`), and non-empty cue text.

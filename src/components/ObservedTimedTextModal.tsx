@@ -34,7 +34,7 @@ export const ObservedTimedTextModal: React.FC<ObservedTimedTextModalProps> = ({
 }) => {
   const [urlInput, setUrlInput] = useState<string>(observedUrl || '');
   const [testLang, setTestLang] = useState<string>('en');
-  const [testFormat, setTestFormat] = useState<'srt' | 'json3'>('srt');
+  const [testFormat] = useState<'json3'>('json3');
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [testResult, setTestResult] = useState<{
     success: boolean;
@@ -124,7 +124,7 @@ export const ObservedTimedTextModal: React.FC<ObservedTimedTextModalProps> = ({
                 </span>
               </h2>
               <p className="text-xs text-neutral-400">
-                Repeats observed timedtext request with target language (tlang) and format (fmt=srt). Falls back to Google Translate.
+                Repeats the observed timedtext request with target language (tlang) and JSON3 format.
               </p>
             </div>
           </div>
@@ -216,11 +216,9 @@ export const ObservedTimedTextModal: React.FC<ObservedTimedTextModalProps> = ({
                 </label>
                 <select
                   value={testFormat}
-                  onChange={(e) => setTestFormat(e.target.value as any)}
                   className="w-full px-3 py-1.5 rounded-xl bg-neutral-900 border border-neutral-700 text-xs text-neutral-200 focus:outline-none focus:border-blue-500"
                 >
-                  <option value="srt">SRT (fmt=srt) - Recommended</option>
-                  <option value="json3">JSON3 (fmt=json3)</option>
+                  <option value="json3">JSON3 (fmt=json3) - Recommended</option>
                 </select>
               </div>
             </div>

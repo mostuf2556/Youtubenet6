@@ -27,24 +27,6 @@ if (fs.existsSync(rootEmulatorScreenshot)) {
   }
 }
 
-// Helper: Parse SRT files from fixtures
-function parseSrt(filePath) {
-  if (!fs.existsSync(filePath)) return [];
-  const content = fs.readFileSync(filePath, 'utf8');
-  const blocks = content.trim().split(/\n\r?\n/);
-  return blocks.map(b => {
-    const lines = b.trim().split(/\r?\n/);
-    if (lines.length >= 3) {
-      return {
-        id: lines[0].trim(),
-        time: lines[1].trim(),
-        text: lines.slice(2).join(' ').trim()
-      };
-    }
-    return null;
-  }).filter(Boolean);
-}
-
 // Captured 20 live subtitle dialogue events for n9qwEOsqsoo (NO FIXTURES - live tlang verification)
 const enCues = [
   { id: '1', time: '00:00:01,200 --> 00:00:05,800', text: 'Space, the final frontier, has captivated human imagination for generations.' },
