@@ -59,7 +59,7 @@ The primary architectural goal is **complete modularity through pure components*
 ### Pure Component Mandates
 1. **Separation of Concerns**: Data acquisition, network traffic, cache persistence, and format parsing belong strictly outside presentation views.
 2. **Dependency Injection**: Views receive all necessary state and data via props or parameters.
-3. **No Hidden Logic**: A view must never initiate network requests, read the filesystem, access localStorage, parse raw SRT/JSON3 files, or perform translations on its own.
+3. **No Hidden Logic**: A view must never initiate network requests, read the filesystem, access localStorage, parse raw JSON3 files, or perform translations on its own.
 4. **Interchangeability**: Any view implementation (e.g., overlay, transcript list, compact card, bottom sheet) must be completely swappable with another visual implementation as long as both consume the same defined interface.
 5. **Pure Event Dispatch**: Views report user interactions solely through callback functions (e.g., `onSelectCue`, `onSelectLanguage`). The view does not decide how playback or state responds to that event.
 
@@ -98,7 +98,7 @@ Language Provider ──► Language Options Data ──► Language View ──
 
 The application exclusively supports YouTube's structured **`json3`** timedtext format (`.json`):
 
-1. **Deprecation of `.srt`**: SubRip Text (`.srt`) support and legacy `.srt` files are completely removed in favor of standard YouTube `json3`.
+1. **JSON3 Only**: Subtitle support and fixture files use standard YouTube `json3` exclusively.
 2. **Sub-Line Segment Syntax Highlighting**: Subtitle renderers MUST render the complete subtitle line section while dynamically applying active syntax highlighting to individual word/phrase segments (`segs[]`) based on their fine-grained JSON3 time-frame offsets (`tStartMs` + `tOffsetMs`). As playback advances through the line's duration, the active word segment is highlighted in real time.
 
 ---
@@ -195,7 +195,7 @@ The active implementation phase mandates:
 3. **Home Screen (Library View)**: The default landing view of the application is a Library View where users can browse, manage, and load previously saved learning projects.
 4. **Direct Link Creation Bypass**: When creating a new project via an incoming shared link or URL parameter (e.g. `?v=<ID>` or native intent share), bypass the Library View on first launch and enter the video player directly.
 5. **Background Execution Roadmap**: Future iterations will incorporate background service execution to maintain continuous media and subtitle processing when minimized.
-6. **Exclusive TimedText Format (`json3`) & Sub-Line Highlighting**: Always request and preserve the `json3` subtitle format (`fmt=json3`) on YouTube `timedtext` API calls. Do not support `.srt` formats or override `fmt` to `srt`. Subtitle renderers MUST highlight active word/phrase segments (`segs[]`) in real time based on JSON3 segment offset timestamps (`tStartMs + tOffsetMs`).
+6. **Exclusive TimedText Format (`json3`) & Sub-Line Highlighting**: Always request and preserve the `json3` subtitle format (`fmt=json3`) on YouTube `timedtext` API calls. Subtitle renderers MUST highlight active word/phrase segments (`segs[]`) in real time based on JSON3 segment offset timestamps (`tStartMs + tOffsetMs`).
 7. **Android Zero-Calculation Native Translation**: On Android, translations are obtained without client-side alignment calculations by leveraging YouTube's native `json3` timedtext format. The native interceptor repeats the original `timedtext` API call with the target language code (`tlang=X`) and pairs translated cue strings directly based on native JSON3 event line index / sequence location within identical timeframes. Complete specifications are documented in `docs/specifications/json3.md`.
 8. **Minimalist & Clean Interface Design**: Avoid cluttering the UI with unnecessary controls, redundant buttons, or excessive configuration options. Maintain a clean, highly focused presentation where all text, cues, and typography are strictly aligned.
 9. **Curated Three-Theme Palette System**: Support selection between exactly three curated themes (e.g., Minimal Light, Pure Dark, Warm Slate/Sepia). Each theme must utilize a strictly constrained, minimal color palette to guarantee contrast and visual clarity.

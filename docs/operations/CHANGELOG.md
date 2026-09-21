@@ -11,7 +11,7 @@ Tracks production releases, OTA web asset bundle deployments (`web-dist.zip`), a
 - Android Application Update Methods specification in `AGENTS.md` Section 12.
 
 ### Changed
-- Deprecated SubRip (`.srt`) format support across the codebase in favor of standard YouTube `json3`.
+- Standardized subtitle support on YouTube `json3` across the codebase.
 - Updated OTA verification suite (`npm run test:ota`) for GitHub release asset validation.
 
 ---

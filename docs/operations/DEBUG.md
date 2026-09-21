@@ -41,8 +41,6 @@ When the application dispatches subtitle requests (`/api/fetch-subtitles`, `/api
 2. Sanitizes headers (stripping cookies and auth tokens).
 3. Reads the first 15 characters of the response body for instant signature verification:
    - YouTube JSON3 signature: `{"wireMagic":"pb`
-   - XML TimedText signature: `<?xml version="`
-   - SubRip signature: `1\n00:00:`
 
 ### 3.2 Security & Performance Constraints
 - Response bodies are truncated to prevent large payloads from inflating memory footprint.

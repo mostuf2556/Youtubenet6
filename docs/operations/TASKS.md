@@ -24,7 +24,7 @@ The live scratchpad [`temp.md`](../../temp.md) is actively managed under this `T
 | **[P0]** | `TASK-008` | Establish Root Markdown Hygiene & Relocate Documents to `docs/` Subdirectories | `[done]` | [`PLAN_DOCS_ORGANIZATION.md`](../plans/PLAN_DOCS_ORGANIZATION.md), `AGENTS.md` |
 | **[P0]** | `TASK-009` | Remove Contradictory Deprecated `.md` & Implement Markdown Link Verification (`npm run test:md`) | `[done]` | [`DECISIONS.md`](./DECISIONS.md) (ADR-005), `AGENTS.md` |
 | **[P0]** | `TASK-013` | Deprecate External/Google Translation, Enforce Android `tlang` & Web 2-Video Fixtures, Mandate Test Visibility | `[done]` | [`DECISIONS.md`](./DECISIONS.md) (ADR-006), `AGENTS.md` (Section 7) |
-| **[P1]** | `TASK-003` | Deprecate Legacy `.srt` Format & Enforce JSON3 Sub-Line Segment Highlighting | `[done]` | [`json3.md`](../specifications/json3.md), `AGENTS.md` (Section 5) |
+| **[P1]** | `TASK-003` | Enforce JSON3 Format & Sub-Line Segment Highlighting | `[done]` | [`json3.md`](../specifications/json3.md), `AGENTS.md` (Section 5) |
 | **[P1]** | `TASK-004` | Enforce Minimalist Layout, 3-Theme System, & Pure View Component Contracts | `[done]` | [`DESIGN_SUBTITLE_VIEWS.md`](../designs/DESIGN_SUBTITLE_VIEWS.md), `AGENTS.md` (Section 11) |
 | **[P1]** | `TASK-011` | Extend Android Emulator Report: 20-line subtitle proof, wire telemetry, interactive simulation | `[done]` | [`DEBUG.md`](./DEBUG.md), `AGENTS.md` |
 | **[P1]** | `TASK-012` | Automated GitHub Pages E2E Presentation & Report Integrity Verification (`npm run test:report:integrity`) | `[done]` | [`ACTIONS.md`](./ACTIONS.md), `AGENTS.md` |
