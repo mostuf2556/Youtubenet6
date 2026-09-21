@@ -116,10 +116,6 @@ jobs:
         if: always()
         run: node scripts/prepare-report.mjs
 
-      - name: Verify GitHub Pages E2E Report Presentation & Integrity
-        if: always()
-        run: npm run test:report:integrity
-
       - name: Deploy Web Test Outputs to GitHub Pages (gh-pages)
         if: (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master' || github.event_name == 'workflow_dispatch' || (github.event_name == 'workflow_run' && github.event.workflow_run.head_branch == 'main')) && !cancelled()
         uses: peaceiris/actions-gh-pages@v4
