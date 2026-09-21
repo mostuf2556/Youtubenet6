@@ -1323,6 +1323,7 @@ export const VideoPlayer = forwardRef<YouTubePlayerHandle, VideoPlayerProps>(
                             showSubtitleTimestamps={showSubtitleTimestamps}
                             seekTo={seekTo}
                             settings={settings}
+                            currentTime={currentTime}
                           />
                           <div className="w-full flex flex-col items-center justify-center gap-1">
                             {/* Hidden accessible buttons for test runner compatibility */}
@@ -1359,7 +1360,10 @@ export const VideoPlayer = forwardRef<YouTubePlayerHandle, VideoPlayerProps>(
                                 text={activeCue.text}
                                 isSpeaking={isOriginalSpeaking}
                                 activeCharIndex={isSyncOriginalSpeaking ? (syncTTSCharIndex ?? 0) : activeTTSCharIndex}
-                                syncMode={settings?.ttsSyncMode || 'word_boundary'}
+                                syncMode={settings?.ttsSyncMode || 'json3'}
+                                segments={activeCue.segments}
+                                currentTime={currentTime}
+                                cueStart={activeCue.start}
                                 dir={isOriginalRtl ? 'rtl' : 'ltr'}
                                 className="text-white"
                                 activeWordClassName="bg-amber-400 text-neutral-950 font-bold px-1.5 py-0.5 rounded shadow ring-2 ring-amber-300 scale-105 inline-block mx-0.5"
@@ -1404,7 +1408,10 @@ export const VideoPlayer = forwardRef<YouTubePlayerHandle, VideoPlayerProps>(
                                 text={activeCue.text}
                                 isSpeaking={isOriginalSpeaking}
                                 activeCharIndex={isSyncOriginalSpeaking ? (syncTTSCharIndex ?? 0) : activeTTSCharIndex}
-                                syncMode={settings?.ttsSyncMode || 'word_boundary'}
+                                syncMode={settings?.ttsSyncMode || 'json3'}
+                                segments={activeCue.segments}
+                                currentTime={currentTime}
+                                cueStart={activeCue.start}
                                 dir={isOriginalRtl ? 'rtl' : 'ltr'}
                                 className="text-white"
                                 activeWordClassName="bg-amber-400 text-neutral-950 font-bold px-1.5 py-0.5 rounded shadow ring-2 ring-amber-300 scale-105 inline-block mx-0.5"
@@ -1433,6 +1440,7 @@ export const VideoPlayer = forwardRef<YouTubePlayerHandle, VideoPlayerProps>(
                             showSubtitleTimestamps={showSubtitleTimestamps}
                             seekTo={seekTo}
                             settings={settings}
+                            currentTime={currentTime}
                           />
                         </>
                       )}
@@ -1699,6 +1707,7 @@ export const VideoPlayer = forwardRef<YouTubePlayerHandle, VideoPlayerProps>(
                           showSubtitleTimestamps={showSubtitleTimestamps}
                           seekTo={seekTo}
                           settings={settings}
+                          currentTime={currentTime}
                         />
                         <div className="flex items-center justify-center gap-2 pt-0.5 flex-wrap">
                           {showSubtitleTimestamps && activeCue && (
@@ -1819,6 +1828,7 @@ export const VideoPlayer = forwardRef<YouTubePlayerHandle, VideoPlayerProps>(
                           showSubtitleTimestamps={showSubtitleTimestamps}
                           seekTo={seekTo}
                           settings={settings}
+                          currentTime={currentTime}
                         />
                       </>
                     )}

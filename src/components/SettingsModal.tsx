@@ -288,36 +288,26 @@ export function SettingsModal({
                 <div className="flex items-center justify-between">
                   <div className="font-medium text-xs sm:text-sm text-neutral-200 flex items-center gap-2">
                     <Sparkles className="w-4 h-4 text-amber-400" />
-                    <span>TTS Sync &amp; Text Highlight Mode (4 Alternatives)</span>
+                    <span>TTS Highlight Timing</span>
                   </div>
                   <span className="text-[11px] font-mono text-amber-400 uppercase font-bold">
                     {settings.ttsSyncMode || 'word_boundary'}
                   </span>
                 </div>
                 <div className="text-xs text-neutral-400">
-                  Select which synchronization algorithm to use for TTS speech audio playback and target text highlighting.
+                  JSON3 segment timing is the default. Use native word-boundary events when preferred.
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-1">
                   {[
                     {
+                      id: 'json3',
+                      title: 'JSON3 Segment Timing',
+                      desc: 'Highlights the active JSON3 segment from tOffsetMs.',
+                    },
+                    {
                       id: 'word_boundary',
-                      title: '1. Word Boundary Event',
-                      desc: 'Syncs using native TTS boundary event callbacks.',
-                    },
-                    {
-                      id: 'time_linear',
-                      title: '2. Smooth Linear (RAF)',
-                      desc: 'Interpolates character index linearly during speech.',
-                    },
-                    {
-                      id: 'word_step',
-                      title: '3. Discrete Word Step',
-                      desc: 'Steps word-by-word at equal time intervals.',
-                    },
-                    {
-                      id: 'full_sentence',
-                      title: '4. Full Sentence Highlight',
-                      desc: 'Highlights full sentence for complete TTS duration.',
+                      title: 'Native Word Boundary',
+                      desc: 'Highlights the word reported by the TTS boundary event.',
                     },
                   ].map((alt) => {
                     const isSelected = (settings.ttsSyncMode || 'word_boundary') === alt.id;

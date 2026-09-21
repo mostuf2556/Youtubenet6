@@ -50,6 +50,7 @@ export interface ParsedYouTubeResult {
 }
 
 export type CaptionCue = SubtitleCue;
+export type TTSHighlightMode = 'json3' | 'word_boundary';
 
 export interface TargetLanguage {
   id: string;
