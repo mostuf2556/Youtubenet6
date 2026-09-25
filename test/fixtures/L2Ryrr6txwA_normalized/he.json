@@ -1,0 +1,3379 @@
+{
+  "format": "normalized-json3",
+  "videoId": "L2Ryrr6txwA",
+  "referenceLanguage": "en",
+  "cues": [
+    {
+      "id": "normalized-cue-1",
+      "start": 0.08,
+      "duration": 1.759,
+      "text": "היי, מה שלומך ג'סטין, ברוכים הבאים ליחידה",
+      "segments": [
+        {
+          "text": "היי, מה שלומך ג'סטין, ברוכים הבאים ליחידה",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-2",
+      "start": 1.839,
+      "duration": 2.241,
+      "text": "שבע של מאסטרו בסולמות מז'ור.",
+      "segments": [
+        {
+          "text": "שבע של מאסטרו בסולמות מז'ור.",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-3",
+      "start": 4.08,
+      "duration": 1.279,
+      "text": "בשיעור הזה היום",
+      "segments": [
+        {
+          "text": "בשיעור הזה היום",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-4",
+      "start": 5.359,
+      "duration": 3.2,
+      "text": "נבדוק רצפים מלודיים.",
+      "segments": [
+        {
+          "text": "נבדוק רצפים מלודיים.",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-5",
+      "start": 8.559,
+      "duration": 3.361,
+      "text": "זיכרון מוקדם מאוד ברור שיש לי",
+      "segments": [
+        {
+          "text": "זיכרון מוקדם מאוד ברור שיש לי",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-6",
+      "start": 11.92,
+      "duration": 1.679,
+      "text": "מהמסע שלי בגיטרה רוק היה צפייה",
+      "segments": [
+        {
+          "text": "מהמסע שלי בגיטרה רוק היה צפייה",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-8",
+      "start": 15.759,
+      "duration": 2.001,
+      "text": "בסרטון הדרכה של מרכיבים והוא ניגן את",
+      "segments": [
+        {
+          "text": "בסרטון הדרכה של מרכיבים והוא ניגן את",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-9",
+      "start": 17.76,
+      "duration": 2.48,
+      "text": "השורה הזאת. זה היה קו סולם ממש ממש מהיר,",
+      "segments": [
+        {
+          "text": "השורה הזאת. זה היה קו סולם ממש ממש מהיר,",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-10",
+      "start": 20.24,
+      "duration": 2.64,
+      "text": "אבל זה נראה כאילו נמשך לנצח.",
+      "segments": [
+        {
+          "text": "אבל זה נראה כאילו נמשך לנצח.",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-11",
+      "start": 22.88,
+      "duration": 1.28,
+      "text": "לא הצלחתי להבין מה",
+      "segments": [
+        {
+          "text": "לא הצלחתי להבין מה",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-12",
+      "start": 24.16,
+      "duration": 2.08,
+      "text": "קורה, כי כמו בסולמות, אני יודעת, יש להם בערך",
+      "segments": [
+        {
+          "text": "קורה, כי כמו בסולמות, אני יודעת, יש להם בערך",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-13",
+      "start": 26.24,
+      "duration": 2,
+      "text": "16 תווים. אם אני מנגנת אותם כל כך",
+      "segments": [
+        {
+          "text": "16 תווים. אם אני מנגנת אותם כל כך",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-14",
+      "start": 28.24,
+      "duration": 3.039,
+      "text": "מהר, הם נגמרים תוך זמן קצר.",
+      "segments": [
+        {
+          "text": "מהר, הם נגמרים תוך זמן קצר.",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-15",
+      "start": 31.279,
+      "duration": 1.601,
+      "text": "אני מניחה שזה היה כל כך מהר שלא",
+      "segments": [
+        {
+          "text": "אני מניחה שזה היה כל כך מהר שלא",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-16",
+      "start": 32.88,
+      "duration": 1.519,
+      "text": "ממש שמעתי שהוא משתמש",
+      "segments": [
+        {
+          "text": "ממש שמעתי שהוא משתמש",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-17",
+      "start": 34.399,
+      "duration": 1.921,
+      "text": "בטכניקה הזאת שנקראת רצף מלודי. אבל",
+      "segments": [
+        {
+          "text": "בטכניקה הזאת שנקראת רצף מלודי. אבל",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-18",
+      "start": 36.32,
+      "duration": 2.079,
+      "text": "אני זוכרת שכששאלתי את המורה שלי על זה",
+      "segments": [
+        {
+          "text": "אני זוכרת שכששאלתי את המורה שלי על זה",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-19",
+      "start": 38.399,
+      "duration": 1.441,
+      "text": "ואמרתי לו איך הוא עושה את זה, הוא אמר לי \"",
+      "segments": [
+        {
+          "text": "ואמרתי לו איך הוא עושה את זה, הוא אמר לי \"",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-20",
+      "start": 39.84,
+      "duration": 2.08,
+      "text": "אה, זה פשוט דפוסי מספרים",
+      "segments": [
+        {
+          "text": "אה, זה פשוט דפוסי מספרים",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-21",
+      "start": 41.92,
+      "duration": 2.319,
+      "text": "שמיושמים על סולמות\", וחשבתי \"רגע, הנה אנחנו מתחילים.",
+      "segments": [
+        {
+          "text": "שמיושמים על סולמות\", וחשבתי \"רגע, הנה אנחנו מתחילים.",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-22",
+      "start": 44.239,
+      "duration": 1.281,
+      "text": "תמיד הייתי די",
+      "segments": [
+        {
+          "text": "תמיד הייתי די",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-23",
+      "start": 45.52,
+      "duration": 1.6,
+      "text": "סביר במתמטיקה, אז מצאתי את הדברים האלה",
+      "segments": [
+        {
+          "text": "סביר במתמטיקה, אז מצאתי את הדברים האלה",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-24",
+      "start": 47.12,
+      "duration": 2.16,
+      "text": "די כיפיים. זה ממש ממש שימושי וגם",
+      "segments": [
+        {
+          "text": "די כיפיים. זה ממש ממש שימושי וגם",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-25",
+      "start": 49.28,
+      "duration": 2.48,
+      "text": "מאוד מוזיקלי. זה",
+      "segments": [
+        {
+          "text": "מאוד מוזיקלי. זה",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-26",
+      "start": 51.76,
+      "duration": 2.4,
+      "text": "לא. למרות שזה... זה",
+      "segments": [
+        {
+          "text": "לא. למרות שזה... זה",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-27",
+      "start": 54.16,
+      "duration": 3.12,
+      "text": "לוקח רצף מתמטי ומיישום אותו",
+      "segments": [
+        {
+          "text": "לוקח רצף מתמטי ומיישום אותו",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-28",
+      "start": 57.28,
+      "duration": 2.56,
+      "text": "על סולם, וזה פשוט לא נשמע",
+      "segments": [
+        {
+          "text": "על סולם, וזה פשוט לא נשמע",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-29",
+      "start": 59.84,
+      "duration": 2.879,
+      "text": "מגניב או אופנתי.  אבל כולם משתמשים בזה,",
+      "segments": [
+        {
+          "text": "מגניב או אופנתי.  אבל כולם משתמשים בזה,",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-30",
+      "start": 62.719,
+      "duration": 1.601,
+      "text": "זה משמש בבלוז, זה משמש ברוק,",
+      "segments": [
+        {
+          "text": "זה משמש בבלוז, זה משמש ברוק,",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-31",
+      "start": 64.32,
+      "duration": 3.52,
+      "text": "זה משמש בכל מקום. זה הקונספט הזה,",
+      "segments": [
+        {
+          "text": "זה משמש בכל מקום. זה הקונספט הזה,",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-32",
+      "start": 67.84,
+      "duration": 1.92,
+      "text": "זה פשוט נשמע טוב. אני חושב שכבני",
+      "segments": [
+        {
+          "text": "זה פשוט נשמע טוב. אני חושב שכבני",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-33",
+      "start": 69.76,
+      "duration": 2.96,
+      "text": "אדם באופן טבעי, אנחנו אוהבים את הסדר",
+      "segments": [
+        {
+          "text": "אדם באופן טבעי, אנחנו אוהבים את הסדר",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-34",
+      "start": 72.72,
+      "duration": 1.28,
+      "text": "של",
+      "segments": [
+        {
+          "text": "של",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-35",
+      "start": 74,
+      "duration": 2.4,
+      "text": "רצף מוזיקלי. זה היה בשימוש כמו שבאך",
+      "segments": [
+        {
+          "text": "רצף מוזיקלי. זה היה בשימוש כמו שבאך",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-36",
+      "start": 76.4,
+      "duration": 1.759,
+      "text": "השתמש בו ותמיד.",
+      "segments": [
+        {
+          "text": "השתמש בו ותמיד.",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-37",
+      "start": 78.159,
+      "duration": 2,
+      "text": "תתחילו לזהות את זה. אז",
+      "segments": [
+        {
+          "text": "תתחילו לזהות את זה. אז",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-38",
+      "start": 80.159,
+      "duration": 2,
+      "text": "הדרך להתחיל עם זה היא",
+      "segments": [
+        {
+          "text": "הדרך להתחיל עם זה היא",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-39",
+      "start": 82.159,
+      "duration": 1.6,
+      "text": "למספר את התווים בסולם. אנחנו",
+      "segments": [
+        {
+          "text": "למספר את התווים בסולם. אנחנו",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-40",
+      "start": 83.759,
+      "duration": 2,
+      "text": "נתחיל בתבנית אחת, כך שתוו",
+      "segments": [
+        {
+          "text": "נתחיל בתבנית אחת, כך שתוו",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-41",
+      "start": 85.759,
+      "duration": 1.601,
+      "text": "הבסיס יהיה התו מספר אחת.",
+      "segments": [
+        {
+          "text": "הבסיס יהיה התו מספר אחת.",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-42",
+      "start": 87.36,
+      "duration": 7.04,
+      "text": "אז יש לנו פשוט 1 2 3 4 5 6 7 8 9 10 11 12 13",
+      "segments": [
+        {
+          "text": "אז יש לנו פשוט 1 2 3 4 5 6 7 8 9 10 11 12 13",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-43",
+      "start": 94.4,
+      "duration": 6.8,
+      "text": "14 15 16.",
+      "segments": [
+        {
+          "text": "14 15 16.",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-44",
+      "start": 101.2,
+      "duration": 2.4,
+      "text": "ואז אנחנו נשתמש",
+      "segments": [
+        {
+          "text": "ואז אנחנו נשתמש",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-45",
+      "start": 103.6,
+      "duration": 3.28,
+      "text": "ברצף מספרים וניישם אותו על הסולם. אז רצף",
+      "segments": [
+        {
+          "text": "ברצף מספרים וניישם אותו על הסולם. אז רצף",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-46",
+      "start": 106.88,
+      "duration": 1.599,
+      "text": "ממש טוב להתחיל איתו הוא אחד",
+      "segments": [
+        {
+          "text": "ממש טוב להתחיל איתו הוא אחד",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-47",
+      "start": 108.479,
+      "duration": 3.441,
+      "text": "שאני קורא לו ארבע בשורה, ובעצם אנחנו מנגנים",
+      "segments": [
+        {
+          "text": "שאני קורא לו ארבע בשורה, ובעצם אנחנו מנגנים",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-48",
+      "start": 111.92,
+      "duration": 4.4,
+      "text": "ארבעה תווים מכל",
+      "segments": [
+        {
+          "text": "ארבעה תווים מכל",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-49",
+      "start": 116.32,
+      "duration": 2.32,
+      "text": "דרגה בסולם. עכשיו, רצף מספרים יהיה אחד שתיים שלוש ארבע, ואז אנחנו מתחילים על שתיים שתיים שלוש ארבע חמש, ואז",
+      "segments": [
+        {
+          "text": "דרגה בסולם. עכשיו, רצף מספרים יהיה אחד שתיים שלוש ארבע, ואז אנחנו מתחילים על שתיים שתיים שלוש ארבע חמש, ואז",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-50",
+      "start": 118.64,
+      "duration": 3.36,
+      "text": "אנחנו מתחילים על שלוש שלוש ארבע חמש שש, ואז",
+      "segments": [
+        {
+          "text": "אנחנו מתחילים על שלוש שלוש ארבע חמש שש, ואז",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-52",
+      "start": 124.799,
+      "duration": 3.361,
+      "text": "אנחנו מתחילים",
+      "segments": [
+        {
+          "text": "אנחנו מתחילים",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-53",
+      "start": 128.16,
+      "duration": 3.36,
+      "text": "על ארבע ארבע חמש שש שבע, אז סופרים",
+      "segments": [
+        {
+          "text": "על ארבע ארבע חמש שש שבע, אז סופרים",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-54",
+      "start": 131.52,
+      "duration": 3.439,
+      "text": "ארבעה מספרים למעלה, מתחילים מכל מספר,",
+      "segments": [
+        {
+          "text": "ארבעה מספרים למעלה, מתחילים מכל מספר,",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-55",
+      "start": 134.959,
+      "duration": 1.28,
+      "text": "אז  זה",
+      "segments": [
+        {
+          "text": "אז  זה",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-56",
+      "start": 136.239,
+      "duration": 2.72,
+      "text": "רצף של ארבעה תווים. אני חושב שזה רעיון טוב שתמיד תהיה",
+      "segments": [
+        {
+          "text": "רצף של ארבעה תווים. אני חושב שזה רעיון טוב שתמיד תהיה",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-58",
+      "start": 141.28,
+      "duration": 1.76,
+      "text": "גרסה מעשית פשוטה של רצף מספרים במקום",
+      "segments": [
+        {
+          "text": "גרסה מעשית פשוטה של רצף מספרים במקום",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-59",
+      "start": 143.04,
+      "duration": 1.6,
+      "text": "לחשוב רק על אחד שתיים שלוש ארבע שתיים שלוש ארבע חמש שלוש ארבע חמש",
+      "segments": [
+        {
+          "text": "לחשוב רק על אחד שתיים שלוש ארבע שתיים שלוש ארבע חמש שלוש ארבע חמש",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-61",
+      "start": 146.8,
+      "duration": 2.079,
+      "text": "שש. אני פשוט חושב על זה כעל",
+      "segments": [
+        {
+          "text": "שש. אני פשוט חושב על זה כעל",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-62",
+      "start": 148.879,
+      "duration": 2.401,
+      "text": "ארבעה צעדים בסולם שמתחילים כל",
+      "segments": [
+        {
+          "text": "ארבעה צעדים בסולם שמתחילים כל",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-63",
+      "start": 151.28,
+      "duration": 1.36,
+      "text": "תו בסולם. אני חושב שזה יותר קל",
+      "segments": [
+        {
+          "text": "תו בסולם. אני חושב שזה יותר קל",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-64",
+      "start": 152.64,
+      "duration": 1.92,
+      "text": "לי לזכור. בואו ננסה ליישם את זה",
+      "segments": [
+        {
+          "text": "לי לזכור. בואו ננסה ליישם את זה",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-65",
+      "start": 154.56,
+      "duration": 2.8,
+      "text": "עכשיו. הרצף היה אחד שתיים שלוש",
+      "segments": [
+        {
+          "text": "עכשיו. הרצף היה אחד שתיים שלוש",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-66",
+      "start": 157.36,
+      "duration": 1.92,
+      "text": "ארבע. אז אנחנו הולכים לנגן את התו הראשון, התו",
+      "segments": [
+        {
+          "text": "ארבע. אז אנחנו הולכים לנגן את התו הראשון, התו",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-67",
+      "start": 159.28,
+      "duration": 2.319,
+      "text": "השני, התו השלישי,",
+      "segments": [
+        {
+          "text": "השני, התו השלישי,",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-68",
+      "start": 161.599,
+      "duration": 2.481,
+      "text": "התו הרביעי, ואז אנחנו מתחילים בסולם",
+      "segments": [
+        {
+          "text": "התו הרביעי, ואז אנחנו מתחילים בסולם",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-69",
+      "start": 164.08,
+      "duration": 1.519,
+      "text": "דרגה שתיים וננגן",
+      "segments": [
+        {
+          "text": "דרגה שתיים וננגן",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-70",
+      "start": 165.599,
+      "duration": 3.041,
+      "text": "ארבעה תווים.",
+      "segments": [
+        {
+          "text": "ארבעה תווים.",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-71",
+      "start": 168.64,
+      "duration": 1.92,
+      "text": "שתיים שלוש ארבע חמש. זה יהיה... ואז",
+      "segments": [
+        {
+          "text": "שתיים שלוש ארבע חמש. זה יהיה... ואז",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-72",
+      "start": 170.56,
+      "duration": 1.759,
+      "text": "מתחילים במעלה השלישית",
+      "segments": [
+        {
+          "text": "מתחילים במעלה השלישית",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-73",
+      "start": 172.319,
+      "duration": 1.681,
+      "text": "שלוש ארבע חמש שש, ואז מתחילים את",
+      "segments": [
+        {
+          "text": "שלוש ארבע חמש שש, ואז מתחילים את",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-75",
+      "start": 176.959,
+      "duration": 3.2,
+      "text": "הדרגה הרביעית ארבע חמש שש",
+      "segments": [
+        {
+          "text": "הדרגה הרביעית ארבע חמש שש",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-76",
+      "start": 180.159,
+      "duration": 2.561,
+      "text": "שבע ומתחילים את הדרגה החמישית חמש שש שבע שמונה.",
+      "segments": [
+        {
+          "text": "שבע ומתחילים את הדרגה החמישית חמש שש שבע שמונה.",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-79",
+      "start": 186.159,
+      "duration": 1.681,
+      "text": "עכשיו הדבר המרכזי כאן הוא לזכור על",
+      "segments": [
+        {
+          "text": "עכשיו הדבר המרכזי כאן הוא לזכור על",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-80",
+      "start": 187.84,
+      "duration": 1.52,
+      "text": "איזה תו התחלתם. אז הנה אני",
+      "segments": [
+        {
+          "text": "איזה תו התחלתם. אז הנה אני",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-81",
+      "start": 189.36,
+      "duration": 2.879,
+      "text": "חושב להתחיל מהתו הזה,",
+      "segments": [
+        {
+          "text": "חושב להתחיל מהתו הזה,",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-82",
+      "start": 192.239,
+      "duration": 1.841,
+      "text": "אבל אני כבר חושב שזה",
+      "segments": [
+        {
+          "text": "אבל אני כבר חושב שזה",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-83",
+      "start": 194.08,
+      "duration": 2.799,
+      "text": "הבא שאני אתחיל",
+      "segments": [
+        {
+          "text": "הבא שאני אתחיל",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-84",
+      "start": 196.879,
+      "duration": 3.28,
+      "text": "ואז את זה, ואז את זה וזה.",
+      "segments": [
+        {
+          "text": "ואז את זה, ואז את זה וזה.",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-87",
+      "start": 207.3,
+      "duration": 2.54,
+      "text": "[מוזיקה]",
+      "segments": [
+        {
+          "text": "[מוזיקה]",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-88",
+      "start": 209.84,
+      "duration": 1.52,
+      "text": "עכשיו ניגנתי קצת",
+      "segments": [
+        {
+          "text": "עכשיו ניגנתי קצת",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-89",
+      "start": 211.36,
+      "duration": 1.84,
+      "text": "מפורק כדי שתוכלו לשמוע את",
+      "segments": [
+        {
+          "text": "מפורק כדי שתוכלו לשמוע את",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-90",
+      "start": 213.2,
+      "duration": 2.88,
+      "text": "התבנית בבירור. את זה שתיים שלוש ארבע שתיים שלוש ארבע חמש שלוש ארבע חמש שש,",
+      "segments": [
+        {
+          "text": "התבנית בבירור. את זה שתיים שלוש ארבע שתיים שלוש ארבע חמש שלוש ארבע חמש שש,",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-92",
+      "start": 219.519,
+      "duration": 2.72,
+      "text": "אבל ברגע שיש לכם...  הקונספט",
+      "segments": [
+        {
+          "text": "אבל ברגע שיש לכם...  הקונספט",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-93",
+      "start": 222.239,
+      "duration": 2.161,
+      "text": "באוזניים ובאצבעות שלכם אתם רוצים",
+      "segments": [
+        {
+          "text": "באוזניים ובאצבעות שלכם אתם רוצים",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-94",
+      "start": 224.4,
+      "duration": 2.24,
+      "text": "להסיר את התזמון הגבשושי הזה ולנגן אותו",
+      "segments": [
+        {
+          "text": "להסיר את התזמון הגבשושי הזה ולנגן אותו",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-95",
+      "start": 226.64,
+      "duration": 3.01,
+      "text": "באופן עקבי, כך שתעשו את זה",
+      "segments": [
+        {
+          "text": "באופן עקבי, כך שתעשו את זה",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-96",
+      "start": 229.65,
+      "duration": 14.19,
+      "text": "[מוזיקה]",
+      "segments": [
+        {
+          "text": "[מוזיקה]",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-97",
+      "start": 243.84,
+      "duration": 8.71,
+      "text": "אז",
+      "segments": [
+        {
+          "text": "אז",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-98",
+      "start": 252.55,
+      "duration": 6.89,
+      "text": "[מוזיקה]",
+      "segments": [
+        {
+          "text": "[מוזיקה]",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-99",
+      "start": 259.44,
+      "duration": 2.479,
+      "text": "הייתי מתחיל רק עם עולה ואני",
+      "segments": [
+        {
+          "text": "הייתי מתחיל רק עם עולה ואני",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-100",
+      "start": 261.919,
+      "duration": 2.321,
+      "text": "רק אציין בעיה טכנית קטנה שתיתקלו בה",
+      "segments": [
+        {
+          "text": "רק אציין בעיה טכנית קטנה שתיתקלו בה",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-102",
+      "start": 265.52,
+      "duration": 1.679,
+      "text": "שם, שהיא גלגול עם הזרת,",
+      "segments": [
+        {
+          "text": "שם, שהיא גלגול עם הזרת,",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-103",
+      "start": 267.199,
+      "duration": 4,
+      "text": "אז כשאתם מגיעים לחלק הזה",
+      "segments": [
+        {
+          "text": "אז כשאתם מגיעים לחלק הזה",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-104",
+      "start": 271.199,
+      "duration": 2.321,
+      "text": "כאן תצטרכו",
+      "segments": [
+        {
+          "text": "כאן תצטרכו",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-105",
+      "start": 273.52,
+      "duration": 1.36,
+      "text": "להניח את",
+      "segments": [
+        {
+          "text": "להניח את",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-106",
+      "start": 274.88,
+      "duration": 1.52,
+      "text": "הזרת קצת יותר שטוחה על",
+      "segments": [
+        {
+          "text": "הזרת קצת יותר שטוחה על",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-107",
+      "start": 276.4,
+      "duration": 1.519,
+      "text": "המיתר השני",
+      "segments": [
+        {
+          "text": "המיתר השני",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-108",
+      "start": 277.919,
+      "duration": 7.041,
+      "text": "ולגלגל אותה לקצה.",
+      "segments": [
+        {
+          "text": "ולגלגל אותה לקצה.",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-109",
+      "start": 284.96,
+      "duration": 1.04,
+      "text": "יש כמה",
+      "segments": [
+        {
+          "text": "יש כמה",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-110",
+      "start": 286,
+      "duration": 2.72,
+      "text": "גישות שונות כשאתם הופכים",
+      "segments": [
+        {
+          "text": "גישות שונות כשאתם הופכים",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-111",
+      "start": 288.72,
+      "duration": 2,
+      "text": "רצף מלודי. הדרך הקלה ביותר לחשוב על זה",
+      "segments": [
+        {
+          "text": "רצף מלודי. הדרך הקלה ביותר לחשוב על זה",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-112",
+      "start": 290.72,
+      "duration": 0.8,
+      "text": "היא",
+      "segments": [
+        {
+          "text": "היא",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-113",
+      "start": 291.52,
+      "duration": 2,
+      "text": "למספר מחדש את הסולם החל",
+      "segments": [
+        {
+          "text": "למספר מחדש את הסולם החל",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-114",
+      "start": 293.52,
+      "duration": 1.36,
+      "text": "מהמיתר הדק ביותר, כך שזה יהיה",
+      "segments": [
+        {
+          "text": "מהמיתר הדק ביותר, כך שזה יהיה",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-115",
+      "start": 294.88,
+      "duration": 2.64,
+      "text": "אחד שתיים שלוש ארבע חמש שש שבע שמונה תשע עשר אחת עשרה שתים עשרה שלוש עשרה ארבע עשרה חמש עשרה שש עשרה שבע עשרה ככה",
+      "segments": [
+        {
+          "text": "אחד שתיים שלוש ארבע חמש שש שבע שמונה תשע עשר אחת עשרה שתים עשרה שלוש עשרה ארבע עשרה חמש עשרה שש עשרה שבע עשרה ככה",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-118",
+      "start": 300.72,
+      "duration": 3.919,
+      "text": "ואז ללכת אחד שתיים שלוש ארבע שתיים שלוש ארבע חמש שלוש ארבע חמש",
+      "segments": [
+        {
+          "text": "ואז ללכת אחד שתיים שלוש ארבע שתיים שלוש ארבע חמש שלוש ארבע חמש",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-119",
+      "start": 304.639,
+      "duration": 3.921,
+      "text": "שש",
+      "segments": [
+        {
+          "text": "שש",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-120",
+      "start": 308.56,
+      "duration": 1.919,
+      "text": "אבל בשבילי, במיוחד בתבנית הזו, אני פשוט",
+      "segments": [
+        {
+          "text": "אבל בשבילי, במיוחד בתבנית הזו, אני פשוט",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-121",
+      "start": 310.479,
+      "duration": 2.401,
+      "text": "חושב שאנחנו יורדים בסולם, יורדים",
+      "segments": [
+        {
+          "text": "חושב שאנחנו יורדים בסולם, יורדים",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-122",
+      "start": 312.88,
+      "duration": 3.12,
+      "text": "ארבעה תווים מכל דרגת סולם,",
+      "segments": [
+        {
+          "text": "ארבעה תווים מכל דרגת סולם,",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-123",
+      "start": 316,
+      "duration": 1.85,
+      "text": "אז מתחילים מהתו העליון",
+      "segments": [
+        {
+          "text": "אז מתחילים מהתו העליון",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-124",
+      "start": 317.85,
+      "duration": 1.67,
+      "text": "[מוזיקה] והתו",
+      "segments": [
+        {
+          "text": "[מוזיקה] והתו",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-125",
+      "start": 319.52,
+      "duration": 2.16,
+      "text": "הבא למטה",
+      "segments": [
+        {
+          "text": "הבא למטה",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-126",
+      "start": 321.68,
+      "duration": 12.4,
+      "text": "התו הבא למטה",
+      "segments": [
+        {
+          "text": "התו הבא למטה",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-127",
+      "start": 334.08,
+      "duration": 2.16,
+      "text": "ושוב זה בסדר גמור לעשות את",
+      "segments": [
+        {
+          "text": "ושוב זה בסדר גמור לעשות את",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-128",
+      "start": 336.24,
+      "duration": 1.92,
+      "text": "זה בתנועה קופצנית כזו כדי",
+      "segments": [
+        {
+          "text": "זה בתנועה קופצנית כזו כדי",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-129",
+      "start": 338.16,
+      "duration": 1.68,
+      "text": "להתרגל לתבניות, אבל כמו  ברגע",
+      "segments": [
+        {
+          "text": "להתרגל לתבניות, אבל כמו  ברגע",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-130",
+      "start": 339.84,
+      "duration": 1.68,
+      "text": "שתהיו בטוחים בזה, אתם רוצים לנסות",
+      "segments": [
+        {
+          "text": "שתהיו בטוחים בזה, אתם רוצים לנסות",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-131",
+      "start": 341.52,
+      "duration": 7.79,
+      "text": "ולהסיר את",
+      "segments": [
+        {
+          "text": "ולהסיר את",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-132",
+      "start": 349.31,
+      "duration": 22.37,
+      "text": "[המוזיקה] הזו.",
+      "segments": [
+        {
+          "text": "[המוזיקה] הזו.",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-133",
+      "start": 371.68,
+      "duration": 1.68,
+      "text": "כשאתם מתחילים ליישם את הרצפים המלודיים האלה",
+      "segments": [
+        {
+          "text": "כשאתם מתחילים ליישם את הרצפים המלודיים האלה",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-134",
+      "start": 373.36,
+      "duration": 2,
+      "text": "על תבניות סולמות אחרות,",
+      "segments": [
+        {
+          "text": "על תבניות סולמות אחרות,",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-135",
+      "start": 375.36,
+      "duration": 1.679,
+      "text": "תגלו שיש כמה אתגרים בכל",
+      "segments": [
+        {
+          "text": "תגלו שיש כמה אתגרים בכל",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-136",
+      "start": 377.039,
+      "duration": 1.521,
+      "text": "הנוגע לאצבעות. יש",
+      "segments": [
+        {
+          "text": "הנוגע לאצבעות. יש",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-137",
+      "start": 378.56,
+      "duration": 2,
+      "text": "כמה החלטות שצריך לקבל.",
+      "segments": [
+        {
+          "text": "כמה החלטות שצריך לקבל.",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-138",
+      "start": 380.56,
+      "duration": 2.079,
+      "text": "אני אנסה לתת לכם כמה טיפים,",
+      "segments": [
+        {
+          "text": "אני אנסה לתת לכם כמה טיפים,",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-139",
+      "start": 382.639,
+      "duration": 2.081,
+      "text": "אבל חלק מהמסע הוא שאתם עכשיו צריכים",
+      "segments": [
+        {
+          "text": "אבל חלק מהמסע הוא שאתם עכשיו צריכים",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-140",
+      "start": 384.72,
+      "duration": 2,
+      "text": "להבין את האצבעות שהכי עובדות",
+      "segments": [
+        {
+          "text": "להבין את האצבעות שהכי עובדות",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-141",
+      "start": 386.72,
+      "duration": 2,
+      "text": "בשבילכם. בואו ניקח את הרצף הזה של ארבע",
+      "segments": [
+        {
+          "text": "בשבילכם. בואו ניקח את הרצף הזה של ארבע",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-142",
+      "start": 388.72,
+      "duration": 2,
+      "text": "בשורה. אם התחלנו בתבנית",
+      "segments": [
+        {
+          "text": "בשורה. אם התחלנו בתבנית",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-143",
+      "start": 390.72,
+      "duration": 3.28,
+      "text": "השנייה,",
+      "segments": [
+        {
+          "text": "השנייה,",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-144",
+      "start": 394,
+      "duration": 3.44,
+      "text": "זכרו שזה היה זה. עד כה הכל",
+      "segments": [
+        {
+          "text": "זכרו שזה היה זה. עד כה הכל",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-145",
+      "start": 397.44,
+      "duration": 2.72,
+      "text": "טוב,",
+      "segments": [
+        {
+          "text": "טוב,",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-146",
+      "start": 400.16,
+      "duration": 2.159,
+      "text": "עכשיו יש לנו את התו הזה. אם נעשה את זה,",
+      "segments": [
+        {
+          "text": "עכשיו יש לנו את התו הזה. אם נעשה את זה,",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-147",
+      "start": 402.319,
+      "duration": 1.921,
+      "text": "אז אנחנו צריכים לנסות לקפוץ עם",
+      "segments": [
+        {
+          "text": "אז אנחנו צריכים לנסות לקפוץ עם",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-148",
+      "start": 404.24,
+      "duration": 1.92,
+      "text": "האצבע השנייה, אז נצטרך להניח אותה",
+      "segments": [
+        {
+          "text": "האצבע השנייה, אז נצטרך להניח אותה",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-149",
+      "start": 406.16,
+      "duration": 4.319,
+      "text": "שטוחה יותר.",
+      "segments": [
+        {
+          "text": "שטוחה יותר.",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-150",
+      "start": 410.479,
+      "duration": 1.84,
+      "text": "אה, עכשיו נצטרך",
+      "segments": [
+        {
+          "text": "אה, עכשיו נצטרך",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-151",
+      "start": 412.319,
+      "duration": 1.681,
+      "text": "לעשות שינוי עם",
+      "segments": [
+        {
+          "text": "לעשות שינוי עם",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-152",
+      "start": 414,
+      "duration": 2.72,
+      "text": "הזרת, זה לא רעיון טוב. רעיון",
+      "segments": [
+        {
+          "text": "הזרת, זה לא רעיון טוב. רעיון",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-153",
+      "start": 416.72,
+      "duration": 4,
+      "text": "טוב יותר עבור זה",
+      "segments": [
+        {
+          "text": "טוב יותר עבור זה",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-154",
+      "start": 420.72,
+      "duration": 2.08,
+      "text": "הוא לדלג לאצבע הראשונה בהקדם",
+      "segments": [
+        {
+          "text": "הוא לדלג לאצבע הראשונה בהקדם",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-155",
+      "start": 422.8,
+      "duration": 3.679,
+      "text": "האפשרי.",
+      "segments": [
+        {
+          "text": "האפשרי.",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-156",
+      "start": 426.479,
+      "duration": 1.84,
+      "text": "כשאנחנו יורדים בתבנית",
+      "segments": [
+        {
+          "text": "כשאנחנו יורדים בתבנית",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-157",
+      "start": 428.319,
+      "duration": 1.361,
+      "text": "השנייה, יש לנו עוד כמה בעיות לחשוב.",
+      "segments": [
+        {
+          "text": "השנייה, יש לנו עוד כמה בעיות לחשוב.",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-159",
+      "start": 437.28,
+      "duration": 4.96,
+      "text": "עכשיו מה יקרה,",
+      "segments": [
+        {
+          "text": "עכשיו מה יקרה,",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-160",
+      "start": 442.24,
+      "duration": 7.519,
+      "text": "אנחנו צריכים לעבור לאצבע הראשונה.",
+      "segments": [
+        {
+          "text": "אנחנו צריכים לעבור לאצבע הראשונה.",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-161",
+      "start": 449.759,
+      "duration": 2,
+      "text": "כל תבנית תציג איזשהו",
+      "segments": [
+        {
+          "text": "כל תבנית תציג איזשהו",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-162",
+      "start": 451.759,
+      "duration": 1.601,
+      "text": "אתגר באצבעות שתצטרכו",
+      "segments": [
+        {
+          "text": "אתגר באצבעות שתצטרכו",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-163",
+      "start": 453.36,
+      "duration": 1.6,
+      "text": "להבין וזה",
+      "segments": [
+        {
+          "text": "להבין וזה",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-164",
+      "start": 454.96,
+      "duration": 1.76,
+      "text": "חלק מה...  הכיף של כל העניין, אני",
+      "segments": [
+        {
+          "text": "חלק מה...  הכיף של כל העניין, אני",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-165",
+      "start": 456.72,
+      "duration": 2.08,
+      "text": "צריך גם להזכיר את התו העליון של",
+      "segments": [
+        {
+          "text": "צריך גם להזכיר את התו העליון של",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-166",
+      "start": 458.8,
+      "duration": 1.839,
+      "text": "הסולם. באופן כללי, כשאתה",
+      "segments": [
+        {
+          "text": "הסולם. באופן כללי, כשאתה",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-167",
+      "start": 460.639,
+      "duration": 1.761,
+      "text": "מנגן סולמות למעלה ולמטה, אני ממליץ",
+      "segments": [
+        {
+          "text": "מנגן סולמות למעלה ולמטה, אני ממליץ",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-168",
+      "start": 462.4,
+      "duration": 2.56,
+      "text": "לנגן את התו העליון רק פעם אחת, כך",
+      "segments": [
+        {
+          "text": "לנגן את התו העליון רק פעם אחת, כך",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-169",
+      "start": 464.96,
+      "duration": 2.66,
+      "text": "שכאשר אתה מסתובב.",
+      "segments": [
+        {
+          "text": "שכאשר אתה מסתובב.",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-170",
+      "start": 467.62,
+      "duration": 1.579,
+      "text": "[מוזיקה]",
+      "segments": [
+        {
+          "text": "[מוזיקה]",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-171",
+      "start": 469.199,
+      "duration": 1.601,
+      "text": "אתה פוגע בתו העליון והוא מנוגן",
+      "segments": [
+        {
+          "text": "אתה פוגע בתו העליון והוא מנוגן",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-172",
+      "start": 470.8,
+      "duration": 2,
+      "text": "פעם אחת ויורד מיד. כשאתה",
+      "segments": [
+        {
+          "text": "פעם אחת ויורד מיד. כשאתה",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-173",
+      "start": 472.8,
+      "duration": 1.839,
+      "text": "עושה רצפים מלודיים לעתים",
+      "segments": [
+        {
+          "text": "עושה רצפים מלודיים לעתים",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-174",
+      "start": 474.639,
+      "duration": 1.761,
+      "text": "קרובות, תרצה לפגוע בתו העליון",
+      "segments": [
+        {
+          "text": "קרובות, תרצה לפגוע בתו העליון",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-175",
+      "start": 476.4,
+      "duration": 5.87,
+      "text": "פעמיים. בסדר.",
+      "segments": [
+        {
+          "text": "פעמיים. בסדר.",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-176",
+      "start": 482.27,
+      "duration": 5.09,
+      "text": "[מוזיקה]",
+      "segments": [
+        {
+          "text": "[מוזיקה]",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-177",
+      "start": 487.36,
+      "duration": 2.16,
+      "text": "אז באופן כללי, פגיעה כפולה בתו העליון",
+      "segments": [
+        {
+          "text": "אז באופן כללי, פגיעה כפולה בתו העליון",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-178",
+      "start": 489.52,
+      "duration": 1.679,
+      "text": "תשמור אותך מסונכרן",
+      "segments": [
+        {
+          "text": "תשמור אותך מסונכרן",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-179",
+      "start": 491.199,
+      "duration": 1.68,
+      "text": "עם המטרונום, במיוחד תבנית",
+      "segments": [
+        {
+          "text": "עם המטרונום, במיוחד תבנית",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-180",
+      "start": 492.879,
+      "duration": 2.16,
+      "text": "כמו זו, שאורכת ארבעה תווים.",
+      "segments": [
+        {
+          "text": "כמו זו, שאורכת ארבעה תווים.",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-181",
+      "start": 495.039,
+      "duration": 1.28,
+      "text": "אתה כנראה הולך לתרגל את זה",
+      "segments": [
+        {
+          "text": "אתה כנראה הולך לתרגל את זה",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-182",
+      "start": 496.319,
+      "duration": 1.921,
+      "text": "כ-שמינית או שש עשרה.",
+      "segments": [
+        {
+          "text": "כ-שמינית או שש עשרה.",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-183",
+      "start": 498.24,
+      "duration": 2,
+      "text": "תווים שישה עשרה הם ארבעה תווים לכל קליק של",
+      "segments": [
+        {
+          "text": "תווים שישה עשרה הם ארבעה תווים לכל קליק של",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-184",
+      "start": 500.24,
+      "duration": 1.92,
+      "text": "מטרונום. אז אם אתה מנגן את",
+      "segments": [
+        {
+          "text": "מטרונום. אז אם אתה מנגן את",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-185",
+      "start": 502.16,
+      "duration": 1.52,
+      "text": "התו העליון רק פעם אחת ומיד",
+      "segments": [
+        {
+          "text": "התו העליון רק פעם אחת ומיד",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-186",
+      "start": 503.68,
+      "duration": 2.48,
+      "text": "יורד, הקליק לא יישמע",
+      "segments": [
+        {
+          "text": "יורד, הקליק לא יישמע",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-187",
+      "start": 506.16,
+      "duration": 2.479,
+      "text": "בתחילת הרצף בכל פעם, מה שיכול",
+      "segments": [
+        {
+          "text": "בתחילת הרצף בכל פעם, מה שיכול",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-188",
+      "start": 508.639,
+      "duration": 2.081,
+      "text": "להרגיש קצת מוזר.",
+      "segments": [
+        {
+          "text": "להרגיש קצת מוזר.",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-189",
+      "start": 510.72,
+      "duration": 1.36,
+      "text": "תבנית נוספת ממש נהדרת שאני רוצה",
+      "segments": [
+        {
+          "text": "תבנית נוספת ממש נהדרת שאני רוצה",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-190",
+      "start": 512.08,
+      "duration": 2.639,
+      "text": "שתנסה היא שלושה בשורה. בסדר,",
+      "segments": [
+        {
+          "text": "שתנסה היא שלושה בשורה. בסדר,",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-191",
+      "start": 514.719,
+      "duration": 2.32,
+      "text": "כמו ארבעה בשורה. שלושה בשורה",
+      "segments": [
+        {
+          "text": "כמו ארבעה בשורה. שלושה בשורה",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-192",
+      "start": 517.039,
+      "duration": 2.401,
+      "text": "מכילים שלושה תווים עולים או יורדים מכל",
+      "segments": [
+        {
+          "text": "מכילים שלושה תווים עולים או יורדים מכל",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-193",
+      "start": 519.44,
+      "duration": 2.24,
+      "text": "דרגת סולם, אז בואו",
+      "segments": [
+        {
+          "text": "דרגת סולם, אז בואו",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-194",
+      "start": 521.68,
+      "duration": 2.32,
+      "text": "נסתכל על זה שוב.",
+      "segments": [
+        {
+          "text": "נסתכל על זה שוב.",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-195",
+      "start": 524,
+      "duration": 1.839,
+      "text": "יש תבנית סולם אחת,",
+      "segments": [
+        {
+          "text": "יש תבנית סולם אחת,",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-196",
+      "start": 525.839,
+      "duration": 1.841,
+      "text": "אם נמספר אותה אחת שתיים שלוש ארבע חמש",
+      "segments": [
+        {
+          "text": "אם נמספר אותה אחת שתיים שלוש ארבע חמש",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-197",
+      "start": 527.68,
+      "duration": 1.44,
+      "text": "שש.  שבע שמונה תשע עשר אחת עשרה שתים עשרה וכו'",
+      "segments": [
+        {
+          "text": "שש.  שבע שמונה תשע עשר אחת עשרה שתים עשרה וכו'",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-198",
+      "start": 529.12,
+      "duration": 3.92,
+      "text": "ואז יש לנו אחד שתיים שלוש",
+      "segments": [
+        {
+          "text": "ואז יש לנו אחד שתיים שלוש",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-199",
+      "start": 533.04,
+      "duration": 2.72,
+      "text": "שמתחילות במעלה השנייה במעלה",
+      "segments": [
+        {
+          "text": "שמתחילות במעלה השנייה במעלה",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-200",
+      "start": 535.76,
+      "duration": 1.84,
+      "text": "השלישית במעלה הרביעית",
+      "segments": [
+        {
+          "text": "השלישית במעלה הרביעית",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-202",
+      "start": 539.76,
+      "duration": 1.44,
+      "text": "עכשיו דרך קלה לחשוב על זה היא",
+      "segments": [
+        {
+          "text": "עכשיו דרך קלה לחשוב על זה היא",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-203",
+      "start": 541.2,
+      "duration": 1.759,
+      "text": "שאתה עולה שלוש",
+      "segments": [
+        {
+          "text": "שאתה עולה שלוש",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-204",
+      "start": 542.959,
+      "duration": 1.921,
+      "text": "למטה אחת ולמעלה שלוש אחורה אחת אחורה אחת",
+      "segments": [
+        {
+          "text": "למטה אחת ולמעלה שלוש אחורה אחת אחורה אחת",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-207",
+      "start": 547.96,
+      "duration": 7.75,
+      "text": "[מוזיקה]",
+      "segments": [
+        {
+          "text": "[מוזיקה]",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-208",
+      "start": 555.71,
+      "duration": 5.249,
+      "text": "[מוזיקה] ולמטה",
+      "segments": [
+        {
+          "text": "[מוזיקה] ולמטה",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-210",
+      "start": 564.15,
+      "duration": 14.69,
+      "text": "[מוזיקה]",
+      "segments": [
+        {
+          "text": "[מוזיקה]",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-211",
+      "start": 578.84,
+      "duration": 1.72,
+      "text": "[מוזיקה]",
+      "segments": [
+        {
+          "text": "[מוזיקה]",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-212",
+      "start": 580.56,
+      "duration": 1.68,
+      "text": "כרגיל אני ממליץ שתתחיל להכיר את זה",
+      "segments": [
+        {
+          "text": "כרגיל אני ממליץ שתתחיל להכיר את זה",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-213",
+      "start": 582.24,
+      "duration": 1.84,
+      "text": "בתבנית",
+      "segments": [
+        {
+          "text": "בתבנית",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-214",
+      "start": 584.08,
+      "duration": 1.759,
+      "text": "אחת לפני שאתה מתחיל ליישם את זה על",
+      "segments": [
+        {
+          "text": "אחת לפני שאתה מתחיל ליישם את זה על",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-215",
+      "start": 585.839,
+      "duration": 1.361,
+      "text": "שאר התבניות כי אתה תיתקל",
+      "segments": [
+        {
+          "text": "שאר התבניות כי אתה תיתקל",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-216",
+      "start": 587.2,
+      "duration": 1.84,
+      "text": "בחידות אצבעות שאתה צריך להבין",
+      "segments": [
+        {
+          "text": "בחידות אצבעות שאתה צריך להבין",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-217",
+      "start": 589.04,
+      "duration": 1.76,
+      "text": "אני חושב שיש הרבה",
+      "segments": [
+        {
+          "text": "אני חושב שיש הרבה",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-218",
+      "start": 590.8,
+      "duration": 1.76,
+      "text": "ערך להכיר את זה באמת",
+      "segments": [
+        {
+          "text": "ערך להכיר את זה באמת",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-219",
+      "start": 592.56,
+      "duration": 1.839,
+      "text": "בתבנית אחת לפני שאתה מזיז אותה",
+      "segments": [
+        {
+          "text": "בתבנית אחת לפני שאתה מזיז אותה",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-220",
+      "start": 594.399,
+      "duration": 1.521,
+      "text": "יש משהו",
+      "segments": [
+        {
+          "text": "יש משהו",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-221",
+      "start": 595.92,
+      "duration": 1.919,
+      "text": "במכניקה שלה שמקל על הבנה",
+      "segments": [
+        {
+          "text": "במכניקה שלה שמקל על הבנה",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-222",
+      "start": 597.839,
+      "duration": 2.081,
+      "text": "בתבנית אחת לפני",
+      "segments": [
+        {
+          "text": "בתבנית אחת לפני",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-223",
+      "start": 599.92,
+      "duration": 1.919,
+      "text": "שאתה מתחיל להזיז אותה",
+      "segments": [
+        {
+          "text": "שאתה מתחיל להזיז אותה",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-224",
+      "start": 601.839,
+      "duration": 1.601,
+      "text": "אחד הדברים המגניבים",
+      "segments": [
+        {
+          "text": "אחד הדברים המגניבים",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-225",
+      "start": 603.44,
+      "duration": 1.839,
+      "text": "ברצפים מלודיים הוא שזה ממש מגדל תגלה",
+      "segments": [
+        {
+          "text": "ברצפים מלודיים הוא שזה ממש מגדל תגלה",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-226",
+      "start": 605.279,
+      "duration": 1.521,
+      "text": "שאתה כנראה עובד",
+      "segments": [
+        {
+          "text": "שאתה כנראה עובד",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-227",
+      "start": 606.8,
+      "duration": 1.68,
+      "text": "על רצפים מלודיים שונים כל עוד",
+      "segments": [
+        {
+          "text": "על רצפים מלודיים שונים כל עוד",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-228",
+      "start": 608.48,
+      "duration": 2,
+      "text": "אתה מנגן בגיטרה זו דרך ממש מהנה",
+      "segments": [
+        {
+          "text": "אתה מנגן בגיטרה זו דרך ממש מהנה",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-229",
+      "start": 610.48,
+      "duration": 1.76,
+      "text": "לחקור סולמות לאמן את",
+      "segments": [
+        {
+          "text": "לחקור סולמות לאמן את",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-230",
+      "start": 612.24,
+      "duration": 1.279,
+      "text": "האצבעות שלך לעשות דברים שונים יש",
+      "segments": [
+        {
+          "text": "האצבעות שלך לעשות דברים שונים יש",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-231",
+      "start": 613.519,
+      "duration": 1.921,
+      "text": "המון דברים טובים בזה",
+      "segments": [
+        {
+          "text": "המון דברים טובים בזה",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-232",
+      "start": 615.44,
+      "duration": 1.28,
+      "text": "יש עוד תבנית אחת שאני רוצה",
+      "segments": [
+        {
+          "text": "יש עוד תבנית אחת שאני רוצה",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-233",
+      "start": 616.72,
+      "duration": 1.6,
+      "text": "לתת לך רק בתור  זה רעיון שכדאי",
+      "segments": [
+        {
+          "text": "לתת לך רק בתור  זה רעיון שכדאי",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-234",
+      "start": 618.32,
+      "duration": 1.36,
+      "text": "לכם לחקור",
+      "segments": [
+        {
+          "text": "לכם לחקור",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-235",
+      "start": 619.68,
+      "duration": 1.839,
+      "text": "אם אתם רוצים להתחיל לעשות",
+      "segments": [
+        {
+          "text": "אם אתם רוצים להתחיל לעשות",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-236",
+      "start": 621.519,
+      "duration": 1.521,
+      "text": "תבניות מלודיות בעצמכם, ולזה",
+      "segments": [
+        {
+          "text": "תבניות מלודיות בעצמכם, ולזה",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-237",
+      "start": 623.04,
+      "duration": 2.96,
+      "text": "אני קורא \"ארבע הפוך בשורה\", אז",
+      "segments": [
+        {
+          "text": "אני קורא \"ארבע הפוך בשורה\", אז",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-238",
+      "start": 626,
+      "duration": 2.64,
+      "text": "זה כאילו לקחנו כל בלוק מתבנית ארבע בשורה",
+      "segments": [
+        {
+          "text": "זה כאילו לקחנו כל בלוק מתבנית ארבע בשורה",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-239",
+      "start": 628.64,
+      "duration": 1.92,
+      "text": "הרגילה",
+      "segments": [
+        {
+          "text": "הרגילה",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-240",
+      "start": 630.56,
+      "duration": 2.56,
+      "text": "והפכנו אותו, אז במקום אחד שתיים שלוש ארבע נלך ארבע שלוש שתיים אחת.",
+      "segments": [
+        {
+          "text": "והפכנו אותו, אז במקום אחד שתיים שלוש ארבע נלך ארבע שלוש שתיים אחת.",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-242",
+      "start": 634.959,
+      "duration": 2.241,
+      "text": "הבלוק השני היה",
+      "segments": [
+        {
+          "text": "הבלוק השני היה",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-243",
+      "start": 637.2,
+      "duration": 2.48,
+      "text": "במקור שתיים שלוש ארבע חמש, עכשיו זה הולך להיות",
+      "segments": [
+        {
+          "text": "במקור שתיים שלוש ארבע חמש, עכשיו זה הולך להיות",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-244",
+      "start": 639.68,
+      "duration": 3.279,
+      "text": "חמש ארבע שלוש שתיים, אז",
+      "segments": [
+        {
+          "text": "חמש ארבע שלוש שתיים, אז",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-245",
+      "start": 642.959,
+      "duration": 1.521,
+      "text": "בעצם כל",
+      "segments": [
+        {
+          "text": "בעצם כל",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-246",
+      "start": 644.48,
+      "duration": 3.44,
+      "text": "קטע התהפך. ארבע הפוך בשורה.",
+      "segments": [
+        {
+          "text": "קטע התהפך. ארבע הפוך בשורה.",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-247",
+      "start": 647.92,
+      "duration": 1.919,
+      "text": "נשמע ככה. אני חושב שזה",
+      "segments": [
+        {
+          "text": "נשמע ככה. אני חושב שזה",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-248",
+      "start": 649.839,
+      "duration": 2.24,
+      "text": "אחד מהמועדפים עליי, אז עכשיו נתחיל בסולם הרביעי",
+      "segments": [
+        {
+          "text": "אחד מהמועדפים עליי, אז עכשיו נתחיל בסולם הרביעי",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-250",
+      "start": 656.56,
+      "duration": 1.6,
+      "text": "ויורדים ארבע, ואז נתחיל בסולם",
+      "segments": [
+        {
+          "text": "ויורדים ארבע, ואז נתחיל בסולם",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-251",
+      "start": 658.16,
+      "duration": 2.64,
+      "text": "החמישי,",
+      "segments": [
+        {
+          "text": "החמישי,",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-252",
+      "start": 660.8,
+      "duration": 3.52,
+      "text": "יורדים בסולם השישי, שבע שמונה חמש עשר וכו'.",
+      "segments": [
+        {
+          "text": "יורדים בסולם השישי, שבע שמונה חמש עשר וכו'.",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-257",
+      "start": 680.27,
+      "duration": 5.01,
+      "text": "[מוזיקה]",
+      "segments": [
+        {
+          "text": "[מוזיקה]",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-258",
+      "start": 685.28,
+      "duration": 9.92,
+      "text": "[צחוק]",
+      "segments": [
+        {
+          "text": "[צחוק]",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-259",
+      "start": 695.2,
+      "duration": 2.079,
+      "text": "ברור שכשאנחנו יורדים בסולם",
+      "segments": [
+        {
+          "text": "ברור שכשאנחנו יורדים בסולם",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-260",
+      "start": 697.279,
+      "duration": 3.041,
+      "text": "אנחנו עולים ארבע דרגות בסולם כשאנחנו",
+      "segments": [
+        {
+          "text": "אנחנו עולים ארבע דרגות בסולם כשאנחנו",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-261",
+      "start": 700.32,
+      "duration": 19.04,
+      "text": "יורדים,",
+      "segments": [
+        {
+          "text": "יורדים,",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-262",
+      "start": 719.36,
+      "duration": 12.159,
+      "text": "אז אתם",
+      "segments": [
+        {
+          "text": "אז אתם",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-263",
+      "start": 731.519,
+      "duration": 2.161,
+      "text": "מוזמנים לנסות את הרצפים שלכם,",
+      "segments": [
+        {
+          "text": "מוזמנים לנסות את הרצפים שלכם,",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-264",
+      "start": 733.68,
+      "duration": 2.08,
+      "text": "אבל אני ממליץ להתחיל עם",
+      "segments": [
+        {
+          "text": "אבל אני ממליץ להתחיל עם",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-265",
+      "start": 735.76,
+      "duration": 2,
+      "text": "הרצפים האלה קודם. זכרו",
+      "segments": [
+        {
+          "text": "הרצפים האלה קודם. זכרו",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-266",
+      "start": 737.76,
+      "duration": 2.8,
+      "text": "שבדקנו גם לנגן בטרצות,",
+      "segments": [
+        {
+          "text": "שבדקנו גם לנגן בטרצות,",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-267",
+      "start": 740.56,
+      "duration": 1.519,
+      "text": "אז זו תהיה שגרת חימום נהדרת,",
+      "segments": [
+        {
+          "text": "אז זו תהיה שגרת חימום נהדרת,",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-268",
+      "start": 742.079,
+      "duration": 2,
+      "text": "תהיה",
+      "segments": [
+        {
+          "text": "תהיה",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-269",
+      "start": 744.079,
+      "duration": 2.081,
+      "text": "לנגן סולם למעלה ולמטה ואז...  לנגן את",
+      "segments": [
+        {
+          "text": "לנגן סולם למעלה ולמטה ואז...  לנגן את",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-270",
+      "start": 746.16,
+      "duration": 3.119,
+      "text": "זה בשלישיות ואז לנגן ארבע בשורה,",
+      "segments": [
+        {
+          "text": "זה בשלישיות ואז לנגן ארבע בשורה,",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-271",
+      "start": 749.279,
+      "duration": 2.401,
+      "text": "שלוש בשורה והפוך ארבע",
+      "segments": [
+        {
+          "text": "שלוש בשורה והפוך ארבע",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-272",
+      "start": 751.68,
+      "duration": 1.599,
+      "text": "בשורה. אם אתם רוצים קצת",
+      "segments": [
+        {
+          "text": "בשורה. אם אתם רוצים קצת",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-273",
+      "start": 753.279,
+      "duration": 2.721,
+      "text": "אתגר, אל תלכו על מהירות, לכו על",
+      "segments": [
+        {
+          "text": "אתגר, אל תלכו על מהירות, לכו על",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-274",
+      "start": 756,
+      "duration": 2.48,
+      "text": "דיוק וזה אימון האצבעות שלכם",
+      "segments": [
+        {
+          "text": "דיוק וזה אימון האצבעות שלכם",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-275",
+      "start": 758.48,
+      "duration": 2.24,
+      "text": "לעשות דברים חדשים. מה שכנראה",
+      "segments": [
+        {
+          "text": "לעשות דברים חדשים. מה שכנראה",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-276",
+      "start": 760.72,
+      "duration": 2,
+      "text": "תגלו כשאתם הולכים לאלתר הוא שהאצבעות",
+      "segments": [
+        {
+          "text": "תגלו כשאתם הולכים לאלתר הוא שהאצבעות",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-277",
+      "start": 762.72,
+      "duration": 1.76,
+      "text": "שלכם יתחילו באופן טבעי לעשות את",
+      "segments": [
+        {
+          "text": "שלכם יתחילו באופן טבעי לעשות את",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-278",
+      "start": 764.48,
+      "duration": 2.32,
+      "text": "התבניות האלה, עכשיו זה לא צריך",
+      "segments": [
+        {
+          "text": "התבניות האלה, עכשיו זה לא צריך",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-279",
+      "start": 766.8,
+      "duration": 1.76,
+      "text": "להיות ריצה גדולה שלמה, כי",
+      "segments": [
+        {
+          "text": "להיות ריצה גדולה שלמה, כי",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-280",
+      "start": 768.56,
+      "duration": 2.399,
+      "text": "אז זה נשמע כמו תרגיל סולם.",
+      "segments": [
+        {
+          "text": "אז זה נשמע כמו תרגיל סולם.",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-281",
+      "start": 770.959,
+      "duration": 1.841,
+      "text": "מה שאתם מחפשים זה היכולת",
+      "segments": [
+        {
+          "text": "מה שאתם מחפשים זה היכולת",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-282",
+      "start": 772.8,
+      "duration": 1.839,
+      "text": "לאמן את האצבעות שלכם להשתמש",
+      "segments": [
+        {
+          "text": "לאמן את האצבעות שלכם להשתמש",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-283",
+      "start": 774.639,
+      "duration": 1.601,
+      "text": "בקטעים קטנים שעשויים לצאת באלתור",
+      "segments": [
+        {
+          "text": "בקטעים קטנים שעשויים לצאת באלתור",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-284",
+      "start": 776.24,
+      "duration": 1.76,
+      "text": "שלכם וללמד את",
+      "segments": [
+        {
+          "text": "שלכם וללמד את",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-285",
+      "start": 778,
+      "duration": 2.24,
+      "text": "האצבעות שלכם לפרוץ את נגינת",
+      "segments": [
+        {
+          "text": "האצבעות שלכם לפרוץ את נגינת",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-286",
+      "start": 780.24,
+      "duration": 1.92,
+      "text": "הסולם ישר למעלה ולמטה. כשאתם עושים",
+      "segments": [
+        {
+          "text": "הסולם ישר למעלה ולמטה. כשאתם עושים",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-287",
+      "start": 782.16,
+      "duration": 2,
+      "text": "דברים כאלה, אתם פשוט פותחים את",
+      "segments": [
+        {
+          "text": "דברים כאלה, אתם פשוט פותחים את",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-288",
+      "start": 784.16,
+      "duration": 1.679,
+      "text": "האצבעות שלכם לרעיונות חדשים ומלמדים את",
+      "segments": [
+        {
+          "text": "האצבעות שלכם לרעיונות חדשים ומלמדים את",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-289",
+      "start": 785.839,
+      "duration": 2.641,
+      "text": "הדמיון המוזיקלי שלכם",
+      "segments": [
+        {
+          "text": "הדמיון המוזיקלי שלכם",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-290",
+      "start": 788.48,
+      "duration": 2.159,
+      "text": "רעיונות חדשים או צלילים חדשים שאתם עשויים להתחיל",
+      "segments": [
+        {
+          "text": "רעיונות חדשים או צלילים חדשים שאתם עשויים להתחיל",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-291",
+      "start": 790.639,
+      "duration": 2.241,
+      "text": "לשמוע. כשאתם מאלתרים דברים כאלה, בדרך כלל",
+      "segments": [
+        {
+          "text": "לשמוע. כשאתם מאלתרים דברים כאלה, בדרך כלל",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-292",
+      "start": 792.88,
+      "duration": 2.48,
+      "text": "קל יותר שיהיה לכם את",
+      "segments": [
+        {
+          "text": "קל יותר שיהיה לכם את",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-293",
+      "start": 795.36,
+      "duration": 1.68,
+      "text": "התווים מולכם, אז אל",
+      "segments": [
+        {
+          "text": "התווים מולכם, אז אל",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-294",
+      "start": 797.04,
+      "duration": 1.599,
+      "text": "תשכחו להוריד את קובץ ה-PDF",
+      "segments": [
+        {
+          "text": "תשכחו להוריד את קובץ ה-PDF",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-295",
+      "start": 798.639,
+      "duration": 2,
+      "text": "מהאתר, פשוט לחצו על סמל ההורדה. כל",
+      "segments": [
+        {
+          "text": "מהאתר, פשוט לחצו על סמל ההורדה. כל",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-296",
+      "start": 800.639,
+      "duration": 1.76,
+      "text": "הדברים האלה בחינם למשתמשים רשומים.",
+      "segments": [
+        {
+          "text": "הדברים האלה בחינם למשתמשים רשומים.",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-297",
+      "start": 802.399,
+      "duration": 1.841,
+      "text": "אני באמת מקווה שאתם משתמשים בזה,",
+      "segments": [
+        {
+          "text": "אני באמת מקווה שאתם משתמשים בזה,",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-298",
+      "start": 804.24,
+      "duration": 1.2,
+      "text": "בהחלט מסוג הדברים שבהם, אם",
+      "segments": [
+        {
+          "text": "בהחלט מסוג הדברים שבהם, אם",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-299",
+      "start": 805.44,
+      "duration": 1.6,
+      "text": "אתם עוקבים אחרי זה עם העיניים שלכם, אני...  אני",
+      "segments": [
+        {
+          "text": "אתם עוקבים אחרי זה עם העיניים שלכם, אני...  אני",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-300",
+      "start": 807.04,
+      "duration": 1.84,
+      "text": "חושב שזה יכול להיות ממש מועיל. מקווה",
+      "segments": [
+        {
+          "text": "חושב שזה יכול להיות ממש מועיל. מקווה",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-301",
+      "start": 808.88,
+      "duration": 2.24,
+      "text": "שנתראה בחלק השני של יחידה",
+      "segments": [
+        {
+          "text": "שנתראה בחלק השני של יחידה",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-302",
+      "start": 811.12,
+      "duration": 1.36,
+      "text": "7, שם נבחן",
+      "segments": [
+        {
+          "text": "7, שם נבחן",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-303",
+      "start": 812.48,
+      "duration": 2.159,
+      "text": "שימוש בכיפופי מיתרים בסולם מז'ורי.",
+      "segments": [
+        {
+          "text": "שימוש בכיפופי מיתרים בסולם מז'ורי.",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-304",
+      "start": 814.639,
+      "duration": 2,
+      "text": "זה לא רק עניין של בלוז. תשמרו",
+      "segments": [
+        {
+          "text": "זה לא רק עניין של בלוז. תשמרו",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-305",
+      "start": 816.639,
+      "duration": 3.281,
+      "text": "על עצמכם, להתראות.",
+      "segments": [
+        {
+          "text": "על עצמכם, להתראות.",
+          "offset": 0
+        }
+      ]
+    }
+  ]
+}

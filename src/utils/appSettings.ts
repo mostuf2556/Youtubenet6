@@ -7,7 +7,7 @@ import { STORAGE_KEYS } from '../config/appConfig';
  */
 
 export type SubtitlePosition = 'top' | 'above' | 'under' | 'bottom';
-export type TTSSyncMode = 'word_boundary' | 'time_linear' | 'word_step' | 'full_sentence';
+export type TTSSyncMode = 'json3' | 'word_boundary';
 export type AppTheme = 'minimal-light' | 'pure-dark' | 'warm-slate';
 
 export interface AppSettings {
@@ -34,7 +34,7 @@ export interface AppSettings {
   // Subtitle Timestamp Display: By default also show the subtitles's time section besides the subtitles
   showSubtitleTimestamps: boolean;
 
-  // TTS Play & Text Highlight Synchronization Mode (4 Alternatives)
+  // TTS highlighting uses JSON3 segment timing by default or native word boundaries.
   ttsSyncMode: TTSSyncMode;
 
   // Non-Native TTS Fallback (Audio Stream): DISABLED by default (only native hardware/WebSpeech is used)
@@ -176,7 +176,7 @@ export const DEFAULT_APP_SETTINGS: AppSettings = {
   showSubtitleTimestamps: true,
 
   // TTS Play & Text Highlight Sync Mode (4 Alternatives, default: word_boundary)
-  ttsSyncMode: 'word_boundary',
+  ttsSyncMode: 'json3',
 
   // Non-Native TTS Fallback: enabled by default
   allowNonNativeTTSFallback: true,
@@ -219,11 +219,13 @@ export function loadAppSettings(): AppSettings {
     const raw = localStorage.getItem(SETTINGS_STORAGE_KEY);
     if (raw) {
       const parsed = JSON.parse(raw);
+      const restoredMode = parsed.ttsSyncMode === 'word_boundary' ? 'word_boundary' : 'json3';
       return {
         ...DEFAULT_APP_SETTINGS,
         compactView: parsed.compactView !== undefined ? parsed.compactView : true,
         theme: parsed.theme || DEFAULT_APP_SETTINGS.theme,
         ...parsed,
+        ttsSyncMode: restoredMode,
         methods: {
           ...DEFAULT_APP_SETTINGS.methods,
           ...(parsed.methods || {}),

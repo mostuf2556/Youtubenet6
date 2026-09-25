@@ -53,7 +53,7 @@ import {
   saveObservedTimedTextUrl,
 } from './utils/subtitleCache';
 import { trackNetworkRequest } from './utils/networkInterceptor';
-import { ShieldAlert, CheckCircle2, Subtitles, X, RefreshCw, Sparkles } from 'lucide-react';
+import { ShieldAlert, CheckCircle2, Subtitles, X, RefreshCw, Sparkles, Layers } from 'lucide-react';
 import { SettingsModal } from './components/SettingsModal';
 import { ActivityLogModal } from './components/ActivityLogModal';
 import { ApkUpdateModal } from './components/ApkUpdateModal';
@@ -61,11 +61,13 @@ import { checkApkUpdate } from './utils/apkUpdater';
 import { loadAppSettings, saveAppSettings, AppSettings, DEFAULT_APP_SETTINGS, loadVideoSettings, saveVideoSettings, VideoSpecificSettings, getVideoTargetLang, setVideoTargetLang, isAndroidAppEnvironment } from './utils/appSettings';
 import { logInfo, logWarn, logSubtitles, registerAppStateProvider } from './utils/logBuffer';
 import { checkAndPerformUrlCacheReset, getAppStateFromUrl, syncAppStateToUrl } from './utils/urlStateManager';
-import { getMockedSubtitlesForVideo, L2RYRR6TXWA_LANGUAGE_JSON3_TRACKS } from '../test/fixtures/defaultSubtitles';
+import { getMockedSubtitlesForVideo, getFixtureSubtitlesForVideo, L2RYRR6TXWA_LANGUAGE_JSON3_TRACKS, SubtitleFixtureSource } from '../test/fixtures/defaultSubtitles';
 import { SelectTargetLanguageModal } from './components/SelectTargetLanguageModal';
 import { SubtitleArtifactsModal } from './components/SubtitleArtifactsModal';
+import { SubtitleComparisonView } from './components/SubtitleComparisonView';
 import { fetchSubtitlesFrontend } from './services/subtitleService';
 import { DEFAULT_LIBRARY_ITEMS } from './config/appConfig';
+import { L2RYRR6TXWA_NORMALIZED_TRACKS } from '../test/fixtures/L2Ryrr6txwA_normalized/jsonStrings';
 
 const LIBRARY_STORAGE_KEY = 'yt_video_library_v2';
 
@@ -152,6 +154,9 @@ export default function App() {
   });
   const [interceptedData, setInterceptedData] = useState<InterceptedCaptionData | null>(null);
   const [captionsEnabled, setCaptionsEnabled] = useState<boolean>(() => initialUrlState.captionsEnabled ?? true);
+  const [subtitleSource, setSubtitleSource] = useState<SubtitleFixtureSource>('raw');
+  const [isComparisonOpen, setIsComparisonOpen] = useState(false);
+  const [comparisonTime, setComparisonTime] = useState(0);
 
   // Target Language Selection per video (Default to 'he' Hebrew subtitles or user learning target)
   const [isTargetLangModalOpen, setIsTargetLangModalOpen] = useState<boolean>(false);
@@ -292,10 +297,41 @@ export default function App() {
       ? 'theme-warm-slate'
       : 'theme-pure-dark';
 
+  const handleToggleSubtitleSource = useCallback(() => {
+    const nextSource: SubtitleFixtureSource = subtitleSource === 'raw' ? 'normalized' : 'raw';
+    setSubtitleSource(nextSource);
+    if (videoId === 'L2Ryrr6txwA') {
+      const fixtureCues = getFixtureSubtitlesForVideo(videoId, 'en', nextSource);
+      setCustomCues(fixtureCues);
+      setActiveCue(fixtureCues[0] || null);
+      setRestoredToast(`Using ${nextSource} subtitle fixtures (${fixtureCues.length} cues)`);
+      window.setTimeout(() => setRestoredToast(null), 2500);
+    }
+  }, [subtitleSource, videoId]);
+
   // Active cues list resolved from custom loaded cues, intercepted native captions, or defaults
   const activeCues = useMemo(() => {
     return customCues && customCues.length > 0 ? customCues : (interceptedData?.cues || []);
   }, [customCues, interceptedData]);
+
+  const comparisonTracks = useMemo(() => {
+    const labels: Record<string, string> = {
+      en: 'English',
+      he: 'Hebrew',
+      it: 'Italian',
+      ar: 'Arabic',
+      ru: 'Russian',
+    };
+    const activeLanguages = Array.from(new Set([...(settings.learningLanguages || []), selectedTargetLang || 'he']))
+      .map((code) => code.toLowerCase().split(/[-_]/)[0] === 'iw' ? 'he' : code.toLowerCase().split(/[-_]/)[0])
+      .filter((code) => L2RYRR6TXWA_LANGUAGE_JSON3_TRACKS[code] && L2RYRR6TXWA_NORMALIZED_TRACKS[code]);
+    return activeLanguages.map((code) => ({
+      code,
+      label: labels[code] || code.toUpperCase(),
+      originalCues: L2RYRR6TXWA_LANGUAGE_JSON3_TRACKS[code],
+      normalizedCues: L2RYRR6TXWA_NORMALIZED_TRACKS[code],
+    }));
+  }, [settings.learningLanguages, selectedTargetLang]);
 
   const playerRef = useRef<YouTubePlayerHandle | null>(null);
 
@@ -430,6 +466,7 @@ export default function App() {
 
   const handlePlayerTimeUpdate = useCallback((t: number) => {
     if (!activeCues || activeCues.length === 0) return;
+    setComparisonTime(t);
     syncEngine.handleTimeUpdate(t);
     const match = activeCues.find((c) => t >= c.start && t <= c.start + (c.duration || 2.5));
     setActiveCue((prev) => {
@@ -1314,6 +1351,50 @@ export default function App() {
           </div>
         )}
 
+        {videoId === 'L2Ryrr6txwA' && (
+          <div className="absolute top-14 right-3 z-50 flex gap-2">
+            <button
+              id="subtitle-source-switch-app"
+              data-testid="subtitle-source-switch-app"
+              type="button"
+              onClick={handleToggleSubtitleSource}
+              role="switch"
+              aria-checked={subtitleSource === 'normalized'}
+              aria-label={`Subtitle version: ${subtitleSource === 'normalized' ? 'normalized' : 'original'}`}
+              className={`flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs font-semibold border shadow-lg transition active:scale-95 ${
+                subtitleSource === 'normalized'
+                  ? 'bg-amber-950/95 text-amber-300 border-amber-600'
+                  : 'bg-neutral-900/95 text-neutral-200 border-neutral-700'
+              }`}
+              title="Switch between original and normalized subtitles"
+            >
+              <Layers className="w-3.5 h-3.5" />
+              <span>{subtitleSource === 'normalized' ? 'Normalized' : 'Original'}</span>
+            </button>
+            <button
+              id="subtitle-comparison-toggle"
+              data-testid="subtitle-comparison-toggle"
+              type="button"
+              onClick={() => setIsComparisonOpen((open) => !open)}
+              aria-pressed={isComparisonOpen}
+              className="rounded-lg border border-neutral-700 bg-neutral-900/95 px-3 py-2 text-xs font-semibold text-neutral-200 shadow-lg transition hover:bg-neutral-800 active:scale-95"
+              title="Compare original and normalized subtitles"
+            >
+              Compare
+            </button>
+          </div>
+        )}
+
+        {videoId === 'L2Ryrr6txwA' && isComparisonOpen && (
+          <div className="absolute inset-x-3 bottom-3 top-24 z-40 overflow-auto rounded-xl bg-neutral-950/95 p-3 shadow-2xl ring-1 ring-neutral-700">
+            <SubtitleComparisonView
+              tracks={comparisonTracks}
+              currentTime={comparisonTime}
+              onSeek={(seconds) => playerRef.current?.seekTo(seconds)}
+            />
+          </div>
+        )}
+
         {/* Main Video Player in Full Screen / Compact View */}
         <div className="flex-1 w-full h-full relative">
           <VideoPlayer
@@ -1390,6 +1471,8 @@ export default function App() {
             onOpenNetworkInspector={() => dispatch(setNetworkInspectorOpen(true))}
             onOpenShare={() => setIsShareModalOpen(true)}
             onOpenArtifacts={() => setIsArtifactsModalOpen(true)}
+            subtitleSource={subtitleSource}
+            onToggleSubtitleSource={videoId === 'L2Ryrr6txwA' ? handleToggleSubtitleSource : undefined}
           />
         </div>
 
@@ -1400,6 +1483,8 @@ export default function App() {
           onClose={() => setIsTargetLangModalOpen(false)}
           currentSelectedLang={selectedTargetLang}
           onSelectLanguage={handleUpdateTargetLang}
+          settings={settings}
+          onUpdateSettings={handleUpdateSettings}
           onUpdateTtsRate={(langCode, rate) => {
             handleUpdateVideoSettings(videoId, {
               ttsRates: { [langCode]: rate },
@@ -1575,6 +1660,8 @@ export default function App() {
                   dispatch(transition({ to: 'video_ready', actionName: 'CAPTION_ICON_TOGGLED_OFF', payload: { videoId } }));
                 }
               }}
+              subtitleSource={subtitleSource}
+              onToggleSubtitleSource={videoId === 'L2Ryrr6txwA' ? handleToggleSubtitleSource : undefined}
             />
           </section>
           <section className="min-w-0">
@@ -1607,6 +1694,13 @@ export default function App() {
               }}
               syncEngine={syncEngine}
             />
+            {videoId === 'L2Ryrr6txwA' && (
+              <SubtitleComparisonView
+                tracks={comparisonTracks}
+                currentTime={comparisonTime}
+                onSeek={(seconds) => playerRef.current?.seekTo(seconds)}
+              />
+            )}
           </section>
         </div>
       </main>

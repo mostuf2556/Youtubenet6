@@ -36,6 +36,7 @@ export interface ParallelTranslationsOverlayProps {
   onSeekTo?: (time: number) => void;
   seekTo?: (time: number) => void;
   settings?: AppSettings;
+  currentTime?: number;
 }
 
 const LANGUAGE_COLOR_STYLES: Record<string, { bg: string; text: string; border: string; badgeBg: string }> = {
@@ -119,6 +120,7 @@ export const ParallelTranslationsOverlay: React.FC<ParallelTranslationsOverlayPr
     onSeekTo,
     seekTo,
     settings,
+    currentTime = 0,
   } = props;
 
   const [ttsDebugPayload, setTtsDebugPayload] = useState<TTSDebugPayload | null>(null);
@@ -265,7 +267,10 @@ export const ParallelTranslationsOverlay: React.FC<ParallelTranslationsOverlayPr
             text={translationText}
             isSpeaking={isThisLangSpeaking}
             activeCharIndex={effectiveCharIndex}
-            syncMode={settings?.ttsSyncMode || 'word_boundary'}
+            segments={activeCue?.segments}
+            currentTime={currentTime}
+            cueStart={activeCue?.start}
+                syncMode={settings?.ttsSyncMode || 'json3'}
             lang={lang}
             dir={isTranslatedRtl ? 'rtl' : 'ltr'}
             className={
@@ -444,7 +449,10 @@ export const ParallelTranslationsOverlay: React.FC<ParallelTranslationsOverlayPr
                     text={text}
                     isSpeaking={isThisLangSpeaking}
                     activeCharIndex={isThisLangSpeaking ? effectiveCharIndex : null}
-                    syncMode={settings?.ttsSyncMode || 'word_boundary'}
+                    segments={activeCue?.segments}
+                    currentTime={currentTime}
+                    cueStart={activeCue?.start}
+                    syncMode={settings?.ttsSyncMode || 'json3'}
                     lang={lang}
                     dir={isTranslatedRtl ? 'rtl' : 'ltr'}
                     activeWordClassName="bg-amber-400 text-neutral-950 font-bold px-1.5 py-0.5 rounded shadow ring-2 ring-amber-300 scale-105 inline-block mx-0.5"

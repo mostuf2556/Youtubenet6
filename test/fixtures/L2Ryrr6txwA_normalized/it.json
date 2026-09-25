@@ -1,0 +1,9095 @@
+{
+  "format": "normalized-json3",
+  "videoId": "L2Ryrr6txwA",
+  "referenceLanguage": "en",
+  "cues": [
+    {
+      "id": "normalized-cue-1",
+      "start": 0.08,
+      "duration": 1.759,
+      "text": "Ehi, come va? Sono Justin, benvenuto",
+      "segments": [
+        {
+          "text": "Ehi,",
+          "offset": 0
+        },
+        {
+          "text": "come",
+          "offset": 0.336
+        },
+        {
+          "text": "va?",
+          "offset": 0.672
+        },
+        {
+          "text": "Sono",
+          "offset": 1.008
+        },
+        {
+          "text": "Justin,",
+          "offset": 1.344
+        },
+        {
+          "text": "benvenuto",
+          "offset": 1.68
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-2",
+      "start": 1.839,
+      "duration": 2.241,
+      "text": "all'unità sette del Maestro delle Scale Maggiori. In",
+      "segments": [
+        {
+          "text": "all'unità",
+          "offset": 0
+        },
+        {
+          "text": "sette",
+          "offset": 0.297
+        },
+        {
+          "text": "del",
+          "offset": 0.594
+        },
+        {
+          "text": "Maestro",
+          "offset": 0.891
+        },
+        {
+          "text": "delle",
+          "offset": 1.188
+        },
+        {
+          "text": "Scale",
+          "offset": 1.485
+        },
+        {
+          "text": "Maggiori.",
+          "offset": 1.782
+        },
+        {
+          "text": "In",
+          "offset": 2.079
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-3",
+      "start": 4.08,
+      "duration": 1.279,
+      "text": "questa lezione, oggi, daremo",
+      "segments": [
+        {
+          "text": "questa",
+          "offset": 0
+        },
+        {
+          "text": "lezione,",
+          "offset": 0.373
+        },
+        {
+          "text": "oggi,",
+          "offset": 0.746
+        },
+        {
+          "text": "daremo",
+          "offset": 1.119
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-4",
+      "start": 5.359,
+      "duration": 3.2,
+      "text": "un'occhiata alle sequenze melodiche.",
+      "segments": [
+        {
+          "text": "un'occhiata",
+          "offset": 0
+        },
+        {
+          "text": "alle",
+          "offset": 0.773
+        },
+        {
+          "text": "sequenze",
+          "offset": 1.546
+        },
+        {
+          "text": "melodiche.",
+          "offset": 2.319
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-5",
+      "start": 8.559,
+      "duration": 3.361,
+      "text": "Un ricordo molto vivido che ho del mio",
+      "segments": [
+        {
+          "text": "Un",
+          "offset": 0
+        },
+        {
+          "text": "ricordo",
+          "offset": 0.434
+        },
+        {
+          "text": "molto",
+          "offset": 0.868
+        },
+        {
+          "text": "vivido",
+          "offset": 1.302
+        },
+        {
+          "text": "che",
+          "offset": 1.736
+        },
+        {
+          "text": "ho",
+          "offset": 2.17
+        },
+        {
+          "text": "del",
+          "offset": 2.604
+        },
+        {
+          "text": "mio",
+          "offset": 3.038
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-6",
+      "start": 11.92,
+      "duration": 1.679,
+      "text": "percorso con la chitarra rock è legato a un",
+      "segments": [
+        {
+          "text": "percorso",
+          "offset": 0
+        },
+        {
+          "text": "con",
+          "offset": 0.17
+        },
+        {
+          "text": "la",
+          "offset": 0.34
+        },
+        {
+          "text": "chitarra",
+          "offset": 0.51
+        },
+        {
+          "text": "rock",
+          "offset": 0.68
+        },
+        {
+          "text": "è",
+          "offset": 0.85
+        },
+        {
+          "text": "legato",
+          "offset": 1.02
+        },
+        {
+          "text": "a",
+          "offset": 1.19
+        },
+        {
+          "text": "un",
+          "offset": 1.36
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-8",
+      "start": 15.759,
+      "duration": 2.001,
+      "text": "video didattico di Ingredient, in cui suonava una",
+      "segments": [
+        {
+          "text": "video",
+          "offset": 0
+        },
+        {
+          "text": "didattico",
+          "offset": 0.251
+        },
+        {
+          "text": "di",
+          "offset": 0.502
+        },
+        {
+          "text": "Ingredient,",
+          "offset": 0.753
+        },
+        {
+          "text": "in",
+          "offset": 1.004
+        },
+        {
+          "text": "cui",
+          "offset": 1.255
+        },
+        {
+          "text": "suonava",
+          "offset": 1.506
+        },
+        {
+          "text": "una",
+          "offset": 1.757
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-10",
+      "start": 20.24,
+      "duration": 2.64,
+      "text": "linea di scale velocissima, che sembrava durare un'eternità.",
+      "segments": [
+        {
+          "text": "linea",
+          "offset": 0
+        },
+        {
+          "text": "di",
+          "offset": 0.342
+        },
+        {
+          "text": "scale",
+          "offset": 0.684
+        },
+        {
+          "text": "velocissima,",
+          "offset": 1.026
+        },
+        {
+          "text": "che",
+          "offset": 1.368
+        },
+        {
+          "text": "sembrava",
+          "offset": 1.71
+        },
+        {
+          "text": "durare",
+          "offset": 2.052
+        },
+        {
+          "text": "un'eternità.",
+          "offset": 2.394
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-11",
+      "start": 22.88,
+      "duration": 1.28,
+      "text": "Non riuscivo proprio a capire cosa stesse succedendo,",
+      "segments": [
+        {
+          "text": "Non",
+          "offset": 0
+        },
+        {
+          "text": "riuscivo",
+          "offset": 0.16
+        },
+        {
+          "text": "proprio",
+          "offset": 0.32
+        },
+        {
+          "text": "a",
+          "offset": 0.48
+        },
+        {
+          "text": "capire",
+          "offset": 0.64
+        },
+        {
+          "text": "cosa",
+          "offset": 0.8
+        },
+        {
+          "text": "stesse",
+          "offset": 0.96
+        },
+        {
+          "text": "succedendo,",
+          "offset": 1.12
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-12",
+      "start": 24.16,
+      "duration": 2.08,
+      "text": "perché so che le scale",
+      "segments": [
+        {
+          "text": "perché",
+          "offset": 0
+        },
+        {
+          "text": "so",
+          "offset": 0.46
+        },
+        {
+          "text": "che",
+          "offset": 0.92
+        },
+        {
+          "text": "le",
+          "offset": 1.38
+        },
+        {
+          "text": "scale",
+          "offset": 1.84
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-13",
+      "start": 26.24,
+      "duration": 2,
+      "text": "hanno 16 note e se le suono",
+      "segments": [
+        {
+          "text": "hanno",
+          "offset": 0
+        },
+        {
+          "text": "16",
+          "offset": 0.32
+        },
+        {
+          "text": "note",
+          "offset": 0.64
+        },
+        {
+          "text": "e",
+          "offset": 0.96
+        },
+        {
+          "text": "se",
+          "offset": 1.28
+        },
+        {
+          "text": "le",
+          "offset": 1.6
+        },
+        {
+          "text": "suono",
+          "offset": 1.92
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-14",
+      "start": 28.24,
+      "duration": 3.039,
+      "text": "così velocemente finiscono in un attimo.",
+      "segments": [
+        {
+          "text": "così",
+          "offset": 0
+        },
+        {
+          "text": "velocemente",
+          "offset": 0.48
+        },
+        {
+          "text": "finiscono",
+          "offset": 0.96
+        },
+        {
+          "text": "in",
+          "offset": 1.44
+        },
+        {
+          "text": "un",
+          "offset": 1.92
+        },
+        {
+          "text": "attimo.",
+          "offset": 2.4
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-15",
+      "start": 31.279,
+      "duration": 1.601,
+      "text": "Immagino che fosse così veloce che non riuscivo a",
+      "segments": [
+        {
+          "text": "Immagino",
+          "offset": 0
+        },
+        {
+          "text": "che",
+          "offset": 0.17
+        },
+        {
+          "text": "fosse",
+          "offset": 0.34
+        },
+        {
+          "text": "così",
+          "offset": 0.51
+        },
+        {
+          "text": "veloce",
+          "offset": 0.68
+        },
+        {
+          "text": "che",
+          "offset": 0.85
+        },
+        {
+          "text": "non",
+          "offset": 1.02
+        },
+        {
+          "text": "riuscivo",
+          "offset": 1.19
+        },
+        {
+          "text": "a",
+          "offset": 1.36
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-16",
+      "start": 32.88,
+      "duration": 1.519,
+      "text": "sentire bene. Stava usando una",
+      "segments": [
+        {
+          "text": "sentire",
+          "offset": 0
+        },
+        {
+          "text": "bene.",
+          "offset": 0.32
+        },
+        {
+          "text": "Stava",
+          "offset": 0.64
+        },
+        {
+          "text": "usando",
+          "offset": 0.96
+        },
+        {
+          "text": "una",
+          "offset": 1.28
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-17",
+      "start": 34.399,
+      "duration": 1.921,
+      "text": "tecnica chiamata sequenza melodica, ma",
+      "segments": [
+        {
+          "text": "tecnica",
+          "offset": 0
+        },
+        {
+          "text": "chiamata",
+          "offset": 0.42
+        },
+        {
+          "text": "sequenza",
+          "offset": 0.84
+        },
+        {
+          "text": "melodica,",
+          "offset": 1.26
+        },
+        {
+          "text": "ma",
+          "offset": 1.68
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-18",
+      "start": 36.32,
+      "duration": 2.079,
+      "text": "ricordo che quando chiesi al mio insegnante come facesse,",
+      "segments": [
+        {
+          "text": "ricordo",
+          "offset": 0
+        },
+        {
+          "text": "che",
+          "offset": 0.23
+        },
+        {
+          "text": "quando",
+          "offset": 0.46
+        },
+        {
+          "text": "chiesi",
+          "offset": 0.69
+        },
+        {
+          "text": "al",
+          "offset": 0.92
+        },
+        {
+          "text": "mio",
+          "offset": 1.15
+        },
+        {
+          "text": "insegnante",
+          "offset": 1.38
+        },
+        {
+          "text": "come",
+          "offset": 1.61
+        },
+        {
+          "text": "facesse,",
+          "offset": 1.84
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-19",
+      "start": 38.399,
+      "duration": 1.441,
+      "text": "lui rispose: \"",
+      "segments": [
+        {
+          "text": "lui",
+          "offset": 0
+        },
+        {
+          "text": "rispose:",
+          "offset": 0.64
+        },
+        {
+          "text": "\"",
+          "offset": 1.28
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-20",
+      "start": 39.84,
+      "duration": 2.08,
+      "text": "Oh, sono solo degli schemi numerici",
+      "segments": [
+        {
+          "text": "Oh,",
+          "offset": 0
+        },
+        {
+          "text": "sono",
+          "offset": 0.32
+        },
+        {
+          "text": "solo",
+          "offset": 0.64
+        },
+        {
+          "text": "degli",
+          "offset": 0.96
+        },
+        {
+          "text": "schemi",
+          "offset": 1.28
+        },
+        {
+          "text": "numerici",
+          "offset": 1.6
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-21",
+      "start": 41.92,
+      "duration": 2.319,
+      "text": "applicati alle scale\". E io pensai: \"Aspetta, eccoci",
+      "segments": [
+        {
+          "text": "applicati",
+          "offset": 0
+        },
+        {
+          "text": "alle",
+          "offset": 0.24
+        },
+        {
+          "text": "scale\".",
+          "offset": 0.48
+        },
+        {
+          "text": "E",
+          "offset": 0.72
+        },
+        {
+          "text": "io",
+          "offset": 0.96
+        },
+        {
+          "text": "pensai:",
+          "offset": 1.2
+        },
+        {
+          "text": "\"Aspetta,",
+          "offset": 1.44
+        },
+        {
+          "text": "eccoci",
+          "offset": 1.68
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-22",
+      "start": 44.239,
+      "duration": 1.281,
+      "text": "qui\". Sono sempre stato abbastanza",
+      "segments": [
+        {
+          "text": "qui\".",
+          "offset": 0
+        },
+        {
+          "text": "Sono",
+          "offset": 0.28
+        },
+        {
+          "text": "sempre",
+          "offset": 0.56
+        },
+        {
+          "text": "stato",
+          "offset": 0.84
+        },
+        {
+          "text": "abbastanza",
+          "offset": 1.12
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-23",
+      "start": 45.52,
+      "duration": 1.6,
+      "text": "bravo in matematica, quindi ho trovato questa cosa",
+      "segments": [
+        {
+          "text": "bravo",
+          "offset": 0
+        },
+        {
+          "text": "in",
+          "offset": 0.182
+        },
+        {
+          "text": "matematica,",
+          "offset": 0.364
+        },
+        {
+          "text": "quindi",
+          "offset": 0.546
+        },
+        {
+          "text": "ho",
+          "offset": 0.728
+        },
+        {
+          "text": "trovato",
+          "offset": 0.91
+        },
+        {
+          "text": "questa",
+          "offset": 1.092
+        },
+        {
+          "text": "cosa",
+          "offset": 1.274
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-24",
+      "start": 47.12,
+      "duration": 2.16,
+      "text": "divertente. È davvero molto utile",
+      "segments": [
+        {
+          "text": "divertente.",
+          "offset": 0
+        },
+        {
+          "text": "È",
+          "offset": 0.46
+        },
+        {
+          "text": "davvero",
+          "offset": 0.92
+        },
+        {
+          "text": "molto",
+          "offset": 1.38
+        },
+        {
+          "text": "utile",
+          "offset": 1.84
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-25",
+      "start": 49.28,
+      "duration": 2.48,
+      "text": "e anche molto musicale. Non",
+      "segments": [
+        {
+          "text": "e",
+          "offset": 0
+        },
+        {
+          "text": "anche",
+          "offset": 0.56
+        },
+        {
+          "text": "molto",
+          "offset": 1.12
+        },
+        {
+          "text": "musicale.",
+          "offset": 1.68
+        },
+        {
+          "text": "Non",
+          "offset": 2.24
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-26",
+      "start": 51.76,
+      "duration": 2.4,
+      "text": "è",
+      "segments": [
+        {
+          "text": "è",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-27",
+      "start": 54.16,
+      "duration": 3.12,
+      "text": "una sequenza matematica, ma applicarla",
+      "segments": [
+        {
+          "text": "una",
+          "offset": 0
+        },
+        {
+          "text": "sequenza",
+          "offset": 0.74
+        },
+        {
+          "text": "matematica,",
+          "offset": 1.48
+        },
+        {
+          "text": "ma",
+          "offset": 2.22
+        },
+        {
+          "text": "applicarla",
+          "offset": 2.96
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-28",
+      "start": 57.28,
+      "duration": 2.56,
+      "text": "a una scala, il che non suona molto",
+      "segments": [
+        {
+          "text": "a",
+          "offset": 0
+        },
+        {
+          "text": "una",
+          "offset": 0.308
+        },
+        {
+          "text": "scala,",
+          "offset": 0.616
+        },
+        {
+          "text": "il",
+          "offset": 0.924
+        },
+        {
+          "text": "che",
+          "offset": 1.232
+        },
+        {
+          "text": "non",
+          "offset": 1.54
+        },
+        {
+          "text": "suona",
+          "offset": 1.848
+        },
+        {
+          "text": "molto",
+          "offset": 2.156
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-29",
+      "start": 59.84,
+      "duration": 2.879,
+      "text": "bene. o hip ma è usato da tutti",
+      "segments": [
+        {
+          "text": "bene.",
+          "offset": 0
+        },
+        {
+          "text": "o",
+          "offset": 0.354
+        },
+        {
+          "text": "hip",
+          "offset": 0.708
+        },
+        {
+          "text": "ma",
+          "offset": 1.062
+        },
+        {
+          "text": "è",
+          "offset": 1.416
+        },
+        {
+          "text": "usato",
+          "offset": 1.77
+        },
+        {
+          "text": "da",
+          "offset": 2.124
+        },
+        {
+          "text": "tutti",
+          "offset": 2.478
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-30",
+      "start": 62.719,
+      "duration": 1.601,
+      "text": "è usato nel blues è usato nel rock",
+      "segments": [
+        {
+          "text": "è",
+          "offset": 0
+        },
+        {
+          "text": "usato",
+          "offset": 0.194
+        },
+        {
+          "text": "nel",
+          "offset": 0.388
+        },
+        {
+          "text": "blues",
+          "offset": 0.582
+        },
+        {
+          "text": "è",
+          "offset": 0.776
+        },
+        {
+          "text": "usato",
+          "offset": 0.97
+        },
+        {
+          "text": "nel",
+          "offset": 1.164
+        },
+        {
+          "text": "rock",
+          "offset": 1.358
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-31",
+      "start": 64.32,
+      "duration": 3.52,
+      "text": "è usato ovunque questo questo concetto",
+      "segments": [
+        {
+          "text": "è",
+          "offset": 0
+        },
+        {
+          "text": "usato",
+          "offset": 0.4
+        },
+        {
+          "text": "ovunque",
+          "offset": 0.8
+        },
+        {
+          "text": "questo",
+          "offset": 1.2
+        },
+        {
+          "text": "questo",
+          "offset": 1.6
+        },
+        {
+          "text": "concetto",
+          "offset": 2
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-32",
+      "start": 67.84,
+      "duration": 1.92,
+      "text": "suona semplicemente bene penso che",
+      "segments": [
+        {
+          "text": "suona",
+          "offset": 0
+        },
+        {
+          "text": "semplicemente",
+          "offset": 0.38
+        },
+        {
+          "text": "bene",
+          "offset": 0.76
+        },
+        {
+          "text": "penso",
+          "offset": 1.14
+        },
+        {
+          "text": "che",
+          "offset": 1.52
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-33",
+      "start": 69.76,
+      "duration": 2.96,
+      "text": "intrinsecamente come esseri umani ci piace l'ordine",
+      "segments": [
+        {
+          "text": "intrinsecamente",
+          "offset": 0
+        },
+        {
+          "text": "come",
+          "offset": 0.373
+        },
+        {
+          "text": "esseri",
+          "offset": 0.746
+        },
+        {
+          "text": "umani",
+          "offset": 1.119
+        },
+        {
+          "text": "ci",
+          "offset": 1.492
+        },
+        {
+          "text": "piace",
+          "offset": 1.865
+        },
+        {
+          "text": "l'ordine",
+          "offset": 2.238
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-34",
+      "start": 72.72,
+      "duration": 1.28,
+      "text": "di una",
+      "segments": [
+        {
+          "text": "di",
+          "offset": 0
+        },
+        {
+          "text": "una",
+          "offset": 0.24
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-35",
+      "start": 74,
+      "duration": 2.4,
+      "text": "sequenza musicale è stato usato come già",
+      "segments": [
+        {
+          "text": "sequenza",
+          "offset": 0
+        },
+        {
+          "text": "musicale",
+          "offset": 0.359
+        },
+        {
+          "text": "è",
+          "offset": 0.718
+        },
+        {
+          "text": "stato",
+          "offset": 1.077
+        },
+        {
+          "text": "usato",
+          "offset": 1.436
+        },
+        {
+          "text": "come",
+          "offset": 1.795
+        },
+        {
+          "text": "già",
+          "offset": 2.154
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-36",
+      "start": 76.4,
+      "duration": 1.759,
+      "text": "faceva Bach e sempre",
+      "segments": [
+        {
+          "text": "faceva",
+          "offset": 0
+        },
+        {
+          "text": "Bach",
+          "offset": 0.48
+        },
+        {
+          "text": "e",
+          "offset": 0.96
+        },
+        {
+          "text": "sempre",
+          "offset": 1.44
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-37",
+      "start": 78.159,
+      "duration": 2,
+      "text": "inizierai a riconoscerlo quindi",
+      "segments": [
+        {
+          "text": "inizierai",
+          "offset": 0
+        },
+        {
+          "text": "a",
+          "offset": 0.426
+        },
+        {
+          "text": "riconoscerlo",
+          "offset": 0.852
+        },
+        {
+          "text": "quindi",
+          "offset": 1.278
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-38",
+      "start": 80.159,
+      "duration": 2,
+      "text": "il modo per iniziare con questo è",
+      "segments": [
+        {
+          "text": "il",
+          "offset": 0
+        },
+        {
+          "text": "modo",
+          "offset": 0.28
+        },
+        {
+          "text": "per",
+          "offset": 0.56
+        },
+        {
+          "text": "iniziare",
+          "offset": 0.84
+        },
+        {
+          "text": "con",
+          "offset": 1.12
+        },
+        {
+          "text": "questo",
+          "offset": 1.4
+        },
+        {
+          "text": "è",
+          "offset": 1.68
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-39",
+      "start": 82.159,
+      "duration": 1.6,
+      "text": "numerare le note della scala",
+      "segments": [
+        {
+          "text": "numerare",
+          "offset": 0
+        },
+        {
+          "text": "le",
+          "offset": 0.38
+        },
+        {
+          "text": "note",
+          "offset": 0.76
+        },
+        {
+          "text": "della",
+          "offset": 1.14
+        },
+        {
+          "text": "scala",
+          "offset": 1.52
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-40",
+      "start": 83.759,
+      "duration": 2,
+      "text": "inizieremo con il modello uno quindi quella",
+      "segments": [
+        {
+          "text": "inizieremo",
+          "offset": 0
+        },
+        {
+          "text": "con",
+          "offset": 0.293
+        },
+        {
+          "text": "il",
+          "offset": 0.586
+        },
+        {
+          "text": "modello",
+          "offset": 0.879
+        },
+        {
+          "text": "uno",
+          "offset": 1.172
+        },
+        {
+          "text": "quindi",
+          "offset": 1.465
+        },
+        {
+          "text": "quella",
+          "offset": 1.758
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-41",
+      "start": 85.759,
+      "duration": 1.601,
+      "text": "nota fondamentale sarebbe la nota numero uno",
+      "segments": [
+        {
+          "text": "nota",
+          "offset": 0
+        },
+        {
+          "text": "fondamentale",
+          "offset": 0.226
+        },
+        {
+          "text": "sarebbe",
+          "offset": 0.452
+        },
+        {
+          "text": "la",
+          "offset": 0.678
+        },
+        {
+          "text": "nota",
+          "offset": 0.904
+        },
+        {
+          "text": "numero",
+          "offset": 1.13
+        },
+        {
+          "text": "uno",
+          "offset": 1.356
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-42",
+      "start": 87.36,
+      "duration": 7.04,
+      "text": "quindi abbiamo solo 1 2 3 4 5 6 7 8 9 10 11 12 13",
+      "segments": [
+        {
+          "text": "quindi",
+          "offset": 0
+        },
+        {
+          "text": "abbiamo",
+          "offset": 0.41
+        },
+        {
+          "text": "solo",
+          "offset": 0.82
+        },
+        {
+          "text": "1",
+          "offset": 1.23
+        },
+        {
+          "text": "2",
+          "offset": 1.64
+        },
+        {
+          "text": "3",
+          "offset": 2.05
+        },
+        {
+          "text": "4",
+          "offset": 2.46
+        },
+        {
+          "text": "5",
+          "offset": 2.87
+        },
+        {
+          "text": "6",
+          "offset": 3.28
+        },
+        {
+          "text": "7",
+          "offset": 3.69
+        },
+        {
+          "text": "8",
+          "offset": 4.1
+        },
+        {
+          "text": "9",
+          "offset": 4.51
+        },
+        {
+          "text": "10",
+          "offset": 4.92
+        },
+        {
+          "text": "11",
+          "offset": 5.33
+        },
+        {
+          "text": "12",
+          "offset": 5.74
+        },
+        {
+          "text": "13",
+          "offset": 6.15
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-43",
+      "start": 94.4,
+      "duration": 6.8,
+      "text": "14 15 16.",
+      "segments": [
+        {
+          "text": "14",
+          "offset": 0
+        },
+        {
+          "text": "15",
+          "offset": 2.72
+        },
+        {
+          "text": "16.",
+          "offset": 5.44
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-44",
+      "start": 101.2,
+      "duration": 2.4,
+      "text": "e poi useremo una",
+      "segments": [
+        {
+          "text": "e",
+          "offset": 0
+        },
+        {
+          "text": "poi",
+          "offset": 0.586
+        },
+        {
+          "text": "useremo",
+          "offset": 1.172
+        },
+        {
+          "text": "una",
+          "offset": 1.758
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-45",
+      "start": 103.6,
+      "duration": 3.28,
+      "text": "sequenza numerica e la applicheremo alla scala quindi uno",
+      "segments": [
+        {
+          "text": "sequenza",
+          "offset": 0
+        },
+        {
+          "text": "numerica",
+          "offset": 0.38
+        },
+        {
+          "text": "e",
+          "offset": 0.76
+        },
+        {
+          "text": "la",
+          "offset": 1.14
+        },
+        {
+          "text": "applicheremo",
+          "offset": 1.52
+        },
+        {
+          "text": "alla",
+          "offset": 1.9
+        },
+        {
+          "text": "scala",
+          "offset": 2.28
+        },
+        {
+          "text": "quindi",
+          "offset": 2.66
+        },
+        {
+          "text": "uno",
+          "offset": 3.04
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-46",
+      "start": 106.88,
+      "duration": 1.599,
+      "text": "davvero buono con cui iniziare è uno che",
+      "segments": [
+        {
+          "text": "davvero",
+          "offset": 0
+        },
+        {
+          "text": "buono",
+          "offset": 0.205
+        },
+        {
+          "text": "con",
+          "offset": 0.41
+        },
+        {
+          "text": "cui",
+          "offset": 0.615
+        },
+        {
+          "text": "iniziare",
+          "offset": 0.82
+        },
+        {
+          "text": "è",
+          "offset": 1.025
+        },
+        {
+          "text": "uno",
+          "offset": 1.23
+        },
+        {
+          "text": "che",
+          "offset": 1.435
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-47",
+      "start": 108.479,
+      "duration": 3.441,
+      "text": "chiamo quattro in linea e fondamentalmente",
+      "segments": [
+        {
+          "text": "chiamo",
+          "offset": 0
+        },
+        {
+          "text": "quattro",
+          "offset": 0.64
+        },
+        {
+          "text": "in",
+          "offset": 1.28
+        },
+        {
+          "text": "linea",
+          "offset": 1.92
+        },
+        {
+          "text": "e",
+          "offset": 2.56
+        },
+        {
+          "text": "fondamentalmente",
+          "offset": 3.2
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-48",
+      "start": 111.92,
+      "duration": 4.4,
+      "text": "suoniamo quattro note da ogni",
+      "segments": [
+        {
+          "text": "suoniamo",
+          "offset": 0
+        },
+        {
+          "text": "quattro",
+          "offset": 0.959
+        },
+        {
+          "text": "note",
+          "offset": 1.918
+        },
+        {
+          "text": "da",
+          "offset": 2.877
+        },
+        {
+          "text": "ogni",
+          "offset": 3.836
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-49",
+      "start": 116.32,
+      "duration": 2.32,
+      "text": "grado della scala ora come sequenza numerica sarebbe",
+      "segments": [
+        {
+          "text": "grado",
+          "offset": 0
+        },
+        {
+          "text": "della",
+          "offset": 0.262
+        },
+        {
+          "text": "scala",
+          "offset": 0.524
+        },
+        {
+          "text": "ora",
+          "offset": 0.786
+        },
+        {
+          "text": "come",
+          "offset": 1.048
+        },
+        {
+          "text": "sequenza",
+          "offset": 1.31
+        },
+        {
+          "text": "numerica",
+          "offset": 1.572
+        },
+        {
+          "text": "sarebbe",
+          "offset": 1.834
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-50",
+      "start": 118.64,
+      "duration": 3.36,
+      "text": "uno due tre quattro poi iniziamo su due due tre quattro",
+      "segments": [
+        {
+          "text": "uno",
+          "offset": 0
+        },
+        {
+          "text": "due",
+          "offset": 0.272
+        },
+        {
+          "text": "tre",
+          "offset": 0.544
+        },
+        {
+          "text": "quattro",
+          "offset": 0.816
+        },
+        {
+          "text": "poi",
+          "offset": 1.088
+        },
+        {
+          "text": "iniziamo",
+          "offset": 1.36
+        },
+        {
+          "text": "su",
+          "offset": 1.632
+        },
+        {
+          "text": "due",
+          "offset": 1.904
+        },
+        {
+          "text": "due",
+          "offset": 2.176
+        },
+        {
+          "text": "tre",
+          "offset": 2.448
+        },
+        {
+          "text": "quattro",
+          "offset": 2.72
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-51",
+      "start": 122,
+      "duration": 2.799,
+      "text": "cinque poi iniziamo su",
+      "segments": [
+        {
+          "text": "cinque",
+          "offset": 0
+        },
+        {
+          "text": "poi",
+          "offset": 0.853
+        },
+        {
+          "text": "iniziamo",
+          "offset": 1.706
+        },
+        {
+          "text": "su",
+          "offset": 2.559
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-52",
+      "start": 124.799,
+      "duration": 3.361,
+      "text": "tre tre quattro cinque sei poi iniziamo su quattro quattro cinque sei sette",
+      "segments": [
+        {
+          "text": "tre",
+          "offset": 0
+        },
+        {
+          "text": "tre",
+          "offset": 0.266
+        },
+        {
+          "text": "quattro",
+          "offset": 0.532
+        },
+        {
+          "text": "cinque",
+          "offset": 0.798
+        },
+        {
+          "text": "sei",
+          "offset": 1.064
+        },
+        {
+          "text": "poi",
+          "offset": 1.33
+        },
+        {
+          "text": "iniziamo",
+          "offset": 1.596
+        },
+        {
+          "text": "su",
+          "offset": 1.862
+        },
+        {
+          "text": "quattro",
+          "offset": 2.128
+        },
+        {
+          "text": "quattro",
+          "offset": 2.394
+        },
+        {
+          "text": "cinque",
+          "offset": 2.66
+        },
+        {
+          "text": "sei",
+          "offset": 2.926
+        },
+        {
+          "text": "sette",
+          "offset": 3.192
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-53",
+      "start": 128.16,
+      "duration": 3.36,
+      "text": "quindi contando",
+      "segments": [
+        {
+          "text": "quindi",
+          "offset": 0
+        },
+        {
+          "text": "contando",
+          "offset": 2.799
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-54",
+      "start": 131.52,
+      "duration": 3.439,
+      "text": "quattro numeri in su iniziando su ogni numero",
+      "segments": [
+        {
+          "text": "quattro",
+          "offset": 0
+        },
+        {
+          "text": "numeri",
+          "offset": 0.445
+        },
+        {
+          "text": "in",
+          "offset": 0.89
+        },
+        {
+          "text": "su",
+          "offset": 1.335
+        },
+        {
+          "text": "iniziando",
+          "offset": 1.78
+        },
+        {
+          "text": "su",
+          "offset": 2.225
+        },
+        {
+          "text": "ogni",
+          "offset": 2.67
+        },
+        {
+          "text": "numero",
+          "offset": 3.115
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-55",
+      "start": 134.959,
+      "duration": 1.28,
+      "text": "quindi è una",
+      "segments": [
+        {
+          "text": "quindi",
+          "offset": 0
+        },
+        {
+          "text": "è",
+          "offset": 0.24
+        },
+        {
+          "text": "una",
+          "offset": 0.48
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-56",
+      "start": 136.239,
+      "duration": 2.72,
+      "text": "sequenza di quattro note penso sia una buona idea",
+      "segments": [
+        {
+          "text": "sequenza",
+          "offset": 0
+        },
+        {
+          "text": "di",
+          "offset": 0.31
+        },
+        {
+          "text": "quattro",
+          "offset": 0.62
+        },
+        {
+          "text": "note",
+          "offset": 0.93
+        },
+        {
+          "text": "penso",
+          "offset": 1.24
+        },
+        {
+          "text": "sia",
+          "offset": 1.55
+        },
+        {
+          "text": "una",
+          "offset": 1.86
+        },
+        {
+          "text": "buona",
+          "offset": 2.17
+        },
+        {
+          "text": "idea",
+          "offset": 2.48
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-57",
+      "start": 138.959,
+      "duration": 2.321,
+      "text": "avere sempre una",
+      "segments": [
+        {
+          "text": "avere",
+          "offset": 0
+        },
+        {
+          "text": "sempre",
+          "offset": 0.72
+        },
+        {
+          "text": "una",
+          "offset": 1.44
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-58",
+      "start": 141.28,
+      "duration": 1.76,
+      "text": "versione pratica semplificata di una sequenza numerica",
+      "segments": [
+        {
+          "text": "versione",
+          "offset": 0
+        },
+        {
+          "text": "pratica",
+          "offset": 0.226
+        },
+        {
+          "text": "semplificata",
+          "offset": 0.452
+        },
+        {
+          "text": "di",
+          "offset": 0.678
+        },
+        {
+          "text": "una",
+          "offset": 0.904
+        },
+        {
+          "text": "sequenza",
+          "offset": 1.13
+        },
+        {
+          "text": "numerica",
+          "offset": 1.356
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-59",
+      "start": 143.04,
+      "duration": 1.6,
+      "text": "piuttosto che pensare solo come uno due tre quattro due tre quattro cinque tre quattro cinque",
+      "segments": [
+        {
+          "text": "piuttosto",
+          "offset": 0
+        },
+        {
+          "text": "che",
+          "offset": 0.09
+        },
+        {
+          "text": "pensare",
+          "offset": 0.18
+        },
+        {
+          "text": "solo",
+          "offset": 0.27
+        },
+        {
+          "text": "come",
+          "offset": 0.36
+        },
+        {
+          "text": "uno",
+          "offset": 0.45
+        },
+        {
+          "text": "due",
+          "offset": 0.54
+        },
+        {
+          "text": "tre",
+          "offset": 0.63
+        },
+        {
+          "text": "quattro",
+          "offset": 0.72
+        },
+        {
+          "text": "due",
+          "offset": 0.81
+        },
+        {
+          "text": "tre",
+          "offset": 0.9
+        },
+        {
+          "text": "quattro",
+          "offset": 0.99
+        },
+        {
+          "text": "cinque",
+          "offset": 1.08
+        },
+        {
+          "text": "tre",
+          "offset": 1.17
+        },
+        {
+          "text": "quattro",
+          "offset": 1.26
+        },
+        {
+          "text": "cinque",
+          "offset": 1.35
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-61",
+      "start": 146.8,
+      "duration": 2.079,
+      "text": "sei penso solo come",
+      "segments": [
+        {
+          "text": "sei",
+          "offset": 0
+        },
+        {
+          "text": "penso",
+          "offset": 0.533
+        },
+        {
+          "text": "solo",
+          "offset": 1.066
+        },
+        {
+          "text": "come",
+          "offset": 1.599
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-62",
+      "start": 148.879,
+      "duration": 2.401,
+      "text": "quattro gradini della scala che salgono partendo da ogni",
+      "segments": [
+        {
+          "text": "quattro",
+          "offset": 0
+        },
+        {
+          "text": "gradini",
+          "offset": 0.28
+        },
+        {
+          "text": "della",
+          "offset": 0.56
+        },
+        {
+          "text": "scala",
+          "offset": 0.84
+        },
+        {
+          "text": "che",
+          "offset": 1.12
+        },
+        {
+          "text": "salgono",
+          "offset": 1.4
+        },
+        {
+          "text": "partendo",
+          "offset": 1.68
+        },
+        {
+          "text": "da",
+          "offset": 1.96
+        },
+        {
+          "text": "ogni",
+          "offset": 2.24
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-63",
+      "start": 151.28,
+      "duration": 1.36,
+      "text": "nota della scala penso che sia più facile",
+      "segments": [
+        {
+          "text": "nota",
+          "offset": 0
+        },
+        {
+          "text": "della",
+          "offset": 0.148
+        },
+        {
+          "text": "scala",
+          "offset": 0.296
+        },
+        {
+          "text": "penso",
+          "offset": 0.444
+        },
+        {
+          "text": "che",
+          "offset": 0.592
+        },
+        {
+          "text": "sia",
+          "offset": 0.74
+        },
+        {
+          "text": "più",
+          "offset": 0.888
+        },
+        {
+          "text": "facile",
+          "offset": 1.036
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-64",
+      "start": 152.64,
+      "duration": 1.92,
+      "text": "per me ricordare proviamo ad applicarlo",
+      "segments": [
+        {
+          "text": "per",
+          "offset": 0
+        },
+        {
+          "text": "me",
+          "offset": 0.368
+        },
+        {
+          "text": "ricordare",
+          "offset": 0.736
+        },
+        {
+          "text": "proviamo",
+          "offset": 1.104
+        },
+        {
+          "text": "ad",
+          "offset": 1.472
+        },
+        {
+          "text": "applicarlo",
+          "offset": 1.84
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-65",
+      "start": 154.56,
+      "duration": 2.8,
+      "text": "ora quindi la sequenza era uno due tre",
+      "segments": [
+        {
+          "text": "ora",
+          "offset": 0
+        },
+        {
+          "text": "quindi",
+          "offset": 0.354
+        },
+        {
+          "text": "la",
+          "offset": 0.708
+        },
+        {
+          "text": "sequenza",
+          "offset": 1.062
+        },
+        {
+          "text": "era",
+          "offset": 1.416
+        },
+        {
+          "text": "uno",
+          "offset": 1.77
+        },
+        {
+          "text": "due",
+          "offset": 2.124
+        },
+        {
+          "text": "tre",
+          "offset": 2.478
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-66",
+      "start": 157.36,
+      "duration": 1.92,
+      "text": "quattro quindi suoneremo la prima nota",
+      "segments": [
+        {
+          "text": "quattro",
+          "offset": 0
+        },
+        {
+          "text": "quindi",
+          "offset": 0.272
+        },
+        {
+          "text": "suoneremo",
+          "offset": 0.544
+        },
+        {
+          "text": "la",
+          "offset": 0.816
+        },
+        {
+          "text": "prima",
+          "offset": 1.088
+        },
+        {
+          "text": "nota",
+          "offset": 1.36
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-67",
+      "start": 159.28,
+      "duration": 2.319,
+      "text": "seconda nota terza nota",
+      "segments": [
+        {
+          "text": "seconda",
+          "offset": 0
+        },
+        {
+          "text": "nota",
+          "offset": 0.48
+        },
+        {
+          "text": "terza",
+          "offset": 0.96
+        },
+        {
+          "text": "nota",
+          "offset": 1.44
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-68",
+      "start": 161.599,
+      "duration": 2.481,
+      "text": "quarta nota poi iniziamo sul",
+      "segments": [
+        {
+          "text": "quarta",
+          "offset": 0
+        },
+        {
+          "text": "nota",
+          "offset": 0.52
+        },
+        {
+          "text": "poi",
+          "offset": 1.04
+        },
+        {
+          "text": "iniziamo",
+          "offset": 1.56
+        },
+        {
+          "text": "sul",
+          "offset": 2.08
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-69",
+      "start": 164.08,
+      "duration": 1.519,
+      "text": "grado due della scala",
+      "segments": [
+        {
+          "text": "grado",
+          "offset": 0
+        },
+        {
+          "text": "due",
+          "offset": 0.16
+        },
+        {
+          "text": "della",
+          "offset": 0.32
+        },
+        {
+          "text": "scala",
+          "offset": 0.48
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-70",
+      "start": 165.599,
+      "duration": 3.041,
+      "text": "e suoniamo quattro note due tre quattro",
+      "segments": [
+        {
+          "text": "e",
+          "offset": 0
+        },
+        {
+          "text": "suoniamo",
+          "offset": 0.133
+        },
+        {
+          "text": "quattro",
+          "offset": 0.266
+        },
+        {
+          "text": "note",
+          "offset": 0.399
+        },
+        {
+          "text": "due",
+          "offset": 0.532
+        },
+        {
+          "text": "tre",
+          "offset": 0.665
+        },
+        {
+          "text": "quattro",
+          "offset": 0.798
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-71",
+      "start": 168.64,
+      "duration": 1.92,
+      "text": "cinque questo sarebbe quindi",
+      "segments": [
+        {
+          "text": "cinque",
+          "offset": 0
+        },
+        {
+          "text": "questo",
+          "offset": 0.533
+        },
+        {
+          "text": "sarebbe",
+          "offset": 1.066
+        },
+        {
+          "text": "quindi",
+          "offset": 1.599
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-72",
+      "start": 170.56,
+      "duration": 1.759,
+      "text": "iniziando dal terzo grado tre",
+      "segments": [
+        {
+          "text": "iniziando",
+          "offset": 0
+        },
+        {
+          "text": "dal",
+          "offset": 0.22
+        },
+        {
+          "text": "terzo",
+          "offset": 0.44
+        },
+        {
+          "text": "grado",
+          "offset": 0.66
+        },
+        {
+          "text": "tre",
+          "offset": 0.88
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-73",
+      "start": 172.319,
+      "duration": 1.681,
+      "text": "quattro cinque",
+      "segments": [
+        {
+          "text": "quattro",
+          "offset": 0
+        },
+        {
+          "text": "cinque",
+          "offset": 0.721
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-74",
+      "start": 174,
+      "duration": 2.959,
+      "text": "sei poi iniziando dal quarto",
+      "segments": [
+        {
+          "text": "sei",
+          "offset": 0
+        },
+        {
+          "text": "poi",
+          "offset": 0.66
+        },
+        {
+          "text": "iniziando",
+          "offset": 1.32
+        },
+        {
+          "text": "dal",
+          "offset": 1.98
+        },
+        {
+          "text": "quarto",
+          "offset": 2.64
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-75",
+      "start": 176.959,
+      "duration": 3.2,
+      "text": "grado quattro cinque sei",
+      "segments": [
+        {
+          "text": "grado",
+          "offset": 0
+        },
+        {
+          "text": "quattro",
+          "offset": 0.773
+        },
+        {
+          "text": "cinque",
+          "offset": 1.546
+        },
+        {
+          "text": "sei",
+          "offset": 2.319
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-76",
+      "start": 180.159,
+      "duration": 2.561,
+      "text": "sette e iniziando dal quinto grado",
+      "segments": [
+        {
+          "text": "sette",
+          "offset": 0
+        },
+        {
+          "text": "e",
+          "offset": 0.368
+        },
+        {
+          "text": "iniziando",
+          "offset": 0.736
+        },
+        {
+          "text": "dal",
+          "offset": 1.104
+        },
+        {
+          "text": "quinto",
+          "offset": 1.472
+        },
+        {
+          "text": "grado",
+          "offset": 1.84
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-77",
+      "start": 182.72,
+      "duration": 2.48,
+      "text": "cinque sei sette otto",
+      "segments": [
+        {
+          "text": "cinque",
+          "offset": 0
+        },
+        {
+          "text": "sei",
+          "offset": 0.506
+        },
+        {
+          "text": "sette",
+          "offset": 1.012
+        },
+        {
+          "text": "otto",
+          "offset": 1.518
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-79",
+      "start": 186.159,
+      "duration": 1.681,
+      "text": "ora la cosa chiave qui è ricordare da",
+      "segments": [
+        {
+          "text": "ora",
+          "offset": 0
+        },
+        {
+          "text": "la",
+          "offset": 0.183
+        },
+        {
+          "text": "cosa",
+          "offset": 0.366
+        },
+        {
+          "text": "chiave",
+          "offset": 0.549
+        },
+        {
+          "text": "qui",
+          "offset": 0.732
+        },
+        {
+          "text": "è",
+          "offset": 0.915
+        },
+        {
+          "text": "ricordare",
+          "offset": 1.098
+        },
+        {
+          "text": "da",
+          "offset": 1.281
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-80",
+      "start": 187.84,
+      "duration": 1.52,
+      "text": "quale nota hai iniziato quindi qui sto",
+      "segments": [
+        {
+          "text": "quale",
+          "offset": 0
+        },
+        {
+          "text": "nota",
+          "offset": 0.24
+        },
+        {
+          "text": "hai",
+          "offset": 0.48
+        },
+        {
+          "text": "iniziato",
+          "offset": 0.72
+        },
+        {
+          "text": "quindi",
+          "offset": 0.96
+        },
+        {
+          "text": "qui",
+          "offset": 1.2
+        },
+        {
+          "text": "sto",
+          "offset": 1.44
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-81",
+      "start": 189.36,
+      "duration": 2.879,
+      "text": "pensando di iniziare da quella nota",
+      "segments": [
+        {
+          "text": "pensando",
+          "offset": 0
+        },
+        {
+          "text": "di",
+          "offset": 0.272
+        },
+        {
+          "text": "iniziare",
+          "offset": 0.544
+        },
+        {
+          "text": "da",
+          "offset": 0.816
+        },
+        {
+          "text": "quella",
+          "offset": 1.088
+        },
+        {
+          "text": "nota",
+          "offset": 1.36
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-82",
+      "start": 192.239,
+      "duration": 1.841,
+      "text": "ma il mio sto già pensando che questa è la",
+      "segments": [
+        {
+          "text": "ma",
+          "offset": 0
+        },
+        {
+          "text": "il",
+          "offset": 0.186
+        },
+        {
+          "text": "mio",
+          "offset": 0.372
+        },
+        {
+          "text": "sto",
+          "offset": 0.558
+        },
+        {
+          "text": "già",
+          "offset": 0.744
+        },
+        {
+          "text": "pensando",
+          "offset": 0.93
+        },
+        {
+          "text": "che",
+          "offset": 1.116
+        },
+        {
+          "text": "questa",
+          "offset": 1.302
+        },
+        {
+          "text": "è",
+          "offset": 1.488
+        },
+        {
+          "text": "la",
+          "offset": 1.674
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-83",
+      "start": 194.08,
+      "duration": 2.799,
+      "text": "prossima che inizierò",
+      "segments": [
+        {
+          "text": "prossima",
+          "offset": 0
+        },
+        {
+          "text": "che",
+          "offset": 0.32
+        },
+        {
+          "text": "inizierò",
+          "offset": 0.64
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-84",
+      "start": 196.879,
+      "duration": 3.28,
+      "text": "e poi questa",
+      "segments": [
+        {
+          "text": "e",
+          "offset": 0
+        },
+        {
+          "text": "poi",
+          "offset": 0.28
+        },
+        {
+          "text": "questa",
+          "offset": 0.56
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-85",
+      "start": 200.159,
+      "duration": 2.401,
+      "text": "poi questa",
+      "segments": [
+        {
+          "text": "poi",
+          "offset": 0
+        },
+        {
+          "text": "questa",
+          "offset": 0.401
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-86",
+      "start": 202.56,
+      "duration": 4.74,
+      "text": "e questa",
+      "segments": [
+        {
+          "text": "e",
+          "offset": 0
+        },
+        {
+          "text": "questa",
+          "offset": 0.399
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-87",
+      "start": 207.3,
+      "duration": 2.54,
+      "text": "[Musica]",
+      "segments": [
+        {
+          "text": "[Musica]",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-88",
+      "start": 209.84,
+      "duration": 1.52,
+      "text": "ora ho suonato un po'",
+      "segments": [
+        {
+          "text": "ora",
+          "offset": 0
+        },
+        {
+          "text": "ho",
+          "offset": 0.3
+        },
+        {
+          "text": "suonato",
+          "offset": 0.6
+        },
+        {
+          "text": "un",
+          "offset": 0.9
+        },
+        {
+          "text": "po'",
+          "offset": 1.2
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-89",
+      "start": 211.36,
+      "duration": 1.84,
+      "text": "sconnesso in modo che tu possa sentire",
+      "segments": [
+        {
+          "text": "sconnesso",
+          "offset": 0
+        },
+        {
+          "text": "in",
+          "offset": 0.28
+        },
+        {
+          "text": "modo",
+          "offset": 0.56
+        },
+        {
+          "text": "che",
+          "offset": 0.84
+        },
+        {
+          "text": "tu",
+          "offset": 1.12
+        },
+        {
+          "text": "possa",
+          "offset": 1.4
+        },
+        {
+          "text": "sentire",
+          "offset": 1.68
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-90",
+      "start": 213.2,
+      "duration": 2.88,
+      "text": "chiaramente lo schema questo uno due tre quattro due tre quattro cinque tre quattro cinque",
+      "segments": [
+        {
+          "text": "chiaramente",
+          "offset": 0
+        },
+        {
+          "text": "lo",
+          "offset": 0.148
+        },
+        {
+          "text": "schema",
+          "offset": 0.296
+        },
+        {
+          "text": "questo",
+          "offset": 0.444
+        },
+        {
+          "text": "uno",
+          "offset": 0.592
+        },
+        {
+          "text": "due",
+          "offset": 0.74
+        },
+        {
+          "text": "tre",
+          "offset": 0.888
+        },
+        {
+          "text": "quattro",
+          "offset": 1.036
+        },
+        {
+          "text": "due",
+          "offset": 1.184
+        },
+        {
+          "text": "tre",
+          "offset": 1.332
+        },
+        {
+          "text": "quattro",
+          "offset": 1.48
+        },
+        {
+          "text": "cinque",
+          "offset": 1.628
+        },
+        {
+          "text": "tre",
+          "offset": 1.776
+        },
+        {
+          "text": "quattro",
+          "offset": 1.924
+        },
+        {
+          "text": "cinque",
+          "offset": 2.072
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-91",
+      "start": 216.08,
+      "duration": 3.439,
+      "text": "sei",
+      "segments": [
+        {
+          "text": "sei",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-92",
+      "start": 219.519,
+      "duration": 2.72,
+      "text": "ma non appena dato che hai il concetto nelle",
+      "segments": [
+        {
+          "text": "ma",
+          "offset": 0
+        },
+        {
+          "text": "non",
+          "offset": 0.33
+        },
+        {
+          "text": "appena",
+          "offset": 0.66
+        },
+        {
+          "text": "dato",
+          "offset": 0.99
+        },
+        {
+          "text": "che",
+          "offset": 1.32
+        },
+        {
+          "text": "hai",
+          "offset": 1.65
+        },
+        {
+          "text": "il",
+          "offset": 1.98
+        },
+        {
+          "text": "concetto",
+          "offset": 2.31
+        },
+        {
+          "text": "nelle",
+          "offset": 2.64
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-93",
+      "start": 222.239,
+      "duration": 2.161,
+      "text": "orecchie e nelle dita vuoi",
+      "segments": [
+        {
+          "text": "orecchie",
+          "offset": 0
+        },
+        {
+          "text": "e",
+          "offset": 0.44
+        },
+        {
+          "text": "nelle",
+          "offset": 0.88
+        },
+        {
+          "text": "dita",
+          "offset": 1.32
+        },
+        {
+          "text": "vuoi",
+          "offset": 1.76
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-94",
+      "start": 224.4,
+      "duration": 2.24,
+      "text": "eliminare quel ritmo irregolare e suonarlo in",
+      "segments": [
+        {
+          "text": "eliminare",
+          "offset": 0
+        },
+        {
+          "text": "quel",
+          "offset": 0.333
+        },
+        {
+          "text": "ritmo",
+          "offset": 0.666
+        },
+        {
+          "text": "irregolare",
+          "offset": 0.999
+        },
+        {
+          "text": "e",
+          "offset": 1.332
+        },
+        {
+          "text": "suonarlo",
+          "offset": 1.665
+        },
+        {
+          "text": "in",
+          "offset": 1.998
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-95",
+      "start": 226.64,
+      "duration": 3.01,
+      "text": "modo coerente quindi farai questo",
+      "segments": [
+        {
+          "text": "modo",
+          "offset": 0
+        },
+        {
+          "text": "coerente",
+          "offset": 0.34
+        },
+        {
+          "text": "quindi",
+          "offset": 0.68
+        },
+        {
+          "text": "farai",
+          "offset": 1.02
+        },
+        {
+          "text": "questo",
+          "offset": 1.36
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-96",
+      "start": 229.65,
+      "duration": 14.19,
+      "text": "[Musica]",
+      "segments": [
+        {
+          "text": "[Musica]",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-97",
+      "start": 243.84,
+      "duration": 8.71,
+      "text": "quindi",
+      "segments": [
+        {
+          "text": "quindi",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-98",
+      "start": 252.55,
+      "duration": 6.89,
+      "text": "[Musica]",
+      "segments": [
+        {
+          "text": "[Musica]",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-99",
+      "start": 259.44,
+      "duration": 2.479,
+      "text": "inizierei semplicemente salendo e ti farò",
+      "segments": [
+        {
+          "text": "inizierei",
+          "offset": 0
+        },
+        {
+          "text": "semplicemente",
+          "offset": 0.463
+        },
+        {
+          "text": "salendo",
+          "offset": 0.926
+        },
+        {
+          "text": "e",
+          "offset": 1.389
+        },
+        {
+          "text": "ti",
+          "offset": 1.852
+        },
+        {
+          "text": "farò",
+          "offset": 2.315
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-100",
+      "start": 261.919,
+      "duration": 2.321,
+      "text": "notare un piccolo",
+      "segments": [
+        {
+          "text": "notare",
+          "offset": 0
+        },
+        {
+          "text": "un",
+          "offset": 0.8
+        },
+        {
+          "text": "piccolo",
+          "offset": 1.6
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-101",
+      "start": 264.24,
+      "duration": 1.28,
+      "text": "problema tecnico che incontrerai",
+      "segments": [
+        {
+          "text": "problema",
+          "offset": 0
+        },
+        {
+          "text": "tecnico",
+          "offset": 0.293
+        },
+        {
+          "text": "che",
+          "offset": 0.586
+        },
+        {
+          "text": "incontrerai",
+          "offset": 0.879
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-102",
+      "start": 265.52,
+      "duration": 1.679,
+      "text": "lì, ovvero un rullo con il",
+      "segments": [
+        {
+          "text": "lì,",
+          "offset": 0
+        },
+        {
+          "text": "ovvero",
+          "offset": 0.272
+        },
+        {
+          "text": "un",
+          "offset": 0.544
+        },
+        {
+          "text": "rullo",
+          "offset": 0.816
+        },
+        {
+          "text": "con",
+          "offset": 1.088
+        },
+        {
+          "text": "il",
+          "offset": 1.36
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-103",
+      "start": 267.199,
+      "duration": 4,
+      "text": "mignolo quindi quando arrivi a questa parte",
+      "segments": [
+        {
+          "text": "mignolo",
+          "offset": 0
+        },
+        {
+          "text": "quindi",
+          "offset": 0.266
+        },
+        {
+          "text": "quando",
+          "offset": 0.532
+        },
+        {
+          "text": "arrivi",
+          "offset": 0.798
+        },
+        {
+          "text": "a",
+          "offset": 1.064
+        },
+        {
+          "text": "questa",
+          "offset": 1.33
+        },
+        {
+          "text": "parte",
+          "offset": 1.596
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-104",
+      "start": 271.199,
+      "duration": 2.321,
+      "text": "qui",
+      "segments": [
+        {
+          "text": "qui",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-105",
+      "start": 273.52,
+      "duration": 1.36,
+      "text": "dovrai mettere quel",
+      "segments": [
+        {
+          "text": "dovrai",
+          "offset": 0
+        },
+        {
+          "text": "mettere",
+          "offset": 0.559
+        },
+        {
+          "text": "quel",
+          "offset": 1.118
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-106",
+      "start": 274.88,
+      "duration": 1.52,
+      "text": "mignolo un po' più piatto sulla",
+      "segments": [
+        {
+          "text": "mignolo",
+          "offset": 0
+        },
+        {
+          "text": "un",
+          "offset": 0.288
+        },
+        {
+          "text": "po'",
+          "offset": 0.576
+        },
+        {
+          "text": "più",
+          "offset": 0.864
+        },
+        {
+          "text": "piatto",
+          "offset": 1.152
+        },
+        {
+          "text": "sulla",
+          "offset": 1.44
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-107",
+      "start": 276.4,
+      "duration": 1.519,
+      "text": "seconda corda",
+      "segments": [
+        {
+          "text": "seconda",
+          "offset": 0
+        },
+        {
+          "text": "corda",
+          "offset": 0.32
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-108",
+      "start": 277.919,
+      "duration": 7.041,
+      "text": "e farlo rotolare sulla punta",
+      "segments": [
+        {
+          "text": "e",
+          "offset": 0
+        },
+        {
+          "text": "farlo",
+          "offset": 0.24
+        },
+        {
+          "text": "rotolare",
+          "offset": 0.48
+        },
+        {
+          "text": "sulla",
+          "offset": 0.72
+        },
+        {
+          "text": "punta",
+          "offset": 0.96
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-109",
+      "start": 284.96,
+      "duration": 1.04,
+      "text": "ci sono un paio di",
+      "segments": [
+        {
+          "text": "ci",
+          "offset": 0
+        },
+        {
+          "text": "sono",
+          "offset": 0.18
+        },
+        {
+          "text": "un",
+          "offset": 0.36
+        },
+        {
+          "text": "paio",
+          "offset": 0.54
+        },
+        {
+          "text": "di",
+          "offset": 0.72
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-110",
+      "start": 286,
+      "duration": 2.72,
+      "text": "approcci diversi quando inverti una",
+      "segments": [
+        {
+          "text": "approcci",
+          "offset": 0
+        },
+        {
+          "text": "diversi",
+          "offset": 0.56
+        },
+        {
+          "text": "quando",
+          "offset": 1.12
+        },
+        {
+          "text": "inverti",
+          "offset": 1.68
+        },
+        {
+          "text": "una",
+          "offset": 2.24
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-111",
+      "start": 288.72,
+      "duration": 2,
+      "text": "sequenza melodica il modo più semplice per pensarci",
+      "segments": [
+        {
+          "text": "sequenza",
+          "offset": 0
+        },
+        {
+          "text": "melodica",
+          "offset": 0.262
+        },
+        {
+          "text": "il",
+          "offset": 0.524
+        },
+        {
+          "text": "modo",
+          "offset": 0.786
+        },
+        {
+          "text": "più",
+          "offset": 1.048
+        },
+        {
+          "text": "semplice",
+          "offset": 1.31
+        },
+        {
+          "text": "per",
+          "offset": 1.572
+        },
+        {
+          "text": "pensarci",
+          "offset": 1.834
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-112",
+      "start": 290.72,
+      "duration": 0.8,
+      "text": "è",
+      "segments": [
+        {
+          "text": "è",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-113",
+      "start": 291.52,
+      "duration": 2,
+      "text": "rinumerare la scala partendo dalla",
+      "segments": [
+        {
+          "text": "rinumerare",
+          "offset": 0
+        },
+        {
+          "text": "la",
+          "offset": 0.48
+        },
+        {
+          "text": "scala",
+          "offset": 0.96
+        },
+        {
+          "text": "partendo",
+          "offset": 1.44
+        },
+        {
+          "text": "dalla",
+          "offset": 1.92
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-114",
+      "start": 293.52,
+      "duration": 1.36,
+      "text": "corda più sottile quindi avremmo che è",
+      "segments": [
+        {
+          "text": "corda",
+          "offset": 0
+        },
+        {
+          "text": "più",
+          "offset": 0.2
+        },
+        {
+          "text": "sottile",
+          "offset": 0.4
+        },
+        {
+          "text": "quindi",
+          "offset": 0.6
+        },
+        {
+          "text": "avremmo",
+          "offset": 0.8
+        },
+        {
+          "text": "che",
+          "offset": 1
+        },
+        {
+          "text": "è",
+          "offset": 1.2
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-115",
+      "start": 294.88,
+      "duration": 2.64,
+      "text": "uno due tre quattro cinque sei sette otto nove dieci undici dodici tredici quattordici quindici sedici diciassette in questo modo",
+      "segments": [
+        {
+          "text": "uno",
+          "offset": 0
+        },
+        {
+          "text": "due",
+          "offset": 0.126
+        },
+        {
+          "text": "tre",
+          "offset": 0.252
+        },
+        {
+          "text": "quattro",
+          "offset": 0.378
+        },
+        {
+          "text": "cinque",
+          "offset": 0.504
+        },
+        {
+          "text": "sei",
+          "offset": 0.63
+        },
+        {
+          "text": "sette",
+          "offset": 0.756
+        },
+        {
+          "text": "otto",
+          "offset": 0.882
+        },
+        {
+          "text": "nove",
+          "offset": 1.008
+        },
+        {
+          "text": "dieci",
+          "offset": 1.134
+        },
+        {
+          "text": "undici",
+          "offset": 1.26
+        },
+        {
+          "text": "dodici",
+          "offset": 1.386
+        },
+        {
+          "text": "tredici",
+          "offset": 1.512
+        },
+        {
+          "text": "quattordici",
+          "offset": 1.638
+        },
+        {
+          "text": "quindici",
+          "offset": 1.764
+        },
+        {
+          "text": "sedici",
+          "offset": 1.89
+        },
+        {
+          "text": "diciassette",
+          "offset": 2.016
+        },
+        {
+          "text": "in",
+          "offset": 2.142
+        },
+        {
+          "text": "questo",
+          "offset": 2.268
+        },
+        {
+          "text": "modo",
+          "offset": 2.394
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-118",
+      "start": 300.72,
+      "duration": 3.919,
+      "text": "e poi vai uno due tre quattro due tre quattro cinque tre quattro",
+      "segments": [
+        {
+          "text": "e",
+          "offset": 0
+        },
+        {
+          "text": "poi",
+          "offset": 0.286
+        },
+        {
+          "text": "vai",
+          "offset": 0.572
+        },
+        {
+          "text": "uno",
+          "offset": 0.858
+        },
+        {
+          "text": "due",
+          "offset": 1.144
+        },
+        {
+          "text": "tre",
+          "offset": 1.43
+        },
+        {
+          "text": "quattro",
+          "offset": 1.716
+        },
+        {
+          "text": "due",
+          "offset": 2.002
+        },
+        {
+          "text": "tre",
+          "offset": 2.288
+        },
+        {
+          "text": "quattro",
+          "offset": 2.574
+        },
+        {
+          "text": "cinque",
+          "offset": 2.86
+        },
+        {
+          "text": "tre",
+          "offset": 3.146
+        },
+        {
+          "text": "quattro",
+          "offset": 3.432
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-119",
+      "start": 304.639,
+      "duration": 3.921,
+      "text": "cinque sei",
+      "segments": [
+        {
+          "text": "cinque",
+          "offset": 0
+        },
+        {
+          "text": "sei",
+          "offset": 3.041
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-120",
+      "start": 308.56,
+      "duration": 1.919,
+      "text": "ma per me in particolare questo schema",
+      "segments": [
+        {
+          "text": "ma",
+          "offset": 0
+        },
+        {
+          "text": "per",
+          "offset": 0.306
+        },
+        {
+          "text": "me",
+          "offset": 0.612
+        },
+        {
+          "text": "in",
+          "offset": 0.918
+        },
+        {
+          "text": "particolare",
+          "offset": 1.224
+        },
+        {
+          "text": "questo",
+          "offset": 1.53
+        },
+        {
+          "text": "schema",
+          "offset": 1.836
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-121",
+      "start": 310.479,
+      "duration": 2.401,
+      "text": "penso solo che stiamo scendendo la scala",
+      "segments": [
+        {
+          "text": "penso",
+          "offset": 0
+        },
+        {
+          "text": "solo",
+          "offset": 0.28
+        },
+        {
+          "text": "che",
+          "offset": 0.56
+        },
+        {
+          "text": "stiamo",
+          "offset": 0.84
+        },
+        {
+          "text": "scendendo",
+          "offset": 1.12
+        },
+        {
+          "text": "la",
+          "offset": 1.4
+        },
+        {
+          "text": "scala",
+          "offset": 1.68
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-122",
+      "start": 312.88,
+      "duration": 3.12,
+      "text": "scendendo di quattro note da ogni",
+      "segments": [
+        {
+          "text": "scendendo",
+          "offset": 0
+        },
+        {
+          "text": "di",
+          "offset": 0.544
+        },
+        {
+          "text": "quattro",
+          "offset": 1.088
+        },
+        {
+          "text": "note",
+          "offset": 1.632
+        },
+        {
+          "text": "da",
+          "offset": 2.176
+        },
+        {
+          "text": "ogni",
+          "offset": 2.72
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-123",
+      "start": 316,
+      "duration": 1.85,
+      "text": "grado della scala quindi partendo dalla nota più alta",
+      "segments": [
+        {
+          "text": "grado",
+          "offset": 0
+        },
+        {
+          "text": "della",
+          "offset": 0.19
+        },
+        {
+          "text": "scala",
+          "offset": 0.38
+        },
+        {
+          "text": "quindi",
+          "offset": 0.57
+        },
+        {
+          "text": "partendo",
+          "offset": 0.76
+        },
+        {
+          "text": "dalla",
+          "offset": 0.95
+        },
+        {
+          "text": "nota",
+          "offset": 1.14
+        },
+        {
+          "text": "più",
+          "offset": 1.33
+        },
+        {
+          "text": "alta",
+          "offset": 1.52
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-124",
+      "start": 317.85,
+      "duration": 1.67,
+      "text": "[Musica]",
+      "segments": [
+        {
+          "text": "[Musica]",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-125",
+      "start": 319.52,
+      "duration": 2.16,
+      "text": "e la nota successiva giù la",
+      "segments": [
+        {
+          "text": "e",
+          "offset": 0
+        },
+        {
+          "text": "la",
+          "offset": 0.223
+        },
+        {
+          "text": "nota",
+          "offset": 0.446
+        },
+        {
+          "text": "successiva",
+          "offset": 0.669
+        },
+        {
+          "text": "giù",
+          "offset": 0.892
+        },
+        {
+          "text": "la",
+          "offset": 1.115
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-126",
+      "start": 321.68,
+      "duration": 12.4,
+      "text": "nota successiva giù",
+      "segments": [
+        {
+          "text": "nota",
+          "offset": 0
+        },
+        {
+          "text": "successiva",
+          "offset": 0.28
+        },
+        {
+          "text": "giù",
+          "offset": 0.56
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-127",
+      "start": 334.08,
+      "duration": 2.16,
+      "text": "e di nuovo va perfettamente bene",
+      "segments": [
+        {
+          "text": "e",
+          "offset": 0
+        },
+        {
+          "text": "di",
+          "offset": 0.4
+        },
+        {
+          "text": "nuovo",
+          "offset": 0.8
+        },
+        {
+          "text": "va",
+          "offset": 1.2
+        },
+        {
+          "text": "perfettamente",
+          "offset": 1.6
+        },
+        {
+          "text": "bene",
+          "offset": 2
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-128",
+      "start": 336.24,
+      "duration": 1.92,
+      "text": "farlo in questo tipo di movimento a scatti per",
+      "segments": [
+        {
+          "text": "farlo",
+          "offset": 0
+        },
+        {
+          "text": "in",
+          "offset": 0.23
+        },
+        {
+          "text": "questo",
+          "offset": 0.46
+        },
+        {
+          "text": "tipo",
+          "offset": 0.69
+        },
+        {
+          "text": "di",
+          "offset": 0.92
+        },
+        {
+          "text": "movimento",
+          "offset": 1.15
+        },
+        {
+          "text": "a",
+          "offset": 1.38
+        },
+        {
+          "text": "scatti",
+          "offset": 1.61
+        },
+        {
+          "text": "per",
+          "offset": 1.84
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-129",
+      "start": 338.16,
+      "duration": 1.68,
+      "text": "abituarsi agli schemi ma non appena",
+      "segments": [
+        {
+          "text": "abituarsi",
+          "offset": 0
+        },
+        {
+          "text": "agli",
+          "offset": 0.304
+        },
+        {
+          "text": "schemi",
+          "offset": 0.608
+        },
+        {
+          "text": "ma",
+          "offset": 0.912
+        },
+        {
+          "text": "non",
+          "offset": 1.216
+        },
+        {
+          "text": "appena",
+          "offset": 1.52
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-130",
+      "start": 339.84,
+      "duration": 1.68,
+      "text": "sei sicuro di te vuoi provare",
+      "segments": [
+        {
+          "text": "sei",
+          "offset": 0
+        },
+        {
+          "text": "sicuro",
+          "offset": 0.288
+        },
+        {
+          "text": "di",
+          "offset": 0.576
+        },
+        {
+          "text": "te",
+          "offset": 0.864
+        },
+        {
+          "text": "vuoi",
+          "offset": 1.152
+        },
+        {
+          "text": "provare",
+          "offset": 1.44
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-131",
+      "start": 341.52,
+      "duration": 7.79,
+      "text": "a rimuovere quello",
+      "segments": [
+        {
+          "text": "a",
+          "offset": 0
+        },
+        {
+          "text": "rimuovere",
+          "offset": 0.24
+        },
+        {
+          "text": "quello",
+          "offset": 0.48
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-132",
+      "start": 349.31,
+      "duration": 22.37,
+      "text": "[Musica]",
+      "segments": [
+        {
+          "text": "[Musica]",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-133",
+      "start": 371.68,
+      "duration": 1.68,
+      "text": "quando inizi ad applicare queste",
+      "segments": [
+        {
+          "text": "quando",
+          "offset": 0
+        },
+        {
+          "text": "inizi",
+          "offset": 0.3
+        },
+        {
+          "text": "ad",
+          "offset": 0.6
+        },
+        {
+          "text": "applicare",
+          "offset": 0.9
+        },
+        {
+          "text": "queste",
+          "offset": 1.2
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-134",
+      "start": 373.36,
+      "duration": 2,
+      "text": "sequenze melodiche ad altri schemi di scale",
+      "segments": [
+        {
+          "text": "sequenze",
+          "offset": 0
+        },
+        {
+          "text": "melodiche",
+          "offset": 0.306
+        },
+        {
+          "text": "ad",
+          "offset": 0.612
+        },
+        {
+          "text": "altri",
+          "offset": 0.918
+        },
+        {
+          "text": "schemi",
+          "offset": 1.224
+        },
+        {
+          "text": "di",
+          "offset": 1.53
+        },
+        {
+          "text": "scale",
+          "offset": 1.836
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-135",
+      "start": 375.36,
+      "duration": 1.679,
+      "text": "scoprirai che ci sono alcune sfide",
+      "segments": [
+        {
+          "text": "scoprirai",
+          "offset": 0
+        },
+        {
+          "text": "che",
+          "offset": 0.223
+        },
+        {
+          "text": "ci",
+          "offset": 0.446
+        },
+        {
+          "text": "sono",
+          "offset": 0.669
+        },
+        {
+          "text": "alcune",
+          "offset": 0.892
+        },
+        {
+          "text": "sfide",
+          "offset": 1.115
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-136",
+      "start": 377.039,
+      "duration": 1.521,
+      "text": "quando si tratta di diteggiature ci sono",
+      "segments": [
+        {
+          "text": "quando",
+          "offset": 0
+        },
+        {
+          "text": "si",
+          "offset": 0.226
+        },
+        {
+          "text": "tratta",
+          "offset": 0.452
+        },
+        {
+          "text": "di",
+          "offset": 0.678
+        },
+        {
+          "text": "diteggiature",
+          "offset": 0.904
+        },
+        {
+          "text": "ci",
+          "offset": 1.13
+        },
+        {
+          "text": "sono",
+          "offset": 1.356
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-137",
+      "start": 378.56,
+      "duration": 2,
+      "text": "alcune decisioni da prendere",
+      "segments": [
+        {
+          "text": "alcune",
+          "offset": 0
+        },
+        {
+          "text": "decisioni",
+          "offset": 0.346
+        },
+        {
+          "text": "da",
+          "offset": 0.692
+        },
+        {
+          "text": "prendere",
+          "offset": 1.038
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-138",
+      "start": 380.56,
+      "duration": 2.079,
+      "text": "cercherò di darti alcuni suggerimenti",
+      "segments": [
+        {
+          "text": "cercherò",
+          "offset": 0
+        },
+        {
+          "text": "di",
+          "offset": 0.42
+        },
+        {
+          "text": "darti",
+          "offset": 0.84
+        },
+        {
+          "text": "alcuni",
+          "offset": 1.26
+        },
+        {
+          "text": "suggerimenti",
+          "offset": 1.68
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-139",
+      "start": 382.639,
+      "duration": 2.081,
+      "text": "ma parte del viaggio è ora",
+      "segments": [
+        {
+          "text": "ma",
+          "offset": 0
+        },
+        {
+          "text": "parte",
+          "offset": 0.352
+        },
+        {
+          "text": "del",
+          "offset": 0.704
+        },
+        {
+          "text": "viaggio",
+          "offset": 1.056
+        },
+        {
+          "text": "è",
+          "offset": 1.408
+        },
+        {
+          "text": "ora",
+          "offset": 1.76
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-140",
+      "start": 384.72,
+      "duration": 2,
+      "text": "capire la diteggiatura che funziona",
+      "segments": [
+        {
+          "text": "capire",
+          "offset": 0
+        },
+        {
+          "text": "la",
+          "offset": 0.399
+        },
+        {
+          "text": "diteggiatura",
+          "offset": 0.798
+        },
+        {
+          "text": "che",
+          "offset": 1.197
+        },
+        {
+          "text": "funziona",
+          "offset": 1.596
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-141",
+      "start": 386.72,
+      "duration": 2,
+      "text": "meglio per te prendiamo questa sequenza di quattro in",
+      "segments": [
+        {
+          "text": "meglio",
+          "offset": 0
+        },
+        {
+          "text": "per",
+          "offset": 0.239
+        },
+        {
+          "text": "te",
+          "offset": 0.478
+        },
+        {
+          "text": "prendiamo",
+          "offset": 0.717
+        },
+        {
+          "text": "questa",
+          "offset": 0.956
+        },
+        {
+          "text": "sequenza",
+          "offset": 1.195
+        },
+        {
+          "text": "di",
+          "offset": 1.434
+        },
+        {
+          "text": "quattro",
+          "offset": 1.673
+        },
+        {
+          "text": "in",
+          "offset": 1.912
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-142",
+      "start": 388.72,
+      "duration": 2,
+      "text": "linea se abbiamo iniziato nello schema",
+      "segments": [
+        {
+          "text": "linea",
+          "offset": 0
+        },
+        {
+          "text": "se",
+          "offset": 0.319
+        },
+        {
+          "text": "abbiamo",
+          "offset": 0.638
+        },
+        {
+          "text": "iniziato",
+          "offset": 0.957
+        },
+        {
+          "text": "nello",
+          "offset": 1.276
+        },
+        {
+          "text": "schema",
+          "offset": 1.595
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-143",
+      "start": 390.72,
+      "duration": 3.28,
+      "text": "due",
+      "segments": [
+        {
+          "text": "due",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-144",
+      "start": 394,
+      "duration": 3.44,
+      "text": "ricorda che era quello fin qui tutto",
+      "segments": [
+        {
+          "text": "ricorda",
+          "offset": 0
+        },
+        {
+          "text": "che",
+          "offset": 0.12
+        },
+        {
+          "text": "era",
+          "offset": 0.24
+        },
+        {
+          "text": "quello",
+          "offset": 0.36
+        },
+        {
+          "text": "fin",
+          "offset": 0.48
+        },
+        {
+          "text": "qui",
+          "offset": 0.6
+        },
+        {
+          "text": "tutto",
+          "offset": 0.72
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-145",
+      "start": 397.44,
+      "duration": 2.72,
+      "text": "bene",
+      "segments": [
+        {
+          "text": "bene",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-146",
+      "start": 400.16,
+      "duration": 2.159,
+      "text": "ora abbiamo quella nota se lo facciamo",
+      "segments": [
+        {
+          "text": "ora",
+          "offset": 0
+        },
+        {
+          "text": "abbiamo",
+          "offset": 0.32
+        },
+        {
+          "text": "quella",
+          "offset": 0.64
+        },
+        {
+          "text": "nota",
+          "offset": 0.96
+        },
+        {
+          "text": "se",
+          "offset": 1.28
+        },
+        {
+          "text": "lo",
+          "offset": 1.6
+        },
+        {
+          "text": "facciamo",
+          "offset": 1.92
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-147",
+      "start": 402.319,
+      "duration": 1.921,
+      "text": "allora dobbiamo provare a saltare con quel",
+      "segments": [
+        {
+          "text": "allora",
+          "offset": 0
+        },
+        {
+          "text": "dobbiamo",
+          "offset": 0.28
+        },
+        {
+          "text": "provare",
+          "offset": 0.56
+        },
+        {
+          "text": "a",
+          "offset": 0.84
+        },
+        {
+          "text": "saltare",
+          "offset": 1.12
+        },
+        {
+          "text": "con",
+          "offset": 1.4
+        },
+        {
+          "text": "quel",
+          "offset": 1.68
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-148",
+      "start": 404.24,
+      "duration": 1.92,
+      "text": "secondo dito quindi dovremmo metterlo",
+      "segments": [
+        {
+          "text": "secondo",
+          "offset": 0
+        },
+        {
+          "text": "dito",
+          "offset": 0.44
+        },
+        {
+          "text": "quindi",
+          "offset": 0.88
+        },
+        {
+          "text": "dovremmo",
+          "offset": 1.32
+        },
+        {
+          "text": "metterlo",
+          "offset": 1.76
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-149",
+      "start": 406.16,
+      "duration": 4.319,
+      "text": "giù più piatto",
+      "segments": [
+        {
+          "text": "giù",
+          "offset": 0
+        },
+        {
+          "text": "più",
+          "offset": 0.2
+        },
+        {
+          "text": "piatto",
+          "offset": 0.4
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-150",
+      "start": 410.479,
+      "duration": 1.84,
+      "text": "ah ora",
+      "segments": [
+        {
+          "text": "ah",
+          "offset": 0
+        },
+        {
+          "text": "ora",
+          "offset": 0.641
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-151",
+      "start": 412.319,
+      "duration": 1.681,
+      "text": "dovremo fare uno spostamento con il",
+      "segments": [
+        {
+          "text": "dovremo",
+          "offset": 0
+        },
+        {
+          "text": "fare",
+          "offset": 0.272
+        },
+        {
+          "text": "uno",
+          "offset": 0.544
+        },
+        {
+          "text": "spostamento",
+          "offset": 0.816
+        },
+        {
+          "text": "con",
+          "offset": 1.088
+        },
+        {
+          "text": "il",
+          "offset": 1.36
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-152",
+      "start": 414,
+      "duration": 2.72,
+      "text": "mignolo non è una buona idea",
+      "segments": [
+        {
+          "text": "mignolo",
+          "offset": 0
+        },
+        {
+          "text": "non",
+          "offset": 0.336
+        },
+        {
+          "text": "è",
+          "offset": 0.672
+        },
+        {
+          "text": "una",
+          "offset": 1.008
+        },
+        {
+          "text": "buona",
+          "offset": 1.344
+        },
+        {
+          "text": "idea",
+          "offset": 1.68
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-153",
+      "start": 416.72,
+      "duration": 4,
+      "text": "una migliore per questo",
+      "segments": [
+        {
+          "text": "una",
+          "offset": 0
+        },
+        {
+          "text": "migliore",
+          "offset": 0.373
+        },
+        {
+          "text": "per",
+          "offset": 0.746
+        },
+        {
+          "text": "questo",
+          "offset": 1.119
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-154",
+      "start": 420.72,
+      "duration": 2.08,
+      "text": "è saltare al primo dito il prima",
+      "segments": [
+        {
+          "text": "è",
+          "offset": 0
+        },
+        {
+          "text": "saltare",
+          "offset": 0.319
+        },
+        {
+          "text": "al",
+          "offset": 0.638
+        },
+        {
+          "text": "primo",
+          "offset": 0.957
+        },
+        {
+          "text": "dito",
+          "offset": 1.276
+        },
+        {
+          "text": "il",
+          "offset": 1.595
+        },
+        {
+          "text": "prima",
+          "offset": 1.914
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-155",
+      "start": 422.8,
+      "duration": 3.679,
+      "text": "possibile",
+      "segments": [
+        {
+          "text": "possibile",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-156",
+      "start": 426.479,
+      "duration": 1.84,
+      "text": "quando scendiamo lo schema nello schema",
+      "segments": [
+        {
+          "text": "quando",
+          "offset": 0
+        },
+        {
+          "text": "scendiamo",
+          "offset": 0.304
+        },
+        {
+          "text": "lo",
+          "offset": 0.608
+        },
+        {
+          "text": "schema",
+          "offset": 0.912
+        },
+        {
+          "text": "nello",
+          "offset": 1.216
+        },
+        {
+          "text": "schema",
+          "offset": 1.52
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-157",
+      "start": 428.319,
+      "duration": 1.361,
+      "text": "due abbiamo altri problemi a cui",
+      "segments": [
+        {
+          "text": "due",
+          "offset": 0
+        },
+        {
+          "text": "abbiamo",
+          "offset": 0.24
+        },
+        {
+          "text": "altri",
+          "offset": 0.48
+        },
+        {
+          "text": "problemi",
+          "offset": 0.72
+        },
+        {
+          "text": "a",
+          "offset": 0.96
+        },
+        {
+          "text": "cui",
+          "offset": 1.2
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-158",
+      "start": 429.68,
+      "duration": 7.6,
+      "text": "pensare",
+      "segments": [
+        {
+          "text": "pensare",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-159",
+      "start": 437.28,
+      "duration": 4.96,
+      "text": "ora cosa succederà",
+      "segments": [
+        {
+          "text": "ora",
+          "offset": 0
+        },
+        {
+          "text": "cosa",
+          "offset": 0.36
+        },
+        {
+          "text": "succederà",
+          "offset": 0.72
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-160",
+      "start": 442.24,
+      "duration": 7.519,
+      "text": "dobbiamo spostarci al primo dito",
+      "segments": [
+        {
+          "text": "dobbiamo",
+          "offset": 0
+        },
+        {
+          "text": "spostarci",
+          "offset": 0.339
+        },
+        {
+          "text": "al",
+          "offset": 0.678
+        },
+        {
+          "text": "primo",
+          "offset": 1.017
+        },
+        {
+          "text": "dito",
+          "offset": 1.356
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-161",
+      "start": 449.759,
+      "duration": 2,
+      "text": "ogni schema presenterà una",
+      "segments": [
+        {
+          "text": "ogni",
+          "offset": 0
+        },
+        {
+          "text": "schema",
+          "offset": 0.56
+        },
+        {
+          "text": "presenterà",
+          "offset": 1.12
+        },
+        {
+          "text": "una",
+          "offset": 1.68
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-162",
+      "start": 451.759,
+      "duration": 1.601,
+      "text": "sorta di sfida di diteggiatura che",
+      "segments": [
+        {
+          "text": "sorta",
+          "offset": 0
+        },
+        {
+          "text": "di",
+          "offset": 0.288
+        },
+        {
+          "text": "sfida",
+          "offset": 0.576
+        },
+        {
+          "text": "di",
+          "offset": 0.864
+        },
+        {
+          "text": "diteggiatura",
+          "offset": 1.152
+        },
+        {
+          "text": "che",
+          "offset": 1.44
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-163",
+      "start": 453.36,
+      "duration": 1.6,
+      "text": "Dovrai capirlo e questo fa",
+      "segments": [
+        {
+          "text": "Dovrai",
+          "offset": 0
+        },
+        {
+          "text": "capirlo",
+          "offset": 0.319
+        },
+        {
+          "text": "e",
+          "offset": 0.638
+        },
+        {
+          "text": "questo",
+          "offset": 0.957
+        },
+        {
+          "text": "fa",
+          "offset": 1.276
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-164",
+      "start": 454.96,
+      "duration": 1.76,
+      "text": "parte del divertimento di tutto il resto.",
+      "segments": [
+        {
+          "text": "parte",
+          "offset": 0
+        },
+        {
+          "text": "del",
+          "offset": 0.266
+        },
+        {
+          "text": "divertimento",
+          "offset": 0.532
+        },
+        {
+          "text": "di",
+          "offset": 0.798
+        },
+        {
+          "text": "tutto",
+          "offset": 1.064
+        },
+        {
+          "text": "il",
+          "offset": 1.33
+        },
+        {
+          "text": "resto.",
+          "offset": 1.596
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-165",
+      "start": 456.72,
+      "duration": 2.08,
+      "text": "Dovrei anche menzionare la nota più alta della",
+      "segments": [
+        {
+          "text": "Dovrei",
+          "offset": 0
+        },
+        {
+          "text": "anche",
+          "offset": 0.285
+        },
+        {
+          "text": "menzionare",
+          "offset": 0.57
+        },
+        {
+          "text": "la",
+          "offset": 0.855
+        },
+        {
+          "text": "nota",
+          "offset": 1.14
+        },
+        {
+          "text": "più",
+          "offset": 1.425
+        },
+        {
+          "text": "alta",
+          "offset": 1.71
+        },
+        {
+          "text": "della",
+          "offset": 1.995
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-166",
+      "start": 458.8,
+      "duration": 1.839,
+      "text": "scala. In generale, quando",
+      "segments": [
+        {
+          "text": "scala.",
+          "offset": 0
+        },
+        {
+          "text": "In",
+          "offset": 0.559
+        },
+        {
+          "text": "generale,",
+          "offset": 1.118
+        },
+        {
+          "text": "quando",
+          "offset": 1.677
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-167",
+      "start": 460.639,
+      "duration": 1.761,
+      "text": "suoni le scale in su e in giù, ti consiglio di",
+      "segments": [
+        {
+          "text": "suoni",
+          "offset": 0
+        },
+        {
+          "text": "le",
+          "offset": 0.136
+        },
+        {
+          "text": "scale",
+          "offset": 0.272
+        },
+        {
+          "text": "in",
+          "offset": 0.408
+        },
+        {
+          "text": "su",
+          "offset": 0.544
+        },
+        {
+          "text": "e",
+          "offset": 0.68
+        },
+        {
+          "text": "in",
+          "offset": 0.816
+        },
+        {
+          "text": "giù,",
+          "offset": 0.952
+        },
+        {
+          "text": "ti",
+          "offset": 1.088
+        },
+        {
+          "text": "consiglio",
+          "offset": 1.224
+        },
+        {
+          "text": "di",
+          "offset": 1.36
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-168",
+      "start": 462.4,
+      "duration": 2.56,
+      "text": "suonare la nota più alta una sola volta, così mentre",
+      "segments": [
+        {
+          "text": "suonare",
+          "offset": 0
+        },
+        {
+          "text": "la",
+          "offset": 0.266
+        },
+        {
+          "text": "nota",
+          "offset": 0.532
+        },
+        {
+          "text": "più",
+          "offset": 0.798
+        },
+        {
+          "text": "alta",
+          "offset": 1.064
+        },
+        {
+          "text": "una",
+          "offset": 1.33
+        },
+        {
+          "text": "sola",
+          "offset": 1.596
+        },
+        {
+          "text": "volta,",
+          "offset": 1.862
+        },
+        {
+          "text": "così",
+          "offset": 2.128
+        },
+        {
+          "text": "mentre",
+          "offset": 2.394
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-169",
+      "start": 464.96,
+      "duration": 2.66,
+      "text": "giri",
+      "segments": [
+        {
+          "text": "giri",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-170",
+      "start": 467.62,
+      "duration": 1.579,
+      "text": "[Musica]",
+      "segments": [
+        {
+          "text": "[Musica]",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-171",
+      "start": 469.199,
+      "duration": 1.601,
+      "text": "colpisci quella nota più alta e viene suonata",
+      "segments": [
+        {
+          "text": "colpisci",
+          "offset": 0
+        },
+        {
+          "text": "quella",
+          "offset": 0.205
+        },
+        {
+          "text": "nota",
+          "offset": 0.41
+        },
+        {
+          "text": "più",
+          "offset": 0.615
+        },
+        {
+          "text": "alta",
+          "offset": 0.82
+        },
+        {
+          "text": "e",
+          "offset": 1.025
+        },
+        {
+          "text": "viene",
+          "offset": 1.23
+        },
+        {
+          "text": "suonata",
+          "offset": 1.435
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-172",
+      "start": 470.8,
+      "duration": 2,
+      "text": "una volta e poi scendi subito. Quando",
+      "segments": [
+        {
+          "text": "una",
+          "offset": 0
+        },
+        {
+          "text": "volta",
+          "offset": 0.293
+        },
+        {
+          "text": "e",
+          "offset": 0.586
+        },
+        {
+          "text": "poi",
+          "offset": 0.879
+        },
+        {
+          "text": "scendi",
+          "offset": 1.172
+        },
+        {
+          "text": "subito.",
+          "offset": 1.465
+        },
+        {
+          "text": "Quando",
+          "offset": 1.758
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-173",
+      "start": 472.8,
+      "duration": 1.839,
+      "text": "fai sequenze melodiche, molto",
+      "segments": [
+        {
+          "text": "fai",
+          "offset": 0
+        },
+        {
+          "text": "sequenze",
+          "offset": 0.506
+        },
+        {
+          "text": "melodiche,",
+          "offset": 1.012
+        },
+        {
+          "text": "molto",
+          "offset": 1.518
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-174",
+      "start": 474.639,
+      "duration": 1.761,
+      "text": "spesso vorrai colpire la nota più alta due",
+      "segments": [
+        {
+          "text": "spesso",
+          "offset": 0
+        },
+        {
+          "text": "vorrai",
+          "offset": 0.194
+        },
+        {
+          "text": "colpire",
+          "offset": 0.388
+        },
+        {
+          "text": "la",
+          "offset": 0.582
+        },
+        {
+          "text": "nota",
+          "offset": 0.776
+        },
+        {
+          "text": "più",
+          "offset": 0.97
+        },
+        {
+          "text": "alta",
+          "offset": 1.164
+        },
+        {
+          "text": "due",
+          "offset": 1.358
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-175",
+      "start": 476.4,
+      "duration": 5.87,
+      "text": "volte. Okay",
+      "segments": [
+        {
+          "text": "volte.",
+          "offset": 0
+        },
+        {
+          "text": "Okay",
+          "offset": 0.639
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-176",
+      "start": 482.27,
+      "duration": 5.09,
+      "text": "[Musica]",
+      "segments": [
+        {
+          "text": "[Musica]",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-177",
+      "start": 487.36,
+      "duration": 2.16,
+      "text": "Quindi, in generale, colpire la",
+      "segments": [
+        {
+          "text": "Quindi,",
+          "offset": 0
+        },
+        {
+          "text": "in",
+          "offset": 0.48
+        },
+        {
+          "text": "generale,",
+          "offset": 0.96
+        },
+        {
+          "text": "colpire",
+          "offset": 1.44
+        },
+        {
+          "text": "la",
+          "offset": 1.92
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-178",
+      "start": 489.52,
+      "duration": 1.679,
+      "text": "nota più alta due volte ti manterrà sincronizzato",
+      "segments": [
+        {
+          "text": "nota",
+          "offset": 0
+        },
+        {
+          "text": "più",
+          "offset": 0.205
+        },
+        {
+          "text": "alta",
+          "offset": 0.41
+        },
+        {
+          "text": "due",
+          "offset": 0.615
+        },
+        {
+          "text": "volte",
+          "offset": 0.82
+        },
+        {
+          "text": "ti",
+          "offset": 1.025
+        },
+        {
+          "text": "manterrà",
+          "offset": 1.23
+        },
+        {
+          "text": "sincronizzato",
+          "offset": 1.435
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-179",
+      "start": 491.199,
+      "duration": 1.68,
+      "text": "con il metronomo, in particolare con un pattern",
+      "segments": [
+        {
+          "text": "con",
+          "offset": 0
+        },
+        {
+          "text": "il",
+          "offset": 0.194
+        },
+        {
+          "text": "metronomo,",
+          "offset": 0.388
+        },
+        {
+          "text": "in",
+          "offset": 0.582
+        },
+        {
+          "text": "particolare",
+          "offset": 0.776
+        },
+        {
+          "text": "con",
+          "offset": 0.97
+        },
+        {
+          "text": "un",
+          "offset": 1.164
+        },
+        {
+          "text": "pattern",
+          "offset": 1.358
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-180",
+      "start": 492.879,
+      "duration": 2.16,
+      "text": "come questo che è lungo quattro note.",
+      "segments": [
+        {
+          "text": "come",
+          "offset": 0
+        },
+        {
+          "text": "questo",
+          "offset": 0.253
+        },
+        {
+          "text": "che",
+          "offset": 0.506
+        },
+        {
+          "text": "è",
+          "offset": 0.759
+        },
+        {
+          "text": "lungo",
+          "offset": 1.012
+        },
+        {
+          "text": "quattro",
+          "offset": 1.265
+        },
+        {
+          "text": "note.",
+          "offset": 1.518
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-181",
+      "start": 495.039,
+      "duration": 1.28,
+      "text": "Probabilmente lo praticherai",
+      "segments": [
+        {
+          "text": "Probabilmente",
+          "offset": 0
+        },
+        {
+          "text": "lo",
+          "offset": 0.56
+        },
+        {
+          "text": "praticherai",
+          "offset": 1.12
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-182",
+      "start": 496.319,
+      "duration": 1.921,
+      "text": "come ottavi o sedicesimi, i",
+      "segments": [
+        {
+          "text": "come",
+          "offset": 0
+        },
+        {
+          "text": "ottavi",
+          "offset": 0.32
+        },
+        {
+          "text": "o",
+          "offset": 0.64
+        },
+        {
+          "text": "sedicesimi,",
+          "offset": 0.96
+        },
+        {
+          "text": "i",
+          "offset": 1.28
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-183",
+      "start": 498.24,
+      "duration": 2,
+      "text": "sedicesimi sono quattro note",
+      "segments": [
+        {
+          "text": "sedicesimi",
+          "offset": 0
+        },
+        {
+          "text": "sono",
+          "offset": 0.559
+        },
+        {
+          "text": "quattro",
+          "offset": 1.118
+        },
+        {
+          "text": "note",
+          "offset": 1.677
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-184",
+      "start": 500.24,
+      "duration": 1.92,
+      "text": "per ogni clic del metronomo. Quindi, se suoni quella",
+      "segments": [
+        {
+          "text": "per",
+          "offset": 0
+        },
+        {
+          "text": "ogni",
+          "offset": 0.22
+        },
+        {
+          "text": "clic",
+          "offset": 0.44
+        },
+        {
+          "text": "del",
+          "offset": 0.66
+        },
+        {
+          "text": "metronomo.",
+          "offset": 0.88
+        },
+        {
+          "text": "Quindi,",
+          "offset": 1.1
+        },
+        {
+          "text": "se",
+          "offset": 1.32
+        },
+        {
+          "text": "suoni",
+          "offset": 1.54
+        },
+        {
+          "text": "quella",
+          "offset": 1.76
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-185",
+      "start": 502.16,
+      "duration": 1.52,
+      "text": "nota più alta una sola volta e",
+      "segments": [
+        {
+          "text": "nota",
+          "offset": 0
+        },
+        {
+          "text": "più",
+          "offset": 0.173
+        },
+        {
+          "text": "alta",
+          "offset": 0.346
+        },
+        {
+          "text": "una",
+          "offset": 0.519
+        },
+        {
+          "text": "sola",
+          "offset": 0.692
+        },
+        {
+          "text": "volta",
+          "offset": 0.865
+        },
+        {
+          "text": "e",
+          "offset": 1.038
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-186",
+      "start": 503.68,
+      "duration": 2.48,
+      "text": "scendi subito, il clic non cadrà",
+      "segments": [
+        {
+          "text": "scendi",
+          "offset": 0
+        },
+        {
+          "text": "subito,",
+          "offset": 0.48
+        },
+        {
+          "text": "il",
+          "offset": 0.96
+        },
+        {
+          "text": "clic",
+          "offset": 1.44
+        },
+        {
+          "text": "non",
+          "offset": 1.92
+        },
+        {
+          "text": "cadrà",
+          "offset": 2.4
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-187",
+      "start": 506.16,
+      "duration": 2.479,
+      "text": "all'inizio della sequenza ogni volta,",
+      "segments": [
+        {
+          "text": "all'inizio",
+          "offset": 0
+        },
+        {
+          "text": "della",
+          "offset": 0.579
+        },
+        {
+          "text": "sequenza",
+          "offset": 1.158
+        },
+        {
+          "text": "ogni",
+          "offset": 1.737
+        },
+        {
+          "text": "volta,",
+          "offset": 2.316
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-188",
+      "start": 508.639,
+      "duration": 2.081,
+      "text": "il che può risultare un po' strano.",
+      "segments": [
+        {
+          "text": "il",
+          "offset": 0
+        },
+        {
+          "text": "che",
+          "offset": 0.24
+        },
+        {
+          "text": "può",
+          "offset": 0.48
+        },
+        {
+          "text": "risultare",
+          "offset": 0.72
+        },
+        {
+          "text": "un",
+          "offset": 0.96
+        },
+        {
+          "text": "po'",
+          "offset": 1.2
+        },
+        {
+          "text": "strano.",
+          "offset": 1.44
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-189",
+      "start": 510.72,
+      "duration": 1.36,
+      "text": "Un altro pattern davvero fantastico che vorrei che",
+      "segments": [
+        {
+          "text": "Un",
+          "offset": 0
+        },
+        {
+          "text": "altro",
+          "offset": 0.182
+        },
+        {
+          "text": "pattern",
+          "offset": 0.364
+        },
+        {
+          "text": "davvero",
+          "offset": 0.546
+        },
+        {
+          "text": "fantastico",
+          "offset": 0.728
+        },
+        {
+          "text": "che",
+          "offset": 0.91
+        },
+        {
+          "text": "vorrei",
+          "offset": 1.092
+        },
+        {
+          "text": "che",
+          "offset": 1.274
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-190",
+      "start": 512.08,
+      "duration": 2.639,
+      "text": "provassi è il tre in linea.",
+      "segments": [
+        {
+          "text": "provassi",
+          "offset": 0
+        },
+        {
+          "text": "è",
+          "offset": 0.448
+        },
+        {
+          "text": "il",
+          "offset": 0.896
+        },
+        {
+          "text": "tre",
+          "offset": 1.344
+        },
+        {
+          "text": "in",
+          "offset": 1.792
+        },
+        {
+          "text": "linea.",
+          "offset": 2.24
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-191",
+      "start": 514.719,
+      "duration": 2.32,
+      "text": "Okay, come il quattro in linea. Il tre in linea",
+      "segments": [
+        {
+          "text": "Okay,",
+          "offset": 0
+        },
+        {
+          "text": "come",
+          "offset": 0.231
+        },
+        {
+          "text": "il",
+          "offset": 0.462
+        },
+        {
+          "text": "quattro",
+          "offset": 0.693
+        },
+        {
+          "text": "in",
+          "offset": 0.924
+        },
+        {
+          "text": "linea.",
+          "offset": 1.155
+        },
+        {
+          "text": "Il",
+          "offset": 1.386
+        },
+        {
+          "text": "tre",
+          "offset": 1.617
+        },
+        {
+          "text": "in",
+          "offset": 1.848
+        },
+        {
+          "text": "linea",
+          "offset": 2.079
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-192",
+      "start": 517.039,
+      "duration": 2.401,
+      "text": "ha tre note che salgono o scendono",
+      "segments": [
+        {
+          "text": "ha",
+          "offset": 0
+        },
+        {
+          "text": "tre",
+          "offset": 0.266
+        },
+        {
+          "text": "note",
+          "offset": 0.532
+        },
+        {
+          "text": "che",
+          "offset": 0.798
+        },
+        {
+          "text": "salgono",
+          "offset": 1.064
+        },
+        {
+          "text": "o",
+          "offset": 1.33
+        },
+        {
+          "text": "scendono",
+          "offset": 1.596
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-193",
+      "start": 519.44,
+      "duration": 2.24,
+      "text": "da ogni grado della scala. Quindi, proviamo. Dai",
+      "segments": [
+        {
+          "text": "da",
+          "offset": 0
+        },
+        {
+          "text": "ogni",
+          "offset": 0.297
+        },
+        {
+          "text": "grado",
+          "offset": 0.594
+        },
+        {
+          "text": "della",
+          "offset": 0.891
+        },
+        {
+          "text": "scala.",
+          "offset": 1.188
+        },
+        {
+          "text": "Quindi,",
+          "offset": 1.485
+        },
+        {
+          "text": "proviamo.",
+          "offset": 1.782
+        },
+        {
+          "text": "Dai",
+          "offset": 2.079
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-194",
+      "start": 521.68,
+      "duration": 2.32,
+      "text": "un'occhiata a questo, ecco lo",
+      "segments": [
+        {
+          "text": "un'occhiata",
+          "offset": 0
+        },
+        {
+          "text": "a",
+          "offset": 0.3
+        },
+        {
+          "text": "questo,",
+          "offset": 0.6
+        },
+        {
+          "text": "ecco",
+          "offset": 0.9
+        },
+        {
+          "text": "lo",
+          "offset": 1.2
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-195",
+      "start": 524,
+      "duration": 1.839,
+      "text": "schema della scala uno.",
+      "segments": [
+        {
+          "text": "schema",
+          "offset": 0
+        },
+        {
+          "text": "della",
+          "offset": 0.319
+        },
+        {
+          "text": "scala",
+          "offset": 0.638
+        },
+        {
+          "text": "uno.",
+          "offset": 0.957
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-196",
+      "start": 525.839,
+      "duration": 1.841,
+      "text": "Se lo numeriamo da uno a tre, da quattro a cinque, da sei a sette, da otto a nove, da dieci a undici, da dodici,",
+      "segments": [
+        {
+          "text": "Se",
+          "offset": 0
+        },
+        {
+          "text": "lo",
+          "offset": 0.066
+        },
+        {
+          "text": "numeriamo",
+          "offset": 0.132
+        },
+        {
+          "text": "da",
+          "offset": 0.198
+        },
+        {
+          "text": "uno",
+          "offset": 0.264
+        },
+        {
+          "text": "a",
+          "offset": 0.33
+        },
+        {
+          "text": "tre,",
+          "offset": 0.396
+        },
+        {
+          "text": "da",
+          "offset": 0.462
+        },
+        {
+          "text": "quattro",
+          "offset": 0.528
+        },
+        {
+          "text": "a",
+          "offset": 0.594
+        },
+        {
+          "text": "cinque,",
+          "offset": 0.66
+        },
+        {
+          "text": "da",
+          "offset": 0.726
+        },
+        {
+          "text": "sei",
+          "offset": 0.792
+        },
+        {
+          "text": "a",
+          "offset": 0.858
+        },
+        {
+          "text": "sette,",
+          "offset": 0.924
+        },
+        {
+          "text": "da",
+          "offset": 0.99
+        },
+        {
+          "text": "otto",
+          "offset": 1.056
+        },
+        {
+          "text": "a",
+          "offset": 1.122
+        },
+        {
+          "text": "nove,",
+          "offset": 1.188
+        },
+        {
+          "text": "da",
+          "offset": 1.254
+        },
+        {
+          "text": "dieci",
+          "offset": 1.32
+        },
+        {
+          "text": "a",
+          "offset": 1.386
+        },
+        {
+          "text": "undici,",
+          "offset": 1.452
+        },
+        {
+          "text": "da",
+          "offset": 1.518
+        },
+        {
+          "text": "dodici,",
+          "offset": 1.584
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-198",
+      "start": 529.12,
+      "duration": 3.92,
+      "text": "ecc., allora abbiamo uno, due, tre che",
+      "segments": [
+        {
+          "text": "ecc.,",
+          "offset": 0
+        },
+        {
+          "text": "allora",
+          "offset": 0.48
+        },
+        {
+          "text": "abbiamo",
+          "offset": 0.96
+        },
+        {
+          "text": "uno,",
+          "offset": 1.44
+        },
+        {
+          "text": "due,",
+          "offset": 1.92
+        },
+        {
+          "text": "tre",
+          "offset": 2.4
+        },
+        {
+          "text": "che",
+          "offset": 2.88
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-199",
+      "start": 533.04,
+      "duration": 2.72,
+      "text": "iniziano dal secondo grado, dal",
+      "segments": [
+        {
+          "text": "iniziano",
+          "offset": 0
+        },
+        {
+          "text": "dal",
+          "offset": 0.22
+        },
+        {
+          "text": "secondo",
+          "offset": 0.44
+        },
+        {
+          "text": "grado,",
+          "offset": 0.66
+        },
+        {
+          "text": "dal",
+          "offset": 0.88
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-200",
+      "start": 535.76,
+      "duration": 1.84,
+      "text": "terzo grado, dal",
+      "segments": [
+        {
+          "text": "terzo",
+          "offset": 0
+        },
+        {
+          "text": "grado,",
+          "offset": 0.319
+        },
+        {
+          "text": "dal",
+          "offset": 0.638
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-201",
+      "start": 537.6,
+      "duration": 2.16,
+      "text": "quarto grado.",
+      "segments": [
+        {
+          "text": "quarto",
+          "offset": 0
+        },
+        {
+          "text": "grado.",
+          "offset": 0.56
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-202",
+      "start": 539.76,
+      "duration": 1.44,
+      "text": "Ora, un modo semplice per pensarci è che stai",
+      "segments": [
+        {
+          "text": "Ora,",
+          "offset": 0
+        },
+        {
+          "text": "un",
+          "offset": 0.17
+        },
+        {
+          "text": "modo",
+          "offset": 0.34
+        },
+        {
+          "text": "semplice",
+          "offset": 0.51
+        },
+        {
+          "text": "per",
+          "offset": 0.68
+        },
+        {
+          "text": "pensarci",
+          "offset": 0.85
+        },
+        {
+          "text": "è",
+          "offset": 1.02
+        },
+        {
+          "text": "che",
+          "offset": 1.19
+        },
+        {
+          "text": "stai",
+          "offset": 1.36
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-203",
+      "start": 541.2,
+      "duration": 1.759,
+      "text": "salendo di tre gradi, scendendo di uno, salendo di",
+      "segments": [
+        {
+          "text": "salendo",
+          "offset": 0
+        },
+        {
+          "text": "di",
+          "offset": 0.09
+        },
+        {
+          "text": "tre",
+          "offset": 0.18
+        },
+        {
+          "text": "gradi,",
+          "offset": 0.27
+        },
+        {
+          "text": "scendendo",
+          "offset": 0.36
+        },
+        {
+          "text": "di",
+          "offset": 0.45
+        },
+        {
+          "text": "uno,",
+          "offset": 0.54
+        },
+        {
+          "text": "salendo",
+          "offset": 0.63
+        },
+        {
+          "text": "di",
+          "offset": 0.72
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-204",
+      "start": 542.959,
+      "duration": 1.921,
+      "text": "tre gradi, tornando indietro di",
+      "segments": [
+        {
+          "text": "tre",
+          "offset": 0
+        },
+        {
+          "text": "gradi,",
+          "offset": 0.24
+        },
+        {
+          "text": "tornando",
+          "offset": 0.48
+        },
+        {
+          "text": "indietro",
+          "offset": 0.72
+        },
+        {
+          "text": "di",
+          "offset": 0.96
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-205",
+      "start": 544.88,
+      "duration": 1.76,
+      "text": "uno, tornando indietro di uno",
+      "segments": [
+        {
+          "text": "uno,",
+          "offset": 0
+        },
+        {
+          "text": "tornando",
+          "offset": 0.08
+        },
+        {
+          "text": "indietro",
+          "offset": 0.16
+        },
+        {
+          "text": "di",
+          "offset": 0.24
+        },
+        {
+          "text": "uno",
+          "offset": 0.32
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-208",
+      "start": 555.71,
+      "duration": 5.249,
+      "text": "[Musica] [Musica]",
+      "segments": [
+        {
+          "text": "[Musica] [Musica]",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-209",
+      "start": 560.959,
+      "duration": 3.191,
+      "text": "e scendendo",
+      "segments": [
+        {
+          "text": "e",
+          "offset": 0
+        },
+        {
+          "text": "scendendo",
+          "offset": 0.32
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-210",
+      "start": 564.15,
+      "duration": 14.69,
+      "text": "[Musica]",
+      "segments": [
+        {
+          "text": "[Musica]",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-211",
+      "start": 578.84,
+      "duration": 1.72,
+      "text": "[Musica].",
+      "segments": [
+        {
+          "text": "[Musica].",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-212",
+      "start": 580.56,
+      "duration": 1.68,
+      "text": "Come al solito, ti consiglio di",
+      "segments": [
+        {
+          "text": "Come",
+          "offset": 0
+        },
+        {
+          "text": "al",
+          "offset": 0.272
+        },
+        {
+          "text": "solito,",
+          "offset": 0.544
+        },
+        {
+          "text": "ti",
+          "offset": 0.816
+        },
+        {
+          "text": "consiglio",
+          "offset": 1.088
+        },
+        {
+          "text": "di",
+          "offset": 1.36
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-218",
+      "start": 590.8,
+      "duration": 1.76,
+      "text": "familiarizzare bene con lo schema uno prima di iniziare ad applicarlo agli altri schemi, perché ti imbatterai in dilemmi di diteggiatura che dovrai risolvere. Penso che sia molto utile familiarizzare con uno schema prima di spostarlo.",
+      "segments": [
+        {
+          "text": "familiarizzare",
+          "offset": 0
+        },
+        {
+          "text": "bene",
+          "offset": 0.043
+        },
+        {
+          "text": "con",
+          "offset": 0.086
+        },
+        {
+          "text": "lo",
+          "offset": 0.129
+        },
+        {
+          "text": "schema",
+          "offset": 0.172
+        },
+        {
+          "text": "uno",
+          "offset": 0.215
+        },
+        {
+          "text": "prima",
+          "offset": 0.258
+        },
+        {
+          "text": "di",
+          "offset": 0.301
+        },
+        {
+          "text": "iniziare",
+          "offset": 0.344
+        },
+        {
+          "text": "ad",
+          "offset": 0.387
+        },
+        {
+          "text": "applicarlo",
+          "offset": 0.43
+        },
+        {
+          "text": "agli",
+          "offset": 0.473
+        },
+        {
+          "text": "altri",
+          "offset": 0.516
+        },
+        {
+          "text": "schemi,",
+          "offset": 0.559
+        },
+        {
+          "text": "perché",
+          "offset": 0.602
+        },
+        {
+          "text": "ti",
+          "offset": 0.645
+        },
+        {
+          "text": "imbatterai",
+          "offset": 0.688
+        },
+        {
+          "text": "in",
+          "offset": 0.731
+        },
+        {
+          "text": "dilemmi",
+          "offset": 0.774
+        },
+        {
+          "text": "di",
+          "offset": 0.817
+        },
+        {
+          "text": "diteggiatura",
+          "offset": 0.86
+        },
+        {
+          "text": "che",
+          "offset": 0.903
+        },
+        {
+          "text": "dovrai",
+          "offset": 0.946
+        },
+        {
+          "text": "risolvere.",
+          "offset": 0.989
+        },
+        {
+          "text": "Penso",
+          "offset": 1.032
+        },
+        {
+          "text": "che",
+          "offset": 1.075
+        },
+        {
+          "text": "sia",
+          "offset": 1.118
+        },
+        {
+          "text": "molto",
+          "offset": 1.161
+        },
+        {
+          "text": "utile",
+          "offset": 1.204
+        },
+        {
+          "text": "familiarizzare",
+          "offset": 1.247
+        },
+        {
+          "text": "con",
+          "offset": 1.29
+        },
+        {
+          "text": "uno",
+          "offset": 1.333
+        },
+        {
+          "text": "schema",
+          "offset": 1.376
+        },
+        {
+          "text": "prima",
+          "offset": 1.419
+        },
+        {
+          "text": "di",
+          "offset": 1.462
+        },
+        {
+          "text": "spostarlo.",
+          "offset": 1.505
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-220",
+      "start": 594.399,
+      "duration": 1.521,
+      "text": "C'è qualcosa nella sua",
+      "segments": [
+        {
+          "text": "C'è",
+          "offset": 0
+        },
+        {
+          "text": "qualcosa",
+          "offset": 0.453
+        },
+        {
+          "text": "nella",
+          "offset": 0.906
+        },
+        {
+          "text": "sua",
+          "offset": 1.359
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-221",
+      "start": 595.92,
+      "duration": 1.919,
+      "text": "meccanica che rende molto",
+      "segments": [
+        {
+          "text": "meccanica",
+          "offset": 0
+        },
+        {
+          "text": "che",
+          "offset": 0.533
+        },
+        {
+          "text": "rende",
+          "offset": 1.066
+        },
+        {
+          "text": "molto",
+          "offset": 1.599
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-222",
+      "start": 597.839,
+      "duration": 2.081,
+      "text": "più facile padroneggiarlo in uno schema prima di",
+      "segments": [
+        {
+          "text": "più",
+          "offset": 0
+        },
+        {
+          "text": "facile",
+          "offset": 0.251
+        },
+        {
+          "text": "padroneggiarlo",
+          "offset": 0.502
+        },
+        {
+          "text": "in",
+          "offset": 0.753
+        },
+        {
+          "text": "uno",
+          "offset": 1.004
+        },
+        {
+          "text": "schema",
+          "offset": 1.255
+        },
+        {
+          "text": "prima",
+          "offset": 1.506
+        },
+        {
+          "text": "di",
+          "offset": 1.757
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-223",
+      "start": 599.92,
+      "duration": 1.919,
+      "text": "iniziare a spostarlo.",
+      "segments": [
+        {
+          "text": "iniziare",
+          "offset": 0
+        },
+        {
+          "text": "a",
+          "offset": 0.44
+        },
+        {
+          "text": "spostarlo.",
+          "offset": 0.88
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-224",
+      "start": 601.839,
+      "duration": 1.601,
+      "text": "Una delle cose interessanti delle",
+      "segments": [
+        {
+          "text": "Una",
+          "offset": 0
+        },
+        {
+          "text": "delle",
+          "offset": 0.3
+        },
+        {
+          "text": "cose",
+          "offset": 0.6
+        },
+        {
+          "text": "interessanti",
+          "offset": 0.9
+        },
+        {
+          "text": "delle",
+          "offset": 1.2
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-225",
+      "start": 603.44,
+      "duration": 1.839,
+      "text": "sequenze melodiche è che crescono molto.",
+      "segments": [
+        {
+          "text": "sequenze",
+          "offset": 0
+        },
+        {
+          "text": "melodiche",
+          "offset": 0.288
+        },
+        {
+          "text": "è",
+          "offset": 0.576
+        },
+        {
+          "text": "che",
+          "offset": 0.864
+        },
+        {
+          "text": "crescono",
+          "offset": 1.152
+        },
+        {
+          "text": "molto.",
+          "offset": 1.44
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-226",
+      "start": 605.279,
+      "duration": 1.521,
+      "text": "Scoprirai che probabilmente lavorerai",
+      "segments": [
+        {
+          "text": "Scoprirai",
+          "offset": 0
+        },
+        {
+          "text": "che",
+          "offset": 0.373
+        },
+        {
+          "text": "probabilmente",
+          "offset": 0.746
+        },
+        {
+          "text": "lavorerai",
+          "offset": 1.119
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-227",
+      "start": 606.8,
+      "duration": 1.68,
+      "text": "su diverse sequenze melodiche finché",
+      "segments": [
+        {
+          "text": "su",
+          "offset": 0
+        },
+        {
+          "text": "diverse",
+          "offset": 0.38
+        },
+        {
+          "text": "sequenze",
+          "offset": 0.76
+        },
+        {
+          "text": "melodiche",
+          "offset": 1.14
+        },
+        {
+          "text": "finché",
+          "offset": 1.52
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-228",
+      "start": 608.48,
+      "duration": 2,
+      "text": "suonerai la chitarra. È un modo davvero divertente",
+      "segments": [
+        {
+          "text": "suonerai",
+          "offset": 0
+        },
+        {
+          "text": "la",
+          "offset": 0.228
+        },
+        {
+          "text": "chitarra.",
+          "offset": 0.456
+        },
+        {
+          "text": "È",
+          "offset": 0.684
+        },
+        {
+          "text": "un",
+          "offset": 0.912
+        },
+        {
+          "text": "modo",
+          "offset": 1.14
+        },
+        {
+          "text": "davvero",
+          "offset": 1.368
+        },
+        {
+          "text": "divertente",
+          "offset": 1.596
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-229",
+      "start": 610.48,
+      "duration": 1.76,
+      "text": "per esplorare le scale e allenare le dita.",
+      "segments": [
+        {
+          "text": "per",
+          "offset": 0
+        },
+        {
+          "text": "esplorare",
+          "offset": 0.24
+        },
+        {
+          "text": "le",
+          "offset": 0.48
+        },
+        {
+          "text": "scale",
+          "offset": 0.72
+        },
+        {
+          "text": "e",
+          "offset": 0.96
+        },
+        {
+          "text": "allenare",
+          "offset": 1.2
+        },
+        {
+          "text": "le",
+          "offset": 1.44
+        },
+        {
+          "text": "dita.",
+          "offset": 1.68
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-230",
+      "start": 612.24,
+      "duration": 1.279,
+      "text": "per fare cose diverse ci sono un",
+      "segments": [
+        {
+          "text": "per",
+          "offset": 0
+        },
+        {
+          "text": "fare",
+          "offset": 0.173
+        },
+        {
+          "text": "cose",
+          "offset": 0.346
+        },
+        {
+          "text": "diverse",
+          "offset": 0.519
+        },
+        {
+          "text": "ci",
+          "offset": 0.692
+        },
+        {
+          "text": "sono",
+          "offset": 0.865
+        },
+        {
+          "text": "un",
+          "offset": 1.038
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-231",
+      "start": 613.519,
+      "duration": 1.921,
+      "text": "sacco di cose buone",
+      "segments": [
+        {
+          "text": "sacco",
+          "offset": 0
+        },
+        {
+          "text": "di",
+          "offset": 0.347
+        },
+        {
+          "text": "cose",
+          "offset": 0.694
+        },
+        {
+          "text": "buone",
+          "offset": 1.041
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-232",
+      "start": 615.44,
+      "duration": 1.28,
+      "text": "c'è un altro schema che voglio",
+      "segments": [
+        {
+          "text": "c'è",
+          "offset": 0
+        },
+        {
+          "text": "un",
+          "offset": 0.24
+        },
+        {
+          "text": "altro",
+          "offset": 0.48
+        },
+        {
+          "text": "schema",
+          "offset": 0.72
+        },
+        {
+          "text": "che",
+          "offset": 0.96
+        },
+        {
+          "text": "voglio",
+          "offset": 1.2
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-233",
+      "start": 616.72,
+      "duration": 1.6,
+      "text": "darti solo come una specie di idea",
+      "segments": [
+        {
+          "text": "darti",
+          "offset": 0
+        },
+        {
+          "text": "solo",
+          "offset": 0.213
+        },
+        {
+          "text": "come",
+          "offset": 0.426
+        },
+        {
+          "text": "una",
+          "offset": 0.639
+        },
+        {
+          "text": "specie",
+          "offset": 0.852
+        },
+        {
+          "text": "di",
+          "offset": 1.065
+        },
+        {
+          "text": "idea",
+          "offset": 1.278
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-234",
+      "start": 618.32,
+      "duration": 1.36,
+      "text": "qualcosa che potresti voler esplorare",
+      "segments": [
+        {
+          "text": "qualcosa",
+          "offset": 0
+        },
+        {
+          "text": "che",
+          "offset": 0.239
+        },
+        {
+          "text": "potresti",
+          "offset": 0.478
+        },
+        {
+          "text": "voler",
+          "offset": 0.717
+        },
+        {
+          "text": "esplorare",
+          "offset": 0.956
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-235",
+      "start": 619.68,
+      "duration": 1.839,
+      "text": "se vuoi iniziare a fare",
+      "segments": [
+        {
+          "text": "se",
+          "offset": 0
+        },
+        {
+          "text": "vuoi",
+          "offset": 0.34
+        },
+        {
+          "text": "iniziare",
+          "offset": 0.68
+        },
+        {
+          "text": "a",
+          "offset": 1.02
+        },
+        {
+          "text": "fare",
+          "offset": 1.36
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-236",
+      "start": 621.519,
+      "duration": 1.521,
+      "text": "anche schemi melodici per conto tuo e questo lo",
+      "segments": [
+        {
+          "text": "anche",
+          "offset": 0
+        },
+        {
+          "text": "schemi",
+          "offset": 0.16
+        },
+        {
+          "text": "melodici",
+          "offset": 0.32
+        },
+        {
+          "text": "per",
+          "offset": 0.48
+        },
+        {
+          "text": "conto",
+          "offset": 0.64
+        },
+        {
+          "text": "tuo",
+          "offset": 0.8
+        },
+        {
+          "text": "e",
+          "offset": 0.96
+        },
+        {
+          "text": "questo",
+          "offset": 1.12
+        },
+        {
+          "text": "lo",
+          "offset": 1.28
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-237",
+      "start": 623.04,
+      "duration": 2.96,
+      "text": "chiamo quattro in linea inverso quindi",
+      "segments": [
+        {
+          "text": "chiamo",
+          "offset": 0
+        },
+        {
+          "text": "quattro",
+          "offset": 0.544
+        },
+        {
+          "text": "in",
+          "offset": 1.088
+        },
+        {
+          "text": "linea",
+          "offset": 1.632
+        },
+        {
+          "text": "inverso",
+          "offset": 2.176
+        },
+        {
+          "text": "quindi",
+          "offset": 2.72
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-238",
+      "start": 626,
+      "duration": 2.64,
+      "text": "è come se avessimo preso ogni blocco",
+      "segments": [
+        {
+          "text": "è",
+          "offset": 0
+        },
+        {
+          "text": "come",
+          "offset": 0.293
+        },
+        {
+          "text": "se",
+          "offset": 0.586
+        },
+        {
+          "text": "avessimo",
+          "offset": 0.879
+        },
+        {
+          "text": "preso",
+          "offset": 1.172
+        },
+        {
+          "text": "ogni",
+          "offset": 1.465
+        },
+        {
+          "text": "blocco",
+          "offset": 1.758
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-239",
+      "start": 628.64,
+      "duration": 1.92,
+      "text": "dal normale schema quattro in linea",
+      "segments": [
+        {
+          "text": "dal",
+          "offset": 0
+        },
+        {
+          "text": "normale",
+          "offset": 0.304
+        },
+        {
+          "text": "schema",
+          "offset": 0.608
+        },
+        {
+          "text": "quattro",
+          "offset": 0.912
+        },
+        {
+          "text": "in",
+          "offset": 1.216
+        },
+        {
+          "text": "linea",
+          "offset": 1.52
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-240",
+      "start": 630.56,
+      "duration": 2.56,
+      "text": "e l'avessimo invertito quindi invece di andare uno",
+      "segments": [
+        {
+          "text": "e",
+          "offset": 0
+        },
+        {
+          "text": "l'avessimo",
+          "offset": 0.32
+        },
+        {
+          "text": "invertito",
+          "offset": 0.64
+        },
+        {
+          "text": "quindi",
+          "offset": 0.96
+        },
+        {
+          "text": "invece",
+          "offset": 1.28
+        },
+        {
+          "text": "di",
+          "offset": 1.6
+        },
+        {
+          "text": "andare",
+          "offset": 1.92
+        },
+        {
+          "text": "uno",
+          "offset": 2.24
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-241",
+      "start": 633.12,
+      "duration": 1.839,
+      "text": "due tre quattro andremo quattro tre due",
+      "segments": [
+        {
+          "text": "due",
+          "offset": 0
+        },
+        {
+          "text": "tre",
+          "offset": 0.253
+        },
+        {
+          "text": "quattro",
+          "offset": 0.506
+        },
+        {
+          "text": "andremo",
+          "offset": 0.759
+        },
+        {
+          "text": "quattro",
+          "offset": 1.012
+        },
+        {
+          "text": "tre",
+          "offset": 1.265
+        },
+        {
+          "text": "due",
+          "offset": 1.518
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-242",
+      "start": 634.959,
+      "duration": 2.241,
+      "text": "uno il secondo blocco era",
+      "segments": [
+        {
+          "text": "uno",
+          "offset": 0
+        },
+        {
+          "text": "il",
+          "offset": 0.5
+        },
+        {
+          "text": "secondo",
+          "offset": 1
+        },
+        {
+          "text": "blocco",
+          "offset": 1.5
+        },
+        {
+          "text": "era",
+          "offset": 2
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-243",
+      "start": 637.2,
+      "duration": 2.48,
+      "text": "originariamente due tre quattro cinque ora",
+      "segments": [
+        {
+          "text": "originariamente",
+          "offset": 0
+        },
+        {
+          "text": "due",
+          "offset": 0.463
+        },
+        {
+          "text": "tre",
+          "offset": 0.926
+        },
+        {
+          "text": "quattro",
+          "offset": 1.389
+        },
+        {
+          "text": "cinque",
+          "offset": 1.852
+        },
+        {
+          "text": "ora",
+          "offset": 2.315
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-244",
+      "start": 639.68,
+      "duration": 3.279,
+      "text": "andrà cinque quattro tre due quindi è",
+      "segments": [
+        {
+          "text": "andrà",
+          "offset": 0
+        },
+        {
+          "text": "cinque",
+          "offset": 0.506
+        },
+        {
+          "text": "quattro",
+          "offset": 1.012
+        },
+        {
+          "text": "tre",
+          "offset": 1.518
+        },
+        {
+          "text": "due",
+          "offset": 2.024
+        },
+        {
+          "text": "quindi",
+          "offset": 2.53
+        },
+        {
+          "text": "è",
+          "offset": 3.036
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-245",
+      "start": 642.959,
+      "duration": 1.521,
+      "text": "fondamentalmente ogni sezione",
+      "segments": [
+        {
+          "text": "fondamentalmente",
+          "offset": 0
+        },
+        {
+          "text": "ogni",
+          "offset": 0.28
+        },
+        {
+          "text": "sezione",
+          "offset": 0.56
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-246",
+      "start": 644.48,
+      "duration": 3.44,
+      "text": "è stata invertita quattro",
+      "segments": [
+        {
+          "text": "è",
+          "offset": 0
+        },
+        {
+          "text": "stata",
+          "offset": 1.066
+        },
+        {
+          "text": "invertita",
+          "offset": 2.132
+        },
+        {
+          "text": "quattro",
+          "offset": 3.198
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-247",
+      "start": 647.92,
+      "duration": 1.919,
+      "text": "in linea inverso suona così penso è",
+      "segments": [
+        {
+          "text": "in",
+          "offset": 0
+        },
+        {
+          "text": "linea",
+          "offset": 0.266
+        },
+        {
+          "text": "inverso",
+          "offset": 0.532
+        },
+        {
+          "text": "suona",
+          "offset": 0.798
+        },
+        {
+          "text": "così",
+          "offset": 1.064
+        },
+        {
+          "text": "penso",
+          "offset": 1.33
+        },
+        {
+          "text": "è",
+          "offset": 1.596
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-248",
+      "start": 649.839,
+      "duration": 2.24,
+      "text": "solo uno dei miei preferiti quindi ora",
+      "segments": [
+        {
+          "text": "solo",
+          "offset": 0
+        },
+        {
+          "text": "uno",
+          "offset": 0.32
+        },
+        {
+          "text": "dei",
+          "offset": 0.64
+        },
+        {
+          "text": "miei",
+          "offset": 0.96
+        },
+        {
+          "text": "preferiti",
+          "offset": 1.28
+        },
+        {
+          "text": "quindi",
+          "offset": 1.6
+        },
+        {
+          "text": "ora",
+          "offset": 1.92
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-249",
+      "start": 652.079,
+      "duration": 4.481,
+      "text": "inizieremmo sul quarto grado della scala",
+      "segments": [
+        {
+          "text": "inizieremmo",
+          "offset": 0
+        },
+        {
+          "text": "sul",
+          "offset": 0.304
+        },
+        {
+          "text": "quarto",
+          "offset": 0.608
+        },
+        {
+          "text": "grado",
+          "offset": 0.912
+        },
+        {
+          "text": "della",
+          "offset": 1.216
+        },
+        {
+          "text": "scala",
+          "offset": 1.52
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-250",
+      "start": 656.56,
+      "duration": 1.6,
+      "text": "e scenderemmo di quattro poi inizieremmo sul",
+      "segments": [
+        {
+          "text": "e",
+          "offset": 0
+        },
+        {
+          "text": "scenderemmo",
+          "offset": 0.253
+        },
+        {
+          "text": "di",
+          "offset": 0.506
+        },
+        {
+          "text": "quattro",
+          "offset": 0.759
+        },
+        {
+          "text": "poi",
+          "offset": 1.012
+        },
+        {
+          "text": "inizieremmo",
+          "offset": 1.265
+        },
+        {
+          "text": "sul",
+          "offset": 1.518
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-251",
+      "start": 658.16,
+      "duration": 2.64,
+      "text": "quinto grado della scala",
+      "segments": [
+        {
+          "text": "quinto",
+          "offset": 0
+        },
+        {
+          "text": "grado",
+          "offset": 0.186
+        },
+        {
+          "text": "della",
+          "offset": 0.372
+        },
+        {
+          "text": "scala",
+          "offset": 0.558
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-252",
+      "start": 660.8,
+      "duration": 3.52,
+      "text": "scenderemo per il sesto grado della scala settimo otto cinque dieci",
+      "segments": [
+        {
+          "text": "scenderemo",
+          "offset": 0
+        },
+        {
+          "text": "per",
+          "offset": 0.168
+        },
+        {
+          "text": "il",
+          "offset": 0.336
+        },
+        {
+          "text": "sesto",
+          "offset": 0.504
+        },
+        {
+          "text": "grado",
+          "offset": 0.672
+        },
+        {
+          "text": "della",
+          "offset": 0.84
+        },
+        {
+          "text": "scala",
+          "offset": 1.008
+        },
+        {
+          "text": "settimo",
+          "offset": 1.176
+        },
+        {
+          "text": "otto",
+          "offset": 1.344
+        },
+        {
+          "text": "cinque",
+          "offset": 1.512
+        },
+        {
+          "text": "dieci",
+          "offset": 1.68
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-256",
+      "start": 671.04,
+      "duration": 9.23,
+      "text": "eccetera",
+      "segments": [
+        {
+          "text": "eccetera",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-257",
+      "start": 680.27,
+      "duration": 5.01,
+      "text": "[Musica]",
+      "segments": [
+        {
+          "text": "[Musica]",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-258",
+      "start": 685.28,
+      "duration": 9.92,
+      "text": "[Risate]",
+      "segments": [
+        {
+          "text": "[Risate]",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-259",
+      "start": 695.2,
+      "duration": 2.079,
+      "text": "ovviamente quando scendiamo la scala ora",
+      "segments": [
+        {
+          "text": "ovviamente",
+          "offset": 0
+        },
+        {
+          "text": "quando",
+          "offset": 0.384
+        },
+        {
+          "text": "scendiamo",
+          "offset": 0.768
+        },
+        {
+          "text": "la",
+          "offset": 1.152
+        },
+        {
+          "text": "scala",
+          "offset": 1.536
+        },
+        {
+          "text": "ora",
+          "offset": 1.92
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-260",
+      "start": 697.279,
+      "duration": 3.041,
+      "text": "saliamo di quattro gradi della scala mentre",
+      "segments": [
+        {
+          "text": "saliamo",
+          "offset": 0
+        },
+        {
+          "text": "di",
+          "offset": 0.466
+        },
+        {
+          "text": "quattro",
+          "offset": 0.932
+        },
+        {
+          "text": "gradi",
+          "offset": 1.398
+        },
+        {
+          "text": "della",
+          "offset": 1.864
+        },
+        {
+          "text": "scala",
+          "offset": 2.33
+        },
+        {
+          "text": "mentre",
+          "offset": 2.796
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-261",
+      "start": 700.32,
+      "duration": 19.04,
+      "text": "scendiamo la scala",
+      "segments": [
+        {
+          "text": "scendiamo",
+          "offset": 0
+        },
+        {
+          "text": "la",
+          "offset": 0.44
+        },
+        {
+          "text": "scala",
+          "offset": 0.88
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-262",
+      "start": 719.36,
+      "duration": 12.159,
+      "text": "quindi",
+      "segments": [
+        {
+          "text": "quindi",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-263",
+      "start": 731.519,
+      "duration": 2.161,
+      "text": "sentiti libero di provare le tue sequenze",
+      "segments": [
+        {
+          "text": "sentiti",
+          "offset": 0
+        },
+        {
+          "text": "libero",
+          "offset": 0.266
+        },
+        {
+          "text": "di",
+          "offset": 0.532
+        },
+        {
+          "text": "provare",
+          "offset": 0.798
+        },
+        {
+          "text": "le",
+          "offset": 1.064
+        },
+        {
+          "text": "tue",
+          "offset": 1.33
+        },
+        {
+          "text": "sequenze",
+          "offset": 1.596
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-264",
+      "start": 733.68,
+      "duration": 2.08,
+      "text": "ma ti consiglierei di iniziare con",
+      "segments": [
+        {
+          "text": "ma",
+          "offset": 0
+        },
+        {
+          "text": "ti",
+          "offset": 0.367
+        },
+        {
+          "text": "consiglierei",
+          "offset": 0.734
+        },
+        {
+          "text": "di",
+          "offset": 1.101
+        },
+        {
+          "text": "iniziare",
+          "offset": 1.468
+        },
+        {
+          "text": "con",
+          "offset": 1.835
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-265",
+      "start": 735.76,
+      "duration": 2,
+      "text": "queste particolari ricorda",
+      "segments": [
+        {
+          "text": "queste",
+          "offset": 0
+        },
+        {
+          "text": "particolari",
+          "offset": 0.84
+        },
+        {
+          "text": "ricorda",
+          "offset": 1.68
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-266",
+      "start": 737.76,
+      "duration": 2.8,
+      "text": "Abbiamo anche provato a suonare per terze,",
+      "segments": [
+        {
+          "text": "Abbiamo",
+          "offset": 0
+        },
+        {
+          "text": "anche",
+          "offset": 0.32
+        },
+        {
+          "text": "provato",
+          "offset": 0.64
+        },
+        {
+          "text": "a",
+          "offset": 0.96
+        },
+        {
+          "text": "suonare",
+          "offset": 1.28
+        },
+        {
+          "text": "per",
+          "offset": 1.6
+        },
+        {
+          "text": "terze,",
+          "offset": 1.92
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-267",
+      "start": 740.56,
+      "duration": 1.519,
+      "text": "quindi sarebbe un ottimo piccolo",
+      "segments": [
+        {
+          "text": "quindi",
+          "offset": 0
+        },
+        {
+          "text": "sarebbe",
+          "offset": 0.319
+        },
+        {
+          "text": "un",
+          "offset": 0.638
+        },
+        {
+          "text": "ottimo",
+          "offset": 0.957
+        },
+        {
+          "text": "piccolo",
+          "offset": 1.276
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-268",
+      "start": 742.079,
+      "duration": 2,
+      "text": "esercizio di riscaldamento con le scale:",
+      "segments": [
+        {
+          "text": "esercizio",
+          "offset": 0
+        },
+        {
+          "text": "di",
+          "offset": 0.368
+        },
+        {
+          "text": "riscaldamento",
+          "offset": 0.736
+        },
+        {
+          "text": "con",
+          "offset": 1.104
+        },
+        {
+          "text": "le",
+          "offset": 1.472
+        },
+        {
+          "text": "scale:",
+          "offset": 1.84
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-269",
+      "start": 744.079,
+      "duration": 2.081,
+      "text": "suonare una scala su e giù, poi",
+      "segments": [
+        {
+          "text": "suonare",
+          "offset": 0
+        },
+        {
+          "text": "una",
+          "offset": 0.306
+        },
+        {
+          "text": "scala",
+          "offset": 0.612
+        },
+        {
+          "text": "su",
+          "offset": 0.918
+        },
+        {
+          "text": "e",
+          "offset": 1.224
+        },
+        {
+          "text": "giù,",
+          "offset": 1.53
+        },
+        {
+          "text": "poi",
+          "offset": 1.836
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-270",
+      "start": 746.16,
+      "duration": 3.119,
+      "text": "suonarla per terze, poi suonare quattro per riga,",
+      "segments": [
+        {
+          "text": "suonarla",
+          "offset": 0
+        },
+        {
+          "text": "per",
+          "offset": 0.354
+        },
+        {
+          "text": "terze,",
+          "offset": 0.708
+        },
+        {
+          "text": "poi",
+          "offset": 1.062
+        },
+        {
+          "text": "suonare",
+          "offset": 1.416
+        },
+        {
+          "text": "quattro",
+          "offset": 1.77
+        },
+        {
+          "text": "per",
+          "offset": 2.124
+        },
+        {
+          "text": "riga,",
+          "offset": 2.478
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-271",
+      "start": 749.279,
+      "duration": 2.401,
+      "text": "tre per riga e al contrario quattro per",
+      "segments": [
+        {
+          "text": "tre",
+          "offset": 0
+        },
+        {
+          "text": "per",
+          "offset": 0.331
+        },
+        {
+          "text": "riga",
+          "offset": 0.662
+        },
+        {
+          "text": "e",
+          "offset": 0.993
+        },
+        {
+          "text": "al",
+          "offset": 1.324
+        },
+        {
+          "text": "contrario",
+          "offset": 1.655
+        },
+        {
+          "text": "quattro",
+          "offset": 1.986
+        },
+        {
+          "text": "per",
+          "offset": 2.317
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-272",
+      "start": 751.68,
+      "duration": 1.599,
+      "text": "riga. Se ti va una piccola",
+      "segments": [
+        {
+          "text": "riga.",
+          "offset": 0
+        },
+        {
+          "text": "Se",
+          "offset": 0.304
+        },
+        {
+          "text": "ti",
+          "offset": 0.608
+        },
+        {
+          "text": "va",
+          "offset": 0.912
+        },
+        {
+          "text": "una",
+          "offset": 1.216
+        },
+        {
+          "text": "piccola",
+          "offset": 1.52
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-273",
+      "start": 753.279,
+      "duration": 2.721,
+      "text": "sfida, non puntare sulla velocità, ma sulla",
+      "segments": [
+        {
+          "text": "sfida,",
+          "offset": 0
+        },
+        {
+          "text": "non",
+          "offset": 0.413
+        },
+        {
+          "text": "puntare",
+          "offset": 0.826
+        },
+        {
+          "text": "sulla",
+          "offset": 1.239
+        },
+        {
+          "text": "velocità,",
+          "offset": 1.652
+        },
+        {
+          "text": "ma",
+          "offset": 2.065
+        },
+        {
+          "text": "sulla",
+          "offset": 2.478
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-274",
+      "start": 756,
+      "duration": 2.48,
+      "text": "precisione. Si tratta di allenare le dita",
+      "segments": [
+        {
+          "text": "precisione.",
+          "offset": 0
+        },
+        {
+          "text": "Si",
+          "offset": 0.333
+        },
+        {
+          "text": "tratta",
+          "offset": 0.666
+        },
+        {
+          "text": "di",
+          "offset": 0.999
+        },
+        {
+          "text": "allenare",
+          "offset": 1.332
+        },
+        {
+          "text": "le",
+          "offset": 1.665
+        },
+        {
+          "text": "dita",
+          "offset": 1.998
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-275",
+      "start": 758.48,
+      "duration": 2.24,
+      "text": "a fare cose nuove. Probabilmente",
+      "segments": [
+        {
+          "text": "a",
+          "offset": 0
+        },
+        {
+          "text": "fare",
+          "offset": 0.44
+        },
+        {
+          "text": "cose",
+          "offset": 0.88
+        },
+        {
+          "text": "nuove.",
+          "offset": 1.32
+        },
+        {
+          "text": "Probabilmente",
+          "offset": 1.76
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-276",
+      "start": 760.72,
+      "duration": 2,
+      "text": "scoprirai che quando improvviserai le",
+      "segments": [
+        {
+          "text": "scoprirai",
+          "offset": 0
+        },
+        {
+          "text": "che",
+          "offset": 0.46
+        },
+        {
+          "text": "quando",
+          "offset": 0.92
+        },
+        {
+          "text": "improvviserai",
+          "offset": 1.38
+        },
+        {
+          "text": "le",
+          "offset": 1.84
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-277",
+      "start": 762.72,
+      "duration": 1.76,
+      "text": "tue dita inizieranno naturalmente a fare",
+      "segments": [
+        {
+          "text": "tue",
+          "offset": 0
+        },
+        {
+          "text": "dita",
+          "offset": 0.304
+        },
+        {
+          "text": "inizieranno",
+          "offset": 0.608
+        },
+        {
+          "text": "naturalmente",
+          "offset": 0.912
+        },
+        {
+          "text": "a",
+          "offset": 1.216
+        },
+        {
+          "text": "fare",
+          "offset": 1.52
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-278",
+      "start": 764.48,
+      "duration": 2.32,
+      "text": "questo tipo di schemi. Non deve",
+      "segments": [
+        {
+          "text": "questo",
+          "offset": 0
+        },
+        {
+          "text": "tipo",
+          "offset": 0.4
+        },
+        {
+          "text": "di",
+          "offset": 0.8
+        },
+        {
+          "text": "schemi.",
+          "offset": 1.2
+        },
+        {
+          "text": "Non",
+          "offset": 1.6
+        },
+        {
+          "text": "deve",
+          "offset": 2
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-279",
+      "start": 766.8,
+      "duration": 1.76,
+      "text": "essere una lunga sequenza, perché",
+      "segments": [
+        {
+          "text": "essere",
+          "offset": 0
+        },
+        {
+          "text": "una",
+          "offset": 0.399
+        },
+        {
+          "text": "lunga",
+          "offset": 0.798
+        },
+        {
+          "text": "sequenza,",
+          "offset": 1.197
+        },
+        {
+          "text": "perché",
+          "offset": 1.596
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-280",
+      "start": 768.56,
+      "duration": 2.399,
+      "text": "altrimenti suonerebbe come un esercizio di scale.",
+      "segments": [
+        {
+          "text": "altrimenti",
+          "offset": 0
+        },
+        {
+          "text": "suonerebbe",
+          "offset": 0.266
+        },
+        {
+          "text": "come",
+          "offset": 0.532
+        },
+        {
+          "text": "un",
+          "offset": 0.798
+        },
+        {
+          "text": "esercizio",
+          "offset": 1.064
+        },
+        {
+          "text": "di",
+          "offset": 1.33
+        },
+        {
+          "text": "scale.",
+          "offset": 1.596
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-281",
+      "start": 770.959,
+      "duration": 1.841,
+      "text": "Quello che stai cercando è",
+      "segments": [
+        {
+          "text": "Quello",
+          "offset": 0
+        },
+        {
+          "text": "che",
+          "offset": 0.42
+        },
+        {
+          "text": "stai",
+          "offset": 0.84
+        },
+        {
+          "text": "cercando",
+          "offset": 1.26
+        },
+        {
+          "text": "è",
+          "offset": 1.68
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-282",
+      "start": 772.8,
+      "duration": 1.839,
+      "text": "allenare le dita a usare piccole",
+      "segments": [
+        {
+          "text": "allenare",
+          "offset": 0
+        },
+        {
+          "text": "le",
+          "offset": 0.272
+        },
+        {
+          "text": "dita",
+          "offset": 0.544
+        },
+        {
+          "text": "a",
+          "offset": 0.816
+        },
+        {
+          "text": "usare",
+          "offset": 1.088
+        },
+        {
+          "text": "piccole",
+          "offset": 1.36
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-283",
+      "start": 774.639,
+      "duration": 1.601,
+      "text": "sezioni che potrebbero emergere durante l'",
+      "segments": [
+        {
+          "text": "sezioni",
+          "offset": 0
+        },
+        {
+          "text": "che",
+          "offset": 0.288
+        },
+        {
+          "text": "potrebbero",
+          "offset": 0.576
+        },
+        {
+          "text": "emergere",
+          "offset": 0.864
+        },
+        {
+          "text": "durante",
+          "offset": 1.152
+        },
+        {
+          "text": "l'",
+          "offset": 1.44
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-284",
+      "start": 776.24,
+      "duration": 1.76,
+      "text": "improvvisazione e insegnare alle",
+      "segments": [
+        {
+          "text": "improvvisazione",
+          "offset": 0
+        },
+        {
+          "text": "e",
+          "offset": 0.533
+        },
+        {
+          "text": "insegnare",
+          "offset": 1.066
+        },
+        {
+          "text": "alle",
+          "offset": 1.599
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-285",
+      "start": 778,
+      "duration": 2.24,
+      "text": "dita a uscire dal semplice suonare la",
+      "segments": [
+        {
+          "text": "dita",
+          "offset": 0
+        },
+        {
+          "text": "a",
+          "offset": 0.346
+        },
+        {
+          "text": "uscire",
+          "offset": 0.692
+        },
+        {
+          "text": "dal",
+          "offset": 1.038
+        },
+        {
+          "text": "semplice",
+          "offset": 1.384
+        },
+        {
+          "text": "suonare",
+          "offset": 1.73
+        },
+        {
+          "text": "la",
+          "offset": 2.076
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-286",
+      "start": 780.24,
+      "duration": 1.92,
+      "text": "scala su e giù. Quando fai",
+      "segments": [
+        {
+          "text": "scala",
+          "offset": 0
+        },
+        {
+          "text": "su",
+          "offset": 0.336
+        },
+        {
+          "text": "e",
+          "offset": 0.672
+        },
+        {
+          "text": "giù.",
+          "offset": 1.008
+        },
+        {
+          "text": "Quando",
+          "offset": 1.344
+        },
+        {
+          "text": "fai",
+          "offset": 1.68
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-287",
+      "start": 782.16,
+      "duration": 2,
+      "text": "questo tipo di cose,",
+      "segments": [
+        {
+          "text": "questo",
+          "offset": 0
+        },
+        {
+          "text": "tipo",
+          "offset": 0.533
+        },
+        {
+          "text": "di",
+          "offset": 1.066
+        },
+        {
+          "text": "cose,",
+          "offset": 1.599
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-288",
+      "start": 784.16,
+      "duration": 1.679,
+      "text": "apri le dita a nuove idee e",
+      "segments": [
+        {
+          "text": "apri",
+          "offset": 0
+        },
+        {
+          "text": "le",
+          "offset": 0.226
+        },
+        {
+          "text": "dita",
+          "offset": 0.452
+        },
+        {
+          "text": "a",
+          "offset": 0.678
+        },
+        {
+          "text": "nuove",
+          "offset": 0.904
+        },
+        {
+          "text": "idee",
+          "offset": 1.13
+        },
+        {
+          "text": "e",
+          "offset": 1.356
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-289",
+      "start": 785.839,
+      "duration": 2.641,
+      "text": "insegni alla tua immaginazione musicale nuove",
+      "segments": [
+        {
+          "text": "insegni",
+          "offset": 0
+        },
+        {
+          "text": "alla",
+          "offset": 0.48
+        },
+        {
+          "text": "tua",
+          "offset": 0.96
+        },
+        {
+          "text": "immaginazione",
+          "offset": 1.44
+        },
+        {
+          "text": "musicale",
+          "offset": 1.92
+        },
+        {
+          "text": "nuove",
+          "offset": 2.4
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-290",
+      "start": 788.48,
+      "duration": 2.159,
+      "text": "idee o nuovi suoni che potresti iniziare",
+      "segments": [
+        {
+          "text": "idee",
+          "offset": 0
+        },
+        {
+          "text": "o",
+          "offset": 0.333
+        },
+        {
+          "text": "nuovi",
+          "offset": 0.666
+        },
+        {
+          "text": "suoni",
+          "offset": 0.999
+        },
+        {
+          "text": "che",
+          "offset": 1.332
+        },
+        {
+          "text": "potresti",
+          "offset": 1.665
+        },
+        {
+          "text": "iniziare",
+          "offset": 1.998
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-291",
+      "start": 790.639,
+      "duration": 2.241,
+      "text": "a sentire quando improvvisi. Questo tipo di",
+      "segments": [
+        {
+          "text": "a",
+          "offset": 0
+        },
+        {
+          "text": "sentire",
+          "offset": 0.36
+        },
+        {
+          "text": "quando",
+          "offset": 0.72
+        },
+        {
+          "text": "improvvisi.",
+          "offset": 1.08
+        },
+        {
+          "text": "Questo",
+          "offset": 1.44
+        },
+        {
+          "text": "tipo",
+          "offset": 1.8
+        },
+        {
+          "text": "di",
+          "offset": 2.16
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-292",
+      "start": 792.88,
+      "duration": 2.48,
+      "text": "cose è sicuramente più facile di solito avere",
+      "segments": [
+        {
+          "text": "cose",
+          "offset": 0
+        },
+        {
+          "text": "è",
+          "offset": 0.32
+        },
+        {
+          "text": "sicuramente",
+          "offset": 0.64
+        },
+        {
+          "text": "più",
+          "offset": 0.96
+        },
+        {
+          "text": "facile",
+          "offset": 1.28
+        },
+        {
+          "text": "di",
+          "offset": 1.6
+        },
+        {
+          "text": "solito",
+          "offset": 1.92
+        },
+        {
+          "text": "avere",
+          "offset": 2.24
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-293",
+      "start": 795.36,
+      "duration": 1.68,
+      "text": "lo spartito davanti, quindi non",
+      "segments": [
+        {
+          "text": "lo",
+          "offset": 0
+        },
+        {
+          "text": "spartito",
+          "offset": 0.38
+        },
+        {
+          "text": "davanti,",
+          "offset": 0.76
+        },
+        {
+          "text": "quindi",
+          "offset": 1.14
+        },
+        {
+          "text": "non",
+          "offset": 1.52
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-294",
+      "start": 797.04,
+      "duration": 1.599,
+      "text": "dimenticare di scaricare il PDF su Il",
+      "segments": [
+        {
+          "text": "dimenticare",
+          "offset": 0
+        },
+        {
+          "text": "di",
+          "offset": 0.253
+        },
+        {
+          "text": "scaricare",
+          "offset": 0.506
+        },
+        {
+          "text": "il",
+          "offset": 0.759
+        },
+        {
+          "text": "PDF",
+          "offset": 1.012
+        },
+        {
+          "text": "su",
+          "offset": 1.265
+        },
+        {
+          "text": "Il",
+          "offset": 1.518
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-295",
+      "start": 798.639,
+      "duration": 2,
+      "text": "sito web è appena stato scaricato, clicca sull'icona di download, tutto",
+      "segments": [
+        {
+          "text": "sito",
+          "offset": 0
+        },
+        {
+          "text": "web",
+          "offset": 0.184
+        },
+        {
+          "text": "è",
+          "offset": 0.368
+        },
+        {
+          "text": "appena",
+          "offset": 0.552
+        },
+        {
+          "text": "stato",
+          "offset": 0.736
+        },
+        {
+          "text": "scaricato,",
+          "offset": 0.92
+        },
+        {
+          "text": "clicca",
+          "offset": 1.104
+        },
+        {
+          "text": "sull'icona",
+          "offset": 1.288
+        },
+        {
+          "text": "di",
+          "offset": 1.472
+        },
+        {
+          "text": "download,",
+          "offset": 1.656
+        },
+        {
+          "text": "tutto",
+          "offset": 1.84
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-296",
+      "start": 800.639,
+      "duration": 1.76,
+      "text": "quel materiale è gratuito per gli utenti registrati,",
+      "segments": [
+        {
+          "text": "quel",
+          "offset": 0
+        },
+        {
+          "text": "materiale",
+          "offset": 0.194
+        },
+        {
+          "text": "è",
+          "offset": 0.388
+        },
+        {
+          "text": "gratuito",
+          "offset": 0.582
+        },
+        {
+          "text": "per",
+          "offset": 0.776
+        },
+        {
+          "text": "gli",
+          "offset": 0.97
+        },
+        {
+          "text": "utenti",
+          "offset": 1.164
+        },
+        {
+          "text": "registrati,",
+          "offset": 1.358
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-297",
+      "start": 802.399,
+      "duration": 1.841,
+      "text": "spero davvero che lo stiate usando,",
+      "segments": [
+        {
+          "text": "spero",
+          "offset": 0
+        },
+        {
+          "text": "davvero",
+          "offset": 0.288
+        },
+        {
+          "text": "che",
+          "offset": 0.576
+        },
+        {
+          "text": "lo",
+          "offset": 0.864
+        },
+        {
+          "text": "stiate",
+          "offset": 1.152
+        },
+        {
+          "text": "usando,",
+          "offset": 1.44
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-298",
+      "start": 804.24,
+      "duration": 1.2,
+      "text": "sicuramente è il tipo di cosa che se la",
+      "segments": [
+        {
+          "text": "sicuramente",
+          "offset": 0
+        },
+        {
+          "text": "è",
+          "offset": 0.14
+        },
+        {
+          "text": "il",
+          "offset": 0.28
+        },
+        {
+          "text": "tipo",
+          "offset": 0.42
+        },
+        {
+          "text": "di",
+          "offset": 0.56
+        },
+        {
+          "text": "cosa",
+          "offset": 0.7
+        },
+        {
+          "text": "che",
+          "offset": 0.84
+        },
+        {
+          "text": "se",
+          "offset": 0.98
+        },
+        {
+          "text": "la",
+          "offset": 1.12
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-299",
+      "start": 805.44,
+      "duration": 1.6,
+      "text": "seguite con gli occhi",
+      "segments": [
+        {
+          "text": "seguite",
+          "offset": 0
+        },
+        {
+          "text": "con",
+          "offset": 0.399
+        },
+        {
+          "text": "gli",
+          "offset": 0.798
+        },
+        {
+          "text": "occhi",
+          "offset": 1.197
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-300",
+      "start": 807.04,
+      "duration": 1.84,
+      "text": "penso possa essere davvero utile, spero di",
+      "segments": [
+        {
+          "text": "penso",
+          "offset": 0
+        },
+        {
+          "text": "possa",
+          "offset": 0.266
+        },
+        {
+          "text": "essere",
+          "offset": 0.532
+        },
+        {
+          "text": "davvero",
+          "offset": 0.798
+        },
+        {
+          "text": "utile,",
+          "offset": 1.064
+        },
+        {
+          "text": "spero",
+          "offset": 1.33
+        },
+        {
+          "text": "di",
+          "offset": 1.596
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-301",
+      "start": 808.88,
+      "duration": 2.24,
+      "text": "vedervi per la seconda parte dell'unità",
+      "segments": [
+        {
+          "text": "vedervi",
+          "offset": 0
+        },
+        {
+          "text": "per",
+          "offset": 0.368
+        },
+        {
+          "text": "la",
+          "offset": 0.736
+        },
+        {
+          "text": "seconda",
+          "offset": 1.104
+        },
+        {
+          "text": "parte",
+          "offset": 1.472
+        },
+        {
+          "text": "dell'unità",
+          "offset": 1.84
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-302",
+      "start": 811.12,
+      "duration": 1.36,
+      "text": "7 dove vedremo come",
+      "segments": [
+        {
+          "text": "7",
+          "offset": 0
+        },
+        {
+          "text": "dove",
+          "offset": 0.4
+        },
+        {
+          "text": "vedremo",
+          "offset": 0.8
+        },
+        {
+          "text": "come",
+          "offset": 1.2
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-303",
+      "start": 812.48,
+      "duration": 2.159,
+      "text": "usare i bending delle corde nella",
+      "segments": [
+        {
+          "text": "usare",
+          "offset": 0
+        },
+        {
+          "text": "i",
+          "offset": 0.368
+        },
+        {
+          "text": "bending",
+          "offset": 0.736
+        },
+        {
+          "text": "delle",
+          "offset": 1.104
+        },
+        {
+          "text": "corde",
+          "offset": 1.472
+        },
+        {
+          "text": "nella",
+          "offset": 1.84
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-304",
+      "start": 814.639,
+      "duration": 2,
+      "text": "scala maggiore, non è solo una cosa blues, prendetevi",
+      "segments": [
+        {
+          "text": "scala",
+          "offset": 0
+        },
+        {
+          "text": "maggiore,",
+          "offset": 0.23
+        },
+        {
+          "text": "non",
+          "offset": 0.46
+        },
+        {
+          "text": "è",
+          "offset": 0.69
+        },
+        {
+          "text": "solo",
+          "offset": 0.92
+        },
+        {
+          "text": "una",
+          "offset": 1.15
+        },
+        {
+          "text": "cosa",
+          "offset": 1.38
+        },
+        {
+          "text": "blues,",
+          "offset": 1.61
+        },
+        {
+          "text": "prendetevi",
+          "offset": 1.84
+        }
+      ]
+    },
+    {
+      "id": "normalized-cue-305",
+      "start": 816.639,
+      "duration": 3.281,
+      "text": "cura di voi, ciao ciao",
+      "segments": [
+        {
+          "text": "cura",
+          "offset": 0
+        },
+        {
+          "text": "di",
+          "offset": 0.14
+        },
+        {
+          "text": "voi,",
+          "offset": 0.28
+        },
+        {
+          "text": "ciao",
+          "offset": 0.42
+        },
+        {
+          "text": "ciao",
+          "offset": 0.56
+        }
+      ]
+    }
+  ]
+}

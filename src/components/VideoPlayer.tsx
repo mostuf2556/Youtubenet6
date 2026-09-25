@@ -92,6 +92,8 @@ interface VideoPlayerProps {
   onOpenNetworkInspector?: () => void;
   onOpenShare?: () => void;
   onOpenArtifacts?: () => void;
+  subtitleSource?: 'raw' | 'normalized';
+  onToggleSubtitleSource?: () => void;
 }
 
 export const VideoPlayer = forwardRef<YouTubePlayerHandle, VideoPlayerProps>(
@@ -141,6 +143,8 @@ export const VideoPlayer = forwardRef<YouTubePlayerHandle, VideoPlayerProps>(
       onOpenApkUpdate,
       onOpenNetworkInspector,
       onOpenShare,
+      subtitleSource = 'raw',
+      onToggleSubtitleSource,
     },
     ref
   ) => {
@@ -1262,6 +1266,7 @@ export const VideoPlayer = forwardRef<YouTubePlayerHandle, VideoPlayerProps>(
               data-testid="youtube-video-player-iframe"
               title="YouTube video player"
               src={embedUrl}
+              referrerPolicy="strict-origin-when-cross-origin"
               className="w-full h-full aspect-video border-0 pointer-events-auto"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               allowFullScreen
@@ -1318,6 +1323,7 @@ export const VideoPlayer = forwardRef<YouTubePlayerHandle, VideoPlayerProps>(
                             showSubtitleTimestamps={showSubtitleTimestamps}
                             seekTo={seekTo}
                             settings={settings}
+                            currentTime={currentTime}
                           />
                           <div className="w-full flex flex-col items-center justify-center gap-1">
                             {/* Hidden accessible buttons for test runner compatibility */}
@@ -1354,7 +1360,10 @@ export const VideoPlayer = forwardRef<YouTubePlayerHandle, VideoPlayerProps>(
                                 text={activeCue.text}
                                 isSpeaking={isOriginalSpeaking}
                                 activeCharIndex={isSyncOriginalSpeaking ? (syncTTSCharIndex ?? 0) : activeTTSCharIndex}
-                                syncMode={settings?.ttsSyncMode || 'word_boundary'}
+                                syncMode={settings?.ttsSyncMode || 'json3'}
+                                segments={activeCue.segments}
+                                currentTime={currentTime}
+                                cueStart={activeCue.start}
                                 dir={isOriginalRtl ? 'rtl' : 'ltr'}
                                 className="text-white"
                                 activeWordClassName="bg-amber-400 text-neutral-950 font-bold px-1.5 py-0.5 rounded shadow ring-2 ring-amber-300 scale-105 inline-block mx-0.5"
@@ -1399,7 +1408,10 @@ export const VideoPlayer = forwardRef<YouTubePlayerHandle, VideoPlayerProps>(
                                 text={activeCue.text}
                                 isSpeaking={isOriginalSpeaking}
                                 activeCharIndex={isSyncOriginalSpeaking ? (syncTTSCharIndex ?? 0) : activeTTSCharIndex}
-                                syncMode={settings?.ttsSyncMode || 'word_boundary'}
+                                syncMode={settings?.ttsSyncMode || 'json3'}
+                                segments={activeCue.segments}
+                                currentTime={currentTime}
+                                cueStart={activeCue.start}
                                 dir={isOriginalRtl ? 'rtl' : 'ltr'}
                                 className="text-white"
                                 activeWordClassName="bg-amber-400 text-neutral-950 font-bold px-1.5 py-0.5 rounded shadow ring-2 ring-amber-300 scale-105 inline-block mx-0.5"
@@ -1428,6 +1440,7 @@ export const VideoPlayer = forwardRef<YouTubePlayerHandle, VideoPlayerProps>(
                             showSubtitleTimestamps={showSubtitleTimestamps}
                             seekTo={seekTo}
                             settings={settings}
+                            currentTime={currentTime}
                           />
                         </>
                       )}
@@ -1562,29 +1575,11 @@ export const VideoPlayer = forwardRef<YouTubePlayerHandle, VideoPlayerProps>(
                     </span>
                   </button>
                 )}
+
               </div>
 
               {/* Row 2: Language Learning Assistants (Dedicated, Segmented, Interactive) */}
               <div className="w-full flex items-center justify-between gap-1.5 sm:gap-2">
-                {/* Sentence Sync Button */}
-                {onToggleSync && (
-                  <button
-                    id="compact-toggle-sync-btn"
-                    data-testid="compact-toggle-sync-btn"
-                    type="button"
-                    onClick={onToggleSync}
-                    className={`flex-1 min-h-[44px] px-3 py-1.5 rounded-lg text-xs font-bold border flex items-center justify-center gap-1.5 transition-all cursor-pointer pointer-events-auto active:scale-95 ${
-                      isSyncActive
-                        ? 'bg-amber-500 hover:bg-amber-400 text-neutral-950 border-amber-400 shadow-md'
-                        : 'bg-indigo-600 hover:bg-indigo-500 text-white border-indigo-500'
-                    }`}
-                    title={isSyncActive ? 'Pause Sentence Sync' : 'Start Dual-Language Sentence Sync'}
-                  >
-                    {isSyncActive ? <Pause className="w-4 h-4" /> : <Play className="w-4 h-4 fill-current" />}
-                    <span>{isSyncActive ? 'Sync: ON' : 'Sync'}</span>
-                  </button>
-                )}
-
                 {/* Speak Cue Button */}
                 <button
                   id="compact-speak-cue-btn"
@@ -1616,23 +1611,6 @@ export const VideoPlayer = forwardRef<YouTubePlayerHandle, VideoPlayerProps>(
                   </button>
                 )}
 
-                {/* Auto-TTS Toggle Button */}
-                <button
-                  id="control-auto-tts-button"
-                  data-testid="control-auto-tts-button"
-                  type="button"
-                  onClick={toggleAutoTTS}
-                  aria-pressed={autoTTSEnabled ? 'true' : 'false'}
-                  className={`flex-1 min-h-[44px] px-3 py-1.5 rounded-lg text-xs font-bold border flex items-center justify-center gap-1.5 transition-all cursor-pointer pointer-events-auto active:scale-95 ${
-                    autoTTSEnabled
-                      ? 'bg-purple-600 hover:bg-purple-500 text-white border-purple-500 shadow-md'
-                      : 'bg-neutral-800 hover:bg-neutral-700 text-neutral-200 border border-neutral-700/60'
-                  }`}
-                  title={autoTTSEnabled ? 'Auto TTS Speech: ON' : 'Auto TTS Speech: OFF'}
-                >
-                  <Volume2 className={`w-4 h-4 ${autoTTSEnabled ? 'text-purple-300' : 'text-neutral-400'}`} />
-                  <span>Auto TTS</span>
-                </button>
               </div>
 
               {/* Hidden backward compatibility button */}
@@ -1669,6 +1647,7 @@ export const VideoPlayer = forwardRef<YouTubePlayerHandle, VideoPlayerProps>(
               data-testid="youtube-video-player-iframe"
               title="YouTube video player"
               src={embedUrl}
+              referrerPolicy="strict-origin-when-cross-origin"
               className="w-full h-full border-0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               allowFullScreen
@@ -1728,6 +1707,7 @@ export const VideoPlayer = forwardRef<YouTubePlayerHandle, VideoPlayerProps>(
                           showSubtitleTimestamps={showSubtitleTimestamps}
                           seekTo={seekTo}
                           settings={settings}
+                          currentTime={currentTime}
                         />
                         <div className="flex items-center justify-center gap-2 pt-0.5 flex-wrap">
                           {showSubtitleTimestamps && activeCue && (
@@ -1848,6 +1828,7 @@ export const VideoPlayer = forwardRef<YouTubePlayerHandle, VideoPlayerProps>(
                           showSubtitleTimestamps={showSubtitleTimestamps}
                           seekTo={seekTo}
                           settings={settings}
+                          currentTime={currentTime}
                         />
                       </>
                     )}
@@ -1944,6 +1925,27 @@ export const VideoPlayer = forwardRef<YouTubePlayerHandle, VideoPlayerProps>(
                     ? 'Captions: ON (Auto-Detect)'
                     : 'Turn Captions ON'}
                 </span>
+              </button>
+            )}
+
+            {onToggleSubtitleSource && (
+              <button
+                id="subtitle-source-switch-expanded"
+                data-testid="subtitle-source-switch-expanded"
+                type="button"
+                onClick={onToggleSubtitleSource}
+                role="switch"
+                aria-checked={subtitleSource === 'normalized'}
+                aria-label={`Subtitle version: ${subtitleSource === 'normalized' ? 'normalized' : 'original'}`}
+                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold border transition active:scale-95 ${
+                  subtitleSource === 'normalized'
+                    ? 'bg-amber-950 text-amber-300 border-amber-600'
+                    : 'bg-neutral-800 text-neutral-200 border-neutral-700'
+                }`}
+                title="Switch between original and normalized subtitles"
+              >
+                <Layers className="w-3.5 h-3.5" />
+                <span>{subtitleSource === 'normalized' ? 'Normalized subtitles' : 'Original subtitles'}</span>
               </button>
             )}
 
@@ -2131,6 +2133,21 @@ export const VideoPlayer = forwardRef<YouTubePlayerHandle, VideoPlayerProps>(
         <div className="mt-3 p-3.5 rounded-xl glass-panel-elevated border border-neutral-800/80 shadow-xl">
           <div className="flex flex-wrap items-center justify-between gap-2.5 pb-2.5 border-b border-neutral-800/60">
             <div className="flex items-center gap-2">
+              {onToggleSubtitleSource && (
+                <button
+                  id="toggle-subtitle-source-button"
+                  data-testid="toggle-subtitle-source-button"
+                  type="button"
+                  onClick={onToggleSubtitleSource}
+                  role="switch"
+                  aria-checked={subtitleSource === 'normalized'}
+                  aria-label={`Subtitle version: ${subtitleSource === 'normalized' ? 'normalized' : 'original'}`}
+                  className="px-2.5 py-1.5 rounded-lg bg-neutral-800 hover:bg-neutral-700 text-neutral-200 border border-neutral-700 text-xs font-semibold transition"
+                  title="Switch subtitle fixture source"
+                >
+                  {subtitleSource === 'raw' ? 'Original subtitles' : 'Normalized subtitles'}
+                </button>
+              )}
               <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-neutral-900 border border-neutral-700/60 text-xs font-medium">
                 {isSyncActive ? (
                   isSyncSpeaking ? (
@@ -2191,28 +2208,6 @@ export const VideoPlayer = forwardRef<YouTubePlayerHandle, VideoPlayerProps>(
           {/* Sync Engine Action Controls */}
           <div className="flex flex-wrap items-center justify-between gap-2 pt-2.5">
             <div className="flex items-center gap-2">
-              <button
-                type="button"
-                onClick={onToggleSync}
-                className={`px-3.5 py-1.5 rounded-lg text-xs font-bold flex items-center gap-1.5 transition-all shadow-md ${
-                  isSyncActive
-                    ? 'bg-amber-500 hover:bg-amber-400 text-neutral-950 glow-amber'
-                    : 'bg-indigo-600 hover:bg-indigo-500 text-white glow-indigo'
-                }`}
-              >
-                {isSyncActive ? (
-                  <>
-                    <Pause className="w-3.5 h-3.5" />
-                    <span>Pause Sentence Sync</span>
-                  </>
-                ) : (
-                  <>
-                    <Play className="w-3.5 h-3.5 fill-current" />
-                    <span>Start Dual-Language Sync</span>
-                  </>
-                )}
-              </button>
-
               <button
                 type="button"
                 onClick={onToggleLoopCue}

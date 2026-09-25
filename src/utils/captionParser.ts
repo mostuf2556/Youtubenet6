@@ -1,4 +1,5 @@
 import { CaptionCue } from '../types';
+import type { SubtitleSegment } from '../viewer/contracts';
 
 /**
  * Caption Parser Utility
@@ -8,6 +9,13 @@ import { CaptionCue } from '../types';
 
 export interface ParsedCaptionResult {
   format: 'json3' | 'unknown';
+  cues: CaptionCue[];
+}
+
+export interface NormalizedSubtitleArtifact {
+  format: 'normalized-json3';
+  videoId: string;
+  referenceLanguage: string;
   cues: CaptionCue[];
 }
 
@@ -124,14 +132,32 @@ export function formatTimestamp(seconds: number): string {
 // YouTube JSON3 format:
 // { "events": [ { "tStartMs": 0, "dDurationMs": 4000, "segs": [{ "utf8": "text" }] } ] }
 
+interface Json3Event {
+  tStartMs?: number;
+  dDurationMs?: number;
+  segs?: Array<{ utf8?: string; tOffsetMs?: number }>;
+}
+
+function readJson3Events(raw: string): Json3Event[] {
+  try {
+    const data = JSON.parse(raw);
+    return Array.isArray(data?.events) ? data.events : [];
+  } catch {
+    return [];
+  }
+}
+
+function eventText(event: Json3Event): string {
+  return cleanAndFixEncoding((event.segs || []).map((seg) => seg?.utf8 || '').join(''));
+}
+
 function parseJson3(raw: string): CaptionCue[] {
   const cues: CaptionCue[] = [];
   try {
-    const data = JSON.parse(raw);
-    if (!data || !Array.isArray(data.events)) return cues;
+    const events = readJson3Events(raw);
 
-    for (let i = 0; i < data.events.length; i++) {
-      const event = data.events[i];
+    for (let i = 0; i < events.length; i++) {
+      const event = events[i];
       if (!event) continue;
 
       const startMs = event.tStartMs ?? 0;
@@ -140,21 +166,19 @@ function parseJson3(raw: string): CaptionCue[] {
       const duration = durMs / 1000;
 
       // Build text from segments
-      let text = '';
-      if (Array.isArray(event.segs)) {
-        text = event.segs
-          .map((seg: any) => (seg && typeof seg.utf8 === 'string' ? seg.utf8 : ''))
-          .join('');
-      }
-
-      text = cleanAndFixEncoding(text);
+      const text = eventText(event);
       if (!text || !text.trim()) continue;
+
+      const segments: SubtitleSegment[] = (event.segs || [])
+        .filter((seg) => typeof seg?.utf8 === 'string' && seg.utf8.length > 0)
+        .map((seg) => ({ text: cleanAndFixEncoding(seg.utf8 || ''), offset: Math.max(0, (seg.tOffsetMs || 0) / 1000) }));
 
       cues.push({
         id: `cue-${i + 1}`,
         start,
         duration: Math.max(0.5, duration),
         text,
+        segments,
       });
     }
   } catch (err) {
@@ -162,6 +186,69 @@ function parseJson3(raw: string): CaptionCue[] {
   }
 
   return cues;
+}
+
+function isNormalizedArtifact(value: unknown): value is NormalizedSubtitleArtifact {
+  return Boolean(
+    value &&
+      typeof value === 'object' &&
+      (value as NormalizedSubtitleArtifact).format === 'normalized-json3' &&
+      Array.isArray((value as NormalizedSubtitleArtifact).cues)
+  );
+}
+
+export function parseNormalizedSubtitleData(rawData: string): ParsedCaptionResult {
+  try {
+    const parsed: unknown = JSON.parse(rawData);
+    if (!isNormalizedArtifact(parsed)) return { format: 'unknown', cues: [] };
+    return { format: 'json3', cues: parsed.cues };
+  } catch {
+    return { format: 'unknown', cues: [] };
+  }
+}
+
+/** Creates stable playback windows from a reference track and projects every language onto them by timestamp overlap. */
+export function normalizeJson3Tracks(
+  rawTracks: Record<string, string>,
+  referenceLanguage = 'en',
+  videoId = ''
+): Record<string, NormalizedSubtitleArtifact> {
+  const referenceEvents = readJson3Events(rawTracks[referenceLanguage] || '')
+    .map((event) => ({ event, startMs: event.tStartMs || 0, endMs: (event.tStartMs || 0) + (event.dDurationMs || 2000), text: eventText(event) }))
+    .filter((item) => item.text.trim());
+
+  return Object.fromEntries(
+    Object.entries(rawTracks).map(([language, raw]) => {
+      const events = readJson3Events(raw)
+        .map((event) => ({ event, startMs: event.tStartMs || 0, endMs: (event.tStartMs || 0) + (event.dDurationMs || 2000), text: eventText(event) }))
+        .filter((item) => item.text.trim());
+      const cues = referenceEvents.map((window, index) => {
+        const nextStartMs = referenceEvents[index + 1]?.startMs;
+        const endMs = nextStartMs && nextStartMs > window.startMs ? nextStartMs : window.endMs;
+        const overlapping = events.filter((item) => item.startMs >= window.startMs && item.startMs < endMs);
+        const segments: SubtitleSegment[] = [];
+        const textParts: string[] = [];
+        overlapping.forEach((item) => {
+          const baseOffset = Math.max(0, item.startMs - window.startMs) / 1000;
+          (item.event.segs || []).forEach((segment) => {
+            if (!segment?.utf8) return;
+            const text = cleanAndFixEncoding(segment.utf8);
+            if (!text) return;
+            textParts.push(text);
+            segments.push({ text, offset: baseOffset + Math.max(0, segment.tOffsetMs || 0) / 1000 });
+          });
+        });
+        return {
+          id: `normalized-cue-${index + 1}`,
+          start: window.startMs / 1000,
+          duration: Math.max(0.5, (endMs - window.startMs) / 1000),
+          text: cleanAndFixEncoding(textParts.join(' ')),
+          segments,
+        };
+      }).filter((cue) => cue.text);
+      return [language, { format: 'normalized-json3', videoId, referenceLanguage, cues }];
+    })
+  );
 }
 
 // ─── Main Parser ────────────────────────────────────────────────
@@ -172,6 +259,10 @@ export function parseRawCaptionData(rawData: string): ParsedCaptionResult {
   }
 
   const trimmed = rawData.trim();
+
+  if (trimmed.startsWith('{') && /"format"\s*:\s*"normalized-json3"/.test(trimmed)) {
+    return parseNormalizedSubtitleData(trimmed);
+  }
 
   // JSON3 detection: starts with { and contains "events"
   if (trimmed.startsWith('{') && /"events"\s*:/.test(trimmed)) {

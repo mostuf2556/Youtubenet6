@@ -2,6 +2,9 @@ import { CaptionCue } from '../../src/types';
 import { parseRawCaptionData } from '../../src/utils/captionParser';
 import { L2RYRR6TXWA_LANGUAGE_JSON3_TRACKS } from './L2Ryrr6txwA/jsonStrings';
 import { EILFKSGNKDA_LANGUAGE_TRACKS } from './eilfksgnkda';
+import { L2RYRR6TXWA_NORMALIZED_TRACKS } from './L2Ryrr6txwA_normalized/jsonStrings';
+
+export type SubtitleFixtureSource = 'raw' | 'normalized';
 
 export const DEFAULT_MOCKED_SUBTITLES: Record<string, CaptionCue[]> = {
   L2Ryrr6txwA: L2RYRR6TXWA_LANGUAGE_JSON3_TRACKS.en,
@@ -9,6 +12,16 @@ export const DEFAULT_MOCKED_SUBTITLES: Record<string, CaptionCue[]> = {
 };
 
 export { L2RYRR6TXWA_LANGUAGE_JSON3_TRACKS };
+
+export function getFixtureSubtitlesForVideo(videoId: string, langCode = 'en', source: SubtitleFixtureSource = 'raw'): CaptionCue[] {
+  if (videoId === 'L2Ryrr6txwA') {
+    const clean = (langCode || '').toLowerCase().split(/[-_]/)[0];
+    const normalized = clean === 'iw' || clean === 'il' ? 'he' : clean;
+    const tracks = source === 'normalized' ? L2RYRR6TXWA_NORMALIZED_TRACKS : L2RYRR6TXWA_LANGUAGE_JSON3_TRACKS;
+    return tracks[normalized] || [];
+  }
+  return getMockedSubtitlesForVideo(videoId);
+}
 
 export function getMockedSubtitlesForVideo(videoId: string): CaptionCue[] {
   if (videoId === 'L2Ryrr6txwA') {
